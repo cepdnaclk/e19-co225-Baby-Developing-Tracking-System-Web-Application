@@ -1,30 +1,51 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+//import axios from "axios";
+import AuthService from "./services/auth.service";
 
 export const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+
+  //const navigate = useNavigate();
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await axios
+  //       .post("http://localhost:8080/api/v1/auth/authenticate", {
+  //         username: name,
+  //         password: password,
+  //       })
+  //       .then((Response) => {
+  //         console.log("Logged In",Response);
+  //         if (Response.data.token) {
+  //           localStorage.setItem("user", JSON.stringify(Response.data));
+  //         }
+  //         return Response.data;
+  //       });
+  //   } catch (err) {
+  //     alert(err);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios
-        .post("http://localhost:8080/api/v1/auth/authenticate", {
-          username: name,
-          password: password,
-        })
-        .then((Response) => {
-          console.log("Logged In",Response);
-          if (Response.data.token) {
-            localStorage.setItem("user", JSON.stringify(Response.data));
-          }
-          return Response.data;
-        });
+      await AuthService.login(name, password).then(
+        (response) => {
+          console.log("Logged In", response);
+          navigate("/home");
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     } catch (err) {
       alert(err);
     }
   };
-
   return (
     <div className="auth-form-cantainer">
       <h2>

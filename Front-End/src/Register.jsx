@@ -5,31 +5,71 @@ export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+
+  //const navigate = useNavigate();
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(email);
+  //   try {
+  //     await axios.post("http://localhost:8080/api/v1/auth/register",
+  //     {username: name,
+  //     email: email,
+  //     password: password}
+  //     ).then((Response) => {
+  //       console.log(Response);
+  //       if (Response.token) {
+  //         localStorage.setItem("user", JSON.stringify(Response.data));
+  //       }
+  //       return Response.data;
+  //     });
+  //   } catch(err){
+  //     alert(err);
+  //   }
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
     try {
-      await axios.post("http://localhost:8080/api/v1/auth/register",
-      {username: name,
-      email: email,
-      password: password}
-      ).then((Response) => {
-        console.log(Response);
-        if (Response.token) {
-          localStorage.setItem("user", JSON.stringify(Response.data));
+      await AuthService.signup(name,firstname,lastname,email,password).then(
+        (response) => {
+          console.log("Account Created", response);
+          navigate("/home");
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error);
         }
-        return Response.data;
-      });
-    } catch(err){
+      );
+    } catch (err) {
       alert(err);
     }
-  }
+  };
 
   return (
     <div className="auth-form-cantainer">
       <h2><b>Create Account</b></h2>
       <form className="register-form" onSubmit={handleSubmit}>
+        <dev className = "Fname">
+          <input
+            value={firstname}
+            onChange={(input) => setFirstName(input.target.value)}
+            type="name"
+            placeholder="First Name"
+            id="firstname"
+            name="firstname"
+          />
+          <input
+            value={lastname}
+            onChange={(input) => setLastName(input.target.value)}
+            type="name"
+            placeholder="Last Name"
+            id="lastname"
+            name="lastname"
+          />
+        </dev>
         <input
           value={name}
           onChange={(input) => setName(input.target.value)}
@@ -46,7 +86,6 @@ export const Register = (props) => {
           id="email"
           name="email"
         />
-        {/* <label htmlFor="password">password</label> */}
         <input
           value={password}
           onChange={(input) => setPassword(input.target.value)}
