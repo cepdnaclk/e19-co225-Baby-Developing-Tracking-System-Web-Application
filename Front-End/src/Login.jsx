@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+//import axios from "axios";
 import AuthService from "./services/auth.service";
 
 export const Login = (props) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();

@@ -5,6 +5,10 @@ export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+
+  //const navigate = useNavigate();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -29,7 +33,7 @@ export const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(name,email, password).then(
+      await AuthService.signup(name,firstname,lastname,email,password).then(
         (response) => {
           console.log("Account Created", response);
           navigate("/home");
@@ -48,6 +52,24 @@ export const Register = (props) => {
     <div className="auth-form-cantainer">
       <h2><b>Create Account</b></h2>
       <form className="register-form" onSubmit={handleSubmit}>
+        <dev className = "Fname">
+          <input
+            value={firstname}
+            onChange={(input) => setFirstName(input.target.value)}
+            type="name"
+            placeholder="First Name"
+            id="firstname"
+            name="firstname"
+          />
+          <input
+            value={lastname}
+            onChange={(input) => setLastName(input.target.value)}
+            type="name"
+            placeholder="Last Name"
+            id="lastname"
+            name="lastname"
+          />
+        </dev>
         <input
           value={name}
           onChange={(input) => setName(input.target.value)}

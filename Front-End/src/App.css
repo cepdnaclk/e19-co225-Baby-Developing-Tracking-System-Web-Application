@@ -76,7 +76,37 @@
   font-size: 16px;
   padding: 0 16px;
   border-radius: 10px;
+  height: 45px;
+  width: 90%;
 }
+
+.Fname > input {
+  border: 2px solid #ebebeb;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 10px;
+  height: 45px;
+  padding: 0 16px;
+  max-width: 200px;
+}
+
+#firstname {
+  margin-right: 15px;
+}
+
+@media (width <= 620px) {
+  .Fname > input {
+    max-width: none;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #firstname {
+    margin-bottom: 16px;
+    margin-right: 0px;
+  }
+}
+
 
 .login-form > button {
   cursor: pointer;
