@@ -6,25 +6,43 @@ export const Register = (props) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log(email);
+  //   try {
+  //     await axios.post("http://localhost:8080/api/v1/auth/register",
+  //     {username: name,
+  //     email: email,
+  //     password: password}
+  //     ).then((Response) => {
+  //       console.log(Response);
+  //       if (Response.token) {
+  //         localStorage.setItem("user", JSON.stringify(Response.data));
+  //       }
+  //       return Response.data;
+  //     });
+  //   } catch(err){
+  //     alert(err);
+  //   }
+  // }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
     try {
-      await axios.post("http://localhost:8080/api/v1/auth/register",
-      {username: name,
-      email: email,
-      password: password}
-      ).then((Response) => {
-        console.log(Response);
-        if (Response.token) {
-          localStorage.setItem("user", JSON.stringify(Response.data));
+      await AuthService.signup(name,email, password).then(
+        (response) => {
+          console.log("Account Created", response);
+          navigate("/home");
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error);
         }
-        return Response.data;
-      });
-    } catch(err){
+      );
+    } catch (err) {
       alert(err);
     }
-  }
+  };
 
   return (
     <div className="auth-form-cantainer">
@@ -46,7 +64,6 @@ export const Register = (props) => {
           id="email"
           name="email"
         />
-        {/* <label htmlFor="password">password</label> */}
         <input
           value={password}
           onChange={(input) => setPassword(input.target.value)}
