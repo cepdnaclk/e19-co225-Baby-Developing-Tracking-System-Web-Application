@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios"
+import AuthService from "./services/auth.service";
 
 export const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -33,11 +33,11 @@ export const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(name,firstname,lastname,email,password).then(
+      await AuthService.signup(firstname,lastname,email,password).then(
         (response) => {
           console.log("Account Created", response);
-          navigate("/home");
-          window.location.reload();
+          // navigate("/home");
+          // window.location.reload();
         },
         (error) => {
           console.log(error);
@@ -70,14 +70,14 @@ export const Register = (props) => {
             name="lastname"
           />
         </dev>
-        <input
+        {/* <input
           value={name}
           onChange={(input) => setName(input.target.value)}
           type="name"
           placeholder="Username"
           id="name"
           name="name"
-        />
+        /> */}
         <input
           value={email}
           onChange={(input) => setEmail(input.target.value)}
