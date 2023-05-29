@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //import axios from "axios";
 import AuthService from "./services/auth.service";
-import PostService from "./services/post.service";
 
 export const Login = (props) => {
   const [email, setName] = useState("");
@@ -30,17 +29,6 @@ export const Login = (props) => {
   //     alert(err);
   //   }
   // };
-  useEffect(() => {
-    PostService.getAllPrivatePosts().then(
-      (res) => {
-        setPrivatePosts(res.data);
-        console.log("response", res);
-      },
-      (err) => {
-        console.log("private page", err.res);
-      }
-    );
-  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,7 +80,6 @@ export const Login = (props) => {
       >
         Don't have an account? Register here.
       </button>
-      <label><p>{privatePosts.map((post) => post.content)}</p></label>
     </div>
   );
 };
