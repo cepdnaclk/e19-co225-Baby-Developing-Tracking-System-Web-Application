@@ -13,11 +13,11 @@ footer {
     gap: 16px;
     display: flex;
     flex-direction: column-reverse;
-    position: static;
-    margin-bottom: 16px;
+    /* position: static;
+    margin-bottom: 16px; */
   }
 
-  .legal > diva {
+  .legal > div {
     display: none;
   }
 }
@@ -27,7 +27,7 @@ footer {
 }
 
 footer.bottom {
-  padding: 20px 0px;
+  padding: 15px 0px;
   background-size: cover;
 }
 
@@ -39,19 +39,23 @@ footer.bottom {
 .legal > a {
   margin: 0 15px;
   float: right;
+  align-content: center;
 }
 
 .legal > div {
   display: flex;
   margin-right: 10px;
   margin-left: 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   float: right;
   justify-content: space-evenly;
   gap: 20px;
+  
 }
 
 .logo {
-  width: 100px;
+  width: 120px;
   height: 100%;
   margin-left: 15px;
   float: left;

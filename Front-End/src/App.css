@@ -77,7 +77,7 @@
   padding: 0 16px;
   border-radius: 10px;
   height: 45px;
-  width: 90%;
+  width: 100%;
 }
 
 .Fname > input {
@@ -126,6 +126,9 @@
   transition: color 0.3s;
 }
 
+.login-form > button:hover {
+  background: #085a3a;
+}
 
 .link-btn {
   background: none;
@@ -133,6 +136,7 @@
   text-decoration: underline;
   border: none;
   padding: 15px 5px 0px;
+  cursor: pointer;
 }
 
 
@@ -172,6 +176,65 @@
   text-align: center;
   letter-spacing: 2px;
   transition: all 0.375s;
+}
+
+.register-form > button:hover {
+  background: #085a3a;
+}
+
+.navbar {
+  position: fixed;
+  top: 12px;
+  width: 99%;
+  background: #172940f5;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  border-radius: 15px;
+}
+
+.navbar-nav > button{
+  margin: 16px;
+  float: right;
+  cursor: pointer;
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 0.5rem;
+  background: #216ce7;
+  color: #f9f9f9;
+  border: 0;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.375s;
+  transition: color 0.3s;
+}
+
+.navbar-nav > button:hover {
+  background: #edf3f1;
+  color: #172940;
+}
+
+.nav-logo {
+  width: 59px;
+  height: 100%;
+  margin: 5px;
+  float: left;
+  padding: 0;
+}
+
+@media (width < 620px) {
+  .navbar {
+    gap: 16px;
+  }
+}
+
+.navbar {
+  color: #d9e2ee;
+}
+
+.navbar {
+  padding: 5px;
+  background-size: cover;
 }
 
 

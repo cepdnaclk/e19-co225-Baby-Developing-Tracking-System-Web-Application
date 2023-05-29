@@ -8,7 +8,7 @@ export const Login = (props) => {
   const [password, setPassword] = useState("");
   const [privatePosts, setPrivatePosts] = useState([]);
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -61,14 +61,16 @@ export const Login = (props) => {
           placeholder="Email"
           id="email"
           name="email"
+          required="required"
         />
         <input
           value={password}
           onChange={(input) => setPassword(input.target.value)}
           type="password"
           placeholder="Password"
-          id="password"
+          id="password" 
           name="password"
+          required="required"
         />
         <button type="submit">
           <b>LOGIN</b>
@@ -76,7 +78,7 @@ export const Login = (props) => {
       </form>
       <button
         className="link-btn"
-        onClick={() => props.onFormSwitch("register")}
+        onClick={() => navigate("/register")}
       >
         Don't have an account? Register here.
       </button>
