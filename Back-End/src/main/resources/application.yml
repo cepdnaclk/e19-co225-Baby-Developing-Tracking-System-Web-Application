@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
-    username: postgres
-    password: Gayantha@00
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/jwt_security
+    username: root
+    password:
+
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -11,5 +11,5 @@ spring:
     properties:
       hibernate:
         format_sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: mysql
+
