@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/auth";
+const API_URL = "http://10.30.118.183:8080/api/v1/auth";
 
-const signup = (name,firstname,lastname,email,password) => {
+const signup = (firstname,lastname,email,password) => {
   return axios
-    .post(API_URL + "/signup", {
-      name,
+    .post(API_URL + "/register", {
+      firstname,
+      lastname,
       email,
       password,
     })
