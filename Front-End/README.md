@@ -3,26 +3,59 @@
 Project: CO225 Software Construction Project
 Title: Sproutopia
 ---
-# Sproutopia
----
-<p align="center"><img align="center" alt="GIF" src="https://github.com/chandula00/Sproutopia/blob/main/Logos/Logopit_cover1.png"></p>
-&emsp;&emsp; Welcome to Sproutopia, a software development project focused on creating a comprehensive baby development tracking system. Sproutopia aims to provide a user-friendly and feature-rich platform that enables parents and caregivers to monitor and track the growth, milestones, and well-being of their little ones. By leveraging the power of technology, Sproutopia aims to simplify the process of tracking and understanding a baby's development journey, empowering parents with valuable insights and personalized guidance. With an intuitive interface, data visualization, and an extensive range of tracking capabilities, Sproutopia strives to be the go-to software solution for parents seeking a holistic approach to monitoring their baby's progress. Join us on this exciting journey as we build Sproutopia and unlock new possibilities in baby development tracking. Together, let's embark on an incredible adventure of nurturing and supporting the growth of our little sprouts in the digital age.
+# React Page Setup Instructions
 
-## Team
-### Group 9
+Follow these steps to set up a React page:
 
--  E/19/008 Adhikari R.A.J.C. [email](mailto:e19008@eng.pdn.ac.lk)
--  E/19/009 Adikari A.M.K.M. [email](mailto:e19009@eng.pdn.ac.lk)
--  E/19/063 Dassanayake D.M.G.S. [email](mailto:e19063@eng.pdn.ac.lk)
--  E/19/074 Dharmarathne B.A.M.I.E. [email](mailto:e19074@eng.pdn.ac.lk)
+## Prerequisites
+- Ensure that you have Node.js and npm (Node Package Manager) installed on your system. You can check the installation by running the following commands:
+    ```
+    node -v
+    npm -v
+    ```
 
-### Group 16
+## Project Setup
+1. Create a new React project by running the following command in your terminal:
+    ```
+    npm create vite@4.1.0
+    ```
+    - Then provide a name for the project (eg: my-react-page)
+    - Then choose react from next step
+    - Choose the language that you prefer (Javascript/ Typescript)
 
--  E/19/087 Dissanayaka M.A.S.R. [email](mailto:e19087@eng.pdn.ac.lk)
--  E/19/260 Neranji W.K.G.A.G. [email](mailto:e19260@eng.pdn.ac.lk)
--  E/19/264 Nishantha R.P.T. [email](mailto:e19264@eng.pdn.ac.lk)
--  E/19/465 Dilshan R.M.S. [email](mailto:e19465@eng.pdn.ac.lk)
 
-## Please refer the instructions in below URL:
+2. Navigate to the project directory:
+    ```
+    cd my-react-page
+    ```
+    
+3. Install project dependencies by running the following command:
+    ```
+    npm install
+    ```
 
-https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project
+4. Start the development server:
+    ```
+    npm run dev
+    ```
+
+5. Open your web browser and visit `http://localhost:5173/` to see the React page.
+
+## Customization
+- Modify the `src/App.jsx` file to edit the content of the React page.
+- Customize the styles in the `src/App.css` file or add additional CSS files as needed.
+
+## Deployment
+- To deploy the React page, build the optimized production-ready bundle by running the following command:
+    ```
+    npm run build
+    ```
+  The bundled files will be generated in the `build` directory, which can be deployed to a web server.
+
+## Additional Resources
+- Official React documentation: [https://reactjs.org/docs](https://reactjs.org/docs)
+- React Router documentation: [https://reactrouter.com](https://reactrouter.com)
+- Material-UI documentation: [https://mui.com](https://mui.com)
+
+That's it! You are now ready to start building your React page
+
