@@ -59,6 +59,3 @@ Follow these steps to set up a React page:
 
 That's it! You are now ready to start building your React page
 
-## Please refer the instructions in below URL:
-
-https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project
