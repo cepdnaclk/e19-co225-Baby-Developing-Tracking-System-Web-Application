@@ -125,8 +125,8 @@ Sproutopia aims to offer a comprehensive suite of services that empower parents 
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application){:target="_blank"}
-- [Project Page](https://cepdnaclk.github.io/e19-co225-Baby-Developing-Tracking-System-Web-Application){:target="_blank"}
+- [Project Repository](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application) <!-- {:target="_blank"} -->
+- [Project Page](https://cepdnaclk.github.io/e19-co225-Baby-Developing-Tracking-System-Web-Application)<!-- {:target="_blank"} -->
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
