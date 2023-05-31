@@ -1,0 +1,38 @@
+
+html{
+  place-items: center;
+  align-items: center;
+  margin: 0;
+  padding: 0px;
+  background-image: url("./components/babies .png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #000;
+  animation: rotate 6s infinite alternate linear;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif,Euclid Circular A;
+}
+
+@media (width >= 500px) {
+  body {
+    padding: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+.wrapper {
+  height: 100%;
+}
+
+@keyframes rotate {
+  100% {
+    background-position: 15% 50%;
+  }
+}
+
+dev {
+  display: inline;
+}
