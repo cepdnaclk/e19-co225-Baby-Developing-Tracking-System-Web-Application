@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //import axios from "axios";
 import AuthService from "./services/auth.service";
 
 export const Login = (props) => {
-  const [name, setName] = useState("");
+  const [email, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [privatePosts, setPrivatePosts] = useState([]);
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
@@ -32,7 +33,7 @@ export const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.login(name, password).then(
+      await AuthService.login(email, password).then(
         (response) => {
           console.log("Logged In", response);
           navigate("/home");
@@ -54,20 +55,22 @@ export const Login = (props) => {
       <h3>Enter your credentials</h3>
       <form className="login-form" onSubmit={handleSubmit}>
         <input
-          value={name}
+          value={email}
           onChange={(input) => setName(input.target.value)}
           type="email"
-          placeholder="Username"
+          placeholder="Email"
           id="email"
           name="email"
+          required="required"
         />
         <input
           value={password}
           onChange={(input) => setPassword(input.target.value)}
           type="password"
           placeholder="Password"
-          id="password"
+          id="password" 
           name="password"
+          required="required"
         />
         <button type="submit">
           <b>LOGIN</b>
@@ -75,7 +78,7 @@ export const Login = (props) => {
       </form>
       <button
         className="link-btn"
-        onClick={() => props.onFormSwitch("register")}
+        onClick={() => navigate("/register")}
       >
         Don't have an account? Register here.
       </button>
