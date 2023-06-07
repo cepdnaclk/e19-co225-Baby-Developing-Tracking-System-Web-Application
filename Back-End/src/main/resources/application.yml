@@ -12,4 +12,8 @@ spring:
       hibernate:
         format_sql: true
     database: mysql
-
+application:
+  security:
+    jwt:
+      expiration: 10000000
+      refreshExpiration: 10000000000
