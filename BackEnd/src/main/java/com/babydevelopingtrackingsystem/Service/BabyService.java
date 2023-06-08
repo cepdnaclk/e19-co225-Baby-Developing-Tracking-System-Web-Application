@@ -1,7 +1,7 @@
 package com.babydevelopingtrackingsystem.Service;
-import com.babydevelopingtrackingsystem.Dto.babyDto;
-import com.babydevelopingtrackingsystem.Model.babyModel;
-import com.babydevelopingtrackingsystem.Repository.babyRepo;
+import com.babydevelopingtrackingsystem.Dto.BabyDto;
+import com.babydevelopingtrackingsystem.Model.Baby;
+import com.babydevelopingtrackingsystem.Repository.BabyRepository;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -10,30 +10,30 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class babyService {
+public class BabyService {
 
     @Autowired
-    private babyRepo babyRepo;
+    private BabyRepository babyRepo;
 
     @Autowired
     private ModelMapper modelMapper;
 
 
     //-----------------------------------------To save the Baby----------------------------------------
-    public String saveBaby(babyDto babyDto){
+    public String saveBaby(BabyDto babyDto){
         if (babyRepo.existsById(babyDto.getId())){
             return VariableList.RSP_DUPLICATED;
         }else {
-            babyRepo.save(modelMapper.map(babyDto, babyModel.class));
+            babyRepo.save(modelMapper.map(babyDto, Baby.class));
             return VariableList.RSP_SUCCESS;
         }
     }
 
     //-----------------------------------------To update the Baby----------------------------------------
 
-    public String updateBaby(babyDto babyDto){
+    public String updateBaby(BabyDto babyDto){
         if (babyRepo.existsById(babyDto.getId())){
-            babyRepo.save(modelMapper.map(babyDto,babyModel.class));
+            babyRepo.save(modelMapper.map(babyDto, Baby.class));
             return VariableList.RSP_SUCCESS;
 
         }else {
