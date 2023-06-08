@@ -6,7 +6,7 @@ import AuthService from "./services/auth.service";
 export const Nav = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(parent);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const logoutConfirmationRef = useRef(null);
 
@@ -108,8 +108,8 @@ export const Nav = () => {
             {currentUser &&<li className={location.pathname === "/Home" ? "active" : ""} onClick={() => handleItemClick("/Home")}>
               Home<span></span>
             </li>}
-            {currentUser &&<li className={location.pathname === "/Orders" ? "active" : ""} onClick={() => handleItemClick("/Orders")}>
-              Tab1<span></span>
+            {currentUser &&<li className={location.pathname === "/Midwife" ? "active" : ""} onClick={() => handleItemClick("/Midwife")}>
+              Midwife<span></span>
             </li>}
             {currentUser &&<li className={location.pathname === "/Reservations" ? "active" : ""} onClick={() => handleItemClick("/Reservations")}>
               Tab2<span></span>
