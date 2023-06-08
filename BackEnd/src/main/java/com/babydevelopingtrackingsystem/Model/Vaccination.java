@@ -18,7 +18,7 @@ public class Vaccination {
     private int id;
     private String Name;
     private int dose;
-    private int Age;
+    private int age;
     @OneToMany(mappedBy = "vaccination")
     private List<BabyVaccination> babyVaccinations;
 

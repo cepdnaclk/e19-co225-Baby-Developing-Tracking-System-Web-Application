@@ -1,9 +1,9 @@
 package com.babydevelopingtrackingsystem.Dto;
 
-public class VaccinationDto {
+public record VaccinationDto (
+    Integer id,
+    String Name,
+    Integer dose,
+    Integer age){
 
-    private int id;
-    private String Name;
-    private int dose;
-    private int Age;
 }
