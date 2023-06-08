@@ -15,7 +15,8 @@ export const Navigation = () => {
   const logOut = () => {
     AuthService.logout();
   };
-    return(<nav className="navbar navbar-expand navbar-dark bg-dark">
+    return(
+    <nav className="navbar navbar-expand navbar-dark bg-dark">
     <div className="navbar-nav mr-auto">
       <li className="nav-item">
         <Link to={"/home"} className="nav-link">

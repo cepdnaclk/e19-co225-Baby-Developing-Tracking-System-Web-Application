@@ -8,7 +8,7 @@ html{
   background-repeat: no-repeat;
   background-size: cover;
   color: #000;
-  animation: rotate 6s infinite alternate linear;
+  /* animation: rotate 6s infinite alternate linear; */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif,Euclid Circular A;
 }
 

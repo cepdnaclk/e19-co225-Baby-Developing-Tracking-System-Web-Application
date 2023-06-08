@@ -1,0 +1,329 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --radius: 5px;
+  background-color: #ffffff;
+}
+
+.nav {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 99.3%;
+  height: 8vh;
+	z-index: 10;
+  background: linear-gradient(to bottom, #172940fd, #1729408f);
+  backdrop-filter: blur(1.2px);
+  z-index: 9999;
+  padding: 0 2vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 300ms ease-in-out;
+  background: #172940f5;
+  border-radius: 15px;
+  
+}
+.nav.mobile {
+  background-color: #181818;
+}
+.nav .logo {
+  width: auto;
+  height: 75%;
+  margin: 1px;
+  float: left;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav ul {
+  list-style: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+.nav li {
+  list-style: none;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 0;
+  /*text-transform: uppercase;*/
+  box-shadow: none;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.nav a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav .logo:hover {
+  scale: 1.1;
+}
+
+.nav li span {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: #216ce7;
+  -webkit-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nav li:hover span,
+.nav a:focus span {
+  width: 225%;
+  height: 400%;
+  pointer-events: none;
+  outline: none;
+}
+.nav li:hover {
+  color: white;
+  scale: 1.02;
+  	box-shadow:
+	  0 2.3px 2.7px rgba(0, 0, 0, 0.192),
+	  0 6.3px 7.5px rgba(0, 0, 0, 0.275),
+	  0 15.1px 18.1px rgba(0, 0, 0, 0.358),
+	  0 50px 60px rgba(0, 0, 0, 0.55)
+	;
+}
+
+.nav li.active {
+  /*box-shadow:
+	  0 2.3px 2.7px rgba(0, 0, 0, 0.084),
+	  0 6.3px 7.5px rgba(0, 0, 0, 0.12),
+	  0 15.1px 18.1px rgba(0, 0, 0, 0.156),
+	  0 50px 60px rgba(0, 0, 0, 0.24)
+	;*/
+
+  background-color: #9db6c494;
+  background-color: #f4d07daa;
+}
+
+.menu-btn {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 25px;
+  height: 80px;
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn__burger {
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgb(6, 6, 6);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+
+  background: rgb(6, 6, 6);
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-btn__burger::before {
+  transform: translateY(-8px);
+}
+
+.menu-btn__burger::after {
+  transform: translateY(8px);
+}
+
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+}
+
+.menu-btn.open .menu-btn__burger::after {
+  transform: translate(50px) rotate(45deg);
+}
+
+.menu-btn.open .menu-btn__burger::before {
+  transform: translate(50px) rotate(-45deg);
+}
+
+@media only screen and (max-width: 768px) {
+  .nav ul {
+    position: fixed;
+    right: -40vw;
+    width: auto;
+    top: 0;
+    padding-top: 20vh;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 20px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+  }
+
+  @supports not (backdrop-filter: blur(10px)) {
+    .nav ul {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .nav ul.open {
+    right: 0;
+  }
+
+  .nav li.active {
+    background: transparent;
+    color: #32bea5;
+  }
+
+  .nav li.active:hover,
+  .nav li.active:focus {
+    color: white;
+  }
+  .nav li {
+    padding: 0;
+    transition: color 200ms ease-in-out;
+  }
+
+  .nav .menu-btn {
+    display: flex;
+  }
+
+  .nav li:hover span,
+  .nav a:focus span {
+    width: 0%;
+    height: 0%;
+    pointer-events: none;
+    outline: none;
+  }
+
+  .nav li:hover,
+  .nav a:focus {
+    color: #32bea5;
+  }
+}
+
+@supports not (gap: 10px) {
+  .nav ul > * {
+    margin-right: 10px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .nav ul > * {
+      margin-right: 0;
+      margin-bottom: 7px;
+    }
+  }
+
+  .nav {
+    gap: 0;
+  }
+}
+
+.logout-confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 13, 14, 0.356);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+}
+
+.logout-card {
+  background-color: #ffffff;
+  /* -webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px); */
+  border-radius: 8px;
+  border: rgba(0, 0, 0, 0.589) solid;
+  border-width: thin;
+  padding: 20px;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 0px 500px rgba(23, 106, 201, 0.295);
+}
+
+.logout-card h2 {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+.cancel-button {
+  background-color: #0e0a00c7;
+  color: #fcfcfc;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.cancel-button:hover {
+  background-color: #0e0a00;
+  scale: 1.08;
+}
+
+.confirm-button {
+  background-color: #f4d07daa;
+  color: #000000c0;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: box-shadow 200ms ease-in-out;
+}
+
+.confirm-button:hover {
+  background-color: #f0be4bc5;
+  scale: 1.08;
+}

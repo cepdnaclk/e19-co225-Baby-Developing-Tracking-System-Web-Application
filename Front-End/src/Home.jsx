@@ -1,4 +1,6 @@
 import PostService from "./services/post.service";
+import { Nav } from "./Nav";
+import { Footer } from "./Footer";
 
 export const Home = () => {
   // useEffect(() => {
@@ -15,9 +17,11 @@ export const Home = () => {
 
   return (
     <div>
+      <Nav />
       {/* {privatePosts.map((post) => (
         <p>{post}</p>
       ))} */}
+      <Footer />
     </div>
   );
 };

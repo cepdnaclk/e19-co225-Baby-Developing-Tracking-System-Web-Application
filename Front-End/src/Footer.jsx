@@ -4,12 +4,12 @@ export const Footer = () => {
   return (
     <footer className="bottom">
       <div className="legal">
-        <img
+        {/* <img
           align="center"
           alt="logo"
           className="logo"
           src="src\components\Images\Logopit_cover2.png"
-        />
+        /> */}
 
           <div className="words">
             <span> © 2023 All rights reserved </span>

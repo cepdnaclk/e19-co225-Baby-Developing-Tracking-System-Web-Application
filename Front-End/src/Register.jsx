@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import AuthService from "./services/auth.service";
 import { useNavigate } from "react-router-dom";
+import "./Register.css"
+import { Nav } from "./Nav";
+import { Footer } from "./Footer";
+
 export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,61 +53,65 @@ export const Register = (props) => {
   };
 
   return (
-    <div className="auth-form-cantainer">
-      <h2>
-        <b>Sign Up</b>
-      </h2>
-      <h3>Please fill in this form to creat an account</h3>
-      <form className="register-form" onSubmit={handleSubmit}>
-        <dev className="Fname">
-          <input
-            value={firstname}
-            onChange={(input) => setFirstName(input.target.value)}
+    <dev>
+      < Nav/>
+      <div className="auth-form-cantainer">
+        <h2>
+          <b>Sign Up</b>
+        </h2>
+        <h3>Please fill in this form to creat an account</h3>
+        <form className="register-form" onSubmit={handleSubmit}>
+          <dev className="Fname">
+            <input
+              value={firstname}
+              onChange={(input) => setFirstName(input.target.value)}
+              type="name"
+              placeholder="First Name"
+              id="firstname"
+              name="firstname"
+            />
+            <input
+              value={lastname}
+              onChange={(input) => setLastName(input.target.value)}
+              type="name"
+              placeholder="Last Name"
+              id="lastname"
+              name="lastname"
+            />
+          </dev>
+          {/* <input
+            value={name}
+            onChange={(input) => setName(input.target.value)}
             type="name"
-            placeholder="First Name"
-            id="firstname"
-            name="firstname"
+            placeholder="Username"
+            id="name"
+            name="name"
+          /> */}
+          <input
+            value={email}
+            onChange={(input) => setEmail(input.target.value)}
+            type="email"
+            placeholder="Email Address"
+            id="email"
+            name="email"
           />
           <input
-            value={lastname}
-            onChange={(input) => setLastName(input.target.value)}
-            type="name"
-            placeholder="Last Name"
-            id="lastname"
-            name="lastname"
+            value={password}
+            onChange={(input) => setPassword(input.target.value)}
+            type="password"
+            placeholder="Password"
+            id="password"
+            name="password"
           />
-        </dev>
-        {/* <input
-          value={name}
-          onChange={(input) => setName(input.target.value)}
-          type="name"
-          placeholder="Username"
-          id="name"
-          name="name"
-        /> */}
-        <input
-          value={email}
-          onChange={(input) => setEmail(input.target.value)}
-          type="email"
-          placeholder="Email Address"
-          id="email"
-          name="email"
-        />
-        <input
-          value={password}
-          onChange={(input) => setPassword(input.target.value)}
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-        />
-        <button type="submit">
-          <b>SIGNUP</b>
+          <button type="submit">
+            <b>SIGNUP</b>
+          </button>
+        </form>
+        <button className="link-btn" onClick={() => navigate("/authenticate")}>
+          Already have an account? Login here.
         </button>
-      </form>
-      <button className="link-btn" onClick={() => navigate("/authenticate")}>
-        Already have an account? Login here.
-      </button>
-    </div>
+      </div>
+      <Footer />
+    </dev>
   );
 };
