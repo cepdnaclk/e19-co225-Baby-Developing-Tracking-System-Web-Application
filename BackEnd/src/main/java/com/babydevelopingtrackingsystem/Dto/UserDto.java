@@ -1,6 +1,6 @@
 package com.babydevelopingtrackingsystem.Dto;
 
-public class userDto {
+public class UserDto {
 
     private String email;
     private String firstname;
@@ -9,11 +9,11 @@ public class userDto {
 
     private String userType;
 
-    public userDto(){
+    public UserDto(){
 
     }
 
-    public userDto(String email, String firstname, String lastName, String password, String userType) {
+    public UserDto(String email, String firstname, String lastName, String password, String userType) {
         this.email = email;
         this.firstname = firstname;
         this.lastName = lastName;

@@ -1,7 +1,7 @@
 package com.babydevelopingtrackingsystem.Controller;
-import com.babydevelopingtrackingsystem.Dto.userDto;
-import com.babydevelopingtrackingsystem.Dto.responseDto;
-import com.babydevelopingtrackingsystem.Service.userService;
+import com.babydevelopingtrackingsystem.Dto.UserDto;
+import com.babydevelopingtrackingsystem.Dto.ResponseDto;
+import com.babydevelopingtrackingsystem.Service.UserService;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user")
-public class userController {
+public class UserController {
 
 
     @Autowired
-    private responseDto responseDto;
+    private ResponseDto responseDto;
 
     @Autowired
-    private userService userService;
+    private UserService userService;
 
     //----------------------------------------Save the user----------------------------------------
     @PostMapping(value = "/saveUser")
-    public ResponseEntity saveUser(@RequestBody userDto userDto){
+    public ResponseEntity saveUser(@RequestBody UserDto userDto){
         try {
             String res = userService.saveUser(userDto);
 
@@ -56,7 +56,7 @@ public class userController {
 
     //----------------------------------------Update the user----------------------------------------
     @PutMapping(value = "/updateUser")
-    public ResponseEntity updateUser(@RequestBody userDto userDto){
+    public ResponseEntity updateUser(@RequestBody UserDto userDto){
         try {
             String res = userService.updateUser(userDto);
 

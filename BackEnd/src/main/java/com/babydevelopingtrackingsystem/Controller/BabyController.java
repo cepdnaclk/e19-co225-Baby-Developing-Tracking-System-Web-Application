@@ -1,7 +1,7 @@
 package com.babydevelopingtrackingsystem.Controller;
-import com.babydevelopingtrackingsystem.Dto.babyDto;
-import com.babydevelopingtrackingsystem.Service.babyService;
-import com.babydevelopingtrackingsystem.Dto.responseDto;
+import com.babydevelopingtrackingsystem.Dto.BabyDto;
+import com.babydevelopingtrackingsystem.Service.BabyService;
+import com.babydevelopingtrackingsystem.Dto.ResponseDto;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/baby")
-public class babyController {
+public class BabyController {
 
     @Autowired
-    private responseDto responseDto;
+    private ResponseDto responseDto;
 
     @Autowired
-    private babyService babyService;
+    private BabyService babyService;
 
     //----------------------------------------Save the Baby----------------------------------------
     @PostMapping(value = "/saveBaby")
-    public ResponseEntity saveBaby(@RequestBody babyDto babyDto){
+    public ResponseEntity saveBaby(@RequestBody BabyDto babyDto){
         try {
             String res = babyService.saveBaby(babyDto);
 
@@ -55,7 +55,7 @@ public class babyController {
 
     //----------------------------------------Update the Baby----------------------------------------
     @PutMapping(value = "/updateBaby")
-    public ResponseEntity updateBaby(@RequestBody babyDto babyDto){
+    public ResponseEntity updateBaby(@RequestBody BabyDto babyDto){
         try {
             String res = babyService.updateBaby(babyDto);
 

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class responseDto {
+public class ResponseDto {
 
     private String code;
     private String message;

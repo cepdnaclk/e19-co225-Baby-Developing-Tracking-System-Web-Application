@@ -1,8 +1,8 @@
 package com.babydevelopingtrackingsystem.Service;
 
-import com.babydevelopingtrackingsystem.Dto.userDto;
-import com.babydevelopingtrackingsystem.Model.userModel;
-import com.babydevelopingtrackingsystem.Repository.userRepo;
+import com.babydevelopingtrackingsystem.Dto.UserDto;
+import com.babydevelopingtrackingsystem.Model.User;
+import com.babydevelopingtrackingsystem.Repository.UserRepository;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -11,30 +11,30 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class userService {
+public class UserService {
 
     @Autowired
-    private userRepo userRepo;
+    private UserRepository userRepo;
 
     @Autowired
     private ModelMapper modelMapper;
 
 
     //-----------------------------------------To save the user----------------------------------------
-    public String saveUser(userDto userDto){
+    public String saveUser(UserDto userDto){
         if (userRepo.existsById(userDto.getEmail())){
             return VariableList.RSP_DUPLICATED;
         }else {
-            userRepo.save(modelMapper.map(userDto, userModel.class));
+            userRepo.save(modelMapper.map(userDto, User.class));
             return VariableList.RSP_SUCCESS;
         }
     }
 
     //-----------------------------------------To update the user----------------------------------------
 
-    public String updateUser(userDto userDto){
+    public String updateUser(UserDto userDto){
         if (userRepo.existsById(userDto.getEmail())){
-            userRepo.save(modelMapper.map(userDto,userModel.class));
+            userRepo.save(modelMapper.map(userDto, User.class));
             return VariableList.RSP_SUCCESS;
 
         }else {
