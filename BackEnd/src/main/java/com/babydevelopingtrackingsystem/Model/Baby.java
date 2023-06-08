@@ -1,10 +1,16 @@
-package com.babydevelopingtrackingsystem.Dto;
+package com.babydevelopingtrackingsystem.Model;
 
 
+import jakarta.persistence.*;
+import lombok.Data;
 
-public class babyDto {
+@Entity
+@Data
+@Table(name = "baby")
+public class Baby {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String Name;
@@ -27,7 +33,7 @@ public class babyDto {
     private String GrowthRecords;
     private String DevelopmentalMilestones;
 
-    public babyDto(int id, String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones) {
+    public Baby(int id, String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones) {
         this.id = id;
         Name = name;
         DateofBirth = dateofBirth;
@@ -50,7 +56,7 @@ public class babyDto {
         DevelopmentalMilestones = developmentalMilestones;
     }
 
-    public babyDto(){
+    public Baby(){
 
     }
 
