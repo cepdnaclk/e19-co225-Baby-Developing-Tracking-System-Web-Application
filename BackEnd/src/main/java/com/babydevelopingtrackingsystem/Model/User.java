@@ -5,7 +5,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "user")
-public class userModel {
+public class User {
 
     @Id
     private String email;
@@ -17,10 +17,10 @@ public class userModel {
     private String userType;
 
 
-    public userModel(){
+    public User(){
 
     }
-    public userModel(String email, String firstname, String lastName, String password,String userType) {
+    public User(String email, String firstname, String lastName, String password, String userType) {
         this.email = email;
         this.firstname = firstname;
         this.lastName = lastName;
