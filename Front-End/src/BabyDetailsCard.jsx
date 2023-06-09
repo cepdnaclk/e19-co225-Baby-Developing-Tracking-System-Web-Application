@@ -1,5 +1,5 @@
 // BabyDetailsCard.jsx
-
+import "./BabyDetailsCard.css"
 import React from 'react';
 import VaccinationTimeline from './Timeline';
 
@@ -8,7 +8,7 @@ const BabyDetailsCard = ({ baby, onClose }) => {
     <div className="baby-details-card">
       <div className="card-header">
         <h3>Baby Details</h3>
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>
           X
         </button>
       </div>
@@ -33,7 +33,7 @@ const BabyDetailsCard = ({ baby, onClose }) => {
             <strong>Special Information:</strong> {baby.specialInformation}
           </div>
           <div>
-            <strong>Appointed Doctor Name:</strong> {baby.appointedDoctorName}
+            <strong>Appointed Doctor Name:</strong> {baby.appointedDoctor}
           </div>
         </div>
         <div className="vaccination-timeline">

@@ -1,5 +1,5 @@
 // Timeline.jsx
-
+// import "./Timeline.css"
 import React from 'react';
 import Timeline from 'react-calendar-timeline';
 import 'react-calendar-timeline/lib/Timeline.css';
@@ -7,9 +7,9 @@ import 'react-calendar-timeline/lib/Timeline.css';
 const VaccinationTimeline = () => {
   // Sample data for the timeline
   const timelineData = [
-    { id: 1, group: 'Vaccines', title: 'Vaccine 1', start_time: new Date(2023, 0, 1), end_time: new Date(2023, 0, 1) },
-    { id: 2, group: 'Vaccines', title: 'Vaccine 2', start_time: new Date(2023, 1, 1), end_time: new Date(2023, 1, 1) },
-    { id: 3, group: 'Vaccines', title: 'Vaccine 3', start_time: new Date(2023, 2, 1), end_time: new Date(2023, 2, 1) },
+    { id: 1, group: 'Vaccines', title: 'Vaccine 1', start_time: new Date(2023, 6, 1), end_time: new Date(2023, 6, 2) },
+    { id: 2, group: 'Vaccines', title: 'Vaccine 2', start_time: new Date(2023, 7, 1), end_time: new Date(2023, 7, 2) },
+    { id: 3, group: 'Vaccines', title: 'Vaccine 3', start_time: new Date(2023, 8, 1), end_time: new Date(2023, 8, 2) },
     // Add more timeline data as needed
   ];
 
@@ -22,8 +22,8 @@ const VaccinationTimeline = () => {
       <Timeline
         groups={timelineGroups}
         items={timelineData}
-        defaultTimeStart={new Date(2023, 0, 1)}
-        defaultTimeEnd={new Date(2023, 11, 31)}
+        defaultTimeStart={new Date(2023, 6, 1)}
+        defaultTimeEnd={new Date(2023, 8, 31)}
         lineHeight={50}
         itemHeightRatio={0.75}
         sidebarWidth={150}
