@@ -1,10 +1,12 @@
 // MidwifeDashboard.jsx
 
-import React, { useState } from 'react';
-import BabyDetailsCard from './BabyDetailsCard';
-import AppointmentDetailsCard from './AppointmentDetailsCard';
+import React, { useState } from "react";
+import BabyDetailsCard from "./BabyDetailsCard";
+import AppointmentDetailsCard from "./AppointmentDetailsCard";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import Calendar from "./Calender";
+import "./MidwifeDashboard.css";
 
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -13,17 +15,17 @@ const MidwifeDashboard = () => {
   // Sample data for the baby table
   const babyTableData = [
     {
-      babyName: 'Baby 1',
-      parentName: 'Parent 1',
-      sex: 'Male',
-      appointedDoctor: 'Doctor 1',
+      name: "Alex Peter",
+      parentName: "Jenny Fernandes",
+      sex: "Male",
+      appointedDoctor: "Doctor 1",
       hasAppointment: true,
     },
     {
-      babyName: 'Baby 2',
-      parentName: 'Parent 2',
-      sex: 'Female',
-      appointedDoctor: 'Doctor 2',
+      name: "Baby 2",
+      parentName: "Parent 2",
+      sex: "Female",
+      appointedDoctor: "Doctor 2",
       hasAppointment: false,
     },
     // Add more baby data as needed
@@ -32,12 +34,12 @@ const MidwifeDashboard = () => {
   // Sample data for the calendar
   const calendarData = [
     {
-      date: '2023-06-08',
-      works: ['Work 1', 'Work 2'],
+      date: "2023-06-08",
+      works: ["Work 1", "Work 2"],
     },
     {
-      date: '2023-06-09',
-      works: ['Work 3'],
+      date: "2023-06-09",
+      works: ["Work 3"],
     },
     // Add more calendar data as needed
   ];
@@ -48,6 +50,7 @@ const MidwifeDashboard = () => {
 
   const handleAppointmentButtonClick = (appointment) => {
     setSelectedAppointment(appointment);
+    setSelectedBaby(null)
   };
 
   const handleAppointmentCardClose = () => {
@@ -64,33 +67,45 @@ const MidwifeDashboard = () => {
 
   return (
     <div>
-        <Nav/>
-        <div className="midwife-dashboard">
-          <div className="baby-table">
-            <table>
+      <Nav />
+      <div className="midwife-dashboard">
+        <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
+          <h1 className="header text-center font-[500] text-3xl">Midwife Dashboard</h1>
+          <Calendar />
+          <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
+            <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
-                  <th>Baby Name</th>
-                  <th>Parent Name</th>
-                  <th>Sex</th>
-                  <th>Appointed Doctor</th>
-                  <th>Appointment</th>
+                  <th className="bg-blue-200 font-bold py-2">Baby Name</th>
+                  <th className="bg-blue-200 font-bold py-2">Parent Name</th>
+                  <th className="bg-blue-200 font-bold py-2">Sex</th>
+                  <th className="bg-blue-200 font-bold py-2">
+                    Appointed Doctor
+                  </th>
+                  <th className="bg-blue-200 font-bold py-2">Appointment</th>
                 </tr>
               </thead>
               <tbody>
                 {babyTableData.map((baby) => (
                   <tr
-                    key={baby.babyName}
-                    onClick={() => handleBabyRowClick(baby)}
+                    key={baby.name}
+                    className="cursor-pointer hover:bg-gray-100"
+                    
                   >
-                    <td>{baby.babyName}</td>
-                    <td>{baby.parentName}</td>
-                    <td>{baby.sex}</td>
-                    <td>{baby.appointedDoctor}</td>
-                    <td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
+                      {baby.name}
+                    </td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
+                      {baby.parentName}
+                    </td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>{baby.sex}</td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
+                      {baby.appointedDoctor}
+                    </td>
+                    <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
                         <button
-                          className="appointment-button"
+                          className="appointment-button blink"
                           onClick={() => handleAppointmentButtonClick(baby)}
                         >
                           Appointment Requested
@@ -102,45 +117,24 @@ const MidwifeDashboard = () => {
               </tbody>
             </table>
           </div>
-          {selectedBaby && (
-            <BabyDetailsCard
-              baby={selectedBaby}
-              onClose={() => setSelectedBaby(null)}
-            />
-          )}
-          {selectedAppointment && (
-            <AppointmentDetailsCard
-              appointment={selectedAppointment}
-              onClose={handleAppointmentCardClose}
-            />
-          )}
-          <div className="calendar">
-            <div className="calendar-header">
-              <h3>Calendar</h3>
-            </div>
-            <div className="calendar-grid">
-              {calendarData.map((item) => (
-                <div
-                  key={item.date}
-                  className="calendar-item"
-                  onClick={() => handleCalendarItemClick(item.works)}
-                >
-                  <span className="calendar-date">{item.date}</span>
-                  {item.works.length > 0 && (
-                    <span className="calendar-dot" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-          {selectedAppointment && (
-            <AppointmentDetailsCard
-              appointment={selectedAppointment}
-              onClose={handleCalendarCardClose}
-            />
-          )}
+          
         </div>
-        <Footer/>
+        {selectedBaby && (
+          <BabyDetailsCard
+            baby={selectedBaby}
+            onClose={() => setSelectedBaby(null)}
+          />
+        )}
+        {selectedAppointment && (
+          <AppointmentDetailsCard
+            appointment={selectedAppointment}
+            onClose={handleAppointmentCardClose}
+          />
+        )}
+
+        
+      </div>
+      <Footer />
     </div>
   );
 };

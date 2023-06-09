@@ -1,41 +1,45 @@
-/* BabyDetailsCard.css */
+/* MidwifeDashboard.css */
 
 .baby-details-card {
-    width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .card-header h3 {
-    margin: 0;
-  }
-  
-  .close-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  .card-content {
-    margin-top: 16px;
-  }
-  
-  .baby-info {
-    margin-bottom: 16px;
-  }
-  
-  
-  
+  position: absolute;
+  top: 82.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  width: 800px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: lightblue;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+
+
+.vaccination-timeline {
+  margin-top: 16px;
+}

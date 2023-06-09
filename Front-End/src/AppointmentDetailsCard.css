@@ -1,35 +1,40 @@
 /* AppointmentDetailsCard.css */
 
 .appointment-details-card {
-    width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 16px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .card-header h3 {
-    margin: 0;
-  }
-  
-  .close-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-  }
-  
-  .card-content {
-    margin-top: 16px;
-  }
-  
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  backdrop-filter: blur(3px);
+  position: absolute;
+  top: 82.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card-content {
+  margin-top: 16px;
+}
+
+.suggest-date-button{
+  color: #fff;
+  background-color: #000;
+}
