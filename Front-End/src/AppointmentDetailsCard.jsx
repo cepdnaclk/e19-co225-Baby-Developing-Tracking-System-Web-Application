@@ -22,7 +22,7 @@ const AppointmentDetailsCard = ({
     <div className="appointment-details-card flex flex-col p-none">
       <div className="card-header">
         <h3>Appointment Details</h3>
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>
           X
         </button>
       </div>
