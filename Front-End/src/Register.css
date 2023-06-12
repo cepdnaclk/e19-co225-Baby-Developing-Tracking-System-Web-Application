@@ -15,18 +15,19 @@
     z-index: 3;
     background: #fff;
     text-align: center;
+    
   }
   
   .auth-form-cantainer, .login-form, .register-form {
     display: flex;
     flex-direction: column;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif,Euclid Circular A;
+    font-family: "Raleway", sans-serif;
     color-scheme: light dark;
   }
   
   .auth-form-cantainer{
     padding: 4.5rem;
-    border: 1px solid white;
+    border: 1px solid rgba(124, 123, 123, 0.486);
     border-radius: 15px;
     margin: 0.5rem;
   }
@@ -44,8 +45,9 @@
   
   .auth-form-cantainer > h2 {
     font-size: 36px;
-    font-weight: 600;
+    font-weight: 900;
     margin: 0 0 12px;
+
   }
   
   .auth-form-cantainer > h3 {
@@ -70,7 +72,7 @@
   }
 
   .register-form {
-    width: 100%;
+    width: 421.68px;
     margin: 0;
     display: grid;
     gap: 16px;

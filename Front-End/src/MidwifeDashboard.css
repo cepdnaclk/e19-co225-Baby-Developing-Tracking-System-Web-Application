@@ -55,17 +55,7 @@ table {
   backdrop-filter: blur(10px);
 }
 
-.appointment-details-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  width: 400px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
+
 
 .card-header {
   display: flex;
@@ -93,12 +83,17 @@ table {
 }
 
 .accept-button {
-  background-color: red;
+  background-color: rgba(5, 94, 32, 0.774);
   color: white;
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.accept-button:hover{
+  scale: 1.02;
+  background-color: rgba(3, 59, 20, 0.774);
 }
 
 .suggest-date-form {

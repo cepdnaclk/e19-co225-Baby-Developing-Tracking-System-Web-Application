@@ -17,7 +17,7 @@ Follow these steps to set up a React page:
 ## Project Setup
 1. Create a new React project by running the following command in your terminal:
     ```
-    npm create vite@4.1.0
+    npm create vite
     ```
     - Then provide a name for the project (eg: my-react-page)
     - Then choose react from next step
@@ -28,7 +28,7 @@ Follow these steps to set up a React page:
     ```
     cd my-react-page
     ```
-    
+### After Creating Project or Cloning the existing Project    
 3. Install project dependencies by running the following command:
     ```
     npm install
