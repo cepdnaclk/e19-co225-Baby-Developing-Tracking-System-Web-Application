@@ -2,9 +2,9 @@ package com.babydevelopingtrackingsystem.Controller;
 
 import com.babydevelopingtrackingsystem.Dto.VaccinationDto;
 import com.babydevelopingtrackingsystem.Service.VaccinationService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,16 +19,39 @@ public class VaccinationController {
     }
 
     @GetMapping
-    public List<VaccinationDto> getAllVaccinations(){
-        return vaccinationService.getAllVaccinations();
+    public ResponseEntity<List<VaccinationDto>> getAllVaccinations(){
+        return ResponseEntity.ok(vaccinationService.getAllVaccinations());
 
     }
 
-    //TODO
-    //Get Vaccine By Id
-    //Create Vaccine
-    //Update Vaccine
-    //Delete Vaccine
+    @GetMapping("{id}")
+    public ResponseEntity<VaccinationDto> getVaccinationById(@PathVariable int id){
+        return ResponseEntity.ok(vaccinationService.getVaccinationById(id));
+    }
+    @PostMapping
+    public ResponseEntity<VaccinationDto> createVaccination(@RequestBody VaccinationDto vaccinationDto){
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(vaccinationService.createVaccination(vaccinationDto));
+    }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<VaccinationDto> updateVaccination(@PathVariable int id, @RequestBody VaccinationDto vaccinationDto) {
+        VaccinationDto updatedVaccinationDto = vaccinationService.updateVaccination(id, vaccinationDto);
+        if (updatedVaccinationDto != null) {
+            return ResponseEntity.ok(updatedVaccinationDto);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteVaccination(@PathVariable int id) {
+        boolean deleted = vaccinationService.deleteVaccination(id);
+        if (deleted) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 }

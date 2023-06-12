@@ -1,10 +1,15 @@
 package com.babydevelopingtrackingsystem.Dto;
 
 
+import com.babydevelopingtrackingsystem.Model.BabyVaccination;
+import io.swagger.v3.oas.annotations.Hidden;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public class BabyDto {
 
-
+@Hidden
     private int id;
 
     private String Name;
@@ -27,8 +32,42 @@ public class BabyDto {
     private String GrowthRecords;
     private String DevelopmentalMilestones;
 
-    public BabyDto(int id, String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones) {
-        this.id = id;
+
+    public BabyDto(String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones, List<BabyVaccination> babyVaccinations) {
+        Name = name;
+        DateofBirth = dateofBirth;
+        Gender = gender;
+        BloodType = bloodType;
+        BirthWeight = birthWeight;
+        BirthLength = birthLength;
+        EyeColor = eyeColor;
+        HairColor = hairColor;
+        SkinColor = skinColor;
+        Nationality = nationality;
+        BirthPlace = birthPlace;
+        BirthHospital = birthHospital;
+        ParentInformation = parentInformation;
+        ContactInformation = contactInformation;
+        MedicalConditions = medicalConditions;
+        Allergies = allergies;
+        ImmunizationRecords = immunizationRecords;
+        GrowthRecords = growthRecords;
+        DevelopmentalMilestones = developmentalMilestones;
+        this.babyVaccinations = babyVaccinations;
+    }
+@Hidden
+    private List<BabyVaccination> babyVaccinations;
+    public List<BabyVaccination> getBabyVaccinations() {
+        return babyVaccinations;
+    }
+
+    public void setBabyVaccinations(List<BabyVaccination> babyVaccinations) {
+        this.babyVaccinations = babyVaccinations;
+    }
+
+
+    public BabyDto(String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones) {
+
         Name = name;
         DateofBirth = dateofBirth;
         Gender = gender;
@@ -213,4 +252,6 @@ public class BabyDto {
     public void setDevelopmentalMilestones(String developmentalMilestones) {
         DevelopmentalMilestones = developmentalMilestones;
     }
+
+
 }
