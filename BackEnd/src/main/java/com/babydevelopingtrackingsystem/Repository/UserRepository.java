@@ -1,11 +1,13 @@
 package com.babydevelopingtrackingsystem.Repository;
 
 import com.babydevelopingtrackingsystem.Model.User;
+import com.babydevelopingtrackingsystem.Utill.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User,Integer>{
 
-    Optional<Object> findByEmail(String email);
+    Optional<User> findByEmail(String email);
+    Role findRoleByEmail(String email);
 }

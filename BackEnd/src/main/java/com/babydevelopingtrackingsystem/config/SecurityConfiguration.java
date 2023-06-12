@@ -43,6 +43,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/**",
+                        "/api/v1/baby/**", //for development only
+                        "/api/v1/vaccine/**", //for development only
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -57,7 +59,7 @@ public class SecurityConfiguration {
                 .permitAll()
 
 
-                .requestMatchers("/api/v1/management/**").hasAnyRole(ADMIN.name(), PARENT.name())
+                .requestMatchers("/api/v1/parent/**").hasAnyRole(ADMIN.name(), PARENT.name())
 
 
                 .requestMatchers(GET, "/api/v1/parent/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
