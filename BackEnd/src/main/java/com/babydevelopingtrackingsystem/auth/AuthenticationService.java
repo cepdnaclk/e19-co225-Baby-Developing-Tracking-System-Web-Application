@@ -5,6 +5,7 @@ import com.babydevelopingtrackingsystem.Model.Token;
 import com.babydevelopingtrackingsystem.Model.User;
 import com.babydevelopingtrackingsystem.Repository.TokenRepository;
 import com.babydevelopingtrackingsystem.Repository.UserRepository;
+import com.babydevelopingtrackingsystem.Utill.Role;
 import com.babydevelopingtrackingsystem.Utill.TokenType;
 import com.babydevelopingtrackingsystem.config.JwtService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,7 +65,7 @@ public class AuthenticationService {
     return AuthenticationResponse.builder()
         .accessToken(jwtToken)
             .refreshToken(refreshToken)
-                    .role(repository.findRoleByEmail(request.getEmail()))
+                    .role(repository.findByEmail(request.getEmail()).get().getRole())
             
         .build();
   }
