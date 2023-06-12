@@ -53,7 +53,7 @@ const AppointmentDetailsCard = ({
                 required
                 className="w-full"
               />
-              <button type="submit" className="suggest-date-button">
+              <button type="submit" className="suggest-date-button bg-black">
                 Suggest Date
               </button>
             </form>

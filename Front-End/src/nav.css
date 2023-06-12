@@ -14,7 +14,7 @@
   position: fixed;
   top: 5px;
   left: 5px;
-  width: 99.3%;
+  width: 99.31%;
   height: 8vh;
 	z-index: 10;
   background: linear-gradient(to bottom, #172940fd, #1729408f);
@@ -290,22 +290,25 @@
 
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-button {
+/* button {
   margin: 0 10px;
   padding: 10px 20px;
-}
+  
+} */
 
 .cancel-button {
   background-color: #0e0a00c7;
   color: #fcfcfc;
   border: none;
-  border-radius: 4px;
+  border-radius: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
+  margin: 0 5px;
+  padding: 10px 15px;
 }
 
 .cancel-button:hover {
@@ -317,13 +320,19 @@ button {
   background-color: #f4d07daa;
   color: #000000c0;
   border: none;
-  border-radius: 4px;
+  border-radius: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
+  margin: 0 10px;
+  padding: 10px 15px;
 }
 
 .confirm-button:hover {
   background-color: #f0be4bc5;
   scale: 1.08;
+}
+
+.buttons{
+  gap: 10px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AuthService from "./services/auth.service";
 import { useNavigate } from "react-router-dom";
-import "./Register.css"
+import "./Register.css";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 
@@ -53,8 +53,8 @@ export const Register = (props) => {
   };
 
   return (
-    <dev>
-      < Nav/>
+    <dev className="Register-full">
+      <Nav />
       <div className="auth-form-cantainer">
         <h2>
           <b>Sign Up</b>
