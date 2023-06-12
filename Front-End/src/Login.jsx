@@ -51,7 +51,7 @@ export const Login = (props) => {
     }
   };
   return (
-    <div>
+    <div className="login-full">
       <Nav />
       <div className="auth-form-cantainer">
         <h2>

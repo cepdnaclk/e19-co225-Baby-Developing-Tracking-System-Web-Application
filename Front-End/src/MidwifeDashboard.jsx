@@ -7,6 +7,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import Calendar from "./Calender";
 import "./MidwifeDashboard.css";
+import "./AppointmentDetailsCard.css"
 
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
