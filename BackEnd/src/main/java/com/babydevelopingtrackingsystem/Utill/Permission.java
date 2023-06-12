@@ -1,4 +1,4 @@
-package com.babydevelopingtrackingsystem.Model;
+package com.babydevelopingtrackingsystem.Utill;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
