@@ -22,6 +22,8 @@ function App() {
     if (user) {
       setCurrentUser(user.role);
       console.log(currentUser);
+=======
+>>>>>>> Stashed changes
     }
   }, []);
 
