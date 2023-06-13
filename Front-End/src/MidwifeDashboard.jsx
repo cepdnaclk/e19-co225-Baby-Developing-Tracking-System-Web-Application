@@ -21,6 +21,7 @@ const MidwifeDashboard = () => {
       sex: "Male",
       appointedDoctor: "Doctor 1",
       hasAppointment: true,
+      appointmentDate: "2023-06-30",
     },
     {
       name: "Baby 2",
