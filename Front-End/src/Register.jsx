@@ -41,7 +41,7 @@ export const Register = (props) => {
       await AuthService.signup(firstname, lastname, email, password,role).then(
         (response) => {
           console.log("Account Created", response);
-          navigate("/authenticate");
+          navigate("/home");
           window.location.reload();
         },
         (error) => {

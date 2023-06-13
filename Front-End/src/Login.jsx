@@ -39,7 +39,7 @@ export const Login = (props) => {
       await AuthService.login(email, password).then(
         (response) => {
           console.log("Logged In", response);
-          //navigate("/home");
+          navigate("/home");
           //window.location.reload();
         },
         (error) => {
