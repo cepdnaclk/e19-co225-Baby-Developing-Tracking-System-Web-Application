@@ -4,13 +4,12 @@ import com.babydevelopingtrackingsystem.Dto.BabyVaccinationRequest;
 import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Model.BabyVaccination;
 import com.babydevelopingtrackingsystem.Model.Vaccination;
-import com.babydevelopingtrackingsystem.Model.VaccineAlert;
+import com.babydevelopingtrackingsystem.Dto.VaccineAlert;
 import com.babydevelopingtrackingsystem.Repository.BabyRepository;
 import com.babydevelopingtrackingsystem.Repository.BabyVaccinationRepository;
 import com.babydevelopingtrackingsystem.Repository.VaccinationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
