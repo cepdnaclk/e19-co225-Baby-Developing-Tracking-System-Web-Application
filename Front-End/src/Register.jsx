@@ -11,6 +11,7 @@ export const Register = (props) => {
   const [name, setName] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
+  const [role,setRole] = useState("USER");
 
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ export const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(firstname, lastname, email, password).then(
+      await AuthService.signup(firstname, lastname, email, password,role).then(
         (response) => {
           console.log("Account Created", response);
           navigate("/authenticate");
@@ -102,6 +103,14 @@ export const Register = (props) => {
             placeholder="Password"
             id="password"
             name="password"
+          />
+          <input
+            value={role}
+            onChange={(input) => setRole(input.target.value)}
+            type="name"
+            placeholder="role"
+            id="role"
+            name="role"
           />
           <button type="submit">
             <b>SIGNUP</b>

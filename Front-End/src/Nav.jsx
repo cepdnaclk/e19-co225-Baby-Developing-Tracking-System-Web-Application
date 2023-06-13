@@ -6,7 +6,7 @@ import AuthService from "./services/auth.service";
 export const Nav = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [currentUser, setCurrentUser] = useState(parent);
+  const [currentUser, setCurrentUser] = useState(undefined);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const logoutConfirmationRef = useRef(null);
 
@@ -20,7 +20,7 @@ export const Nav = () => {
     
     const user = AuthService.getCurrentUser();
     if (user) {
-      setCurrentUser(user);
+      setCurrentUser(user.role);
     }
 
     menuItems.forEach((item) => {

@@ -11,7 +11,7 @@ import { Home } from "./Home";
 
 function App() {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(parent);
+  const [currentUser, setCurrentUser] = useState(undefined);
   const [currentForm, setCurrentForm] = useState("login");
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -20,7 +20,8 @@ function App() {
   useEffect(() => {
     const user = AuthService.getCurrentUser();
     if (user) {
-      setCurrentUser(user);
+      setCurrentUser(user.role);
+      console.log(currentUser);
     }
   }, []);
 
