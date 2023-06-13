@@ -77,13 +77,13 @@ const MidwifeDashboard = () => {
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
-                  <th className="bg-blue-200 font-bold py-2">Baby Name</th>
-                  <th className="bg-blue-200 font-bold py-2">Parent Name</th>
-                  <th className="bg-blue-200 font-bold py-2">Sex</th>
+                  <th className="bg-blue-200 font-bold py-2"><button>Baby Name</button></th>
+                  <th className="bg-blue-200 font-bold py-2"><button>Parent Name</button></th>
+                  <th className="bg-blue-200 font-bold py-2"><button>Sex</button></th>
                   <th className="bg-blue-200 font-bold py-2">
-                    Appointed Doctor
+                    <button>Allocated Doctor</button>
                   </th>
-                  <th className="bg-blue-200 font-bold py-2">Appointment</th>
+                  <th className="bg-blue-200 font-bold py-2"><button>Appointment</button></th>
                 </tr>
               </thead>
               <tbody>
@@ -99,7 +99,8 @@ const MidwifeDashboard = () => {
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.parentName}
                     </td>
-                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>{baby.sex}</td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
+                      {baby.sex}</td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.appointedDoctor}
                     </td>

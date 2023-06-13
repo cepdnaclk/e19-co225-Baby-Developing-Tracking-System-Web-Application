@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./nav.css";
 import AuthService from "./services/auth.service";
+import NotificationAlertIcon from "./Notificationalert";
+import './notification.css';
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -10,6 +12,7 @@ export const Nav = () => {
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const logoutConfirmationRef = useRef(null);
 
+  
   useEffect(() => {
     const menuItems = document.querySelectorAll(".nav li");
 
@@ -104,6 +107,8 @@ export const Nav = () => {
                 src="src\components\Images\Logopit_cover2.png"
                 onClick={() => handleItemClick("/Home")}
               />
+              <NotificationAlertIcon notificationCount={3} /> 
+            
           <ul className="nav-items">
             {currentUser &&<li className={location.pathname === "/Home" ? "active" : ""} onClick={() => handleItemClick("/Home")}>
               Home<span></span>
@@ -114,11 +119,13 @@ export const Nav = () => {
             {currentUser &&<li className={location.pathname === "/Reservations" ? "active" : ""} onClick={() => handleItemClick("/Reservations")}>
               Tab2<span></span>
             </li>}
+             
             {(currentUser)?<li className="logout-button" onClick={() => handleLogout()}>
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Log Out<span></span>
             </li>:<li className="login-button" onClick={() => handleItemClick("/authenticate")}>
               <i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In<span></span>
             </li>}
+            
             {!(currentUser) &&<li className="signup-button" onClick={() => handleItemClick("/register")}>
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Up<span></span>
             </li>}
