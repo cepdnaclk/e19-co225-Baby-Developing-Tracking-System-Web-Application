@@ -1,4 +1,4 @@
-package com.babydevelopingtrackingsystem.Model;
+package com.babydevelopingtrackingsystem.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

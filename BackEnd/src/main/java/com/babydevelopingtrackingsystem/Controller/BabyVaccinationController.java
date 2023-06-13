@@ -2,7 +2,7 @@ package com.babydevelopingtrackingsystem.Controller;
 
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationRequest;
 import com.babydevelopingtrackingsystem.Model.BabyVaccination;
-import com.babydevelopingtrackingsystem.Model.VaccineAlert;
+import com.babydevelopingtrackingsystem.Dto.VaccineAlert;
 import com.babydevelopingtrackingsystem.Service.BabyVaccinationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
