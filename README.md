@@ -34,6 +34,13 @@ Title: Sproutopia
 7. Start the Spring Boot Application
 8. Go to localhost:8080/swagger-ui/index.html for a comprehensive view of the API
 
+### On Using Swagger-UI
+Some default request bodies given may not be the intended body(Some fields like id is not hidden)
+Authorize button provided (AT top right above list of endpoints) is for adding token to the header of the request.
+Use Postman or Insomnia if you find this overwhelming.
+
+
+
    
 ## Please refer the instructions in below URL:
 
