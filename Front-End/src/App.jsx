@@ -21,7 +21,7 @@ function App() {
     const user = AuthService.getCurrentUser();
     if (user) {
       setCurrentUser(user.role);
-      console.log(currentUser);
+      console.log(user.role);
     }
   }, []);
 
