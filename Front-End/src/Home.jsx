@@ -1,52 +1,64 @@
+import React, { useState, useEffect } from "react";
+import PostService from "./services/post.service";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+
+const images = [
+  "src/components/background1.png",
+  "src/components/background2.jpeg",
+  "src/components/background3.jpeg",
+  "src/components/yenidogan-1200x600.jpg",
+  
+ 
+  
+  // Add more image paths as needed
+];
 
 export const Home = () => {
-  const [userName, setUserName] = useState('');
+  const [backgroundImage, setBackgroundImage] = useState(images[0]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const endpoint = "http://10.30.118.109:8080/api/v1/user";
-        const token = JSON.parse(localStorage.getItem("user"));
-        const access = token.access_token;
-        console.log(access);
+    const interval = setInterval(() => {
+      const currentImageIndex = images.indexOf(backgroundImage);
+      const nextImageIndex = (currentImageIndex + 1) % images.length;
+      setBackgroundImage(images[nextImageIndex]);
+    }, 5000); // Change the background image every 5 seconds (5000 milliseconds)
 
-        if (token) {
-          const headers = {
-            "Access-Control-Allow-Origin": true,
-            Authorization: "Bearer " + access,
-          };
+    // Show initial image immediately
+    const initialImageIndex = Math.floor(Math.random() * images.length);
+    setBackgroundImage(images[initialImageIndex]);
 
-          const response = await axios.get(endpoint, { headers });
-          console.log(response.data);
+    return () => clearInterval(interval);
+  }, [backgroundImage]);
 
-          if (response.data && response.data) {
-            setUserName(response.data);
-          }
-        }
-      } catch (error) {
-        console.log("Error:", error.message);
-      }
-    };
+  const containerStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    minHeight: "100vh", // Set the container height to cover the full screen vertically
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start", // Align text to the top
+    alignItems: "center",
+    overflow: "hidden", // Prevent scrolling
+  };
 
-    fetchData();
-  }, []);
+  const textContainerStyle = {
+    marginTop: "10vh", // Adjust the top margin of the text container
+  };
 
   return (
-    <div>
+    <div style={{ overflow: "hidden" }}>
       <Nav />
-      <div className="relative  my-16 mx-3 rounded-lg p-4 flex-row">
-          <h1 className="header text-center font-[900] text-4xl">SPROUTOPIA</h1>
-          <h3 className="subheader text-center font-[500] text-2xl">Nutering Smiles, Shaping Futures</h3>
-          <h3 className="subheader text-center font-[500] text-2xl">
-          Hi, {userName ? userName : "Guest"}
-        </h3>
+      <div className="relative" style={containerStyle}>
+        <div className="text-container" style={textContainerStyle}>
+          <h1 className="header text-center font-[1000] text-6xl text-Gray-400">AIRLUXE EXPRESS</h1>
+          <h3 className="subheader text-center font-[500] text-3xl  text-Gray-400">Nutering Smiles, Shaping Futures</h3>
+        </div>
       </div>
-
       <Footer />
     </div>
   );
 };
+
