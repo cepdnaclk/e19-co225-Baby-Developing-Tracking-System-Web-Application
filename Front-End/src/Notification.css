@@ -1,0 +1,52 @@
+.notification-icon-container {
+    position: relative;
+  }
+  
+  .notification-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .notification-icon svg {
+    color: #333;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .notification-icon:hover svg {
+    color: #ff6347; /* Change the color to your desired hover color */
+  }
+  
+  .notification-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 200px;
+    background-color: white;
+    border: 1px solid gray;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dropdown p {
+    margin: 0;
+    padding: 5px;
+  }
+  
+  .dropdown button {
+    margin-top: 10px;
+  }
+  
