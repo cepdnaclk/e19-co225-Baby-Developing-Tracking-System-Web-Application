@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
+import "./NotificationAlert.css";
 
 const NotificationAlertIcon = ({ notificationCount }) => {
   const [showDropdown, setShowDropdown] = useState(false);
