@@ -18,8 +18,7 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 
 import static com.babydevelopingtrackingsystem.Utill.Permission.*;
-import static com.babydevelopingtrackingsystem.Utill.Role.ADMIN;
-import static com.babydevelopingtrackingsystem.Utill.Role.PARENT;
+import static com.babydevelopingtrackingsystem.Utill.Role.*;
 import static org.springframework.http.HttpMethod.DELETE;
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.POST;
@@ -45,6 +44,7 @@ public class SecurityConfiguration {
                         "/api/v1/auth/**",
                         "/api/v1/baby/**", //for development only
                         //"/api/v1/vaccine/**",
+                        "/api/v1/add_vaccine/**",
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -76,6 +76,17 @@ public class SecurityConfiguration {
                  .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())
                  .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
                  .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())
+
+//                .requestMatchers("/api/v1/add_vaccine/**").hasAnyRole(ADMIN.name(),DOCTOR.name())
+//
+//                .requestMatchers(GET, "/api/v1/add_vaccine/**").hasAnyAuthority(ADMIN_READ.name(),
+//                                                                                        DOCTOR_READ.name())
+//                .requestMatchers(POST, "/api/v1/add_vaccine/**").hasAnyAuthority(ADMIN_CREATE.name(),
+//                                                                                        DOCTOR_CREATE.name())
+//                .requestMatchers(PUT, "/api/v1/add_vaccine/**").hasAnyAuthority(ADMIN_UPDATE.name(),
+//                                                                                        DOCTOR_UPDATE.name())
+//                .requestMatchers(DELETE, "/api/v1/add_vaccine/**").hasAnyAuthority(ADMIN_DELETE.name(),
+//                                                                                            DOCTOR_DELETE.name())
 
 
                 .anyRequest()
