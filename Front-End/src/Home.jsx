@@ -12,6 +12,7 @@ export const Home = () => {
         const endpoint = "http://10.30.118.109:8080/api/v1/user";
         const token = JSON.parse(localStorage.getItem("user"));
         const access = token.access_token;
+        console.log(access);
 
         if (token) {
           const headers = {
