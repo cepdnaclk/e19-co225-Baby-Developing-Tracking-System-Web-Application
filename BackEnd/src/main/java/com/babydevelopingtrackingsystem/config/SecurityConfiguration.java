@@ -42,7 +42,8 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/**",
-                        "/api/v1/baby/**", //for development only
+                        "/api/v1/baby/**",
+                        "/api/v1/user/**",//for development only
                         //"/api/v1/vaccine/**",//for development only
                         "/api/v1/add_vaccine/**",//for development only
                         "/v2/api-docs",
