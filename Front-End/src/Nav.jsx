@@ -123,10 +123,10 @@ export const Nav = () => {
           )}
           {currentUser && (
             <li
-            className={location.pathname === "/Reservations" ? "active" : ""}
-            onClick={() => handleItemClick("/Reservations")}
+            className={location.pathname === "/Doctor" ? "active" : ""}
+            onClick={() => handleItemClick("/Doctor")}
             >
-              Tab2<span></span>
+              Doctor<span></span>
             </li>
           )}
           {currentUser && <NotificationAlertIcon notificationCount={3} />}

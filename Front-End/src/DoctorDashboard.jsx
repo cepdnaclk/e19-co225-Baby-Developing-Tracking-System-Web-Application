@@ -32,39 +32,70 @@ const DoctorDashboard = () => {
   ];
 
 
+  const handleBabyRowClick = (baby) => {
+    setSelectedBaby(baby);
+  };
+
+  const handleAppointmentButtonClick = (appointment) => {
+    setSelectedAppointment(appointment);
+    setSelectedBaby(null)
+  };
+
+  const handleAppointmentCardClose = () => {
+    setSelectedAppointment(null);
+  };
+
+  const handleCalendarItemClick = (works) => {
+    setSelectedAppointment(works);
+  };
+
+  const handleCalendarCardClose = () => {
+    setSelectedAppointment(null);
+  };
+
+
   return (
     <div>
       <Nav />
-      <div className="midwife-dashboard">
+      <div className="doctor-dashboard">
         <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] text-3xl">Doctor Dashboard</h1>
 
-          <div className="card-container flex justify-center space-x-8">
-          <div className="card text-center mt-10">
-            <div className="card-header">Featured</div>
-            <div className="card-body">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
+
+          
+        <div className="flex justify-center">
+          <Calendar />
+          <div className="card-container pb-10 mt-2 h-50">
+          <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
+            <div className="card-header">
+                <div className="text-center">Patient</div>
             </div>
-            <div className="card-footer text-muted">2 days ago</div>
+            <div className="card-body bg-gray-200">
+              <h5 className="card-title">Special title treatment</h5>
+              <p className="card-text">If you want to see them all.</p>
+              <a href="#" className="btn btn-primary">Go somewhere</a>
+              <br />
+              <button className="btn btn-secondary border rounded-lg bg-blue-500 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
+            </div>
           </div>
 
-          <div className="card text-center mt-10 ">
-            <div className="card-header">Featured</div>
-            <div className="card-body">
+          <div className="card text-center mt-10 mb-10 rounded  border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
+            <div className="card-header">
+                <div className="text-center ">Appointment</div>
+            </div>
+            <div className="card-body bg-gray-200">
               <h5 className="card-title">Special title treatment</h5>
               <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
               <a href="#" className="btn btn-primary">Go somewhere</a>
+              <br />
+              <button className="btn btn-secondary border rounded-lg bg-blue-500 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
             </div>
-            <div className="card-footer text-muted">2 days ago</div>
           </div>
         </div>
 
+        </div>
 
-
-        
-          <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
+          <div className="baby-table sm:mx-10 my-5 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
@@ -119,7 +150,7 @@ const DoctorDashboard = () => {
           />
         )}
         {selectedAppointment && (
-          <AppointmentDetailsCard
+          <AppointmentDetailsCard 
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
           />

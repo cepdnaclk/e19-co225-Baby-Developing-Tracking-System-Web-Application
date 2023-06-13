@@ -6,6 +6,7 @@ import "./App.css";
 import { Login } from "./Login";
 import { Register } from "./Register";
 import MidwifeDashboard from "./MidwifeDashboard";
+import DoctorDashboard from "./DoctorDashboard";
 
 import { Home } from "./Home";
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/Midwife" element={<MidwifeDashboard />} />
           <Route path="/authenticate" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/Doctor" element={<DoctorDashboard />} />
         </Routes>
     </div>
   );
