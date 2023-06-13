@@ -116,7 +116,7 @@ export const Register = (props) => {
             <b>SIGNUP</b>
           </button>
         </form>
-        <button className="link-btn" onClick={() => navigate("/authenticate")}>
+        <button className="link-btn" onClick={() => navigate("/home")}>
           Already have an account? Login here.
         </button>
       </div>
