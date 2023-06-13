@@ -53,8 +53,9 @@ export const Home = () => {
       <Nav />
       <div className="relative" style={containerStyle}>
         <div className="text-container" style={textContainerStyle}>
-          <h1 className="header text-center font-[1000] text-6xl text-Gray-400">AIRLUXE EXPRESS</h1>
-          <h3 className="subheader text-center font-[500] text-3xl  text-Gray-400">Nutering Smiles, Shaping Futures</h3>
+          <h1 className="header text-center font-[900] text-6xl text-gray-800 ">SPROUTOPIA</h1>
+          <h3 className="subheader text-center font-[500] text-3xl text-gray-400 text-light">Nutering Smiles, Shaping Futures</h3>
+
         </div>
       </div>
       <Footer />
