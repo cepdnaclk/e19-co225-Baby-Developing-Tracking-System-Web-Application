@@ -105,7 +105,7 @@ export default function Calendar() {
                     currentMonth ? "" : "text-gray-400"
                   }`}
                 >
-                  <h1
+                  <button
                     className={`h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none ${
                       appointments.some(
                         (appointment) => appointment.date === date.format("YYYY-MM-DD")) && !date.isSame(currentDate, 'day')
@@ -120,7 +120,7 @@ export default function Calendar() {
                     onClick={() => handleDateClick(date)}
                   >
                     {date.date()}
-                  </h1>
+                  </button>
                 </div>
               )
             )}
@@ -133,7 +133,9 @@ export default function Calendar() {
           {filteredAppointments.length > 0 ? (
             <ul className="text-gray-400">
               {filteredAppointments.map((appointment) => (
-                <li key={appointment.id}>{appointment.title}</li>
+                <li>
+                  <button key={appointment.id}>{appointment.title}</button>
+                </li>
               ))}
             </ul>
           ) : (

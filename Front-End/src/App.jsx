@@ -21,7 +21,10 @@ function App() {
     const user = AuthService.getCurrentUser();
     if (user) {
       setCurrentUser(user.role);
+<<<<<<< Updated upstream
       console.log(currentUser);
+=======
+>>>>>>> Stashed changes
     }
   }, []);
 
