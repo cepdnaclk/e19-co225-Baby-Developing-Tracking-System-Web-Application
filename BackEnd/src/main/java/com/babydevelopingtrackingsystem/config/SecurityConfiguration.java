@@ -44,7 +44,7 @@ public class SecurityConfiguration {
                 .requestMatchers(
                         "/api/v1/auth/**",
                         "/api/v1/baby/**", //for development only
-                        "/api/v1/vaccine/**", //for development only
+                        //"/api/v1/vaccine/**",
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -61,11 +61,13 @@ public class SecurityConfiguration {
 
                 .requestMatchers("/api/v1/parent/**").hasAnyRole(ADMIN.name(), PARENT.name())
 
-
                 .requestMatchers(GET, "/api/v1/parent/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
                 .requestMatchers(POST, "/api/v1/parent/**").hasAnyAuthority(ADMIN_CREATE.name(), PARENT_CREATE.name())
                 .requestMatchers(PUT, "/api/v1/parent/**").hasAnyAuthority(ADMIN_UPDATE.name(), PARENT_UPDATE.name())
                 .requestMatchers(DELETE, "/api/v1/parent/**").hasAnyAuthority(ADMIN_DELETE.name(), PARENT_DELETE.name())
+
+                .requestMatchers("/api/v1/vaccine/**").hasAnyRole(ADMIN.name(), PARENT.name())
+                .requestMatchers(GET, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
 
 
                 .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())

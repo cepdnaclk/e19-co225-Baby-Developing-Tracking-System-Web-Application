@@ -11,8 +11,17 @@ public class VaccinationDtoMapper implements Function<Vaccination, VaccinationDt
         return new VaccinationDto(
                 vaccination.getId(),
                 vaccination.getName(),
-                vaccination.getDose(),
-                vaccination.getAge());
+                vaccination.getAgeInMonths(),
+                vaccination.getType());
+
+    }
+    public Vaccination reapply(VaccinationDto vaccinationDto){
+        return new Vaccination(
+
+                vaccinationDto.name(),
+
+                vaccinationDto.ageInMonths(),
+                vaccinationDto.type());
 
     }
 
