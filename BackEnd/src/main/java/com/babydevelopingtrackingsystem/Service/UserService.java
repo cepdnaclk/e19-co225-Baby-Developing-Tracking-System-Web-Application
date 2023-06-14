@@ -17,6 +17,7 @@ public class UserService {
 
     public String getFirstName() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
         String email = authentication.getName();
         User user = userRepository.findByEmail(email).get();
 
