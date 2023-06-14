@@ -43,6 +43,19 @@ public class Baby {
     @OneToMany(mappedBy = "baby")
     private List<BabyVaccination> babyVaccinations;
 
+    @ManyToOne
+    @JoinColumn(name="parent_id")
+    private Parent parent;
+
+    @ManyToOne
+    @JoinColumn(name="doctor_id")
+    private Doctor doctor;
+
+    @ManyToOne
+    @JoinColumn(name="midwife_id")
+    private Midwife midwife;
+
+
 
 
     public Baby(int id, String name, String dateofBirth, String gender, String bloodType, int birthWeight, int birthLength, String eyeColor, String hairColor, String skinColor, String nationality, String birthPlace, String birthHospital, String parentInformation, String contactInformation, String medicalConditions, String allergies, String immunizationRecords, String growthRecords, String developmentalMilestones) {

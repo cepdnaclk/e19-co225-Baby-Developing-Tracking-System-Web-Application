@@ -1,2 +1,4 @@
-package com.babydevelopingtrackingsystem.Controller;public class ParentController {
+package com.babydevelopingtrackingsystem.Controller;
+
+public class ParentController {
 }
