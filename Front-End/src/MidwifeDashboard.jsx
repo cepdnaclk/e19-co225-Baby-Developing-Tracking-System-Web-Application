@@ -1,6 +1,7 @@
 // MidwifeDashboard.jsx
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 import BabyDetailsCard from "./BabyDetailsCard";
 import AppointmentDetailsCard from "./AppointmentDetailsCard";
 import { Nav } from "./Nav";
@@ -12,6 +13,7 @@ import "./AppointmentDetailsCard.css"
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
+  
 
   // Sample data for the baby table
   const babyTableData = [
@@ -32,6 +34,24 @@ const MidwifeDashboard = () => {
     },
     // Add more baby data as needed
   ];
+
+  const [selectedBabyTableData,setSelectedBabyTableData] = useState(babyTableData);
+  // useEffect(() => {
+  //   axios.get('http://localhost:8080/api/v1/doctor', {
+  //     headers: {
+  //       "Access-Control-Allow-Origin": true,
+  //       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZGFzYW5heWFrZTU0QGdtYWlsLmNvbSIsImlhdCI6MTY4Njc2NjQ4OCwiZXhwIjoxNjg2ODUyODg4fQ.kT0cw1PBjm5WYVu5pJIUdPKNbsu4wp43xNePq5pu2kc'     },
+  //   })
+  //     .then(response => {
+  //       setSelectedBabyTableData(response.data);
+  //       console.log(response.data)
+  //     })
+  //     .catch(error => {
+  //       console.error('Error fetching data:', error);
+  //     });
+
+      
+  // }, []);
 
   // Sample data for the calendar
   const calendarData = [
@@ -88,7 +108,7 @@ const MidwifeDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {babyTableData.map((baby) => (
+                {selectedBabyTableData.map((baby) => (
                   <tr
                     key={baby.name}
                     className="cursor-pointer hover:bg-gray-100"
@@ -103,7 +123,7 @@ const MidwifeDashboard = () => {
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.sex}</td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.appointedDoctor}
+                      {baby.midWifeName}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
