@@ -168,7 +168,7 @@ export const Nav = () => {
           {!currentUser && (
             <li
               className="adminLogin-button"
-              onClick={() => handleItemClick("/admin")}
+              onClick={() => handleItemClick("/adminLogin")}
             >
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Admin Login
               <span></span>

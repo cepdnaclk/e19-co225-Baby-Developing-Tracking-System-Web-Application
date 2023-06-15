@@ -9,7 +9,7 @@ export const AdminLogin = (props) => {
 
   return (
     <div className="add-doctor-container">
-      <Header />
+      <Nav />
 
     
 
