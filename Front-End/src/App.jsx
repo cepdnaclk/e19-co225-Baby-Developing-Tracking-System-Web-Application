@@ -9,6 +9,7 @@ import MidwifeDashboard from "./MidwifeDashboard";
 import DoctorDashboard from "./DoctorDashboard";
 
 import { Home } from "./Home";
+import ParentDashboard from "./ParentDashboard";
 
 function App() {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ function App() {
           <Route path="/authenticate" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/Doctor" element={<DoctorDashboard />} />
+          <Route path="/Parent" element={<ParentDashboard />} />
         </Routes>
     </div>
   );
