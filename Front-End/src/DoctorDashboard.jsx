@@ -97,28 +97,28 @@ const DoctorDashboard = () => {
           <Calendar />
           <div className="card-container pb-10 mt-2 h-50">
           <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
-            <div className="card-header">
-                <div className="text-center">Patient</div>
+            <div className="card-header bg-blue-200">
+                <div className="text-center font-bold mx-3">Patient</div>
             </div>
-            <div className="card-body bg-gray-200">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">If you want to see them all.</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
+            <div className="card-body py-2">
+              <h5 className="card-title mx-3">Special title treatment</h5>
+              <p className="card-text mx-3">If you want to see them all.</p>
+              <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
               <br />
-              <button className="btn btn-secondary border rounded-lg bg-blue-500 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
+              <button className="btn btn-secondary border rounded-lg text-gray-50 bg-blue-950 hover:scale-105 hover:bg-blue-900 transition-all pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
             </div>
           </div>
 
           <div className="card text-center mt-10 mb-10 rounded  border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
-            <div className="card-header">
-                <div className="text-center ">Appointment</div>
+            <div className="card-header bg-blue-200">
+                <div className="text-center font-bold mx-3">Appointment</div>
             </div>
-            <div className="card-body bg-gray-200">
-              <h5 className="card-title">Special title treatment</h5>
-              <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" className="btn btn-primary">Go somewhere</a>
+            <div className="card-body py-2">
+              <h5 className="card-title mx-3">Special title treatment</h5>
+              <p className="card-text mx-3">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
               <br />
-              <button className="btn btn-secondary border rounded-lg bg-blue-500 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
+              <button className="btn btn-secondary border rounded-lg text-gray-50 hover:scale-105 transition-all hover:bg-blue-900 bg-blue-950 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
             </div>
           </div>
         </div>

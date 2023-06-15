@@ -15,7 +15,7 @@
     background-color: transparent;
   }
   50% {
-    background-color: red;
+    background-color: rgba(13, 128, 80, 0.875);
   }
   100% {
     background-color: transparent;
@@ -23,7 +23,7 @@
 }
 
 .appointment-button {
-  background-color: red;
+  background-color: rgba(0, 255, 149, 0.875);
   color: white;
   border: none;
   padding: 4px 8px;
