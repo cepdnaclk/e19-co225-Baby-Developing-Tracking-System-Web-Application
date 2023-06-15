@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Baby Registration Form</h2>
+  <form action="process_registration.php" method="post">
+    <fieldset>
+      <legend>Baby Details</legend>
+      <label for="babyFirstName">First Name:</label>
+      <input type="text" id="babyFirstName" name="babyFirstName" required><br><br>
+
+      <label for="babySurname">Surname:</label>
+      <input type="text" id="babySurname" name="babySurname" required><br><br>
+
+      <label for="babyDOB">Date of Birth:</label>
+      <input type="date" id="babyDOB" name="babyDOB" required><br><br>
+
+      <label for="babyGender">Gender:</label>
+      <select id="babyGender" name="babyGender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select><br><br>
+
+      <label for="babyHeight">Height (in cm):</label>
+      <input type="number" id="babyHeight" name="babyHeight" required><br><br>
+
+      <label for="babyWeight">Weight (in kg):</label>
+      <input type="number" id="babyWeight" name="babyWeight" required><br><br>
+
+      <label for="babyAddress">Address:</label>
+      <textarea id="babyAddress" name="babyAddress" required></textarea><br><br>
+    </fieldset>
+
+    <fieldset>
+      <legend>Mother's Details</legend>
+      <label for="motherName">Mother's Name:</label>
+      <input type="text" id="motherName" name="motherName" required><br><br>
+
+      <label for="motherPhone">Phone Number:</label>
+      <input type="tel" id="motherPhone" name="motherPhone" required><br><br>
+
+      <label for="motherEmail">Email:</label>
+      <input type="email" id="motherEmail" name="motherEmail" required><br><br>
+    </fieldset>
+
+    <fieldset>
+      <legend>Father's Details</legend>
+      <label for="fatherName">Father's Name:</label>
+      <input type="text" id="fatherName" name="fatherName" required><br><br>
+
+      <label for="fatherPhone">Phone Number:</label>
+      <input type="tel" id="fatherPhone" name="fatherPhone" required><br><br>
+
+      <label for="fatherEmail">Email:</label>
+      <input type="email" id="fatherEmail" name="fatherEmail" required><br><br>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
