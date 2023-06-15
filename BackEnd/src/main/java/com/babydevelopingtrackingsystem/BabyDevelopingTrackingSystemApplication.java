@@ -23,39 +23,11 @@ public class BabyDevelopingTrackingSystemApplication {
     @Bean
     public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository){
         return args -> {
-<<<<<<< HEAD
+
             addVaccinations(vaccinationRepository);
 
-=======
-            vaccinationRepository.save(new Vaccination("BCG", 0, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Hexaxim/Infanrix Hexa", 2, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Pentavalent and Polio (1st dose)", 2, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Rotarix/Rotateq (1st dose)", 2, "Additional"));
-            vaccinationRepository.save(new Vaccination("Synflorix (1st dose)", 2, "Additional"));
-            vaccinationRepository.save(new Vaccination("Rotarix/Rotateq (2nd dose)", 4, "Additional"));
-            vaccinationRepository.save(new Vaccination("Synflorix (2nd dose)", 4, "Additional"));
-            vaccinationRepository.save(new Vaccination("Hexaxim/Infanrix Hexa (2nd dose)", 4, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Pentavalent and Polio (2nd dose)", 4, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Rotateq (3rd dose)", 6, "Additional"));
-            vaccinationRepository.save(new Vaccination("Synflorix (3rd dose)", 6, "Additional"));
-            vaccinationRepository.save(new Vaccination("Hexaxim/Infanrix Hexa (3rd dose)", 6, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Pentavalent and Polio (3rd dose)", 6, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Priorix/MMR (1st dose)", 9, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Japanese Encephalitis (single dose)", 12, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Hexaxim/Infanrix Hexa (4th dose)", 18, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Pentavalent and Polio (4th dose)", 18, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Synflorix (4th dose)", 18, "Additional"));
-            vaccinationRepository.save(new Vaccination("Avaxim (PEDIATRIC) OR", 18, "Additional"));
-            vaccinationRepository.save(new Vaccination("Havrix 720 (PEDIATRIC) (1st dose)", 12, "Additional"));
-            vaccinationRepository.save(new Vaccination("Varilrix (1st dose)", 12, "Additional"));
-            vaccinationRepository.save(new Vaccination("Varilrix (2nd dose)", 24, "Additional"));
-            vaccinationRepository.save(new Vaccination("Typhim (Booster Doses every 3 years)", 36, "Additional"));
-            vaccinationRepository.save(new Vaccination("Avaxim (PEDIATRIC) OR", 24, "Additional"));
-            vaccinationRepository.save(new Vaccination("Havrix 720 (PEDIATRIC) (2nd dose)", 24, "Additional"));
-            vaccinationRepository.save(new Vaccination("Priorix/MMR (2nd dose)", 36, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Boostrix (1st dose)", 60, "Compulsory"));
-            vaccinationRepository.save(new Vaccination("Polio Oral", 60, "Compulsory"));
->>>>>>> b2dfde4880241e0b96104e7b900f67e9c1f5d3d6
+
+
 
 
 
