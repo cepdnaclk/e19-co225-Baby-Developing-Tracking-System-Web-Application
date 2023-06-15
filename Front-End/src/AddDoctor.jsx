@@ -35,9 +35,9 @@ export const AddDoctor = (props) => {
       <Header />
 
       <div className="add-doctor-form-container">
-        <div className="h1div">
-            <h1 className="h1 display-1  .font-weight-bold">ADD DOCTOR DETAILS</h1>
-        </div>
+        
+        <h2 className="h2 ">ADD DOCTOR DETAILS</h2>
+        
         
         <form className="add-doctor-form" onSubmit={handleSubmit}>
           <label htmlFor="specialization">Specialization</label>

@@ -1,64 +1,58 @@
 .add-doctor-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f2f2f2;
-  }
-  
-  .add-doctor-form-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    width: 600px;
-    padding-top: 30px;
-  }
-  
-  .add-doctor-form {
-    display: grid;
-    grid-gap: 10px;
-  }
-  
-  .h1div {
-    padding-left: 200px;
-    padding-bottom: 20px;
-  }
-  
-  .add-doctor-form .h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .add-doctor-form label {
-    font-weight: bold;
-  }
-  
-  .add-doctor-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-doctor-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .add-doctor-form button:hover {
-    background-color: #45a049;
-  }
-  
-  .add-doctor-form button:focus {
-    outline: none;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.add-doctor-form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  width: 600px;
+  padding-top: 30px;
+}
+
+.add-doctor-form {
+  display: grid;
+  grid-gap: 10px;
+}
+
+.h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.add-doctor-form label {
+  font-weight: bold;
+}
+
+.add-doctor-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-doctor-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-doctor-form button:hover {
+  background-color: #45a049;
+}
+
+.add-doctor-form button:focus {
+  outline: none;
+}
