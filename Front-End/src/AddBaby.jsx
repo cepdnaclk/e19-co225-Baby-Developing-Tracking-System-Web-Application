@@ -51,7 +51,10 @@ export const AddBaby = (props) => {
       <Header />
 
       <div className="add-baby-form-container">
-        <h2>Add Baby Details</h2>
+        <div className="h2">
+          <h2>ADD BABY DETAILS</h2>
+        </div>
+        
         <form className="add-baby-form" onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <input

@@ -28,6 +28,10 @@
     text-align: center;
     margin-bottom: 10px;
   }
+
+  .h2{
+    padding-left: 270px;
+  }
   
   .add-baby-form label {
     font-weight: bold;
