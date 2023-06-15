@@ -1,6 +1,6 @@
 // MidwifeDashboard.jsx
 
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import axios from "axios";
 
 import AppointmentDetailsCard from "./AppointmentDetailsCard";
@@ -78,29 +78,29 @@ const ParentDashboard = () => {
   // }, []);
 
 // // Method to find out whether you have already registered a baby or not
-//     useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const token = JSON.parse(localStorage.getItem("user"));
-//         const access = token.access_token;
-//         console.log(access);
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         
-//         const response = await axios.get('http://localhost:8080/api/v1/parent/babyNotExist', {
-//           headers: {
-//             "Access-Control-Allow-Origin": true,
-//             Authorization: "Bearer " + access
-//           },
-//         });
+        const response = await axios.get('http://localhost:8080/api/v1/parent/babyNotExist', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
   
-//         setIsBabyAdded(response.data);
-//         console.log(response.data);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
+        setIsBabyAdded(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   
-//     fetchData();
-//   }, []);
+    fetchData();
+  }, []);
   
 // // Method to find out whether you have already registered a baby or not
 //     useEffect(() => {
