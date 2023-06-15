@@ -25,7 +25,7 @@ public class ParentController {
     }
 
     @GetMapping("/getBaby")
-    public Baby getYourBaby(){
+    public BabyRegistrationRequest getYourBaby(){
         return parentService.getYourBaby();
     }
 }

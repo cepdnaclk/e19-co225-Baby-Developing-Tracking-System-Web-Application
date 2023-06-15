@@ -48,13 +48,21 @@ public class ParentService {
 
     }
 
-    public Baby getYourBaby() {
+    public BabyRegistrationRequest getYourBaby() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String email = authentication.getName();
 
         Parent parent = parentRepository.findByEmail(email);
 
-        return babyRepository.findBabyByParent(parent);
+        Baby baby =  babyRepository.findBabyByParent(parent);
+
+        BabyRegistrationRequest babySend = new BabyRegistrationRequest();
+        babySend.setFirstName(baby.getName());
+        babySend.setLastName(baby.getName());
+        babySend.setGender(babySend.getGender());
+
+        return babySend;
+
     }
 }
