@@ -1,3 +1,4 @@
+/* DoctorDashboard */
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import BabyDetailsCard from "./BabyDetailsCard";
@@ -6,7 +7,8 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import Calendar from "./Calender";
 import "./MidwifeDashboard.css";
-import "./AppointmentDetailsCard.css"
+import "./AppointmentDetailsCard.css";
+import "./DoctorDashboard.css";
 
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -94,7 +96,7 @@ const DoctorDashboard = () => {
 
           
         <div className="flex justify-center">
-          <Calendar />
+        <Calendar className="calendar" />
           <div className="card-container pb-10 mt-2 h-50">
           <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
             <div className="card-header bg-blue-200">
