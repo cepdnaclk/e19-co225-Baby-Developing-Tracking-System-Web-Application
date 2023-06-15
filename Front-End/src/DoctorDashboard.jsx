@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 import BabyDetailsCard from "./BabyDetailsCard";
 import AppointmentDetailsCard from "./AppointmentDetailsCard";
 import { Nav } from "./Nav";
@@ -17,19 +18,48 @@ const DoctorDashboard = () => {
       name: "Alex Peter",
       parentName: "Jenny Fernandes",
       sex: "Male",
-      appointedDoctor: "Doctor 1",
+      midWifeName: "Midwife 1",
       hasAppointment: true,
     },
     {
       name: "Baby 2",
       parentName: "Parent 2",
       sex: "Female",
-      appointedDoctor: "Doctor 2",
+      midWifeName: "Midwife 2",
       hasAppointment: false,
     },
     
 
   ];
+
+  const [selectedBabyTableData,setSelectedBabyTableData] = useState(babyTableData);
+
+  // // Uncomment this to connect the table with the database
+  // //(Note that the fields are not correctly matching at the moment)
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = JSON.parse(localStorage.getItem("user"));
+  //       const access = token.access_token;
+  //       console.log(access);
+        
+  //       const response = await axios.get('http://localhost:8080/api/v1/doctor', {
+  //         headers: {
+  //           "Access-Control-Allow-Origin": true,
+  //           Authorization: "Bearer " + access
+  //         },
+  //       });
+  
+  //       setSelectedBabyTableData(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, []);
 
 
   const handleBabyRowClick = (baby) => {
@@ -109,7 +139,7 @@ const DoctorDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {babyTableData.map((baby) => (
+                {selectedBabyTableData.map((baby) => (
                   <tr
                     key={baby.name}
                     className="cursor-pointer hover:bg-gray-100"

@@ -36,22 +36,35 @@ const MidwifeDashboard = () => {
   ];
 
   const [selectedBabyTableData,setSelectedBabyTableData] = useState(babyTableData);
-  // useEffect(() => {
-  //   axios.get('http://localhost:8080/api/v1/doctor', {
-  //     headers: {
-  //       "Access-Control-Allow-Origin": true,
-  //       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnZGFzYW5heWFrZTU0QGdtYWlsLmNvbSIsImlhdCI6MTY4Njc2NjQ4OCwiZXhwIjoxNjg2ODUyODg4fQ.kT0cw1PBjm5WYVu5pJIUdPKNbsu4wp43xNePq5pu2kc'     },
-  //   })
-  //     .then(response => {
-  //       setSelectedBabyTableData(response.data);
-  //       console.log(response.data)
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching data:', error);
-  //     });
 
-      
+  // // Uncomment this to connect the table with the database
+  // //(Note that the fields are not correctly matching at the moment)
+  // //(Change the endpoint and fields as necessary)
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const token = JSON.parse(localStorage.getItem("user"));
+  //       const access = token.access_token;
+  //       console.log(access);
+        
+  //       const response = await axios.get('http://localhost:8080/api/v1/doctor', {
+  //         headers: {
+  //           "Access-Control-Allow-Origin": true,
+  //           Authorization: "Bearer " + access
+  //         },
+  //       });
+  
+  //       setSelectedBabyTableData(response.data);
+  //       console.log(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+  
+  //   fetchData();
   // }, []);
+  
 
   // Sample data for the calendar
   const calendarData = [
@@ -123,7 +136,7 @@ const MidwifeDashboard = () => {
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.sex}</td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.midWifeName}
+                      {baby.appointedDoctor}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
