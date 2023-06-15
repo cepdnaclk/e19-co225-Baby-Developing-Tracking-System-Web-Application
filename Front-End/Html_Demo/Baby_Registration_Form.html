@@ -4,63 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baby Registration Form</title>
+  <link rel="stylesheet" href="Baby_reg.css">
 </head>
 <body>
   <h2>Baby Registration Form</h2>
-  <form action="process_registration.php" method="post">
-    <fieldset>
-      <legend>Baby Details</legend>
-      <label for="babyFirstName">First Name:</label>
-      <input type="text" id="babyFirstName" name="babyFirstName" required><br><br>
+  <form method="post" >
+    <fieldset class="form-container">
+        
+        <table>
+            <tr>
+                <td><label for="babyFirstName">First Name:</label></td>
+                <td><input type="text" id="babyFirstName" name="babyFirstName" required></td>
+            </tr>
 
-      <label for="babySurname">Surname:</label>
-      <input type="text" id="babySurname" name="babySurname" required><br><br>
+            <tr>
+                <td><label for="babySurname">Surname:</label></td>
+                <td><input type="text" id="babySurname" name="babySurname" required></td>
+            </tr>
 
-      <label for="babyDOB">Date of Birth:</label>
-      <input type="date" id="babyDOB" name="babyDOB" required><br><br>
+            <tr>
+                <td><label for="babyDOB">Date of Birth:</label></td>
+                <td><input type="date" id="babyDOB" name="babyDOB" required></td>
+            </tr>
 
-      <label for="babyGender">Gender:</label>
-      <select id="babyGender" name="babyGender" required>
-        <option value="">Select Gender</option>
-        <option value="male">Male</option>
-        <option value="female">Female</option>
-        <option value="other">Other</option>
-      </select><br><br>
+            <tr>
+                <td><label for="babyGender">Gender:</label></td>
+                <td>
+                    <select id="babyGender" name="babyGender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
+                </td>
+            </tr>
 
-      <label for="babyHeight">Height (in cm):</label>
-      <input type="number" id="babyHeight" name="babyHeight" required><br><br>
+            <tr>
+                <td><label for="babyHeight">Height (in cm):</label></td>
+                <td><input type="number" id="babyHeight" name="babyHeight" required></td>
+            </tr>
 
-      <label for="babyWeight">Weight (in kg):</label>
-      <input type="number" id="babyWeight" name="babyWeight" required><br><br>
+            <tr>
+                <td><label for="babyWeight">Weight (in kg):</label></td>
+                <td><input type="number" id="babyWeight" name="babyWeight" required></td>
+            </tr>
 
-      <label for="babyAddress">Address:</label>
-      <textarea id="babyAddress" name="babyAddress" required></textarea><br><br>
+            <tr>
+                <td><label for="babyAddress">Address:</label></td>
+                <td><textarea id="babyAddress" name="babyAddress" required></textarea></td>
+            </tr>
+
+        </table>
+
+
+
     </fieldset>
-
+    <br>
     <fieldset>
-      <legend>Mother's Details</legend>
-      <label for="motherName">Mother's Name:</label>
-      <input type="text" id="motherName" name="motherName" required><br><br>
+      <legend><strong>Mother's Details</strong></legend>
 
-      <label for="motherPhone">Phone Number:</label>
-      <input type="tel" id="motherPhone" name="motherPhone" required><br><br>
+      <table>
+        <tr>
+            <td><label for="motherName">Mother's Name:</label></td>
+            <td><input type="text" id="motherName" name="motherName" required></td>
+        </tr>
 
-      <label for="motherEmail">Email:</label>
-      <input type="email" id="motherEmail" name="motherEmail" required><br><br>
+        <tr>
+            <td><label for="motherPhone">Phone Number:</label></td>
+            <td><input type="tel" id="motherPhone" name="motherPhone" required></td>
+        </tr>
+        <tr>
+            <td><label for="motherEmail">Email:</label></td>
+            <td><input type="email" id="motherEmail" name="motherEmail" required></td>
+        </tr>
+    </table>
+
+
     </fieldset>
-
+    <br>
     <fieldset>
-      <legend>Father's Details</legend>
-      <label for="fatherName">Father's Name:</label>
-      <input type="text" id="fatherName" name="fatherName" required><br><br>
+      <legend><strong>Father's Details</strong></legend>
 
-      <label for="fatherPhone">Phone Number:</label>
-      <input type="tel" id="fatherPhone" name="fatherPhone" required><br><br>
+      <table>
+        <tr>
+            <td><label for="fatherName">Father's Name:</label></td>
+            <td><input type="text" id="fatherName" name="fatherName" required></td>
+        </tr>
 
-      <label for="fatherEmail">Email:</label>
-      <input type="email" id="fatherEmail" name="fatherEmail" required><br><br>
+        <tr>
+            <td><label for="fatherPhone">Phone Number:</label></td>
+            <td><input type="tel" id="fatherPhone" name="fatherPhone" required></td>
+        </tr>
+
+        <tr>
+            <td><label for="fatherEmail">Email:</label></td>
+            <td><input type="email" id="fatherEmail" name="fatherEmail" required></td>
+        </tr>
+    </table>
     </fieldset>
-
+    <br>
+    <hr>
     <input type="submit" value="Submit">
   </form>
 </body>
