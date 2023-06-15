@@ -11,6 +11,7 @@ import DoctorDashboard from "./DoctorDashboard";
 import { Home } from "./Home";
 import ParentDashboard from "./ParentDashboard";
 import { BabyRegister } from "./BabyRegister";
+import { AdminHome } from "./AdminHome";
 
 function App() {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ function App() {
           <Route path="/Doctor" element={<DoctorDashboard />} />
           <Route path="/Parent" element={<ParentDashboard />} />
           <Route path="/BabyRegister" element={<BabyRegister />} />
+          <Route path="/admin" element={<AdminHome />} />
         </Routes>
     </div>
   );
