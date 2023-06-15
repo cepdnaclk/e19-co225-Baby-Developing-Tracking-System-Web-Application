@@ -102,30 +102,30 @@ const ParentDashboard = () => {
     fetchData();
   }, []);
   
-// // Method to find out whether you have already registered a baby or not
-//     useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const token = JSON.parse(localStorage.getItem("user"));
-//         const access = token.access_token;
-//         console.log(access);
+// Method to find out whether you have already registered a baby or not
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         
-//         const response = await axios.get('http://localhost:8080/api/v1/parent/getYourBaby', {
-//           headers: {
-//             "Access-Control-Allow-Origin": true,
-//             Authorization: "Bearer " + access
-//           },
-//         });
+        const response = await axios.get('http://localhost:8080/api/v1/parent/getYourBaby', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
   
-//         setBabyData(response.data);
-//         console.log(response.data);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//       }
-//     };
+        setBabyData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   
-//     fetchData();
-//   }, []);
+    fetchData();
+  }, []);
   
   
 
