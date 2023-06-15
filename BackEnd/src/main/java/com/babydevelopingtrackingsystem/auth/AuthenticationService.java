@@ -1,10 +1,8 @@
 package com.babydevelopingtrackingsystem.auth;
 
 
-import com.babydevelopingtrackingsystem.Model.Token;
-import com.babydevelopingtrackingsystem.Model.User;
-import com.babydevelopingtrackingsystem.Repository.TokenRepository;
-import com.babydevelopingtrackingsystem.Repository.UserRepository;
+import com.babydevelopingtrackingsystem.Model.*;
+import com.babydevelopingtrackingsystem.Repository.*;
 import com.babydevelopingtrackingsystem.Utill.Role;
 import com.babydevelopingtrackingsystem.Utill.TokenType;
 import com.babydevelopingtrackingsystem.config.JwtService;
@@ -25,19 +23,84 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class AuthenticationService {
   private final UserRepository repository;
+  private final ParentRepository parentRepository;
+  private final DoctorRepository doctorRepository;
+  private final MidwifeRepository midwifeRepository;
   private final TokenRepository tokenRepository;
   private final PasswordEncoder passwordEncoder;
   private final JwtService jwtService;
   private final AuthenticationManager authenticationManager;
 
   public AuthenticationResponse register(RegisterRequest request) {
-    var user = User.builder()
-        .firstname(request.getFirstname())
-        .lastname(request.getLastname())
-        .email(request.getEmail())
-        .password(passwordEncoder.encode(request.getPassword()))
-        .role(request.getRole())
-        .build();
+    if(repository.existsUserByEmail(request.getEmail()))
+      return new AuthenticationResponse();
+    User user;
+
+
+    Role role  = request.getRole();
+
+    if(role.equals(Role.PARENT)){
+      user = new Parent(
+              request.getFirstname(),
+              request.getLastname(),
+              request.getEmail(),
+              passwordEncoder.encode(request.getPassword()),
+              request.getRole(),
+              "Mother"
+              );
+
+
+
+
+    }
+    else if(role.equals(Role.DOCTOR)){
+      user = new Doctor(
+              request.getFirstname(),
+              request.getLastname(),
+              request.getEmail(),
+              passwordEncoder.encode(request.getPassword()),
+              request.getRole(),
+              null,
+              null,
+              null
+      );
+
+
+
+
+    }
+    else if(role.equals(Role.MIDWIFE)){
+      user = new Midwife(
+              request.getFirstname(),
+              request.getLastname(),
+              request.getEmail(),
+              passwordEncoder.encode(request.getPassword()),
+              request.getRole(),
+              null,
+              null
+
+      );
+
+
+
+
+    }
+    else{
+      user = User.builder()
+              .firstname(request.getFirstname())
+              .lastname(request.getLastname())
+              .email(request.getEmail())
+              .password(passwordEncoder.encode(request.getPassword()))
+              .role(request.getRole())
+              .build();
+
+
+
+    }
+
+
+
+
     var savedUser = repository.save(user);
     var jwtToken = jwtService.generateToken(user);
     var refreshToken = jwtService.generateRefreshToken(user);

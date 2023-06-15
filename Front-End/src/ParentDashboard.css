@@ -1,7 +1,7 @@
 /* MidwifeDashboard.css */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lexend+Deca:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap");
 
-.midwife-dashboard {
+.parent-dashboard {
   display: flex;
   flex-direction: row;
 }
@@ -15,7 +15,7 @@
     background-color: transparent;
   }
   50% {
-    background-color: rgba(13, 128, 80, 0.875);
+    background-color: red;
   }
   100% {
     background-color: transparent;
@@ -23,7 +23,7 @@
 }
 
 .appointment-button {
-  background-color: rgba(0, 255, 149, 0.875);
+  background-color: red;
   color: white;
   border: none;
   padding: 4px 8px;

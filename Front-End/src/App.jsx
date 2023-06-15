@@ -6,8 +6,11 @@ import "./App.css";
 import { Login } from "./Login";
 import { Register } from "./Register";
 import MidwifeDashboard from "./MidwifeDashboard";
+import DoctorDashboard from "./DoctorDashboard";
 
 import { Home } from "./Home";
+import ParentDashboard from "./ParentDashboard";
+import { BabyRegister } from "./BabyRegister";
 
 function App() {
   const navigate = useNavigate();
@@ -21,10 +24,7 @@ function App() {
     const user = AuthService.getCurrentUser();
     if (user) {
       setCurrentUser(user.role);
-<<<<<<< Updated upstream
-      console.log(currentUser);
-=======
->>>>>>> Stashed changes
+      console.log(user.role);
     }
   }, []);
 
@@ -40,6 +40,9 @@ function App() {
           <Route path="/Midwife" element={<MidwifeDashboard />} />
           <Route path="/authenticate" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/Doctor" element={<DoctorDashboard />} />
+          <Route path="/Parent" element={<ParentDashboard />} />
+          <Route path="/BabyRegister" element={<BabyRegister />} />
         </Routes>
     </div>
   );

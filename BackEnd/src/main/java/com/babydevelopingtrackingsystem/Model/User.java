@@ -18,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails {
 
     @Id
@@ -26,6 +26,15 @@ public class User implements UserDetails {
     private Integer id;
     private String firstname;
     private String lastname;
+
+    public User(String firstname, String lastname, String email, String password, Role role) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     private String email;
     private String password;
 
@@ -34,6 +43,10 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

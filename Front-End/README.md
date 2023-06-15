@@ -57,5 +57,4 @@ Follow these steps to set up a React page:
 - React Router documentation: [https://reactrouter.com](https://reactrouter.com)
 - Material-UI documentation: [https://mui.com](https://mui.com)
 
-That's it! You are now ready to start building your React page
 
