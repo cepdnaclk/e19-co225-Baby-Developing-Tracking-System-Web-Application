@@ -58,9 +58,12 @@ public class ParentService {
         Baby baby =  babyRepository.findBabyByParent(parent);
 
         BabyRegistrationRequest babySend = new BabyRegistrationRequest();
-        babySend.setFirstName(baby.getName());
-        babySend.setLastName(baby.getName());
-        babySend.setGender(babySend.getGender());
+        if (baby!=null){
+            babySend.setFirstName(baby.getName());
+            babySend.setLastName(baby.getName());
+            babySend.setGender(baby.getGender());
+        }
+
 
         return babySend;
 
