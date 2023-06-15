@@ -37,6 +37,8 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
@@ -46,6 +48,7 @@ public class SecurityConfiguration {
                         "/api/v1/user/**",//for development only
                         //"/api/v1/vaccine/**",//for development only
                         "/api/v1/add_vaccine/**",//for development only
+
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -69,6 +72,8 @@ public class SecurityConfiguration {
 
                 .requestMatchers("/api/v1/vaccine/**").hasAnyRole(ADMIN.name(), PARENT.name())
                 .requestMatchers(GET, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
+                .requestMatchers("/api/v1/doctor/**").hasAnyRole(ADMIN.name(), DOCTOR.name())
+                .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_READ.name(), DOCTOR_READ.name())
 
 
                 .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
