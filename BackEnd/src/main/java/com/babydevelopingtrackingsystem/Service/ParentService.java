@@ -5,6 +5,7 @@ import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Model.Parent;
 import com.babydevelopingtrackingsystem.Repository.BabyRepository;
 import com.babydevelopingtrackingsystem.Repository.ParentRepository;
+import com.babydevelopingtrackingsystem.Utill.DateFormatConverter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,8 @@ public class ParentService {
         Baby baby = new Baby();
 
         baby.setParent(parent);
-        baby.setDateofBirth(babyRegistrationRequest.getBirthday().toString());
+        String birthday = babyRegistrationRequest.getBirthday().toString();
+        baby.setDateofBirth(DateFormatConverter.convertDateFormat(birthday));
         baby.setName(babyRegistrationRequest.getFirstName()+babyRegistrationRequest.getLastName());
         baby.setGender(babyRegistrationRequest.getGender());
 
