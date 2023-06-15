@@ -6,20 +6,26 @@
   <title>Baby Registration Form</title>
   <link rel="stylesheet" href="Baby_reg.css">
 </head>
-<body>
-  <h2>Baby Registration Form</h2>
+<body class="content-box">
+    <script>
+        window.addEventListener('load', function() {
+          var specificElement = document.getElementById("specific-element");
+         specificElement.focus();
+        });
+    </script>
+  <h2 id="head">Baby Registration Form</h2>
   <form method="post" >
     <fieldset class="form-container">
-        
+        <legend><strong>Baby's Details</strong></legend>
         <table>
             <tr>
-                <td><label for="babyFirstName">First Name:</label></td>
-                <td><input type="text" id="babyFirstName" name="babyFirstName" required></td>
+                <td><label for="babyFirstName" id="specific-element">First Name:</label></td>
+                <td><input type="text" id="babyFirstName" name="babyFirstName" placeholder="Enter first name..." required></td>
             </tr>
 
             <tr>
                 <td><label for="babySurname">Surname:</label></td>
-                <td><input type="text" id="babySurname" name="babySurname" required></td>
+                <td><input type="text" id="babySurname" name="babySurname" placeholder="Enter Surname..." required></td>
             </tr>
 
             <tr>
@@ -51,7 +57,7 @@
 
             <tr>
                 <td><label for="babyAddress">Address:</label></td>
-                <td><textarea id="babyAddress" name="babyAddress" required></textarea></td>
+                <td><textarea id="babyAddress" name="babyAddress" placeholder="Enter address..." required></textarea></td>
             </tr>
 
         </table>
@@ -60,7 +66,7 @@
 
     </fieldset>
     <br>
-    <fieldset>
+    <fieldset class="form-container">
       <legend><strong>Mother's Details</strong></legend>
 
       <table>
@@ -82,7 +88,7 @@
 
     </fieldset>
     <br>
-    <fieldset>
+    <fieldset class="form-container">
       <legend><strong>Father's Details</strong></legend>
 
       <table>
