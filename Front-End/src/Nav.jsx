@@ -129,6 +129,14 @@ export const Nav = () => {
               Doctor<span></span>
             </li>
           )}
+           {currentUser && (
+            <li
+            className={location.pathname === "/Parent" ? "active" : ""}
+            onClick={() => handleItemClick("/Parent")}
+            >
+              Parent<span></span>
+            </li>
+          )}
           {currentUser && <NotificationAlertIcon notificationCount={3} />}
 
           {currentUser ? (
