@@ -94,13 +94,30 @@ const DoctorDashboard = () => {
           <h1 className="header text-center font-[500] text-3xl">Doctor Dashboard</h1>
 
 
-          
-        <div className="flex justify-center">
-        <Calendar className="calendar" />
+
+          <Calendar />
+          <div className="card-container pb-10 mt-2 h-50 ">
+          <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg">
+          <div className="flex justify-center">
+          <Calendar className="calendar" />
           <div className="card-container pb-10 mt-2 h-50">
           <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
+
+           <div className="card-header bg-blue-200">
+              <div className="text-center font-bold mx-3 border rounded">Patient</div>
+              </div>
+              <div className="card-body py-2">
+                <h5 className="card-title mx-3">Special title treatment</h5>
+                <p className="card-text mx-3">If you want to see them all.</p>
+                <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
+                <br />
+              <button className="btn btn-secondary border rounded-lg text-gray-50 bg-blue-950 hover:scale-105 hover:bg-blue-900 transition-all pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
+            </div>
+          </div>
+
+          <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg">
             <div className="card-header bg-blue-200">
-                <div className="text-center font-bold mx-3">Patient</div>
+                <div className="text-center font-bold mx-3 border rounded">Patient</div>
             </div>
             <div className="card-body py-2">
               <h5 className="card-title mx-3">Special title treatment</h5>
@@ -110,22 +127,9 @@ const DoctorDashboard = () => {
               <button className="btn btn-secondary border rounded-lg text-gray-50 bg-blue-950 hover:scale-105 hover:bg-blue-900 transition-all pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
             </div>
           </div>
-
-          <div className="card text-center mt-10 mb-10 rounded  border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
-            <div className="card-header bg-blue-200">
-                <div className="text-center font-bold mx-3">Appointment</div>
-            </div>
-            <div className="card-body py-2">
-              <h5 className="card-title mx-3">Special title treatment</h5>
-              <p className="card-text mx-3">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
-              <br />
-              <button className="btn btn-secondary border rounded-lg text-gray-50 hover:scale-105 transition-all hover:bg-blue-900 bg-blue-950 pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
-            </div>
-          </div>
         </div>
 
-        </div>
+      
 
           <div className="baby-table sm:mx-10 my-5 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
             <table className="w-full table-fixed border-collapse rounded-lg">

@@ -7,10 +7,13 @@ import { Login } from "./Login";
 import { Register } from "./Register";
 import MidwifeDashboard from "./MidwifeDashboard";
 import DoctorDashboard from "./DoctorDashboard";
-
 import { Home } from "./Home";
 import ParentDashboard from "./ParentDashboard";
 import { BabyRegister } from "./BabyRegister";
+import { AdminHome } from "./AdminHome";
+import { AddBaby } from "./AddBaby";
+import { AddDoctor } from "./AddDoctor";
+import { AdminLogin } from "./AdminLogin";
 
 function App() {
   const navigate = useNavigate();
@@ -43,6 +46,10 @@ function App() {
           <Route path="/Doctor" element={<DoctorDashboard />} />
           <Route path="/Parent" element={<ParentDashboard />} />
           <Route path="/BabyRegister" element={<BabyRegister />} />
+          <Route path="/admin" element={<AdminHome />} />
+          <Route path="/addbaby" element={<AddBaby />} />
+          <Route path="/addDoctor" element={<AddDoctor />} />
+          <Route path="/adminLogin" element={<AdminLogin />} />
         </Routes>
     </div>
   );
