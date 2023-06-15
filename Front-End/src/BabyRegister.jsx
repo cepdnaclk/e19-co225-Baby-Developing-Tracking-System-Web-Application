@@ -20,13 +20,15 @@ export const BabyRegister = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      console.log(access);
      axios
-    .post(API_URL + "/api/v1/parent/registerBaby", {
+    .post(AuthService.API_URL + "/parent/registerBaby", {
       firstname,
       lastname,
-      email,
-      password,
-      role
+      birthday,
+      gender
     },{
                 headers: {
                   "Access-Control-Allow-Origin": true,
