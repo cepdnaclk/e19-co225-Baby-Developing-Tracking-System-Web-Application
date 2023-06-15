@@ -1,0 +1,121 @@
+/* MidwifeDashboard.css */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lexend+Deca:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap");
+
+.parent-dashboard {
+  display: flex;
+  flex-direction: row;
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.appointment-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.header {
+  font-family: "Poppins", sans-serif;
+  padding-top: 15px;
+}
+
+table {
+  border-radius: 2rem;
+  border: 1rem hidden #443c68;
+  border-collapse: collapse;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.151);
+  overflow: hidden;
+  max-width: 80rem;
+}
+
+.baby-table {
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+  backdrop-filter: blur(10px);
+}
+
+.calender-styles {
+  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+  backdrop-filter: blur(10px);
+}
+
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background-color: lightblue;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.accept-button {
+  background-color: rgba(5, 94, 32, 0.774);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.accept-button:hover{
+  scale: 1.02;
+  background-color: rgba(3, 59, 20, 0.774);
+}
+
+.suggest-date-form {
+  display: flex;
+  margin-top: 16px;
+}
+
+.suggest-date-form input[type="date"] {
+  flex: 1;
+  padding: 4px;
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  margin-right: 8px;
+}
+
+.suggest-date-button {
+  background-color: blue;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styling for BabyDetailsCard and AppointmentDetailsCard components can be added separately */
