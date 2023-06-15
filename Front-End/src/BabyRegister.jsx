@@ -11,6 +11,7 @@ export const BabyRegister = (props) => {
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
 
@@ -87,6 +88,14 @@ export const BabyRegister = (props) => {
             name="birthday"
           />
            </dev>
+           <input
+              value={gender}
+              onChange={(input) => setGender(input.target.value)}
+              type="gender"
+              placeholder="Gender"
+              id="gender"
+              name="gender"
+            />
           
           <button type="submit">
             <b>Register Baby</b>
