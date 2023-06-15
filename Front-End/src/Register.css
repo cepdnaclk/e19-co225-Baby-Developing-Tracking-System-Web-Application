@@ -112,6 +112,7 @@
   
   .register-form > button:hover {
     background: #085a3a;
+    scale: 1.03;
   }
 
   .Fname > input {

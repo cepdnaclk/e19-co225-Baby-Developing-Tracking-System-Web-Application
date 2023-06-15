@@ -1,3 +1,4 @@
+/* DoctorDashboard */
 import React, { useState,useEffect } from "react";
 import axios from "axios";
 import BabyDetailsCard from "./BabyDetailsCard";
@@ -6,7 +7,8 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import Calendar from "./Calender";
 import "./MidwifeDashboard.css";
-import "./AppointmentDetailsCard.css"
+import "./AppointmentDetailsCard.css";
+import "./DoctorDashboard.css";
 
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -92,17 +94,23 @@ const DoctorDashboard = () => {
           <h1 className="header text-center font-[500] text-3xl">Doctor Dashboard</h1>
 
 
+
           <Calendar />
           <div className="card-container pb-10 mt-2 h-50 ">
           <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg">
-            <div className="card-header bg-blue-200">
-                <div className="text-center font-bold mx-3 border rounded">Patient</div>
-            </div>
-            <div className="card-body py-2">
-              <h5 className="card-title mx-3">Special title treatment</h5>
-              <p className="card-text mx-3">If you want to see them all.</p>
-              <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
-              <br />
+          <div className="flex justify-center">
+          <Calendar className="calendar" />
+          <div className="card-container pb-10 mt-2 h-50">
+          <div className="card text-center mt-10 mb-10 border buttom-rounded rounded-b-lg" style={{ flexBasis: '50%' }}>
+
+           <div className="card-header bg-blue-200">
+              <div className="text-center font-bold mx-3 border rounded">Patient</div>
+              </div>
+              <div className="card-body py-2">
+                <h5 className="card-title mx-3">Special title treatment</h5>
+                <p className="card-text mx-3">If you want to see them all.</p>
+                <a href="#" className="btn btn-primary mx-3">Go somewhere</a>
+                <br />
               <button className="btn btn-secondary border rounded-lg text-gray-50 bg-blue-950 hover:scale-105 hover:bg-blue-900 transition-all pt-2 pr-4 pb-2 pl-4 mt-2 mb-2">More</button>
             </div>
           </div>

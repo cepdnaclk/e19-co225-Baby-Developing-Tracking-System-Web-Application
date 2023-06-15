@@ -53,40 +53,42 @@ export const Login = (props) => {
   return (
     <div className="login-full">
       <Nav />
-      <div className="auth-form-cantainer">
-        <h2>
-          <b>Login</b>
-        </h2>
-        <h3>Enter your credentials</h3>
-        <form className="login-form" onSubmit={handleSubmit}>
-          <input
-            value={email}
-            onChange={(input) => setName(input.target.value)}
-            type="email"
-            placeholder="Email"
-            id="email"
-            name="email"
-            required="required"
-          />
-          <input
-            value={password}
-            onChange={(input) => setPassword(input.target.value)}
-            type="password"
-            placeholder="Password"
-            id="password"
-            name="password"
-            required="required"
-          />
-          <button type="submit">
-            <b>LOGIN</b>
+      <div className="relative my-16 mx-3 rounded-lg p-4">
+        <div className="auth-form-cantainer">
+          <h2>
+            <b>Login</b>
+          </h2>
+          <h3>Enter your credentials</h3>
+          <form className="login-form" onSubmit={handleSubmit}>
+            <input
+              value={email}
+              onChange={(input) => setName(input.target.value)}
+              type="email"
+              placeholder="Email"
+              id="email"
+              name="email"
+              required="required"
+            />
+            <input
+              value={password}
+              onChange={(input) => setPassword(input.target.value)}
+              type="password"
+              placeholder="Password"
+              id="password"
+              name="password"
+              required="required"
+            />
+            <button type="submit">
+              <b>LOGIN</b>
+            </button>
+          </form>
+          <button
+            className="link-btn"
+            onClick={() => navigate("/register")}
+          >
+            Don't have an account? Register here.
           </button>
-        </form>
-        <button
-          className="link-btn"
-          onClick={() => navigate("/register")}
-        >
-          Don't have an account? Register here.
-        </button>
+        </div>
       </div>
       <Footer />
     </div>
