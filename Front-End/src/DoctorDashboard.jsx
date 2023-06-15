@@ -37,29 +37,29 @@ const DoctorDashboard = () => {
   // // Uncomment this to connect the table with the database
   // //(Note that the fields are not correctly matching at the moment)
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const token = JSON.parse(localStorage.getItem("user"));
-  //       const access = token.access_token;
-  //       console.log(access);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         
-  //       const response = await axios.get('http://localhost:8080/api/v1/doctor', {
-  //         headers: {
-  //           "Access-Control-Allow-Origin": true,
-  //           Authorization: "Bearer " + access
-  //         },
-  //       });
+        const response = await axios.get('http://localhost:8080/api/v1/doctor', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
   
-  //       setSelectedBabyTableData(response.data);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
+        setSelectedBabyTableData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
 
   const handleBabyRowClick = (baby) => {
@@ -131,9 +131,9 @@ const DoctorDashboard = () => {
                 <tr>
                   <th className="bg-blue-200 font-bold py-2"><button>Baby Name</button></th>
                   <th className="bg-blue-200 font-bold py-2"><button>Parent Name</button></th>
-                  <th className="bg-blue-200 font-bold py-2"><button>Sex</button></th>
+                  <th className="bg-blue-200 font-bold py-2"><button>Gender</button></th>
                   <th className="bg-blue-200 font-bold py-2">
-                    <button>Allocated Date</button>
+                    <button>Midwife Name</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2"><button>Appointment Status</button></th>
                 </tr>
@@ -141,20 +141,20 @@ const DoctorDashboard = () => {
               <tbody>
                 {selectedBabyTableData.map((baby) => (
                   <tr
-                    key={baby.name}
+                    key={baby.firstName}
                     className="cursor-pointer hover:bg-gray-100"
                     
                   >
                     <td className="border py-2 px-3 text-center" >
-                      {baby.name}
+                      {baby.babyName}
                     </td>
                     <td className="border py-2 px-3 text-center">
                       {baby.parentName}
                     </td>
                     <td className="border py-2 px-3 text-center" >
-                      {baby.sex}</td>
+                      {baby.gender}</td>
                     <td className="border py-2 px-3 text-center" >
-                      {baby.appointedDoctor}
+                      {baby.midwifeName}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
