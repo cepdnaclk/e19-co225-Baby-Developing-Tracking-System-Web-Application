@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import Modal from "react-modal";
+import "./AdminLogin.css";
 
 export const AdminLogin = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
     if (username === "root" && password === "password") {
       navigate("/admin");
     } else {
-      alert("Invalid credentials. Please try again.");
+      setIsModalOpen(true);
     }
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -44,6 +51,20 @@ export const AdminLogin = (props) => {
         </form>
       </div>
       <Footer />
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Access Denied"
+        className="modal"
+        overlayClassName="overlay"
+      >
+        <h2 className="modal-heading">Access Denied</h2>
+        <p className="modal-message">Invalid credentials. Please try again.</p>
+        <button className="modal-button" onClick={closeModal}>
+          OK
+        </button>
+      </Modal>
     </div>
   );
 };
