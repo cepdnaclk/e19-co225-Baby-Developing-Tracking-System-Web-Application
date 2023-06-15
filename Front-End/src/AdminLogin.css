@@ -1,5 +1,5 @@
 
-.add-doctor-container {
+.add-admin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   background-color: #f2f2f2;
 }
 
-.add-doctor-form-container {
+.add-admin-form-container {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -20,7 +20,7 @@
   
 }
 
-.add-doctor-form {
+.add-admin-form {
   display: grid;
   grid-gap: 10px;
 }
@@ -31,18 +31,18 @@
   font-weight: bold;
 }
 
-.add-doctor-form label {
+.add-admin-form label {
   font-weight: bold;
 }
 
-.add-doctor-form input {
+.add-admin-form input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.add-doctor-form button {
+.add-admin-form button {
   width: 100%;
   padding: 10px;
   background-color: #4caf50;
@@ -52,11 +52,11 @@
   cursor: pointer;
 }
 
-.add-doctor-form button:hover {
+.add-admin-form button:hover {
   background-color: #45a049;
 }
 
-.add-doctor-form button:focus {
+.add-admin-form button:focus {
   outline: none;
 }
 

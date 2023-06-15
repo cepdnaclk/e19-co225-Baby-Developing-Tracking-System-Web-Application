@@ -24,11 +24,11 @@ export const AdminLogin = (props) => {
   };
 
   return (
-    <div className="add-doctor-container">
+    <div className="add-admin-container">
       <Nav />
-      <div className="add-doctor-form-container">
+      <div className="add-admin-form-container">
         <h1 className="h1">Admin Login</h1>
-        <form className="add-doctor-form">
+        <form className="add-admin-form">
           <label htmlFor="username">Username:</label>
           <input
             type="text"

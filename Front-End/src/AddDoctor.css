@@ -2,57 +2,81 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f2f2f2;
+  min-height: 80vh;
+  margin-top: 100px;
 }
 
 .add-doctor-form-container {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 90%;
-  width: 600px;
+  
+  width: 400px;
   padding-top: 30px;
+  border: 1px solid #5e5858;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #d3cece;
+}
+
+.h1Doc {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .add-doctor-form {
-  display: grid;
-  grid-gap: 10px;
+  padding: 20px;
 }
 
-.h2 {
-  margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
+.add-doctor-form-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #333;
+  margin-left: 15px;
 }
 
-.add-doctor-form label {
-  font-weight: bold;
-}
-
-.add-doctor-form input {
-  width: 100%;
+.add-doctor-form-input {
+  width: 90%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin-left: 15px;
+  
 }
 
-.add-doctor-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50;
+.add-doctor-form-button[type="submit"] {
+  background-color: rgb(21, 93, 68);
   color: #ffffff;
+  padding: 12px 24px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
   cursor: pointer;
+  margin-left: 130px;
+  margin-bottom: 20px;
 }
 
-.add-doctor-form button:hover {
-  background-color: #45a049;
+.add-doctor-form-button[type="submit"]:hover {
+  background-color: #2b7a59;
+  
 }
 
-.add-doctor-form button:focus {
+.add-doctor-form-input:focus {
   outline: none;
+  border-color: #5cb85c;
+  box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+.add-doctor-form-input::placeholder {
+  color: #999;
+}
+
+
+@media (max-width: 480px) {
+  .add-doctor-form-container {
+    width: 90%;
+  }
 }

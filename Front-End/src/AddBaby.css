@@ -1,99 +1,63 @@
 .add-baby-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #f2f2f2;
-  }
-  
-  .add-baby-form-container {
-    margin-top: 80px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 90%;
-    width: 700px; /* Adjust form width as needed */
-    margin-bottom: 80px;
-  }
-  
-  .add-baby-form {
-    display: grid;
-    grid-gap: 10px;
-    margin-top: 10px; /* Add top margin to the form */
-    border-radius: 10px;
-  }
-  
-  .add-baby-form h2 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
 
-  .h2{
-    padding-left: 270px;
-  }
-  
-  .add-baby-form label {
-    font-weight: bold;
-  }
-  
-  .add-baby-form input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .add-baby-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4caf50;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .add-baby-form button:hover {
-    background-color: #45a049;
-  }
-  
-  .add-baby-form button:focus {
-    outline: none;
-  }
-  
-  .add-baby-form .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 5px;
-  }
-  
-  .add-baby-form .form-row label {
-    margin-bottom: 3px;
-  }
-  
-  .add-baby-form .form-row input {
-    grid-column: span 2;
-  }
-  
-  /* Additional Styles */
-  .add-baby-form-container {
-    height: auto; /* Remove fixed height */
-  }
-  
-  .add-baby-form {
-    margin-top: 10px; /* Increase top margin as needed */
-  }
-  
-  .add-baby-form label,
-  .add-baby-form input {
-    font-size: 14px; /* Adjust font size as needed */
-  }
-  
-  .add-baby-form button {
-    margin-top: 10px;
-  }
-  
-  /* Add any additional styling as needed */
-  
+.add-baby-form-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  width: 600px;
+  background-color: #dad5d5;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.add-baby-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.add-baby-form input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.add-baby-form button[type="submit"] {
+  background-color: #4caf50;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.add-baby-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.add-baby-form input[type="date"] {
+
+  padding: 8px;
+}
+
+.add-baby-form input[type="number"] {
+ 
+  padding: 8px;
+}
+
+
