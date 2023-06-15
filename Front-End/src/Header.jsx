@@ -124,7 +124,7 @@ export const Header = () => {
             className={""}
             onClick={() => handleItemClick("/admin")}
           >
-            ADD PERENT<span></span>
+            ADD PARENT<span></span>
           </li>
           
           <li

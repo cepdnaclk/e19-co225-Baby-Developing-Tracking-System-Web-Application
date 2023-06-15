@@ -22,6 +22,7 @@
     display: grid;
     grid-gap: 10px;
     margin-top: 10px; /* Add top margin to the form */
+    border-radius: 10px;
   }
   
   .add-baby-form h2 {
@@ -50,7 +51,7 @@
     background-color: #4caf50;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
   }
   
