@@ -109,7 +109,7 @@ export const Header = () => {
           </li>
           <li
             className={""}
-            onClick={() => handleItemClick("/admin")}
+            onClick={() => handleItemClick("/addbaby")}
           >
             ADD BABY<span></span>
           </li>

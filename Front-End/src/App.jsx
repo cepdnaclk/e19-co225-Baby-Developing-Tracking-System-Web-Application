@@ -12,6 +12,7 @@ import { Home } from "./Home";
 import ParentDashboard from "./ParentDashboard";
 import { BabyRegister } from "./BabyRegister";
 import { AdminHome } from "./AdminHome";
+import { AddBaby } from "./AddBaby";
 
 function App() {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Parent" element={<ParentDashboard />} />
           <Route path="/BabyRegister" element={<BabyRegister />} />
           <Route path="/admin" element={<AdminHome />} />
+          <Route path="/addbaby" element={<AddBaby />} />
         </Routes>
     </div>
   );

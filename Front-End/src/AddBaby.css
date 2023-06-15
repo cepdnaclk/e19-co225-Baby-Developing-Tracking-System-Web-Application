@@ -1,0 +1,72 @@
+.add-baby-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .add-baby-form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Increased form width */
+  }
+  
+  .add-baby-form {
+    display: grid;
+    grid-gap: 10px;
+  }
+  
+  .add-baby-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-baby-form label {
+    font-weight: bold;
+  }
+  
+  .add-baby-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-baby-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-baby-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .add-baby-form button:focus {
+    outline: none;
+  }
+  
+  .add-baby-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+  
+  .add-baby-form .form-row label {
+    margin-bottom: 5px;
+  }
+  
+  .add-baby-form .form-row input {
+    grid-column: span 2;
+  }
+  
+  /* Add any additional styling as needed */
+  
