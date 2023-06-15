@@ -1,8 +1,8 @@
 // MidwifeDashboard.jsx
 
-import React, { useState} from "react";
+import React, { useState,useEffect} from "react";
 import axios from "axios";
-import BabyDetailsCard from "./BabyDetailsCard";
+
 import AppointmentDetailsCard from "./AppointmentDetailsCard";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
@@ -10,11 +10,13 @@ import Calendar from "./Calender";
 import { useNavigate } from "react-router-dom";
 import "./ParentDashboard.css";
 import "./AppointmentDetailsCard.css"
+import ParentBabyDetailsCard from "./components/ParentBabyDetailsCard";
 
 const ParentDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
   const [isBabyNotAdded,setIsBabyAdded] = useState(false)
+  
   const navigate = useNavigate();
   
 
@@ -37,9 +39,16 @@ const ParentDashboard = () => {
     },
     // Add more baby data as needed
   ];
+  const demoBaby = {
+    name: "Peter",
+    age: 2,
+    parentName : "John",
+    address : "Kandy",
+    specialInformation: "Cute",
 
+  }
   const [selectedBabyTableData,setSelectedBabyTableData] = useState(babyTableData);
-
+  const [babyData,setBabyData] = useState(demoBaby)
   // // Uncomment this to connect the table with the database
   // //(Note that the fields are not correctly matching at the moment)
   // //(Change the endpoint and fields as necessary)
@@ -67,6 +76,57 @@ const ParentDashboard = () => {
   
   //   fetchData();
   // }, []);
+
+// // Method to find out whether you have already registered a baby or not
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
+        
+        const response = await axios.get('http://localhost:8080/api/v1/parent/babyNotExist', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
+  
+        setIsBabyAdded(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
+// Method to find out whether you have already registered a baby or not
+    useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
+        
+        const response = await axios.get('http://localhost:8080/api/v1/parent/getBaby', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
+  
+        setBabyData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
   
 
   // Sample data for the calendar
@@ -109,13 +169,16 @@ const ParentDashboard = () => {
       <div className="parent-dashboard">
         <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] text-3xl">Parent Dashboard</h1>
+          <br/>
           {isBabyNotAdded && <button
           
-          className="link-btn"
-          onClick={() => navigate("/register")}
+          className="accept-button"
+          onClick={() => navigate("/babyregister")}
         >
-          Have'nt added your baby yet
+          Add Baby Details
         </button>}
+
+        {!isBabyNotAdded && <ParentBabyDetailsCard baby = {babyData}/>}
           
           <Calendar />
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
