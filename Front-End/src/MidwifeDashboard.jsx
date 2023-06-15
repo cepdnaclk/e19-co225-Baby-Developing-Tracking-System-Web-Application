@@ -141,7 +141,7 @@ const MidwifeDashboard = () => {
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
                         <button
-                          className="appointment-button blink"
+                          className="appointment-button blink bg-green-200"
                           onClick={() => handleAppointmentButtonClick(baby)}
                         >
                           Appointment Requested
