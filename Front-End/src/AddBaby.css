@@ -4,15 +4,19 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    overflow: hidden;
     background-color: #f2f2f2;
   }
   
   .add-baby-form-container {
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px; /* Increased form width */
+    max-width: 90%;
+    width: 800px; /* Adjust form width as needed */
+    height: fit-content; /* Adjust form height to fit content */
+    overflow-y: auto;
   }
   
   .add-baby-form {
@@ -68,5 +72,23 @@
     grid-column: span 2;
   }
   
-  /* Add any additional styling as needed */
+
+  .add-baby-form-container {
+    height: 80vh; /* Decreased form height */
+  }
+  
+  .add-baby-form {
+    margin-top: 10px;
+  }
+  
+  .add-baby-form label,
+  .add-baby-form input {
+    font-size: 16px; /* Adjust font size as needed */
+  }
+  
+  .add-baby-form button {
+    margin-top: 20px;
+  }
+  
+
   
