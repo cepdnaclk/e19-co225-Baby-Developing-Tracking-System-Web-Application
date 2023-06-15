@@ -47,4 +47,14 @@ public class ParentService {
         babyRepository.save(baby);
 
     }
+
+    public Baby getYourBaby() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String email = authentication.getName();
+
+        Parent parent = parentRepository.findByEmail(email);
+
+        return babyRepository.findBabyByParent(parent);
+    }
 }

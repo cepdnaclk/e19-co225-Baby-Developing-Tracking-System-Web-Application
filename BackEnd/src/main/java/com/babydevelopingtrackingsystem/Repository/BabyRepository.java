@@ -13,4 +13,7 @@ public interface BabyRepository extends JpaRepository<Baby,Integer> {
     List<Baby> findAllByDoctor(@Param("id") Integer id);
 
     boolean existsByParent(Parent parent);
+
+    Baby findBabyByParent(Parent parent);
+
 }
