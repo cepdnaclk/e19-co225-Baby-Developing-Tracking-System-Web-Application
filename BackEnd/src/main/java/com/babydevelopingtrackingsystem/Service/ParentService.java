@@ -38,7 +38,11 @@ public class ParentService {
         Baby baby = new Baby();
 
         baby.setParent(parent);
-        baby.setDateofBirth(babyRegistrationRequest.get);
+        baby.setDateofBirth(babyRegistrationRequest.getBirthday().toString());
+        baby.setName(babyRegistrationRequest.getFirstName()+babyRegistrationRequest.getLastName());
+        baby.setGender(babyRegistrationRequest.getGender());
+
+        babyRepository.save(baby);
 
     }
 }
