@@ -110,7 +110,7 @@ const ParentDashboard = () => {
         const access = token.access_token;
         console.log(access);
         
-        const response = await axios.get('http://localhost:8080/api/v1/parent/getYourBaby', {
+        const response = await axios.get('http://localhost:8080/api/v1/parent/getBaby', {
           headers: {
             "Access-Control-Allow-Origin": true,
             Authorization: "Bearer " + access

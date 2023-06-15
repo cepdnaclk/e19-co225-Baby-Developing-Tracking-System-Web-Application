@@ -6,6 +6,8 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import axios from "axios";
 
+const API_URL = "http://localhost:8080/api/v1/parent";
+
 export const BabyRegister = (props) => {
   
   const [firstname, setFirstName] = useState("");
@@ -24,7 +26,7 @@ export const BabyRegister = (props) => {
       const access = token.access_token;
       console.log(access);
      axios
-    .post(AuthService.API_URL + "/parent/registerBaby", {
+    .post(API_URL + "/registerBaby", {
       firstname,
       lastname,
       birthday,
