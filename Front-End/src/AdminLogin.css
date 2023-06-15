@@ -11,10 +11,11 @@
 .add-doctor-form-container {
   background-color: #ffffff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 90%;
-  width: 600px;
+  width: 400px;
+  height: 380px;
   padding-top: 30px;
   
 }

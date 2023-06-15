@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Header } from "./Header";
+import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import Modal from "react-modal";
 import "./AdminLogin.css";
@@ -25,7 +25,7 @@ export const AdminLogin = (props) => {
 
   return (
     <div className="add-doctor-container">
-      <Header />
+      <Nav />
       <div className="add-doctor-form-container">
         <h1 className="h1">Admin Login</h1>
         <form className="add-doctor-form">
