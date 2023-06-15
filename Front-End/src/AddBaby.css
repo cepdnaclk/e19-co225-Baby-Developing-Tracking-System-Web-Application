@@ -4,29 +4,29 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    overflow: hidden;
     background-color: #f2f2f2;
   }
   
   .add-baby-form-container {
+    margin-top: 80px;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 90%;
-    width: 800px; /* Adjust form width as needed */
-    height: fit-content; /* Adjust form height to fit content */
-    overflow-y: auto;
+    width: 700px; /* Adjust form width as needed */
+    margin-bottom: 80px;
   }
   
   .add-baby-form {
     display: grid;
     grid-gap: 10px;
+    margin-top: 10px; /* Add top margin to the form */
   }
   
   .add-baby-form h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .add-baby-form label {
@@ -61,34 +61,34 @@
   .add-baby-form .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 5px;
   }
   
   .add-baby-form .form-row label {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
   
   .add-baby-form .form-row input {
     grid-column: span 2;
   }
   
-
+  /* Additional Styles */
   .add-baby-form-container {
-    height: 80vh; /* Decreased form height */
+    height: auto; /* Remove fixed height */
   }
   
   .add-baby-form {
-    margin-top: 10px;
+    margin-top: 10px; /* Increase top margin as needed */
   }
   
   .add-baby-form label,
   .add-baby-form input {
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 14px; /* Adjust font size as needed */
   }
   
   .add-baby-form button {
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
-
+  /* Add any additional styling as needed */
   
