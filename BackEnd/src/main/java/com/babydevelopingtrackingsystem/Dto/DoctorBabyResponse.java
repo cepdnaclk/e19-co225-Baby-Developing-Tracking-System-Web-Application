@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class DoctorBabyResponse {
     private String babyName;
     private String parentName;
-    private String midwifeName;
+    private String midWifeName;
 
-    private String Gender;
+    private String gender;
 }
