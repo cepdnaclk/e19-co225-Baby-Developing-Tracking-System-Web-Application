@@ -3,7 +3,7 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/api/v1/adminUser";
 
 // Registers a user by making a POST request to the API
-const signup = (firstname, lastname, email, password,role) => {
+export const signup = (firstname, lastname, email, password, role) => {
   return axios
     .post(API_URL + "/register", {
       firstname,
@@ -21,4 +21,15 @@ const signup = (firstname, lastname, email, password,role) => {
       return response.data;
     });
 };
+
+// Deletes a user by making a DELETE request to the API
+export const deleteUser = (userId) => {
+  return axios
+    .delete(API_URL + `/${userId}`)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    });
+};
+
 
