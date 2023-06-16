@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+}
+.graph {
+    flex: 1;
+    padding: 20px;
+}
+
+.graph-caption {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.graph-caption::after {
+    content: ':';
+}
