@@ -123,10 +123,19 @@ export const Nav = () => {
           )}
           {currentUser && (
             <li
+            className={location.pathname === "/Parent" ? "active" : ""}
+            onClick={() => handleItemClick("/Parent")}
+            >
+              Doctor<span></span>
+            </li>
+          )}
+
+         {currentUser && (
+            <li
             className={location.pathname === "/Doctor" ? "active" : ""}
             onClick={() => handleItemClick("/Doctor")}
             >
-              Doctor<span></span>
+              Parent<span></span>
             </li>
           )}
            {currentUser && (
@@ -160,6 +169,16 @@ export const Nav = () => {
               onClick={() => handleItemClick("/register")}
             >
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Up
+              <span></span>
+            </li>
+          )}
+
+          {!currentUser && (
+            <li
+              className="adminLogin-button"
+              onClick={() => handleItemClick("/adminLogin")}
+            >
+              <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Admin Login
               <span></span>
             </li>
           )}

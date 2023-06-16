@@ -1,0 +1,61 @@
+html {
+    font-size: 22px;
+}
+* {
+
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    /* background-image: url("baby_img/baby_one.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;*/
+    
+}
+
+table {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 0.85rem;
+      ;
+}
+
+.form-container {
+    margin-bottom: 1px;
+    text-align: justify;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    border: 2px solid #000000; /* Specify the desired border style */
+    padding: 20px; /* Add padding to create space around the form */
+    border-radius: 8px; /* Add border radius for rounded corners */
+    border-color: brown;
+  }
+
+  .content-box {
+    border: 2px solid #000000; /* Specify the desired border style */
+    border-radius: 20px;
+    padding: 20px; /* Add padding to create space around the content */
+    margin-top: 80px;
+    margin-bottom: 100px;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td:first-child {
+    text-align: justify;
+  }
+
+  .head {
+    color: #000000;
+  }
