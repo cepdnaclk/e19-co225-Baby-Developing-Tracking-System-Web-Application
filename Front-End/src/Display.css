@@ -28,11 +28,7 @@
     font-weight: bold;
   }
   
-  .button-container {
-    display: flex;
-    gap: 5px;
-  }
-  
+  .button-container,
   .button-container1 {
     display: flex;
     gap: 5px;
@@ -55,5 +51,10 @@
   .button-container1 button:last-child {
     background-color: #f44336;
     color: white;
+  }
+  
+  .button-container button:hover,
+  .button-container1 button:hover {
+    opacity: 0.8;
   }
   
