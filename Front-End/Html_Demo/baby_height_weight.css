@@ -1,16 +1,31 @@
 .container {
     display: flex;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
 }
 .graph {
     flex: 1;
-    padding: 20px;
 }
 
 .graph-caption {
+    color: black;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
 }
-.graph-caption::after {
-    content: ':';
+body {
+    margin: 10px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
 }
+
+@media screen and (max-width: 768px) {
+            .container figure,
+            .container .graph {
+                flex-basis: 100%;
+            }
+        }
