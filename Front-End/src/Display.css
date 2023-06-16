@@ -1,0 +1,59 @@
+.container {
+    margin: 20px;
+  }
+  
+  .h2 {
+    margin-top: 30px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .table thead tr {
+    background-color: #f2f2f2;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .button-container1 {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .button-container button,
+  .button-container1 button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button-container button:first-child,
+  .button-container1 button:first-child {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .button-container button:last-child,
+  .button-container1 button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  
