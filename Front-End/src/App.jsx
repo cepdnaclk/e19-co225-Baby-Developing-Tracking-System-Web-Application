@@ -11,7 +11,7 @@ import { Home } from "./Home";
 import ParentDashboard from "./ParentDashboard";
 import { BabyRegister } from "./BabyRegister";
 import { AdminHome } from "./AdminHome";
-import { AddBaby } from "./AddBaby";
+import { AddUser } from "./AddUser";
 import { AddDoctor } from "./AddDoctor";
 import { AdminLogin } from "./AdminLogin";
 
@@ -47,7 +47,7 @@ function App() {
           <Route path="/Parent" element={<ParentDashboard />} />
           <Route path="/BabyRegister" element={<BabyRegister />} />
           <Route path="/admin" element={<AdminHome />} />
-          <Route path="/addbaby" element={<AddBaby />} />
+          <Route path="/adduser" element={<AddUser />} />
           <Route path="/addDoctor" element={<AddDoctor />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
         </Routes>
