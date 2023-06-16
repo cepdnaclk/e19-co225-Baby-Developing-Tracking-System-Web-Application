@@ -1,12 +1,16 @@
 package com.babydevelopingtrackingsystem;
 
+import com.babydevelopingtrackingsystem.Model.User;
 import com.babydevelopingtrackingsystem.Model.Vaccination;
+import com.babydevelopingtrackingsystem.Repository.UserRepository;
 import com.babydevelopingtrackingsystem.Repository.VaccinationRepository;
+import com.babydevelopingtrackingsystem.Utill.Role;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 public class BabyDevelopingTrackingSystemApplication {
@@ -21,10 +25,16 @@ public class BabyDevelopingTrackingSystemApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository){
+    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository, UserRepository userRepository,PasswordEncoder passwordEncoder){
         return args -> {
 
+
             addVaccinations(vaccinationRepository);
+            userRepository.save(new User("ADMIN",
+                                        "MAIN",
+                                        "admin@sproutopia.com",
+                    passwordEncoder.encode("password"),
+                                        Role.ADMIN));
 
 
 
