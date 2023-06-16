@@ -4,6 +4,10 @@
 .midwife-dashboard {
   display: flex;
   flex-direction: row;
+  background-image: url('assets/output-onlinepngtools.png');
+  background-size: cover;
+  background-position: center;
+
 }
 
 .blink {
@@ -22,14 +26,7 @@
   }
 }
 
-.appointment-button {
-  background-color: rgba(0, 255, 149, 0.875);
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  border-radius: 10px;
-}
+
 
 .header {
   font-family: "Poppins", sans-serif;
