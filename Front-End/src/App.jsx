@@ -48,7 +48,6 @@ function App() {
           <Route path="/BabyRegister" element={<BabyRegister />} />
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/adduser" element={<AddUser />} />
-          <Route path="/addDoctor" element={<AddDoctor />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
         </Routes>
     </div>
