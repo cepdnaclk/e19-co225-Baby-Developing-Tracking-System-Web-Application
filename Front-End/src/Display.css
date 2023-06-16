@@ -11,6 +11,7 @@
     border-collapse: collapse;
     margin-top: 20px;
     border: 1px solid #ccc;
+    border-radius: 5px;
   }
   
   .table thead tr {
@@ -68,5 +69,16 @@
   .button-container button:hover,
   .button-container1 button:hover {
     opacity: 0.8;
+  }
+  
+  /* New styles */
+  
+  .table td.data-value {
+    font-weight: normal;
+    color: #333;
+  }
+  
+  .button-container button {
+    border: none;
   }
   
