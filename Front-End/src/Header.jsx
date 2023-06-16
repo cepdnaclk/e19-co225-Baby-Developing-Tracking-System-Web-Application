@@ -116,7 +116,7 @@ export const Header = () => {
           
           <li
             className={""}
-            onClick={() => handleItemClick("/admin")}
+            onClick={() => handleItemClick("/display")}
           >
             DISPLAY <span></span>
           </li>
