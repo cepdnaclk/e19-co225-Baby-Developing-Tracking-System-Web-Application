@@ -19,13 +19,25 @@
   
   .table th,
   .table td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
     border: 1px solid #ccc;
   }
   
   .table th {
     font-weight: bold;
+  }
+  
+  .table td {
+    font-size: 14px;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e8e8e8;
   }
   
   .button-container,

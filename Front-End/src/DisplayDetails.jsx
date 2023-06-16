@@ -5,33 +5,32 @@ import "./Display.css";
 
 export const DisplayDetails = () => {
   const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    role: ""
+    firstName: "John",
+    lastName: "Doe",
+    email: "johndoe@example.com",
+    role: "Admin"
   });
 
   const [babyData, setBabyData] = useState({
-    name: "",
-    dateOfBirth: "",
-    gender: "",
-    bloodType: "",
-    birthWeight: 0,
-    birthLength: 0,
-    eyeColor: "",
-    hairColor: "",
-    skinColor: "",
-    nationality: "",
-    birthPlace: "",
-    birthHospital: "",
-    parentInformation: "",
-    contactInformation: "",
-    medicalConditions: "",
-    allergies: "",
-    immunizationRecords: "",
-    growthRecords: "",
-    developmentalMilestones: ""
+    name: "Emma",
+    dateOfBirth: "2022-01-01",
+    gender: "Female",
+    bloodType: "O+",
+    birthWeight: 3.2,
+    birthLength: 50,
+    eyeColor: "Blue",
+    hairColor: "Blonde",
+    skinColor: "Fair",
+    nationality: "American",
+    birthPlace: "New York",
+    birthHospital: "St. Mary's Hospital",
+    parentInformation: "John Doe, Jane Doe",
+    contactInformation: "johndoe@example.com",
+    medicalConditions: "None",
+    allergies: "None",
+    immunizationRecords: "Up to date",
+    growthRecords: "Normal",
+    developmentalMilestones: "Meeting milestones"
   });
 
   const handleUserUpdate = () => {
@@ -142,3 +141,4 @@ export const DisplayDetails = () => {
     </div>
   );
 };
+
