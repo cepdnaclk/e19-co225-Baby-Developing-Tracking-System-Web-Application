@@ -15,7 +15,7 @@
     background-color: transparent;
   }
   50% {
-    background-color: red;
+    background-color: rgba(13, 128, 80, 0.875);
   }
   100% {
     background-color: transparent;

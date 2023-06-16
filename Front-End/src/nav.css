@@ -303,7 +303,7 @@
   background-color: #0e0a00c7;
   color: #fcfcfc;
   border: none;
-  border-radius: 16px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
@@ -320,7 +320,7 @@
   background-color: #f4d07daa;
   color: #000000c0;
   border: none;
-  border-radius: 16px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
