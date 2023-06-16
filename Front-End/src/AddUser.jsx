@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import "./AddUser.css";
+import auth from "./services/auth.service";
 
 export const AddUser = (props) => {
   const [babyDetails, setBabyDetails] = useState({
@@ -12,6 +13,8 @@ export const AddUser = (props) => {
     password: "",
     role: "",
   });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,12 +26,39 @@ export const AddUser = (props) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your logic to save the baby details
-    console.log(babyDetails);
-    // Reset the form or navigate to another page
-    // navigate("/some-other-page");
+
+    try {
+      const response = await auth.signup(
+        babyDetails.firstName,
+        babyDetails.lastName,
+        babyDetails.email,
+        babyDetails.password,
+        babyDetails.role
+      );
+
+      if (response && response.status === 200) {
+        const { access_token } = response.data;
+        setShowSuccessPopup(true);
+        setShowErrorPopup(false);
+        // Reset the form
+        setBabyDetails({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          role: "",
+        });
+      } else {
+        setShowSuccessPopup(false);
+        setShowErrorPopup(true);
+      }
+    } catch (error) {
+      console.error("Error adding user:", error);
+      setShowSuccessPopup(false);
+      setShowErrorPopup(true);
+    }
   };
 
   return (
@@ -39,13 +69,13 @@ export const AddUser = (props) => {
         <div className="h2">
           <h2>ADD USER DETAILS</h2>
         </div>
-        
+
         <form className="add-baby-form" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
-            id="fname"
-            name="fname"
+            id="firstName"
+            name="firstName"
             value={babyDetails.firstName}
             onChange={handleInputChange}
             required
@@ -53,9 +83,9 @@ export const AddUser = (props) => {
 
           <label htmlFor="lastName">Last Name</label>
           <input
-            type="date"
-            id="lname"
-            name="lname"
+            type="text"
+            id="lastName"
+            name="lastName"
             value={babyDetails.lastName}
             onChange={handleInputChange}
             required
@@ -63,7 +93,7 @@ export const AddUser = (props) => {
 
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             value={babyDetails.email}
@@ -73,7 +103,7 @@ export const AddUser = (props) => {
 
           <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             value={babyDetails.password}
@@ -83,23 +113,34 @@ export const AddUser = (props) => {
 
           <label htmlFor="role">Role</label>
           <input
-            type="number"
+            type="text"
             id="role"
-            name="rolet"
+            name="role"
             value={babyDetails.role}
             onChange={handleInputChange}
             required
           />
 
-    
           {/* Add more input fields for the remaining attributes */}
-          
+
           <button type="submit">Save</button>
         </form>
+
+        {/* Display success or error message in a popup */}
+        {showSuccessPopup && (
+          <div className="popup success">
+            
+            <p>Failed to add user. Please try again.</p>
+          </div>
+        )}
+        {showErrorPopup && (
+          <div className="popup error">
+            <p>User added successfully.</p>
+          </div>
+        )}
       </div>
 
       <Footer />
     </div>
   );
 };
-

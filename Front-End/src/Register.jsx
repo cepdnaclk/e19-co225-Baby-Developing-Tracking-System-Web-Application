@@ -11,34 +11,14 @@ export const Register = (props) => {
   const [name, setName] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
-  const [role,setRole] = useState("USER");
+  const [role, setRole] = useState("USER");
 
   const navigate = useNavigate();
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(email);
-  //   try {
-  //     await axios.post("http://localhost:8080/api/v1/auth/register",
-  //     {username: name,
-  //     email: email,
-  //     password: password}
-  //     ).then((Response) => {
-  //       console.log(Response);
-  //       if (Response.token) {
-  //         localStorage.setItem("user", JSON.stringify(Response.data));
-  //       }
-  //       return Response.data;
-  //     });
-  //   } catch(err){
-  //     alert(err);
-  //   }
-  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(firstname, lastname, email, password,role).then(
+      await AuthService.signup(firstname, lastname, email, password, role).then(
         (response) => {
           console.log("Account Created", response);
           navigate("/home");
@@ -54,44 +34,36 @@ export const Register = (props) => {
   };
 
   return (
-    <dev className="Register-full">
+    <div className="Register-full">
       <Nav />
       <div className="relative my-16 mx-3 rounded-lg p-4">
-        <div className="auth-form-cantainer">
+        <div className="auth-form-container">
           <h2>
             <b>Sign Up</b>
           </h2>
           <h3>Please fill in this form to create an account</h3>
           <form className="register-form" onSubmit={handleSubmit}>
-            <dev className="Fname">
+            <div className="Fname">
               <input
                 value={firstname}
-                onChange={(input) => setFirstName(input.target.value)}
-                type="name"
+                onChange={(e) => setFirstName(e.target.value)}
+                type="text"
                 placeholder="First Name"
                 id="firstname"
                 name="firstname"
               />
               <input
                 value={lastname}
-                onChange={(input) => setLastName(input.target.value)}
-                type="name"
+                onChange={(e) => setLastName(e.target.value)}
+                type="text"
                 placeholder="Last Name"
                 id="lastname"
                 name="lastname"
               />
-            </dev>
-            {/* <input
-              value={name}
-              onChange={(input) => setName(input.target.value)}
-              type="name"
-              placeholder="Username"
-              id="name"
-              name="name"
-            /> */}
+            </div>
             <input
               value={email}
-              onChange={(input) => setEmail(input.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="Email Address"
               id="email"
@@ -99,7 +71,7 @@ export const Register = (props) => {
             />
             <input
               value={password}
-              onChange={(input) => setPassword(input.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               placeholder="Password"
               id="password"
@@ -107,9 +79,9 @@ export const Register = (props) => {
             />
             <input
               value={role}
-              onChange={(input) => setRole(input.target.value)}
-              type="name"
-              placeholder="role"
+              onChange={(e) => setRole(e.target.value)}
+              type="text"
+              placeholder="Role"
               id="role"
               name="role"
             />
@@ -123,6 +95,6 @@ export const Register = (props) => {
         </div>
       </div>
       <Footer />
-    </dev>
+    </div>
   );
 };
