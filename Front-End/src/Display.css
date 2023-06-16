@@ -1,0 +1,85 @@
+.container {
+    margin: 20px;
+    margin-top: 70px;
+  }
+  
+  .h2 {
+    margin-top: 30px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .table thead tr {
+    background-color: #f2f2f2;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .table th {
+    font-weight: bold;
+  }
+  
+  .table td {
+    font-size: 14px;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e8e8e8;
+  }
+  
+  .button-container,
+  .button-container1 {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .button-container button,
+  .button-container1 button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button-container button:first-child,
+  .button-container1 button:first-child {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .button-container button:last-child,
+  .button-container1 button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .button-container button:hover,
+  .button-container1 button:hover {
+    opacity: 0.8;
+  }
+  
+  /* New styles */
+  
+  .table td.data-value {
+    font-weight: normal;
+    color: #333;
+  }
+  
+  .button-container button {
+    border: none;
+  }
+  
