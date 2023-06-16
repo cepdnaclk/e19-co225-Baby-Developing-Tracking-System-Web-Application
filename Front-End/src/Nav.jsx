@@ -123,8 +123,8 @@ export const Nav = () => {
           )}
           {currentUser && (
             <li
-            className={location.pathname === "/Parent" ? "active" : ""}
-            onClick={() => handleItemClick("/Parent")}
+            className={location.pathname === "/Doctor" ? "active" : ""}
+            onClick={() => handleItemClick("/Doctor")}
             >
               Doctor<span></span>
             </li>
@@ -132,20 +132,13 @@ export const Nav = () => {
 
          {currentUser && (
             <li
-            className={location.pathname === "/Doctor" ? "active" : ""}
-            onClick={() => handleItemClick("/Doctor")}
-            >
-              Parent<span></span>
-            </li>
-          )}
-           {currentUser && (
-            <li
             className={location.pathname === "/Parent" ? "active" : ""}
             onClick={() => handleItemClick("/Parent")}
             >
               Parent<span></span>
             </li>
           )}
+          
           {currentUser && <NotificationAlertIcon notificationCount={3} />}
 
           {currentUser ? (
