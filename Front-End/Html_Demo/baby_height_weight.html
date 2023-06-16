@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>baby</title>
+    <title>Baby's Growing</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="baby_height_weight.css">
+
 </head>
 <body>
 
@@ -22,11 +23,11 @@
 
     <div class="container">
         <div class="graph">
-            <h2 class="graph-caption">Growing of Height</h2>
+            <h2 class="graph-caption">Growing of Height (cm)</h2>
             <canvas id="graph1"></canvas>
         </div>
         <div class="graph">
-            <h2 class="graph-caption">Growing of Weight</h2>
+            <h2 class="graph-caption">Growing of Weight (kg)</h2>
             <canvas id="graph2"></canvas>
         </div>
     </div>
@@ -56,7 +57,7 @@
         data: {
             labels: heightData.map(point => getMonthName(point.x)),
             datasets: [{
-            label: 'Height',
+            label: 'Height (cm)',
             data: heightData,
             borderColor: 'blue',
             fill: false
@@ -82,7 +83,7 @@
             y: {
                 title: {
                 display: true,
-                text: 'Height',
+                text: 'Height (cm)',
                 font: {
                     weight: 'bold',
                     size: 16
@@ -122,7 +123,7 @@
         data: {
             labels: weightData.map(point => getMonthName(point.x)),
             datasets: [{
-            label: 'Weight',
+            label: 'Weight (kg)',
             data: weightData,
             borderColor: 'green',
             fill: false
@@ -148,7 +149,7 @@
             y: {
                 title: {
                 display: true,
-                text: 'Weight',
+                text: 'Weight (kg)',
                 font: {
                     weight: 'bold',
                     size: 16
