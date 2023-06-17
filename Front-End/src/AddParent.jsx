@@ -5,7 +5,7 @@ import { Footer } from "./Footer";
 import "./AddUser.css";
 import auth from "./services/auth.service";
 
-export const AddPerent = (props) => {
+export const AddParent = (props) => {
   const [parentDetails, setParentDetails] = useState({
     firstName: "",
     lastName: "",
@@ -118,6 +118,16 @@ export const AddPerent = (props) => {
             type="text"
             id="role"
             name="role"
+            value={parentDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+<       label htmlFor="role">isMotherFatherGuardian</label>
+          <input
+            type="text"
+            id="isMotherFatherGuardian"
+            name="isMotherFatherGuardian"
             value={parentDetails.role}
             onChange={handleInputChange}
             required

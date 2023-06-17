@@ -73,7 +73,7 @@ export const AddDoctor = (props) => {
 
       <div className="add-baby-form-container">
         <div className="h2">
-          <h2>ADD USER DETAILS</h2>
+          <h2>ADD DOCTOR DETAILS</h2>
         </div>
 
         <form className="add-baby-form" onSubmit={handleSubmit}>

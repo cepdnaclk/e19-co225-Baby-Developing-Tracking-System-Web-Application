@@ -13,6 +13,7 @@ import { BabyRegister } from "./BabyRegister";
 import { AdminHome } from "./AdminHome";
 import { AddUser } from "./AddUser";
 import { AddDoctor } from "./AddDoctor";
+import { AddParent } from "./AddParent";
 import { DisplayDetails } from "./DisplayDetails";
 import { AdminLogin } from "./AdminLogin";
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/BabyRegister" element={<BabyRegister />} />
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/adduser" element={<AddUser />} />
+          <Route path="/addparent" element={<AddParent />} />
           <Route path="/adddoctor" element={<AddDoctor />} />
           <Route path="/adminLogin" element={<AdminLogin />} />
           <Route path="/display" element={<DisplayDetails />} />
