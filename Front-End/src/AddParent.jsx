@@ -128,7 +128,7 @@ export const AddParent = (props) => {
             type="text"
             id="isMotherFatherGuardian"
             name="isMotherFatherGuardian"
-            value={parentDetails.role}
+            value={parentDetails.isMotherFatherGuardian}
             onChange={handleInputChange}
             required
           />
