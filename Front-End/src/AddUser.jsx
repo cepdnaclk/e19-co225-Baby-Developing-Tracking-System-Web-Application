@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import "./AddUser.css";
-import auth from "./services/auth.service";
+import auth from "./services/user_service";
 
 export const AddUser = (props) => {
   const [userDetails, setUserDetails] = useState({

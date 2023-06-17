@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import "./AddUser.css";
-import auth from "./services/auth.service";
+import auth from "./services/doctor_service";
 
 export const AddDoctor = (props) => {
   const [userDetails, setUserDetails] = useState({
@@ -13,7 +13,7 @@ export const AddDoctor = (props) => {
     password: "",
     role: "",
     hospital: "",
-    registerNo: "",
+    regNo: "",
     specialization: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -33,12 +33,15 @@ export const AddDoctor = (props) => {
     e.preventDefault();
 
     try {
-      const response = await auth.signup(
+      const response = await auth.AddDoctor(
         userDetails.firstName,
         userDetails.lastName,
         userDetails.email,
         userDetails.password,
-        userDetails.role
+        userDetails.role,
+        userDetails.hospital,
+        userDetails.regNo,
+        userDetails.specialization
       );
 
       if (response && response.status === 200) {
@@ -53,7 +56,7 @@ export const AddDoctor = (props) => {
           password: "",
           role: "",
           hospital: "",
-          registerNo: "",
+          regNo: "",
           specialization: "",
         });
       } else {
@@ -127,32 +130,33 @@ export const AddDoctor = (props) => {
             required
           />
 
-        <label htmlFor="role">Hospital</label>
+        <label htmlFor="hospital">Hospital</label>
           <input
             type="text"
             id="hospital"
             name="hospital"
-            value={userDetails.role}
+            value={userDetails.hospital}
             onChange={handleInputChange}
             required
           />
 
-        <label htmlFor="role">Reg No</label>
-          <input
-            type="text"
-            id="regno"
-            name="regno"
-            value={userDetails.role}
-            onChange={handleInputChange}
-            required
-          />
+        <label htmlFor="regNo">Reg No</label>
+        <input
+          type="text"
+          id="regNo"
+          name="regNo"
+          value={userDetails.regNo}
+          onChange={handleInputChange}
+          required
+        />
 
-        <label htmlFor="role">Specialization</label>
+
+        <label htmlFor="specialization">Specialization</label>
           <input
             type="text"
             id="specialization"
             name="specialization"
-            value={userDetails.role}
+            value={userDetails.specialization}
             onChange={handleInputChange}
             required
           />
