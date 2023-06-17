@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Nav } from "./Nav";
-import { Footer } from "./Footer";
+import { Nav } from "../Nav";
+import { Footer } from "../Footer";
 import Modal from "react-modal";
 import "./AdminLogin.css";
 

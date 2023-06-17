@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Footer } from "../Footer.jsx";
 import "./AddUser.css";
-import auth from "./services/user_service";
+import auth from "../services/auth.service";
 
-export const AddUser = (props) => {
-  const [userDetails, setUserDetails] = useState({
+export const AddParent = (props) => {
+  const [parentDetails, setParentDetails] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     role: "",
+    isMotherFatherGuardian : "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -20,7 +21,7 @@ export const AddUser = (props) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUserDetails((prevDetails) => ({
+    setParentDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
     }));
@@ -31,11 +32,12 @@ export const AddUser = (props) => {
 
     try {
       const response = await auth.signup(
-        userDetails.firstName,
-        userDetails.lastName,
-        userDetails.email,
-        userDetails.password,
-        userDetails.role
+        parentDetails.firstName,
+        parentDetails.lastName,
+        parentDetails.email,
+        parentDetails.password,
+        parentDetails.role,
+        parentDetails.isMotherFatherGuardian,
       );
 
       if (response && response.status === 200) {
@@ -43,7 +45,7 @@ export const AddUser = (props) => {
         setShowSuccessPopup(true);
         setShowErrorPopup(false);
         // Reset the form
-        setUserDetails({
+        setParentDetails({
           firstName: "",
           lastName: "",
           email: "",
@@ -67,7 +69,7 @@ export const AddUser = (props) => {
 
       <div className="add-baby-form-container">
         <div className="h2">
-          <h2>ADD USER DETAILS</h2>
+          <h2>ADD PARENT DETAILS</h2>
         </div>
 
         <form className="add-baby-form" onSubmit={handleSubmit}>
@@ -76,7 +78,7 @@ export const AddUser = (props) => {
             type="text"
             id="firstName"
             name="firstName"
-            value={userDetails.firstName}
+            value={parentDetails.firstName}
             onChange={handleInputChange}
             required
           />
@@ -86,7 +88,7 @@ export const AddUser = (props) => {
             type="text"
             id="lastName"
             name="lastName"
-            value={userDetails.lastName}
+            value={parentDetails.lastName}
             onChange={handleInputChange}
             required
           />
@@ -96,7 +98,7 @@ export const AddUser = (props) => {
             type="email"
             id="email"
             name="email"
-            value={userDetails.email}
+            value={parentDetails.email}
             onChange={handleInputChange}
             required
           />
@@ -106,7 +108,7 @@ export const AddUser = (props) => {
             type="password"
             id="password"
             name="password"
-            value={userDetails.password}
+            value={parentDetails.password}
             onChange={handleInputChange}
             required
           />
@@ -116,7 +118,17 @@ export const AddUser = (props) => {
             type="text"
             id="role"
             name="role"
-            value={userDetails.role}
+            value={parentDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+<       label htmlFor="role">isMotherFatherGuardian</label>
+          <input
+            type="text"
+            id="isMotherFatherGuardian"
+            name="isMotherFatherGuardian"
+            value={parentDetails.isMotherFatherGuardian}
             onChange={handleInputChange}
             required
           />
