@@ -2,87 +2,180 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
-import "./AddDoctor.css";
+import "./AddUser.css";
+import auth from "./services/auth.service";
 
 export const AddDoctor = (props) => {
-  const [specialization, setSpecialization] = useState("");
-  const [hospital, setHospital] = useState("");
-  const [regNo, setRegNo] = useState("");
+  const [userDetails, setUserDetails] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    role: "",
+    hospital: "",
+    registerNo: "",
+    specialization: "",
+  });
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   const navigate = useNavigate();
 
-  const handleSpecializationChange = (event) => {
-    setSpecialization(event.target.value);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
   };
 
-  const handleHospitalChange = (event) => {
-    setHospital(event.target.value);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handleRegNoChange = (event) => {
-    setRegNo(event.target.value);
-  };
+    try {
+      const response = await auth.signup(
+        userDetails.firstName,
+        userDetails.lastName,
+        userDetails.email,
+        userDetails.password,
+        userDetails.role
+      );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    // Here you can perform the logic to add the doctor using the entered attributes
-    // For simplicity, let's just log the values for now
-    console.log("Specialization:", specialization);
-    console.log("Hospital:", hospital);
-    console.log("Registration No:", regNo);
-
-    // Reset the form fields
-    setSpecialization("");
-    setHospital("");
-    setRegNo("");
-
-    // Navigate to the desired page after adding the doctor
-    navigate("/doctors"); // Replace "/doctors" with your desired route
+      if (response && response.status === 200) {
+        const { access_token } = response.data;
+        setShowSuccessPopup(true);
+        setShowErrorPopup(false);
+        // Reset the form
+        setUserDetails({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          role: "",
+          hospital: "",
+          registerNo: "",
+          specialization: "",
+        });
+      } else {
+        setShowSuccessPopup(false);
+        setShowErrorPopup(true);
+      }
+    } catch (error) {
+      console.error("Error adding user:", error);
+      setShowSuccessPopup(false);
+      setShowErrorPopup(true);
+    }
   };
 
   return (
-    <div className="add-doctor-container">
+    <div className="add-baby-container">
       <Header />
 
-        <div className="add-doctor-form-container">
-
-            <h1 className="h1Doc">DOCTOR LOGIN</h1>
-            <form onSubmit={handleSubmit}>
-            <div>
-              <label className="add-doctor-form-label">Specialization:</label>
-              <input className = "add-doctor-form-input"
-                type="text"
-                value={specialization}
-                onChange={handleSpecializationChange}
-                
-              />
-            </div>
-
-            <div>
-              <label className="add-doctor-form-label">Hospital:</label>
-              <input
-                type="text"
-                value={hospital}
-                onChange={handleHospitalChange}
-                className="add-doctor-form-input"
-              />
-            </div>
-
-            <div>
-              <label className="add-doctor-form-label">Registration No:</label>
-              <input
-                type="text"
-                value={regNo}
-                onChange={handleRegNoChange}
-                className="add-doctor-form-input"
-              />
-            </div>
-
-            <button type="submit" className="add-doctor-form-button">Add Doctor</button>
-          </form>
-
+      <div className="add-baby-form-container">
+        <div className="h2">
+          <h2>ADD USER DETAILS</h2>
         </div>
+
+        <form className="add-baby-form" onSubmit={handleSubmit}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            value={userDetails.firstName}
+            onChange={handleInputChange}
+            required
+          />
+
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            value={userDetails.lastName}
+            onChange={handleInputChange}
+            required
+          />
+
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={userDetails.email}
+            onChange={handleInputChange}
+            required
+          />
+
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={userDetails.password}
+            onChange={handleInputChange}
+            required
+          />
+
+          <label htmlFor="role">Role</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            value={userDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+        <label htmlFor="role">Hospital</label>
+          <input
+            type="text"
+            id="hospital"
+            name="hospital"
+            value={userDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+        <label htmlFor="role">Reg No</label>
+          <input
+            type="text"
+            id="regno"
+            name="regno"
+            value={userDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+        <label htmlFor="role">Specialization</label>
+          <input
+            type="text"
+            id="specialization"
+            name="specialization"
+            value={userDetails.role}
+            onChange={handleInputChange}
+            required
+          />
+
+          {/* Add more input fields for the remaining attributes */}
+
+          <button type="submit">Save</button>
+        </form>
+
+        {/* Display success or error message in a popup */}
+        {showSuccessPopup && (
+          <div className="popup success">
+            
+            <p>Failed to add user. Please try again.</p>
+          </div>
+        )}
+        {showErrorPopup && (
+          <div className="popup error">
+            <p>User added successfully.</p>
+          </div>
+        )}
+      </div>
+
       <Footer />
     </div>
   );

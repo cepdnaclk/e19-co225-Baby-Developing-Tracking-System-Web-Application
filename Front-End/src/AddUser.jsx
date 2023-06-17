@@ -6,7 +6,7 @@ import "./AddUser.css";
 import auth from "./services/auth.service";
 
 export const AddUser = (props) => {
-  const [babyDetails, setBabyDetails] = useState({
+  const [userDetails, setUserDetails] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -20,7 +20,7 @@ export const AddUser = (props) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setBabyDetails((prevDetails) => ({
+    setUserDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
     }));
@@ -31,11 +31,11 @@ export const AddUser = (props) => {
 
     try {
       const response = await auth.signup(
-        babyDetails.firstName,
-        babyDetails.lastName,
-        babyDetails.email,
-        babyDetails.password,
-        babyDetails.role
+        userDetails.firstName,
+        userDetails.lastName,
+        userDetails.email,
+        userDetails.password,
+        userDetails.role
       );
 
       if (response && response.status === 200) {
@@ -43,7 +43,7 @@ export const AddUser = (props) => {
         setShowSuccessPopup(true);
         setShowErrorPopup(false);
         // Reset the form
-        setBabyDetails({
+        setUserDetails({
           firstName: "",
           lastName: "",
           email: "",
@@ -76,7 +76,7 @@ export const AddUser = (props) => {
             type="text"
             id="firstName"
             name="firstName"
-            value={babyDetails.firstName}
+            value={userDetails.firstName}
             onChange={handleInputChange}
             required
           />
@@ -86,7 +86,7 @@ export const AddUser = (props) => {
             type="text"
             id="lastName"
             name="lastName"
-            value={babyDetails.lastName}
+            value={userDetails.lastName}
             onChange={handleInputChange}
             required
           />
@@ -96,7 +96,7 @@ export const AddUser = (props) => {
             type="email"
             id="email"
             name="email"
-            value={babyDetails.email}
+            value={userDetails.email}
             onChange={handleInputChange}
             required
           />
@@ -106,7 +106,7 @@ export const AddUser = (props) => {
             type="password"
             id="password"
             name="password"
-            value={babyDetails.password}
+            value={userDetails.password}
             onChange={handleInputChange}
             required
           />
@@ -116,7 +116,7 @@ export const AddUser = (props) => {
             type="text"
             id="role"
             name="role"
-            value={babyDetails.role}
+            value={userDetails.role}
             onChange={handleInputChange}
             required
           />
