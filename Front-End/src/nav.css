@@ -244,14 +244,38 @@
   }
 
   @media only screen and (max-width: 768px) {
-    .nav ul > * {
-      margin-right: 0;
-      margin-bottom: 7px;
-    }
+    
   }
 
   .nav {
     gap: 0;
+  }
+
+  
+}
+
+@media (width < 821px) {
+  .nav .logo {
+    scale: 0.8;
+  }
+
+  .nav ul >*{
+    scale: 0.9
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  .nav ul > * {
+    margin-right: 0;
+    margin-bottom: 7px;
+    scale: 0.9
+
+  }
+
+  .nav li{
+    padding: 10px 15px;
   }
 }
 

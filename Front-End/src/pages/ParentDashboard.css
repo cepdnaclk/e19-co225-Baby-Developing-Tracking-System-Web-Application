@@ -3,7 +3,8 @@
 
 .parent-dashboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
 .blink {

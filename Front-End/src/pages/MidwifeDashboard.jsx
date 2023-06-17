@@ -104,7 +104,7 @@ const MidwifeDashboard = () => {
     <div>
       <Nav />
       <div className="midwife-dashboard">
-        <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
+        <div className="relative sm:border my-[120px] mx-3 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] text-3xl">Midwife Dashboard</h1>
           <Calendar />
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">

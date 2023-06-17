@@ -3,7 +3,8 @@
 
 .midwife-dashboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   background-image: url('assets/output-onlinepngtools.png');
   background-size: cover;
   background-position: center;

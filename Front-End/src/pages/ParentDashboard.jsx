@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import "./ParentDashboard.css";
 import "../components/AppointmentDetailsCard.css"
 import ParentBabyDetailsCard from "../components/ParentBabyDetailsCard";
+import BabyWeight from "../components/WeightChart";
+import BabyHeight from "../components/HeightChart";
 // import BabyGrowing from "./BabyGrowing";
 
 const ParentDashboard = () => {
@@ -168,12 +170,12 @@ const ParentDashboard = () => {
       <Nav />
       <div className="parent-dashboard">
         
-        <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
+        <div className="relative sm:border my-[120px] mx-1 sm:mx-4 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] text-3xl">Parent Dashboard</h1>
           <br/>
           {isBabyNotAdded && <button
           
-          className="accept-button"
+          className="accept-button mx-10"
           onClick={() => navigate("/babyregister")}
         >
           Add Baby Details
@@ -181,6 +183,15 @@ const ParentDashboard = () => {
 
         {!isBabyNotAdded && <ParentBabyDetailsCard baby = {babyData}/>}
           
+          
+          <div class="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
+            <h2 class="graph-caption">Growing of height (cm)</h2>
+            <BabyHeight/>
+        </div>
+        <div class="weight_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
+            <h2 class="graph-caption">Growing of Weight (kg)</h2>
+            <BabyWeight/>
+        </div>
           <Calendar />
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
             <table className="w-full table-fixed border-collapse rounded-lg">

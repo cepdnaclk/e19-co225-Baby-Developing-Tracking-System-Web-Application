@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.graph {
+    flex: 1;
+    width: 92.5%;
+}
+
+.graph-caption {
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .container figure,
+    .container .graph {
+        flex-basis: 100%;
+        scale: 0.95
+    }
+}
