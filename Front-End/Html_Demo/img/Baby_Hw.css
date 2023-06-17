@@ -4,6 +4,7 @@
     margin: 0 auto;
     text-align: center;
 }
+
 .graph {
     flex: 1;
 }
@@ -14,6 +15,7 @@
     font-size: 18px;
     font-weight: bold;
 }
+
 body {
     margin: 10px;
     box-sizing: border-box;
@@ -23,9 +25,9 @@ body {
     flex-wrap: wrap;
 }
 
-@media screen and (max-width: 768px) {
-            .container figure,
-            .container .graph {
-                flex-basis: 100%;
-            }
-        }
+@media screen and (max-width: 768px){
+    .container figure,
+    .container .graph {
+        flex-basis: 100%;
+    }
+}

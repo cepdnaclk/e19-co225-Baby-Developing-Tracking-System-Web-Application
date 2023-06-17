@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby's Growing</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="Baby_Hw.css">
+</head>
+<body>
+    <div class="container">
+        <figure>
+            <img src="bb.jpg" alt="Image" width="200">
+            <figcaption>Month - January</figcaption>
+        </figure>
+        <div>
+            <p><strong>Height:</strong>45cm</p>
+            <p><strong>Weight:</strong>2.00kg</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="graph">
+            <h2 class="graph-caption">Growing of height (cm)</h2>
+            <canvas id="graph1"></canvas>
+        </div>
+        <div class="graph">
+            <h2 class="graph-caption">Growing of Weight (kg)</h2>
+            <canvas id="graph2"></canvas>
+        </div>
+    </div>
+
+    <script>
+        //graph 1 - Height
+        const heightData = [
+            {x:1, y:31},
+            {x:2, y:32},
+            {x:3, y:33},
+            {x:4, y:34},
+            {x:5, y:36},
+            {x:6, y:37},
+            {x:7, y:38},
+            {x:8, y:39},
+            {x:9, y:39},
+            {x:10, y:41},
+            {x:11, y:43},
+            {x:12, y:45}
+        ];
+
+        const graph1Canvas = document.getElementById('graph1');
+        const graph1Ctx = graph1Canvas.getContext('2d');
+
+        new Chart (graph1Ctx, {
+            type: 'line',
+            data :{
+                labels: heightData.map(point => getMonthName(point.x)),
+                datasets : [{
+                    label : 'Height (cm)',
+                    data: heightData,
+                    borderColor : 'blue',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x:{
+                        title: {
+                            display: true,
+                            text: 'Month',
+                            font: {
+                                weight: 'bold',
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font : {
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display : true,
+                            text : 'Height (cm)',
+                            font : {
+                                weight : 'bold',
+                                size : 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                weight : 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        //graph 1 - Weight
+        const weightData = [
+            {x:1, y:1.8},
+            {x:2, y:2},
+            {x:3, y:2},
+            {x:4, y:2.1},
+            {x:5, y:2.3},
+            {x:6, y:2.5},
+            {x:7, y:2.5},
+            {x:8, y:2.6},
+            {x:9, y:2.7},
+            {x:10, y:2.7},
+            {x:11, y:2.9},
+            {x:12, y:3}
+        ];
+
+        const graph2Canvas = document.getElementById('graph2');
+        const graph2Ctx = graph2Canvas.getContext('2d');
+
+        new Chart (graph2Ctx, {
+            type: 'line',
+            data :{
+                labels: weightData.map(point => getMonthName(point.x)),
+                datasets : [{
+                    label : 'Weight (kg)',
+                    data: weightData,
+                    borderColor : 'green',
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x:{
+                        title: {
+                            display: true,
+                            text: 'Month',
+                            font: {
+                                weight: 'bold',
+                                size: 16
+                            }
+                        },
+                        ticks: {
+                            font : {
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display : true,
+                            text : 'Weight (kg)',
+                            font : {
+                                weight : 'bold',
+                                size : 16
+                            }
+                        },
+                        ticks: {
+                            font: {
+                                weight : 'bold'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        //Helper function to get month name
+        function getMonthName(month){
+            const monthNames = [
+                'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'
+            ];
+            return monthNames[month-1];
+        }
+    </script>
+    
+</body>
+</html>
