@@ -1,7 +1,5 @@
 package com.babydevelopingtrackingsystem.Controller;
-
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
-import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Service.DoctorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,16 +1,17 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/adminUser";
+const API_URL = "http://localhost:8080/api/v1/adminParent";
 
 // Registers a user by making a POST request to the API
-export const AddUser = (firstname, lastname, email, password, role) => {
+export const AddParent = (firstname, lastname, email, password, role,is_mother_father_guardian) => {
   return axios
-    .post(API_URL + "/saveUser", {
+    .post(API_URL + "/saveParent", {
       firstname,
       lastname,
       email,
       password,
-      role
+      role,
+      is_mother_father_guardian
     })
     .then((response) => {
       console.log(response);
@@ -22,9 +23,8 @@ export const AddUser = (firstname, lastname, email, password, role) => {
     });
 };
 
-const user_service = {
-  AddUser
-};
-
-export default user_service;
-
+const parent_service = {
+    AddParent
+  };
+  
+  export default parent_service;

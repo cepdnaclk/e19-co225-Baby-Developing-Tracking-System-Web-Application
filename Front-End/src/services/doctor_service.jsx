@@ -1,16 +1,19 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/adminUser";
+const API_URL = "http://localhost:8080/api/v1/adminDoctor";
 
 // Registers a user by making a POST request to the API
-export const AddUser = (firstname, lastname, email, password, role) => {
+export const AddDoctor = (firstname, lastname, email, password, role,hospital,regNo,specialization) => {
   return axios
-    .post(API_URL + "/saveUser", {
+    .post(API_URL + "/saveDoctor", {
       firstname,
       lastname,
       email,
       password,
-      role
+      role,
+      hospital,
+      regNo,
+      specialization
     })
     .then((response) => {
       console.log(response);
@@ -22,9 +25,8 @@ export const AddUser = (firstname, lastname, email, password, role) => {
     });
 };
 
-const user_service = {
-  AddUser
-};
-
-export default user_service;
-
+const doctor_service = {
+    AddDoctor
+  };
+  
+  export default doctor_service;
