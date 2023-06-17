@@ -2,13 +2,13 @@
 
 import React, { useState,useEffect } from "react";
 import axios from "axios";
-import BabyDetailsCard from "./BabyDetailsCard";
-import AppointmentDetailsCard from "./AppointmentDetailsCard";
-import { Nav } from "./Nav";
-import { Footer } from "./Footer";
-import Calendar from "./Calender";
+import BabyDetailsCard from "../components/BabyDetailsCard";
+import AppointmentDetailsCard from "../components/AppointmentDetailsCard";
+import { Nav } from "../Nav";
+import { Footer } from "../Footer";
+import Calendar from "../components/Calender";
 import "./MidwifeDashboard.css";
-import "./AppointmentDetailsCard.css"
+import "../components/AppointmentDetailsCard.css"
 
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);

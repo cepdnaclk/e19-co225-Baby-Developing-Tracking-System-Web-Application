@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Footer } from "../Footer";
 import "./AddUser.css";
-import auth from "./services/doctor_service";
+import auth from "../services/user_service";
 
-export const AddDoctor = (props) => {
+export const AddUser = (props) => {
   const [userDetails, setUserDetails] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     role: "",
-    hospital: "",
-    regNo: "",
-    specialization: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -33,15 +30,12 @@ export const AddDoctor = (props) => {
     e.preventDefault();
 
     try {
-      const response = await auth.AddDoctor(
+      const response = await auth.signup(
         userDetails.firstName,
         userDetails.lastName,
         userDetails.email,
         userDetails.password,
-        userDetails.role,
-        userDetails.hospital,
-        userDetails.regNo,
-        userDetails.specialization
+        userDetails.role
       );
 
       if (response && response.status === 200) {
@@ -55,9 +49,6 @@ export const AddDoctor = (props) => {
           email: "",
           password: "",
           role: "",
-          hospital: "",
-          regNo: "",
-          specialization: "",
         });
       } else {
         setShowSuccessPopup(false);
@@ -76,7 +67,7 @@ export const AddDoctor = (props) => {
 
       <div className="add-baby-form-container">
         <div className="h2">
-          <h2>ADD DOCTOR DETAILS</h2>
+          <h2>ADD USER DETAILS</h2>
         </div>
 
         <form className="add-baby-form" onSubmit={handleSubmit}>
@@ -126,37 +117,6 @@ export const AddDoctor = (props) => {
             id="role"
             name="role"
             value={userDetails.role}
-            onChange={handleInputChange}
-            required
-          />
-
-        <label htmlFor="hospital">Hospital</label>
-          <input
-            type="text"
-            id="hospital"
-            name="hospital"
-            value={userDetails.hospital}
-            onChange={handleInputChange}
-            required
-          />
-
-        <label htmlFor="regNo">Reg No</label>
-        <input
-          type="text"
-          id="regNo"
-          name="regNo"
-          value={userDetails.regNo}
-          onChange={handleInputChange}
-          required
-        />
-
-
-        <label htmlFor="specialization">Specialization</label>
-          <input
-            type="text"
-            id="specialization"
-            name="specialization"
-            value={userDetails.specialization}
             onChange={handleInputChange}
             required
           />

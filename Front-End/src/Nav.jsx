@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./nav.css";
 import AuthService from "./services/auth.service";
-import NotificationAlertIcon from "./NotificationAlert";
+import NotificationAlertIcon from "./components/NotificationAlert";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -100,7 +100,7 @@ export const Nav = () => {
           align="center"
           alt="logo"
           className="logo"
-          src="src\components\Images\Logopit_cover2.png"
+          src="src\assets\Images\Logopit_cover2.png"
           onClick={() => handleItemClick("/Home")}
           />
 
@@ -129,8 +129,7 @@ export const Nav = () => {
               Doctor<span></span>
             </li>
           )}
-
-         {currentUser && (
+           {currentUser && (
             <li
             className={location.pathname === "/Parent" ? "active" : ""}
             onClick={() => handleItemClick("/Parent")}

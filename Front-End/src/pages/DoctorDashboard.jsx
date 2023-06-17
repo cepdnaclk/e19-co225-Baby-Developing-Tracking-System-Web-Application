@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import BabyDetailsCard from "./BabyDetailsCard";
-import AppointmentDetailsCard from "./AppointmentDetailsCard";
-import { Nav } from "./Nav";
-import { Footer } from "./Footer";
-import Calendar from "./Calender";
+import BabyDetailsCard from "../components/BabyDetailsCard";
+import AppointmentDetailsCard from "../components/AppointmentDetailsCard";
+import { Nav } from "../Nav";
+import { Footer } from "../Footer";
+import Calendar from "../components/Calender";
 import "./MidwifeDashboard.css";
-import "./AppointmentDetailsCard.css"
+import "../components/AppointmentDetailsCard.css"
 import "./DoctorDashboard.css"
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);

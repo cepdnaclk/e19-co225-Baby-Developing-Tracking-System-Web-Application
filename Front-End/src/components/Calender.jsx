@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
-import { generateDate, months } from "./Util/calender";
+import { generateDate, months } from "../Util/calender";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import axios from "axios";
-import { sampleAppointments } from "./SampleAppointments";
+import { sampleAppointments } from "../components/SampleAppointments";
 
 const appointmentsEndpoint = "/api/appointments"; // Replace this with the actual API endpoint
 const useSampleAppointments = true; // Set this to true to use the sampleAppointments data

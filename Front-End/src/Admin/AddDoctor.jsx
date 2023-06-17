@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
-import { Footer } from "./Footer";
+import { Footer } from "../Footer";
 import "./AddUser.css";
-import auth from "./services/auth.service";
+import auth from "../services/doctor_service";
 
-export const AddParent = (props) => {
-  const [parentDetails, setParentDetails] = useState({
+export const AddDoctor = (props) => {
+  const [userDetails, setUserDetails] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     role: "",
-    isMotherFatherGuardian : "",
+    hospital: "",
+    regNo: "",
+    specialization: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -21,7 +23,7 @@ export const AddParent = (props) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setParentDetails((prevDetails) => ({
+    setUserDetails((prevDetails) => ({
       ...prevDetails,
       [name]: value,
     }));
@@ -31,13 +33,15 @@ export const AddParent = (props) => {
     e.preventDefault();
 
     try {
-      const response = await auth.signup(
-        parentDetails.firstName,
-        parentDetails.lastName,
-        parentDetails.email,
-        parentDetails.password,
-        parentDetails.role,
-        parentDetails.isMotherFatherGuardian,
+      const response = await auth.AddDoctor(
+        userDetails.firstName,
+        userDetails.lastName,
+        userDetails.email,
+        userDetails.password,
+        userDetails.role,
+        userDetails.hospital,
+        userDetails.regNo,
+        userDetails.specialization
       );
 
       if (response && response.status === 200) {
@@ -45,12 +49,15 @@ export const AddParent = (props) => {
         setShowSuccessPopup(true);
         setShowErrorPopup(false);
         // Reset the form
-        setParentDetails({
+        setUserDetails({
           firstName: "",
           lastName: "",
           email: "",
           password: "",
           role: "",
+          hospital: "",
+          regNo: "",
+          specialization: "",
         });
       } else {
         setShowSuccessPopup(false);
@@ -69,7 +76,7 @@ export const AddParent = (props) => {
 
       <div className="add-baby-form-container">
         <div className="h2">
-          <h2>ADD PARENT DETAILS</h2>
+          <h2>ADD DOCTOR DETAILS</h2>
         </div>
 
         <form className="add-baby-form" onSubmit={handleSubmit}>
@@ -78,7 +85,7 @@ export const AddParent = (props) => {
             type="text"
             id="firstName"
             name="firstName"
-            value={parentDetails.firstName}
+            value={userDetails.firstName}
             onChange={handleInputChange}
             required
           />
@@ -88,7 +95,7 @@ export const AddParent = (props) => {
             type="text"
             id="lastName"
             name="lastName"
-            value={parentDetails.lastName}
+            value={userDetails.lastName}
             onChange={handleInputChange}
             required
           />
@@ -98,7 +105,7 @@ export const AddParent = (props) => {
             type="email"
             id="email"
             name="email"
-            value={parentDetails.email}
+            value={userDetails.email}
             onChange={handleInputChange}
             required
           />
@@ -108,7 +115,7 @@ export const AddParent = (props) => {
             type="password"
             id="password"
             name="password"
-            value={parentDetails.password}
+            value={userDetails.password}
             onChange={handleInputChange}
             required
           />
@@ -118,17 +125,38 @@ export const AddParent = (props) => {
             type="text"
             id="role"
             name="role"
-            value={parentDetails.role}
+            value={userDetails.role}
             onChange={handleInputChange}
             required
           />
 
-<       label htmlFor="role">isMotherFatherGuardian</label>
+        <label htmlFor="hospital">Hospital</label>
           <input
             type="text"
-            id="isMotherFatherGuardian"
-            name="isMotherFatherGuardian"
-            value={parentDetails.isMotherFatherGuardian}
+            id="hospital"
+            name="hospital"
+            value={userDetails.hospital}
+            onChange={handleInputChange}
+            required
+          />
+
+        <label htmlFor="regNo">Reg No</label>
+        <input
+          type="text"
+          id="regNo"
+          name="regNo"
+          value={userDetails.regNo}
+          onChange={handleInputChange}
+          required
+        />
+
+
+        <label htmlFor="specialization">Specialization</label>
+          <input
+            type="text"
+            id="specialization"
+            name="specialization"
+            value={userDetails.specialization}
             onChange={handleInputChange}
             required
           />

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import PostService from "./services/post.service";
-import { Nav } from "./Nav";
-import { Footer } from "./Footer";
+import PostService from "../services/post.service";
+import { Nav } from "../Nav";
+import { Footer } from "../Footer";
 
 const images = [
-  "src/components/background1.png",
-  "src/components/background2.jpeg",
-  "src/components/background3.jpeg",
-  "src/components/yenidogan-1200x600.jpg",
+  "src/assets/background1.png",
+  "src/assets/background2.jpeg",
+  "src/assets/background3.jpeg",
+  "src/assets/yenidogan-1200x600.jpg",
   
  
   
