@@ -39,8 +39,6 @@
   float: left;
   padding: 3px;
   cursor: pointer;
-  mix-blend-mode: multiply;
-  filter: contrast(1.15);
 }
 
 .nav ul {
