@@ -100,7 +100,7 @@ export const Nav = () => {
           align="center"
           alt="logo"
           className="logo"
-          src="src\assets\Images\Logopit_cover2.png"
+          src="src\assets\Sproutopia_navbar_logo.png"
           onClick={() => handleItemClick("/Home")}
           />
 
