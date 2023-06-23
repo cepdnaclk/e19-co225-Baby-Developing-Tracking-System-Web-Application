@@ -43,6 +43,7 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers(
+                        "/notifications/**",
                         "/api/v1/auth/**",
                         "/api/v1/baby/**",
                        // "api/v1/adminUser/**",
