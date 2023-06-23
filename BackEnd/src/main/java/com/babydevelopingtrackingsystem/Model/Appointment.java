@@ -33,4 +33,7 @@ public class Appointment {
     private Date scheduledDateTime;
 
     private String venue;
+
+    private String appointmentStatus; //PENDING or ACCEPTED
+
 }

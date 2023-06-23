@@ -1,6 +1,7 @@
 package com.babydevelopingtrackingsystem.Service;
 
 import com.babydevelopingtrackingsystem.Dto.BabyRegistrationRequest;
+import com.babydevelopingtrackingsystem.Dto.ParentBabyResponse;
 import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Model.Parent;
 import com.babydevelopingtrackingsystem.Repository.BabyRepository;
@@ -48,7 +49,7 @@ public class ParentService {
 
     }
 
-    public BabyRegistrationRequest getYourBaby() {
+    public ParentBabyResponse getYourBaby() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         String email = authentication.getName();
@@ -57,11 +58,13 @@ public class ParentService {
 
         Baby baby =  babyRepository.findBabyByParent(parent);
 
-        BabyRegistrationRequest babySend = new BabyRegistrationRequest();
+        ParentBabyResponse babySend = new ParentBabyResponse();
         if (baby!=null){
-            babySend.setFirstName(baby.getName());
-            babySend.setLastName(baby.getName());
+            babySend.setBabyName(baby.getName());
+            babySend.setBabyVaccinations(baby.getBabyVaccinations());
             babySend.setGender(baby.getGender());
+            babySend.setDoctorName(baby.getDoctor().getFirstname()+baby.getDoctor().getLastname());
+            babySend.setMidwifeName(baby.getMidwife().getFirstname()+baby.getMidwife().getLastname());
         }
 
 
