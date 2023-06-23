@@ -10,11 +10,11 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DoctorBabyResponse {
+public class ParentBabyResponse {
     private int id;
     private String babyName;
-    private String parentName;
-    private String midWifeName;
+    private String midwifeName;
+    private String doctorName;
 
 
     private String gender;

@@ -1,6 +1,7 @@
 package com.babydevelopingtrackingsystem.Controller;
 
 import com.babydevelopingtrackingsystem.Dto.BabyRegistrationRequest;
+import com.babydevelopingtrackingsystem.Dto.ParentBabyResponse;
 import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Service.ParentService;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,11 @@ public class ParentController {
     }
 
     @GetMapping("/getBaby")
-    public BabyRegistrationRequest getYourBaby(){
+    public ParentBabyResponse getYourBaby(){
         return parentService.getYourBaby();
     }
+
+
+    //Appointments
+    //TODO
 }

@@ -21,7 +21,7 @@ public class BabyVaccination {
 
     private LocalDate vaccinationDate;
 
-    private String status;
+    private String status; //Pending or Completed
 
 
 
