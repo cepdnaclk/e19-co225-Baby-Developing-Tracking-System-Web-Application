@@ -19,7 +19,7 @@ public class DoctorController {
         this.doctorService = doctorService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<DoctorBabyResponse>> getAssignedBabies(){
         return ResponseEntity.ok(doctorService.getAllAssignedBabies());
     }

@@ -1,5 +1,6 @@
 package com.babydevelopingtrackingsystem.Service;
 
+import com.babydevelopingtrackingsystem.Dto.BabyVaccinationResponse;
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
 import com.babydevelopingtrackingsystem.Dto.MidwifeBabyResponse;
 import com.babydevelopingtrackingsystem.Model.Baby;
@@ -41,13 +42,20 @@ public class MidwifeService {
         List<MidwifeBabyResponse> midwifeBabyResponses = new ArrayList<>();
         List<Baby> babies =  babyRepository.findAllByDoctor(user.getId());
         for(Baby baby:babies){
+            List<BabyVaccinationResponse> babyVaccinationResponses = new ArrayList<>();
+            List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
+            for(BabyVaccination babyVaccination:babyVaccinations){
+                babyVaccinationResponses.add(new BabyVaccinationResponse(babyVaccination.getVaccination().getName(),
+                        babyVaccination.getVaccinationDate(),
+                        babyVaccination.getStatus()));
+            }
             midwifeBabyResponses.add(new MidwifeBabyResponse(
                     baby.getId(),
                     baby.getName(),
                     baby.getParent().getFirstname(),
                     baby.getDoctor().getFirstname(),
                     baby.getGender(),
-                    baby.getBabyVaccinations()
+                    babyVaccinationResponses
             ));
         }
         return midwifeBabyResponses;

@@ -19,5 +19,5 @@ public class ParentBabyResponse {
 
     private String gender;
 
-    private List<BabyVaccination> babyVaccinations;
+    private List<BabyVaccinationResponse> babyVaccinations;
 }

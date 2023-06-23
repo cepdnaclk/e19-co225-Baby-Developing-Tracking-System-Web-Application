@@ -6,13 +6,11 @@ import com.babydevelopingtrackingsystem.Service.DoctorService;
 import com.babydevelopingtrackingsystem.Service.MidwifeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
+@RequestMapping("api/v1/midwife")
 
 public class MidwifeController {
     private final MidwifeService midwifeService;
@@ -21,7 +19,7 @@ public class MidwifeController {
         this.midwifeService = midwifeService;
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<MidwifeBabyResponse>> getAssignedBabies(){
         return ResponseEntity.ok(midwifeService.getAllAssignedBabies());
     }
