@@ -25,7 +25,7 @@ public class ParentService {
         this.parentRepository = parentRepository;
         this.babyRepository = babyRepository;
     }
-
+    //Baby
     public boolean doesBabyExistForParent() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -83,4 +83,7 @@ public class ParentService {
         return babySend;
 
     }
+
+    //Appointments
+    //TODO
 }

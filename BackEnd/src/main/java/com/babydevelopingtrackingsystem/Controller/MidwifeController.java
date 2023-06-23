@@ -18,12 +18,11 @@ public class MidwifeController {
     public MidwifeController(MidwifeService midwifeService) {
         this.midwifeService = midwifeService;
     }
-
     @GetMapping("/getAll")
     public ResponseEntity<List<MidwifeBabyResponse>> getAssignedBabies(){
         return ResponseEntity.ok(midwifeService.getAllAssignedBabies());
     }
-
+    //Vaccines
     @PutMapping("/baby_vaccine/mark/{id}")
     public ResponseEntity<String> markVaccinationDone(@PathVariable int id){
         String responseStatus = midwifeService.markVaccineCompleted(id);
@@ -35,5 +34,6 @@ public class MidwifeController {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
-
+    //Appointments
+    //TODO
 }

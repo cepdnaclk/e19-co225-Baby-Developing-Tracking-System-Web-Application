@@ -18,11 +18,13 @@ public class DoctorController {
     public DoctorController(DoctorService doctorService) {
         this.doctorService = doctorService;
     }
-
+    //Get Assigned Babies
     @GetMapping("/getAll")
     public ResponseEntity<List<DoctorBabyResponse>> getAssignedBabies(){
         return ResponseEntity.ok(doctorService.getAllAssignedBabies());
     }
+
+    //Baby Vaccinations
 
     @PutMapping("/baby_vaccine/mark/{id}")
     public ResponseEntity<String> markVaccinationDone(@PathVariable int id){
@@ -52,4 +54,9 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
     }
+
+
+    //Appointments
+    //TODO
+
 }
