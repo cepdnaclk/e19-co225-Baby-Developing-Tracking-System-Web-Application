@@ -89,18 +89,17 @@ export const Header = () => {
   };
 
   return (
-    <div>
-      <div className="nav">
+      <div className="nav static">
         <img
           align="center"
           alt="logo"
-          className="logo"
+          className="logo float-left"
           src="src/assets/Images/logo.jpeg"
           style={logoStyle} // Apply the logoStyle to the image
           onClick={() => handleItemClick("/home")}
         />
 
-        <ul className="nav-items">
+        <ul className="nav-items float-right">
           <li
             className={""}
             onClick={() => handleItemClick("/admin")}
@@ -138,6 +137,5 @@ export const Header = () => {
           <i className="fa fa-bars" aria-hidden="true"></i>
         </div>
       </div>
-    </div>
   );
 };

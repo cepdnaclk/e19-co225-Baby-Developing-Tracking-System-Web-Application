@@ -34,67 +34,73 @@ export const Register = (props) => {
   };
 
   return (
-    <div className="Register-full">
-      <Nav />
-      <div className="relative my-16 mx-3 rounded-lg p-4">
-        <div className="auth-form-container">
-          <h2>
-            <b>Sign Up</b>
-          </h2>
-          <h3>Please fill in this form to create an account</h3>
-          <form className="register-form" onSubmit={handleSubmit}>
-            <div className="Fname">
+    <div>
+      {/* <Nav /> */}
+      <div className="Register-full">
+      
+        <div className="relative  rounded-lg ">
+          <div className="auth-form-container">
+          <div className="auth-logo"><img src="src\assets\Sproutopia_SignIn_logo.png"></img></div>
+          <div className="register-form-container">
+            <h2>
+              <b>Sign Up</b>
+            </h2>
+            <h3>Please fill in this form to create an account</h3>
+            <form className="register-form" onSubmit={handleSubmit}>
+              <div className="Fname">
+                <input
+                  value={firstname}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  type="text"
+                  placeholder="First Name"
+                  id="firstname"
+                  name="firstname"
+                />
+                <input
+                  value={lastname}
+                  onChange={(e) => setLastName(e.target.value)}
+                  type="text"
+                  placeholder="Last Name"
+                  id="lastname"
+                  name="lastname"
+                />
+              </div>
               <input
-                value={firstname}
-                onChange={(e) => setFirstName(e.target.value)}
-                type="text"
-                placeholder="First Name"
-                id="firstname"
-                name="firstname"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Email Address"
+                id="email"
+                name="email"
               />
               <input
-                value={lastname}
-                onChange={(e) => setLastName(e.target.value)}
-                type="text"
-                placeholder="Last Name"
-                id="lastname"
-                name="lastname"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
               />
-            </div>
-            <input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Email Address"
-              id="email"
-              name="email"
-            />
-            <input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Password"
-              id="password"
-              name="password"
-            />
-            <input
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              type="text"
-              placeholder="Role"
-              id="role"
-              name="role"
-            />
-            <button type="submit">
-              <b>SIGNUP</b>
+              <input
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                type="text"
+                placeholder="Role"
+                id="role"
+                name="role"
+              />
+              <button type="submit">
+                <b>SIGNUP</b>
+              </button>
+            </form>
+            <button className="link-btn" onClick={() => navigate("/authenticate")}>
+              Already have an account? Login here.
             </button>
-          </form>
-          <button className="link-btn" onClick={() => navigate("/authenticate")}>
-            Already have an account? Login here.
-          </button>
+            </div>
+          </div>
         </div>
+        {/* <Footer /> */}
       </div>
-      <Footer />
     </div>
   );
 };
