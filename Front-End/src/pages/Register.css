@@ -7,6 +7,10 @@
   justify-content: center;
   color: rgb(12, 0, 0) ;
   font-family: "Euclid Circular A";
+  padding: 4.5rem;
+    border: 1px solid rgba(124, 123, 123, 0.486);
+    border-radius: 15px;
+    margin: 0.5rem;
 }
 
 .auth-form-cantainer {
@@ -25,12 +29,12 @@
     color-scheme: light dark;
   }
   
-  .auth-form-cantainer{
+  /* .auth-form-cantainer{
     padding: 4.5rem;
     border: 1px solid rgba(124, 123, 123, 0.486);
     border-radius: 15px;
     margin: 0.5rem;
-  }
+  } */
   
   @media (width >= 500px) {
     .login-form {
