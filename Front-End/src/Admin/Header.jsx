@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./nav.css";
-import AuthService from "./services/auth.service";
+import "../nav.css";
+import AuthService from "../services/auth.service";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -95,7 +95,7 @@ export const Header = () => {
           align="center"
           alt="logo"
           className="logo"
-          src="src/components/Images/logo.jpeg"
+          src="src/assets/Images/logo.jpeg"
           style={logoStyle} // Apply the logoStyle to the image
           onClick={() => handleItemClick("/home")}
         />

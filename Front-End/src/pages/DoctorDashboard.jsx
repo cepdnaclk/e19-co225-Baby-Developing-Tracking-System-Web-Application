@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import BabyDetailsCard from "./BabyDetailsCard";
-import AppointmentDetailsCard from "./AppointmentDetailsCard";
-import { Nav } from "./Nav";
-import { Footer } from "./Footer";
-import Calendar from "./Calender";
-import "./MidwifeDashboard.css";
-import "./AppointmentDetailsCard.css"
+import BabyDetailsCard from "../components/BabyDetailsCard";
+import AppointmentDetailsCard from "../components/AppointmentDetailsCard";
+import { Nav } from "../Nav";
+import { Footer } from "../Footer";
+import Calendar from "../components/Calender";
+import "../components/AppointmentDetailsCard.css"
 import "./DoctorDashboard.css"
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -37,28 +36,28 @@ const DoctorDashboard = () => {
       <Nav />
       
       <div className="midwife-dashboard">
-        <div className="relative sm:border my-16 mx-3 rounded-lg p-4 flex-row">
+        <div className="relative sm:border my-[120px] mx-3 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] text-3xl">Doctor Dashboard</h1>
           <Calendar/>
-          <div className="card-container flex justify-center space-x-8">
-          <div className="card text-center mt-10">
-            <div className="card-header">Featured</div>
-            <div className="card-body">
+          <div className="card-container flex justify-center ">
+          <div className="cards text-center my-8 mx-10 border rounded-lg">
+            <div className="card-header px-5">Featured</div>
+            <div className="card-body m-5 ">
               <h5 className="card-title">Special title treatment</h5>
               <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
               <a href="#" className="btn btn-primary">Go somewhere</a>
             </div>
-            <div className="card-footer text-muted">2 days ago</div>
+            <div className="card-footer text-muted p-3">2 days ago</div>
           </div>
 
-          <div className="card text-center mt-10 ">
-            <div className="card-header">Featured</div>
-            <div className="card-body">
+          <div className="cards text-center my-8 mx-10 border rounded-lg">
+            <div className="card-header px-5">Featured</div>
+            <div className="card-body m-5">
               <h5 className="card-title">Special title treatment</h5>
               <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
               <a href="#" className="btn btn-primary">Go somewhere</a>
             </div>
-            <div className="card-footer text-muted">2 days ago</div>
+            <div className="card-footer text-muted p-3">2 days ago</div>
           </div>
         </div>
 

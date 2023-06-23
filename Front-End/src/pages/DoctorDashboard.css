@@ -1,9 +1,12 @@
-/* MidwifeDashboard.css */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lexend+Deca:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap");
 
-.parent-dashboard {
+.doctor-dashboard {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('assets/output-onlinepngtools.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .blink {
@@ -22,15 +25,6 @@
   }
 }
 
-.appointment-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
 .header {
   font-family: "Poppins", sans-serif;
   padding-top: 15px;
@@ -46,16 +40,14 @@ table {
 }
 
 .baby-table {
-  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
 
 .calender-styles {
-  background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
-
-
 
 .card-header {
   display: flex;
@@ -91,7 +83,7 @@ table {
   cursor: pointer;
 }
 
-.accept-button:hover{
+.accept-button:hover {
   scale: 1.02;
   background-color: rgba(3, 59, 20, 0.774);
 }
@@ -117,5 +109,3 @@ table {
   border-radius: 4px;
   cursor: pointer;
 }
-
-/* Styling for BabyDetailsCard and AppointmentDetailsCard components can be added separately */

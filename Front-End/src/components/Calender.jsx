@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import React, { useState, useEffect } from "react";
-import { generateDate, months } from "./Util/calender";
+import { generateDate, months } from "../Util/calender";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import axios from "axios";
-import { sampleAppointments } from "./SampleAppointments";
+import { sampleAppointments } from "../components/SampleAppointments";
 
 const appointmentsEndpoint = "/api/appointments"; // Replace this with the actual API endpoint
 const useSampleAppointments = true; // Set this to true to use the sampleAppointments data
@@ -63,7 +63,7 @@ export default function Calendar() {
 
   return (
     <div className="calender-style"> 
-      <div className="calender-styles flex gap-10 sm:divide-x justify-center  sm:mx-10 my-10 scale-90 sm:scale-100 items-center lg:flex-row flex-col sm:border rounded-lg sm:p-8 sm:pb-12">
+      <div className="calender-styles flex gap-10 sm:divide-x justify-center  sm:mx-10 my-10 scale-75 sm:scale-100 items-center lg:flex-row flex-col sm:border rounded-lg sm:p-8 sm:pb-12">
         <div className="w-96 h-96">
           <div className="flex justify-between items-center">
             <h1 className="select-none font-semibold">
