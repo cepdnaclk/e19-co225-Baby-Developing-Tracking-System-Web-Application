@@ -51,9 +51,10 @@ export const Login = (props) => {
     }
   };
   return (
-    <div className="login-full">
-      <Nav />
-      <div className="relative my-16 mx-3 rounded-lg p-4">
+    <div className="login-full relative m-3 rounded-lg border">
+      {/* <Nav /> */}
+        <div><img src="src\assets\Sproutopia_SignIn_logo.png"></img></div>
+      <div className="">
         <div className="auth-form-cantainer">
           <h2>
             <b>Login</b>
