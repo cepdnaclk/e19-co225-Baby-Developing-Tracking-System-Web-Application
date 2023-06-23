@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/v1/adminParent")
+@RequestMapping(value = "api/v1/admin/parent")
 public class AdminParentController {
 
     @Autowired

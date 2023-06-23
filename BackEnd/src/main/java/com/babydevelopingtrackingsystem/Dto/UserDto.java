@@ -1,5 +1,6 @@
 package com.babydevelopingtrackingsystem.Dto;
 
+import com.babydevelopingtrackingsystem.Utill.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,12 +11,15 @@ import lombok.NoArgsConstructor;
 public class UserDto {
 
     private int id;
+
+
+
     private String email;
     private String firstname;
-    private String lastName;
+    private String lastname;
     private String password;
 
-    private String userType;
+    private Role role;
 
 
 
