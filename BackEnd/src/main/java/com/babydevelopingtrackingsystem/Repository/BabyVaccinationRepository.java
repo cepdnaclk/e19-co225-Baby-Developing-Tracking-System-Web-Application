@@ -14,5 +14,5 @@ public interface BabyVaccinationRepository extends JpaRepository<BabyVaccination
     public boolean existsBabyVaccinationByBabyAndVaccination(Baby baby, Vaccination vaccination);
 
     @Query("SELECT v FROM BabyVaccination v WHERE v.vaccinationDate <= :notificationDate AND v.vaccinationDate >= :today")
-    List<BabyVaccination> findUpcomingVaccineAlerts(LocalDate today, LocalDate notificationDate);
+    List<BabyVaccination> findUpcomingBabyVaccines(LocalDate today, LocalDate notificationDate);
 }

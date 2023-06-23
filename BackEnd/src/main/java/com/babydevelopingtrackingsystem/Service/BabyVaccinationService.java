@@ -41,7 +41,7 @@ public class BabyVaccinationService {
 
         if (baby.isPresent()){
             List<BabyVaccination> babyVaccinationList =
-                    babyVaccinationRepository.findUpcomingVaccineAlerts(today,notificationDate);
+                    babyVaccinationRepository.findUpcomingBabyVaccines(today,notificationDate);
             for(BabyVaccination babyVaccination:babyVaccinationList){
                 vaccineAlerts.add(new VaccineAlert(
                         babyVaccination.getBaby().getName(),
