@@ -35,7 +35,7 @@ public class AdminUserService {
     public String saveUser(UserDto request){
         Role role  = request.getRole();
         User user;
-        if (userRepository.existsById(request.getId())){
+        if (userRepository.existsUserByEmail(request.getEmail())){
             return VariableList.RSP_DUPLICATED;
         }else {
 
@@ -43,11 +43,11 @@ public class AdminUserService {
             if(role.equals(Role.PARENT)){
                 user = new Parent(
                         request.getFirstname(),
-                        request.getLastName(),
+                        request.getLastname(),
                         request.getEmail(),
                         passwordEncoder.encode(request.getPassword()),
                         request.getRole(),
-                        "Mother"
+                        null
                 );
 
 
@@ -57,7 +57,7 @@ public class AdminUserService {
             else if(role.equals(Role.DOCTOR)){
                 user = new Doctor(
                         request.getFirstname(),
-                        request.getLastName(),
+                        request.getLastname(),
                         request.getEmail(),
                         passwordEncoder.encode(request.getPassword()),
                         request.getRole(),
@@ -73,7 +73,7 @@ public class AdminUserService {
             else if(role.equals(Role.MIDWIFE)){
                 user = new Midwife(
                         request.getFirstname(),
-                        request.getLastName(),
+                        request.getLastname(),
                         request.getEmail(),
                         passwordEncoder.encode(request.getPassword()),
                         request.getRole(),
@@ -89,7 +89,7 @@ public class AdminUserService {
             else{
                 user = User.builder()
                         .firstname(request.getFirstname())
-                        .lastname(request.getLastName())
+                        .lastname(request.getLastname())
                         .email(request.getEmail())
                         .password(passwordEncoder.encode(request.getPassword()))
                         .role(Role.USER)
