@@ -37,9 +37,9 @@ export const AddUser = (props) => {
         userDetails.password,
         userDetails.role
       );
-
+        console.log(userDetails)
       if (response && response.status === 200) {
-        const { access_token } = response.data;
+        
         setShowSuccessPopup(true);
         setShowErrorPopup(false);
         // Reset the form
