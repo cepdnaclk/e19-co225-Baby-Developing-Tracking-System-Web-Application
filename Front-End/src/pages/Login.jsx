@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 //import axios from "axios";
 import AuthService from "../services/auth.service";
-import "./Login.css"
+import "./Login.css";
 import { Nav } from "../Nav";
 import { Footer } from "../Footer";
 
@@ -51,47 +51,49 @@ export const Login = (props) => {
     }
   };
   return (
-    <div className="login-full relative m-3 rounded-lg border">
+    <div className="login-full relative rounded-lg border">
       {/* <Nav /> */}
-        <div><img src="src\assets\Sproutopia_SignIn_logo.png"></img></div>
+
       <div className="">
         <div className="auth-form-cantainer">
-          <h2>
-            <b>Login</b>
-          </h2>
-          <h3>Enter your credentials</h3>
-          <form className="login-form" onSubmit={handleSubmit}>
-            <input
-              value={email}
-              onChange={(input) => setName(input.target.value)}
-              type="email"
-              placeholder="Email"
-              id="email"
-              name="email"
-              required="required"
-            />
-            <input
-              value={password}
-              onChange={(input) => setPassword(input.target.value)}
-              type="password"
-              placeholder="Password"
-              id="password"
-              name="password"
-              required="required"
-            />
-            <button type="submit">
-              <b>LOGIN</b>
+          <div className="auth-logo">
+            <img src="src\assets\Sproutopia_SignIn_logo.png"></img>
+          </div>
+          <div className="login-form-cantainer">
+            <h2>
+              <b>Login</b>
+            </h2>
+            <h3>Enter your credentials</h3>
+            <form className="login-form" onSubmit={handleSubmit}>
+              <input
+                value={email}
+                onChange={(input) => setName(input.target.value)}
+                type="email"
+                placeholder="Email"
+                id="email"
+                name="email"
+                required="required"
+              />
+              <input
+                value={password}
+                onChange={(input) => setPassword(input.target.value)}
+                type="password"
+                placeholder="Password"
+                id="password"
+                name="password"
+                required="required"
+              />
+              <button type="submit">
+                <b>LOGIN</b>
+              </button>
+            </form>
+            <button className="link-btn" onClick={() => navigate("/register")}>
+              Don't have an account? Register here.
             </button>
-          </form>
-          <button
-            className="link-btn"
-            onClick={() => navigate("/register")}
-          >
-            Don't have an account? Register here.
-          </button>
+          </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

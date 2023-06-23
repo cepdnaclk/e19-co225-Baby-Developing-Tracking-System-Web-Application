@@ -35,11 +35,13 @@ export const Register = (props) => {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <div className="Register-full">
       
-        <div className="relative my-16 mx-3 rounded-lg p-4">
+        <div className="relative  rounded-lg ">
           <div className="auth-form-container">
+          <div className="auth-logo"><img src="src\assets\Sproutopia_SignIn_logo.png"></img></div>
+          <div className="register-form-container">
             <h2>
               <b>Sign Up</b>
             </h2>
@@ -94,9 +96,10 @@ export const Register = (props) => {
             <button className="link-btn" onClick={() => navigate("/authenticate")}>
               Already have an account? Login here.
             </button>
+            </div>
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

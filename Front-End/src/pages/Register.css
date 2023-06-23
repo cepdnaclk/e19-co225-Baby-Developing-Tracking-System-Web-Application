@@ -7,22 +7,25 @@
   justify-content: center;
   color: rgb(12, 0, 0) ;
   font-family: "Euclid Circular A";
-  padding: 4.5rem;
-    border: 1px solid rgba(124, 123, 123, 0.486);
-    border-radius: 15px;
     margin: 0.5rem;
 }
 
-.auth-form-cantainer {
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    background: #fff;
-    text-align: center;
-    
-  }
+.auth-form-container {
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  background: #fff;
+  text-align: center;
+  max-width: 950px;
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  border: 1px solid rgba(124, 123, 123, 0.486);
+  border-radius: 15px;
+}
   
-  .auth-form-cantainer, .login-form, .register-form {
+  
+.register-form-container,.register-form {
     display: flex;
     flex-direction: column;
     font-family: "Raleway", sans-serif;
@@ -47,14 +50,14 @@
     }
   }
   
-  .auth-form-cantainer > h2 {
+  .register-form-container > h2 {
     font-size: 36px;
     font-weight: 900;
     margin: 0 0 12px;
 
   }
   
-  .auth-form-cantainer > h3 {
+  .register-form-container > h3 {
     color: rgba(0, 0, 0, 0.38);
     margin: 0 0 30px;
     font-weight: 500;
