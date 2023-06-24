@@ -36,8 +36,8 @@ const DoctorDashboard = () => {
       <Nav />
       
       <div className="midwife-dashboard">
-        <div className="relative sm:border my-[120px] mx-3 rounded-lg p-4 flex-row">
-          <h1 className="header text-center font-[500] text-3xl">Doctor Dashboard</h1>
+        <div className="relative sm:border my-[100px] mx-3 rounded-lg p-4 flex-row">
+          <h1 className="header text-center font-[500] font-black text-3xl">Doctor Dashboard</h1>
           <Calendar/>
           <div className="card-container flex justify-center ">
           <div className="cards text-center my-8 mx-10 border rounded-lg">
