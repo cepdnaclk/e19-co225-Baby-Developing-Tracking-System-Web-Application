@@ -43,7 +43,7 @@ public class SecurityConfiguration {
                 .disable()
                 .authorizeHttpRequests()
                 .requestMatchers(
-                        "/notifications/**",
+
                         "/api/v1/auth/**",
                         "/api/v1/baby/**",
                        // "api/v1/adminUser/**",
@@ -65,7 +65,16 @@ public class SecurityConfiguration {
                 )
                 .permitAll()
 
-
+                //What Users Can Access
+                .requestMatchers("/api/v1/notifications/**").hasAnyRole(ADMIN.name(),
+                                                                                PARENT.name(),
+                                                                                MIDWIFE.name(),
+                                                                                DOCTOR.name())
+                .requestMatchers(GET,"/api/v1/notifications/**").hasAnyAuthority(ADMIN_READ.name(),
+                                                                                        PARENT_READ.name(),
+                                                                                        DOCTOR_READ.name(),
+                                                                                        MIDWIFE_READ.name())
+                //What Parents Can Access
                 .requestMatchers("/api/v1/parent/**").hasAnyRole(ADMIN.name(), PARENT.name())
 
                 .requestMatchers(GET, "/api/v1/parent/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
@@ -73,12 +82,21 @@ public class SecurityConfiguration {
                 .requestMatchers(PUT, "/api/v1/parent/**").hasAnyAuthority(ADMIN_UPDATE.name(), PARENT_UPDATE.name())
                 .requestMatchers(DELETE, "/api/v1/parent/**").hasAnyAuthority(ADMIN_DELETE.name(), PARENT_DELETE.name())
 
-                .requestMatchers("/api/v1/vaccine/**").hasAnyRole(ADMIN.name(), PARENT.name())
-                .requestMatchers(GET, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_READ.name(), PARENT_READ.name())
+                //What Doctors can Access
+                .requestMatchers("/api/v1/vaccine/**").hasAnyRole(ADMIN.name(), DOCTOR.name())
+                .requestMatchers(GET, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_READ.name(), DOCTOR_READ.name())
+                .requestMatchers(POST, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_CREATE.name(), DOCTOR_CREATE.name())
+                .requestMatchers(PUT, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_UPDATE.name(), DOCTOR_UPDATE.name())
+                .requestMatchers(DELETE, "/api/v1/vaccine/**").hasAnyAuthority(ADMIN_DELETE.name(), DOCTOR_DELETE.name())
+
                 .requestMatchers("/api/v1/doctor/**").hasAnyRole(ADMIN.name(), DOCTOR.name())
+
                 .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_READ.name(), DOCTOR_READ.name())
+                .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_CREATE.name(), DOCTOR_CREATE.name())
+                .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_UPDATE.name(), DOCTOR_UPDATE.name())
+                .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_DELETE.name(), DOCTOR_DELETE.name())
 
-
+                //What Admins Can Access
                 .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
 
                  .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())

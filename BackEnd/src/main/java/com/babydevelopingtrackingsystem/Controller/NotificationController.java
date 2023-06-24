@@ -1,13 +1,17 @@
 package com.babydevelopingtrackingsystem.Controller;
 
+import com.babydevelopingtrackingsystem.Dto.NotificationResponse;
+import com.babydevelopingtrackingsystem.Model.Notification;
 import com.babydevelopingtrackingsystem.Service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/notifications")
+@RequestMapping("api/v1/notifications")
 public class NotificationController {
 
     private final NotificationService notificationService;
@@ -17,11 +21,13 @@ public class NotificationController {
         this.notificationService = notificationService;
     }
 
-    @GetMapping("/generate")
-    public String generateNotifications() {
-        // Logic to generate notifications
-        notificationService.generateVaccineNotifications();
+    @GetMapping("/get")
+    public List<NotificationResponse> getAllNotifications() {
 
-        return "Notifications generated successfully";
+        notificationService.generateVaccineNotifications();
+        return notificationService.getNotifications();
+
+
+
     }
 }

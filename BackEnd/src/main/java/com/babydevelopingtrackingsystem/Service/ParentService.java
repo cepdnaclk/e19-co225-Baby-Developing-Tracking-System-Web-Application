@@ -72,11 +72,26 @@ public class ParentService {
                         babyVaccination.getVaccinationDate(),
                         babyVaccination.getStatus()));
             }
+            String doctorName;
+            String midwifeName;
+
+            try{
+                doctorName = baby.getDoctor().getFirstname()+baby.getDoctor().getLastname() ;
+            }
+            catch(Exception e){
+                doctorName = "Not yet Assigned";
+            }
+            try{
+                midwifeName = baby.getMidwife().getFirstname()+baby.getMidwife().getLastname();
+            }
+            catch(Exception e){
+                midwifeName = "Not yet Assigned";
+            }
             babySend.setBabyName(baby.getName());
             babySend.setBabyVaccinations(babyVaccinationResponses);
             babySend.setGender(baby.getGender());
-            babySend.setDoctorName(baby.getDoctor().getFirstname()+baby.getDoctor().getLastname());
-            babySend.setMidwifeName(baby.getMidwife().getFirstname()+baby.getMidwife().getLastname());
+            babySend.setDoctorName(doctorName);
+            babySend.setMidwifeName(midwifeName);
         }
 
 

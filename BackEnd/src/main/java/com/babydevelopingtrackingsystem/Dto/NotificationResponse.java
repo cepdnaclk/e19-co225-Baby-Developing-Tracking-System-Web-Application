@@ -4,13 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class BabyVaccinationResponse {
+@NoArgsConstructor
+public class NotificationResponse {
+    private String content;
+    private boolean isFalse;
 
-    String vaccineName;
-    LocalDate dueDate;
-    String status;
 }
