@@ -58,7 +58,7 @@
   }
   
   .register-form-container > h3 {
-    color: rgba(0, 0, 0, 0.38);
+    color: rgba(0, 0, 0, 0.514);
     margin: 0 0 30px;
     font-weight: 500;
     font-size: 1rem;
@@ -93,7 +93,7 @@
   }
   
   .register-form > input {
-    border: 2px solid #ebebeb;
+    border: 2px solid #d4d4d4;
     font-family: inherit;
     font-size: 16px;
     padding: 0 16px;
@@ -123,7 +123,7 @@
   }
 
   .Fname > input {
-    border: 2px solid #ebebeb;
+    border: 2px solid #d4d4d4;
     font-family: inherit;
     font-size: 16px;
     border-radius: 10px;

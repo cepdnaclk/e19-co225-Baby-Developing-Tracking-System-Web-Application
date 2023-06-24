@@ -68,7 +68,7 @@
   }
   
   .login-form-cantainer > h3 {
-    color: rgba(0, 0, 0, 0.38);
+    color: rgba(0, 0, 0, 0.521);
     margin: 0 0 30px;
     font-weight: 500;
     font-size: 1rem;
@@ -89,7 +89,7 @@
   }
   
   .login-form > input {
-    border: 2px solid #ebebeb;
+    border: 2px solid #bebebe;
     font-family: inherit;
     font-size: 16px;
     padding: 0 16px;

@@ -12,10 +12,7 @@ import BabyWeight from "../components/WeightChart";
 import BabyHeight from "../components/HeightChart";
 
 const ParentDashboard = () => {
-  const [selectedBaby, setSelectedBaby] = useState(null);
-  const [selectedAppointment, setSelectedAppointment] = useState(null);
-  const [isBabyNotAdded, setIsBabyAdded] = useState(true);
-  const [selectedTab, setSelectedTab] = useState("height");
+  const [selectedTab, setSelectedTab] = useState("height"); // Initial selected tab is "height"
 
   const navigate = useNavigate();
 
@@ -45,38 +42,42 @@ const ParentDashboard = () => {
     address: "Kandy",
     specialInformation: "Cute",
   };
-  const [selectedBabyTableData, setSelectedBabyTableData] =
-    useState(babyTableData);
+  const [selectedBabyTableData, setSelectedBabyTableData] = useState(
+    babyTableData
+  );
   const [babyData, setBabyData] = useState(demoBaby);
-  // // Uncomment this to connect the table with the database
-  // //(Note that the fields are not correctly matching at the moment)
-  // //(Change the endpoint and fields as necessary)
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const token = JSON.parse(localStorage.getItem("user"));
-  //       const access = token.access_token;
-  //       console.log(access);
+  // Uncomment this to connect the table with the database
+  //(Note that the fields are not correctly matching at the moment)
+  //(Change the endpoint and fields as necessary)
 
-  //       const response = await axios.get('http://localhost:8080/api/v1/doctor', {
-  //         headers: {
-  //           "Access-Control-Allow-Origin": true,
-  //           Authorization: "Bearer " + access
-  //         },
-  //       });
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
 
-  //       setSelectedBabyTableData(response.data);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/doctor",
+          {
+            headers: {
+              "Access-Control-Allow-Origin": true,
+              Authorization: "Bearer " + access,
+            },
+          }
+        );
 
-  //   fetchData();
-  // }, []);
+        setSelectedBabyTableData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-  // // Method to find out whether you have already registered a baby or not
+    fetchData();
+  }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -104,7 +105,6 @@ const ParentDashboard = () => {
     fetchData();
   }, []);
 
-  // Method to find out whether you have already registered a baby or not
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -132,40 +132,6 @@ const ParentDashboard = () => {
     fetchData();
   }, []);
 
-  // Sample data for the calendar
-  const calendarData = [
-    {
-      date: "2023-06-08",
-      works: ["Work 1", "Work 2"],
-    },
-    {
-      date: "2023-06-09",
-      works: ["Work 3"],
-    },
-    // Add more calendar data as needed
-  ];
-
-  const handleBabyRowClick = (baby) => {
-    setSelectedBaby(baby);
-  };
-
-  const handleAppointmentButtonClick = (appointment) => {
-    setSelectedAppointment(appointment);
-    setSelectedBaby(null);
-  };
-
-  const handleAppointmentCardClose = () => {
-    setSelectedAppointment(null);
-  };
-
-  const handleCalendarItemClick = (works) => {
-    setSelectedAppointment(works);
-  };
-
-  const handleCalendarCardClose = () => {
-    setSelectedAppointment(null);
-  };
-
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
@@ -179,25 +145,14 @@ const ParentDashboard = () => {
             Parent Dashboard
           </h1>
           <br />
-          {isBabyNotAdded && (
-            <button
-              className="accept-button mx-10"
-              onClick={() => navigate("/babyregister")}
-            >
-              Add Baby Details
-            </button>
-          )}
-
-          {!isBabyNotAdded && <ParentBabyDetailsCard baby={babyData} />}
-
-          <div className="tabs-container w-full">
+          <div className="tabs-container">
             <button
               className={`tab-button ${
                 selectedTab === "height" ? "active" : ""
               }`}
               onClick={() => handleTabChange("height")}
             >
-              Height Tracker
+              Height Graph
             </button>
             <button
               className={`tab-button ${
@@ -205,7 +160,7 @@ const ParentDashboard = () => {
               }`}
               onClick={() => handleTabChange("weight")}
             >
-              Weight Tracker
+              Weight Graph
             </button>
             <button
               className={`tab-button ${
@@ -226,7 +181,7 @@ const ParentDashboard = () => {
           </div>
 
           {selectedTab === "height" && (
-            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center">
+            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center flex-wrap">
               <h2 className="graph-caption">Growing of height (cm)</h2>
               <div className="flex justify-center">
                 <BabyHeight />
@@ -242,7 +197,6 @@ const ParentDashboard = () => {
             </div>
           )}
           {selectedTab === "calendar" && <Calendar />}
-          <button className="SpaceButton"></button>
           {selectedTab === "appointment" && (
             <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
               <table className="w-full table-fixed border-collapse rounded-lg">

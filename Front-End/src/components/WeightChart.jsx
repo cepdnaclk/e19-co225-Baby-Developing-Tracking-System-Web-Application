@@ -40,7 +40,7 @@ const BabyWeight = () =>{
     });
 
     return(
-        <div className="baby-chart scale-90 sm:scale-100">
+        <div className="baby-chart scale-90 sm:scale-100 w-4/5 flex justify-center">
             <WeightLineChart chartData={userData} />
         </div>
     )
