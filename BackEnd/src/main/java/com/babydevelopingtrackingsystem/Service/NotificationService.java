@@ -9,6 +9,8 @@ import com.babydevelopingtrackingsystem.Repository.BabyRepository;
 import com.babydevelopingtrackingsystem.Repository.BabyVaccinationRepository;
 import com.babydevelopingtrackingsystem.Repository.NotificationRepository;
 import com.babydevelopingtrackingsystem.Repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ import java.util.Optional;
 
 @Service
 public class NotificationService {
+    Logger logger = LoggerFactory.getLogger(NotificationService.class);
     private final NotificationRepository notificationRepository;
     private final UserRepository userRepository;
     private final BabyRepository babyRepository;
@@ -41,17 +44,17 @@ public class NotificationService {
         notification.setRead(false);
         notificationRepository.save(notification);
     }
-    public void generateVaccineNotifications(){
+
+    public void generateVaccineNotifications() {
 
 
-    List<Baby> babies = babyRepository.findAll();
-    //List<VaccineAlert> vaccineAlerts = new ArrayList<>();
-    LocalDate today = LocalDate.now();
-    LocalDate notificationDate = today.plusDays(3);
+        List<Baby> babies = babyRepository.findAll();
+        //List<VaccineAlert> vaccineAlerts = new ArrayList<>();
+        LocalDate today = LocalDate.now();
+        LocalDate notificationDate = today.plusDays(3);
 
 
-
-        for(Baby baby:babies) {
+        for (Baby baby : babies) {
             List<BabyVaccination> babyVaccinationList =
                     babyVaccinationRepository.findUpcomingBabyVaccines(today, notificationDate);
             for (BabyVaccination babyVaccination : babyVaccinationList) {
@@ -75,15 +78,36 @@ public class NotificationService {
         Optional<User> user = userRepository.findByEmail(email);
         List<Notification> notifications;
         List<NotificationResponse> notificationResponses = new ArrayList<>();
-        if(user.isPresent()){
+        if (user.isPresent()) {
             notifications = notificationRepository.findAllByUser(user.get());
-            for(Notification notification:notifications){
-                notificationResponses.add(new NotificationResponse(notification.getContent(),notification.isRead()));
+            logger.info(String.valueOf(notifications.size()));
+            for (Notification notification : notifications) {
+                if (!notification.isRead()) {
+                    notificationResponses.add(new NotificationResponse(notification.getContent(), "Unread"));
+                }
+
             }
-            return  notificationResponses;
+            return notificationResponses;
         }
 
         return new ArrayList<>();
 
+    }
+
+    public void clearNotifications() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String email = authentication.getName();
+        Optional<User> user = userRepository.findByEmail(email);
+        List<Notification> notifications;
+
+        if (user.isPresent()) {
+            notifications = notificationRepository.findAllByUser(user.get());
+            for (Notification notification:notifications){
+                notification.setRead(true);
+                notificationRepository.save(notification);
+            }
+
+        }
     }
 }

@@ -74,6 +74,10 @@ public class SecurityConfiguration {
                                                                                         PARENT_READ.name(),
                                                                                         DOCTOR_READ.name(),
                                                                                         MIDWIFE_READ.name())
+                .requestMatchers(DELETE,"/api/v1/notifications/**").hasAnyAuthority(ADMIN_DELETE.name(),
+                        PARENT_DELETE.name(),
+                        DOCTOR_DELETE.name(),
+                        MIDWIFE_DELETE.name())
                 //What Parents Can Access
                 .requestMatchers("/api/v1/parent/**").hasAnyRole(ADMIN.name(), PARENT.name())
 

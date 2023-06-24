@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class NotificationResponse {
     private String content;
-    private boolean isFalse;
+    private String readStatus;
 
 }
