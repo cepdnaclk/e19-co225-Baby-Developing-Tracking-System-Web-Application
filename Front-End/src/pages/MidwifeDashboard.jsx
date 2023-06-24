@@ -48,7 +48,7 @@ const MidwifeDashboard = () => {
         const access = token.access_token;
         console.log(access);
         
-        const response = await axios.get('http://localhost:8080/api/v1/doctor', {
+        const response = await axios.get('http://localhost:8080/api/v1/midwife/getAll', {
           headers: {
             "Access-Control-Allow-Origin": true,
             Authorization: "Bearer " + access

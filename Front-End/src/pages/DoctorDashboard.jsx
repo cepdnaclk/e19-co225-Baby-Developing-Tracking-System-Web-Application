@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import DoctorBabyDetailsCard from "../components/DoctorBabyDetailsCard";
 import DoctorAppointmentDetailsCard from "../components/DoctorAppointmentDetailsCard";
 import { Nav } from "../Nav";
@@ -41,7 +42,7 @@ const DoctorDashboard = () => {
         console.log(access);
 
         const response = await axios.get(
-          "http://localhost:8080/api/v1/midwife",
+          "http://localhost:8080/api/v1/doctor/getAll",
           {
             headers: {
               "Access-Control-Allow-Origin": true,
