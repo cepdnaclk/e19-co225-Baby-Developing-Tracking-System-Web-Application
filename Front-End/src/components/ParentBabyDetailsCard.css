@@ -8,6 +8,8 @@
     background-color: white;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    max-height: calc(100vh - 200px); /* Adjust the value as needed */
+    overflow-y: auto;
   }
   
   .card-header {

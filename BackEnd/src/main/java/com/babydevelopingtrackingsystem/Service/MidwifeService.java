@@ -49,7 +49,7 @@ public class MidwifeService {
         String email = authentication.getName();
         User user = userRepository.findByEmail(email).get();
         List<MidwifeBabyResponse> midwifeBabyResponses = new ArrayList<>();
-        List<Baby> babies =  babyRepository.findAllByDoctor(user.getId());
+        List<Baby> babies =  new ArrayList<>(); //babyRepository.findAllByDoctor(user.getId());
         for(Baby baby:babies){
             List<BabyVaccinationResponse> babyVaccinationResponses = new ArrayList<>();
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();

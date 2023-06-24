@@ -4,9 +4,18 @@ import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationRequest;
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationResponse;
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
+
 import com.babydevelopingtrackingsystem.Model.*;
+
+import com.babydevelopingtrackingsystem.Model.Baby;
+import com.babydevelopingtrackingsystem.Model.BabyVaccination;
+import com.babydevelopingtrackingsystem.Model.User;
+import com.babydevelopingtrackingsystem.Model.Vaccination;
+
 import com.babydevelopingtrackingsystem.Repository.*;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -16,23 +25,36 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class DoctorService {
+    Logger logger  = LoggerFactory.getLogger(DoctorService.class);
+
     private final BabyRepository babyRepository;
     private final UserRepository userRepository;
 
     private final VaccinationRepository vaccinationRepository;
 
     private final BabyVaccinationRepository babyVaccinationRepository;
+    private final DoctorRepository doctorRepository;
+
+
 
     private final AppointmentRepository appointmentRepository;
 
     public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository) {
+
+    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, DoctorRepository doctorRepository) {
+
         this.babyRepository = babyRepository;
         this.userRepository = userRepository;
         this.vaccinationRepository = vaccinationRepository;
         this.babyVaccinationRepository = babyVaccinationRepository;
+
         this.appointmentRepository = appointmentRepository;
+
+        this.doctorRepository = doctorRepository;
+
     }
 
     public List<DoctorBabyResponse> getAllAssignedBabies() {
@@ -40,11 +62,16 @@ public class DoctorService {
 
         String email = authentication.getName();
         User user = userRepository.findByEmail(email).get();
+        logger.info(user.getEmail());
+
         List<DoctorBabyResponse> doctorBabyResponses = new ArrayList<>();
-        List<Baby> babies =  babyRepository.findAllByDoctor(user.getId());
+        List<Baby> babies =  babyRepository.findAllByDoctor(doctorRepository.findById(user.getId()).get());
+        logger.info(String.valueOf(babies.size()));
         for(Baby baby:babies){
+
             List<BabyVaccinationResponse> babyVaccinationResponses = new ArrayList<>();
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
+            logger.info(String.valueOf(babyVaccinations.size()));
             for(BabyVaccination babyVaccination:babyVaccinations){
                 babyVaccinationResponses.add(new BabyVaccinationResponse(babyVaccination.getVaccination().getName(),
                         babyVaccination.getVaccinationDate(),

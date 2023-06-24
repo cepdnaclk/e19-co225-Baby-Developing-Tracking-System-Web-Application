@@ -41,43 +41,32 @@ const MidwifeDashboard = () => {
   // //(Note that the fields are not correctly matching at the moment)
   // //(Change the endpoint and fields as necessary)
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const token = JSON.parse(localStorage.getItem("user"));
-  //       const access = token.access_token;
-  //       console.log(access);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         
-  //       const response = await axios.get('http://localhost:8080/api/v1/doctor', {
-  //         headers: {
-  //           "Access-Control-Allow-Origin": true,
-  //           Authorization: "Bearer " + access
-  //         },
-  //       });
+        const response = await axios.get('http://localhost:8080/api/v1/midwife/getAll', {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access
+          },
+        });
   
-  //       setSelectedBabyTableData(response.data);
-  //       console.log(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
+        setSelectedBabyTableData(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
   
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
   
 
   // Sample data for the calendar
-  const calendarData = [
-    {
-      date: "2023-06-08",
-      works: ["Work 1", "Work 2"],
-    },
-    {
-      date: "2023-06-09",
-      works: ["Work 3"],
-    },
-    // Add more calendar data as needed
-  ];
 
   const handleBabyRowClick = (baby) => {
     setSelectedBaby(baby);

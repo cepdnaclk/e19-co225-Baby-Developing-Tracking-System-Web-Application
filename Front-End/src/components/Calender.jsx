@@ -62,7 +62,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="calender-style"> 
+    <div className="calender-style">
       <div className="calender-styles flex gap-10 sm:divide-x justify-center  sm:mx-10 my-10 scale-75 sm:scale-100 items-center lg:flex-row flex-col sm:border rounded-lg sm:p-8 sm:pb-12">
         <div className="w-96 h-96">
           <div className="flex justify-between items-center">
@@ -108,7 +108,9 @@ export default function Calendar() {
                   <button
                     className={`h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none ${
                       appointments.some(
-                        (appointment) => appointment.date === date.format("YYYY-MM-DD")) && !date.isSame(currentDate, 'day')
+                        (appointment) =>
+                          appointment.date === date.format("YYYY-MM-DD")
+                      ) && !date.isSame(currentDate, "day")
                         ? "bg-blue-200"
                         : ""
                     } ${today ? "bg-red-600 text-white" : ""} ${
