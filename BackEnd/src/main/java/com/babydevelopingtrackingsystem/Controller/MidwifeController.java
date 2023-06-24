@@ -1,9 +1,9 @@
 package com.babydevelopingtrackingsystem.Controller;
 
 import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
-import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
+import com.babydevelopingtrackingsystem.Dto.AppointmentResponse;
 import com.babydevelopingtrackingsystem.Dto.MidwifeBabyResponse;
-import com.babydevelopingtrackingsystem.Service.DoctorService;
+import com.babydevelopingtrackingsystem.Service.AppointmentService;
 import com.babydevelopingtrackingsystem.Service.MidwifeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +15,11 @@ import java.util.List;
 
 public class MidwifeController {
     private final MidwifeService midwifeService;
+    private final AppointmentService appointmentService;
 
-    public MidwifeController(MidwifeService midwifeService) {
+    public MidwifeController(MidwifeService midwifeService, AppointmentService appointmentService) {
         this.midwifeService = midwifeService;
+        this.appointmentService = appointmentService;
     }
     @GetMapping("/getAll")
     public ResponseEntity<List<MidwifeBabyResponse>> getAssignedBabies(){
@@ -39,5 +41,15 @@ public class MidwifeController {
     @PostMapping("appointment/create")
     public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
        midwifeService.createAppointment(appointmentRequest);
+    }
+
+    @PostMapping("appointment/accept")
+    public void acceptAppointment(@RequestBody int id){
+        appointmentService.acceptAppointment(id);
+
+    }
+    @GetMapping("appointment/get")
+    public List<AppointmentResponse> getAllAppointments(){
+        return appointmentService.findByUser();
     }
 }

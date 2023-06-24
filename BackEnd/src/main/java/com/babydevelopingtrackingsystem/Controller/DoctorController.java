@@ -1,23 +1,26 @@
 package com.babydevelopingtrackingsystem.Controller;
 import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
+import com.babydevelopingtrackingsystem.Dto.AppointmentResponse;
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationRequest;
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
+import com.babydevelopingtrackingsystem.Service.AppointmentService;
 import com.babydevelopingtrackingsystem.Service.DoctorService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 
 @RestController
 @RequestMapping("api/v1/doctor")
 
 public class DoctorController {
     private final DoctorService doctorService;
+    private final AppointmentService appointmentService;
 
-    public DoctorController(DoctorService doctorService) {
+    public DoctorController(DoctorService doctorService, AppointmentService appointmentService) {
         this.doctorService = doctorService;
+        this.appointmentService = appointmentService;
     }
     //Get Assigned Babies
     @GetMapping("/getAll")
@@ -60,6 +63,17 @@ public class DoctorController {
     @PostMapping("appointment/create")
     public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
         doctorService.createAppointment(appointmentRequest);
+    }
+
+    @PostMapping("appointment/accept")
+    public void acceptAppointment(@RequestBody int id){
+        appointmentService.acceptAppointment(id);
+
+    }
+
+    @GetMapping("appointment/get")
+    public List<AppointmentResponse> getAllAppointments(){
+        return appointmentService.findByUser();
     }
 
 }

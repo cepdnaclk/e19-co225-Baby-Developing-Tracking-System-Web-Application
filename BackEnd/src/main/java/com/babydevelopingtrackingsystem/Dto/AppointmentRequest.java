@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class AppointmentRequest {
     private LocalDateTime dateTime;
-    private Role role;
+    private Role role; //Only for Parent
 
     private String venue;
 
