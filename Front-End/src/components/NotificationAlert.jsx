@@ -17,14 +17,18 @@ const NotificationAlertIcon = () => {
         console.log(access);
 
         const response = await axios.get(
-          "http://localhost:8080/api/v1/notification",
+          "http://localhost:8080/api/v1/notifications/get",
           {
             headers: {
               Authorization: "Bearer " + access,
             },
           }
         );
-        setNotifications(response.data);
+        
+        
+        const contentArray = response.data.map(obj => obj.content);
+        setNotifications(contentArray);
+        console.log(contentArray)
       } catch (error) {
         console.error("Error fetching notifications:", error);
         setNotifications([
@@ -48,7 +52,22 @@ const NotificationAlertIcon = () => {
 
   const clearNotifications = () => {
     setNotifications([]);
+    
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      console.log("Clear Notifications");
+
+      axios.get(
+
+        "http://localhost:8080/api/v1/notifications/delete",
+        {
+          headers: {
+            Authorization: "Bearer " + access,
+          },
+        }
+      );
   };
+
 
   return (
     <div className="notification-icon-container">

@@ -37,6 +37,13 @@ public class BabyDevelopingTrackingSystemApplication {
                     passwordEncoder.encode("password"),
                                         Role.ADMIN));
 
+            userRepository.save(new User("PARENT",
+                    "SPROUTOPIA",
+                    "parent@sproutopia.com",
+                    passwordEncoder.encode("password"),
+                    Role.PARENT));
+
+
 
 
 
