@@ -1,20 +1,16 @@
 package com.babydevelopingtrackingsystem.Service;
 
+import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationResponse;
-import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
 import com.babydevelopingtrackingsystem.Dto.MidwifeBabyResponse;
-import com.babydevelopingtrackingsystem.Model.Baby;
-import com.babydevelopingtrackingsystem.Model.BabyVaccination;
-import com.babydevelopingtrackingsystem.Model.User;
-import com.babydevelopingtrackingsystem.Repository.BabyRepository;
-import com.babydevelopingtrackingsystem.Repository.BabyVaccinationRepository;
-import com.babydevelopingtrackingsystem.Repository.UserRepository;
-import com.babydevelopingtrackingsystem.Repository.VaccinationRepository;
+import com.babydevelopingtrackingsystem.Model.*;
+import com.babydevelopingtrackingsystem.Repository.*;
 import com.babydevelopingtrackingsystem.Utill.VariableList;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -28,11 +24,24 @@ public class MidwifeService {
 
     private final BabyVaccinationRepository babyVaccinationRepository;
 
-    public MidwifeService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository) {
+    private final ParentRepository parentRepository;
+
+
+
+    private final MidwifeRepository midwifeRepository;
+    private final DoctorRepository doctorRepository;
+
+    private final AppointmentRepository appointmentRepository;
+
+    public MidwifeService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, ParentRepository parentRepository, MidwifeRepository midwifeRepository, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository) {
         this.babyRepository = babyRepository;
         this.userRepository = userRepository;
         this.vaccinationRepository = vaccinationRepository;
         this.babyVaccinationRepository = babyVaccinationRepository;
+        this.parentRepository = parentRepository;
+        this.midwifeRepository = midwifeRepository;
+        this.doctorRepository = doctorRepository;
+        this.appointmentRepository = appointmentRepository;
     }
 
     public List<MidwifeBabyResponse> getAllAssignedBabies() {
@@ -72,5 +81,26 @@ public class MidwifeService {
 
     }
     //Appointments
-    //TODO
+    public void createAppointment(AppointmentRequest appointmentRequest) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String email = authentication.getName();
+
+        Midwife midwife = midwifeRepository.findByEmail(email);
+        Optional<Baby> baby = babyRepository.findById(appointmentRequest.getBabyId());
+        Optional<User> parentUser = userRepository.findById(baby.get().getParent().getId());
+        Optional<User> midwifeUser = userRepository.findById(midwife.getId());
+
+        Appointment appointment = new Appointment();
+        appointment.setRequestorUser(midwifeUser.get());
+        appointment.setAcceptorUser(parentUser.get());
+
+        appointment.setAppointmentStatus("PENDING");
+        appointment.setVenue(appointmentRequest.getVenue());
+        appointment.setPlacementDateTime(LocalDateTime.now());
+        appointment.setScheduledDateTime(appointmentRequest.getDateTime());
+
+        appointmentRepository.save(appointment);
+
+    }
 }

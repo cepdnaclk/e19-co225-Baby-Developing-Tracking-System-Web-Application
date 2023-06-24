@@ -1,5 +1,6 @@
 package com.babydevelopingtrackingsystem.Controller;
 
+import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
 import com.babydevelopingtrackingsystem.Dto.MidwifeBabyResponse;
 import com.babydevelopingtrackingsystem.Service.DoctorService;
@@ -35,5 +36,8 @@ public class MidwifeController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
     //Appointments
-    //TODO
+    @PostMapping("appointment/create")
+    public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
+       midwifeService.createAppointment(appointmentRequest);
+    }
 }

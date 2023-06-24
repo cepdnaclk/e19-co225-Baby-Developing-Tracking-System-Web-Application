@@ -1,4 +1,5 @@
 package com.babydevelopingtrackingsystem.Controller;
+import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
 import com.babydevelopingtrackingsystem.Dto.BabyVaccinationRequest;
 import com.babydevelopingtrackingsystem.Dto.DoctorBabyResponse;
 import com.babydevelopingtrackingsystem.Service.DoctorService;
@@ -55,8 +56,10 @@ public class DoctorController {
 
     }
 
-
-    //Appointments
-    //TODO
+        //Appointments
+    @PostMapping("appointment/create")
+    public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
+        doctorService.createAppointment(appointmentRequest);
+    }
 
 }

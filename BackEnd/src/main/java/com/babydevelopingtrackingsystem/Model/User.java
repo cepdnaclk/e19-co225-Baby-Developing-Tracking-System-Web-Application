@@ -47,6 +47,12 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     private List<Notification> notifications;
 
+    @OneToMany(mappedBy = "requestorUser")
+    private List<Appointment> requestingAppointments;
+
+    @OneToMany(mappedBy = "acceptorUser")
+    private List<Appointment> acceptingAppointments;
+
 
 
 

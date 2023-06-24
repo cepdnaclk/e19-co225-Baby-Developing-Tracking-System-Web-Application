@@ -1,6 +1,7 @@
 package com.babydevelopingtrackingsystem.Repository;
 
 import com.babydevelopingtrackingsystem.Model.Baby;
+import com.babydevelopingtrackingsystem.Model.Midwife;
 import com.babydevelopingtrackingsystem.Model.Parent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,4 +17,5 @@ public interface BabyRepository extends JpaRepository<Baby,Integer> {
 
     Baby findBabyByParent(Parent parent);
 
+    Baby findBabyByMidwife(Midwife midwife);
 }
