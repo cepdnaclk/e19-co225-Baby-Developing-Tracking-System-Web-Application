@@ -108,6 +108,14 @@ public class SecurityConfiguration {
                  .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
                  .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())
 
+                //What Midwifes can access
+                .requestMatchers("/api/v1/midwife/**").hasAnyRole(ADMIN.name(),MIDWIFE.name())
+
+                .requestMatchers(GET, "/api/v1/midwife/**").hasAnyAuthority(ADMIN_READ.name(),MIDWIFE_READ.name())
+                .requestMatchers(POST, "/api/v1/midwife/**").hasAnyAuthority(ADMIN_CREATE.name(),MIDWIFE_CREATE.name())
+                .requestMatchers(PUT, "/api/v1/midwife/**").hasAnyAuthority(ADMIN_UPDATE.name(),MIDWIFE_UPDATE.name())
+                .requestMatchers(DELETE, "/api/v1/midwife/**").hasAnyAuthority(ADMIN_DELETE.name(),MIDWIFE_DELETE.name())
+
 //                .requestMatchers("/api/v1/add_vaccine/**").hasAnyRole(ADMIN.name(),DOCTOR.name())
 //
 //                .requestMatchers(GET, "/api/v1/add_vaccine/**").hasAnyAuthority(ADMIN_READ.name(),

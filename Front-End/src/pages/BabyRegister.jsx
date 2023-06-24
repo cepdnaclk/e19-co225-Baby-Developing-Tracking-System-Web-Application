@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import { Nav } from "../Nav";
@@ -9,8 +8,8 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/api/v1/parent";
 
 export const BabyRegister = (props) => {
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [birthday, setBirthday] = useState("");
   const [gender, setGender] = useState("");
 
@@ -22,12 +21,18 @@ export const BabyRegister = (props) => {
       const token = JSON.parse(localStorage.getItem("user"));
       const access = token.access_token;
       console.log(access);
+      console.log({
+        firstName,
+        lastName,
+        birthday,
+        gender,
+      });
       axios
         .post(
           API_URL + "/registerBaby",
           {
-            firstname,
-            lastname,
+            firstName,
+            lastName,
             birthday,
             gender,
           },
@@ -58,7 +63,7 @@ export const BabyRegister = (props) => {
         <form className="register-form" onSubmit={handleSubmit}>
           <dev className="Fname">
             <input
-              value={firstname}
+              value={firstName}
               onChange={(input) => setFirstName(input.target.value)}
               type="name"
               placeholder="First Name"
@@ -66,7 +71,7 @@ export const BabyRegister = (props) => {
               name="firstname"
             />
             <input
-              value={lastname}
+              value={lastName}
               onChange={(input) => setLastName(input.target.value)}
               type="name"
               placeholder="Last Name"

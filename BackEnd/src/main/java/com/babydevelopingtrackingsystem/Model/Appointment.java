@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -20,17 +21,17 @@ public class Appointment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
     @ManyToOne
-    @JoinColumn(name = "baby_id")
+    @JoinColumn(name = "requester_id")
     @Hidden
-    private Baby baby;
+    private User requestorUser;
     @ManyToOne
-    @JoinColumn(name="doctor_id")
+    @JoinColumn(name="acceptor_id")
     @Hidden
-    private Doctor doctor;
+    private User acceptorUser;
 
-    private Date placementDateTime;
+    private LocalDateTime placementDateTime;
 
-    private Date scheduledDateTime;
+    private LocalDateTime scheduledDateTime;
 
     private String venue;
 

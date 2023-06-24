@@ -1,7 +1,9 @@
 package com.babydevelopingtrackingsystem;
 
+import com.babydevelopingtrackingsystem.Model.Parent;
 import com.babydevelopingtrackingsystem.Model.User;
 import com.babydevelopingtrackingsystem.Model.Vaccination;
+import com.babydevelopingtrackingsystem.Repository.ParentRepository;
 import com.babydevelopingtrackingsystem.Repository.UserRepository;
 import com.babydevelopingtrackingsystem.Repository.VaccinationRepository;
 import com.babydevelopingtrackingsystem.Utill.Role;
@@ -26,7 +28,10 @@ public class BabyDevelopingTrackingSystemApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository, UserRepository userRepository,PasswordEncoder passwordEncoder){
+    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository,
+                                               UserRepository userRepository,
+                                               ParentRepository parentRepository,
+                                               PasswordEncoder passwordEncoder){
         return args -> {
 
 
@@ -37,11 +42,12 @@ public class BabyDevelopingTrackingSystemApplication {
                     passwordEncoder.encode("password"),
                                         Role.ADMIN));
 
-            userRepository.save(new User("PARENT",
+            parentRepository.save(new Parent("PARENT",
                     "SPROUTOPIA",
                     "parent@sproutopia.com",
                     passwordEncoder.encode("password"),
-                    Role.PARENT));
+                    Role.PARENT,
+                    "Mother"));
 
 
 
