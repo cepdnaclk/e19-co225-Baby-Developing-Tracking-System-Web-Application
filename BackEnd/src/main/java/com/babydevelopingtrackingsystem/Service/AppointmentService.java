@@ -77,7 +77,7 @@ private final UserRepository userRepository;
         List<Appointment> appointments;
         List<AppointmentResponse> appointmentResponses  = new ArrayList<>();
         if(user.isPresent()){
-            appointments = appointmentRepository.findByAcceptorUserOrRequestorUser(user.get());
+            appointments = appointmentRepository.findByAcceptorUserOrRequestorUser(user.get(),user.get());
 
             //How a Parent Get there list of appointments
             if (user.get().getRole().equals(Role.PARENT)){
