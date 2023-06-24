@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
-import "./styles.css";
+import "./HorizontalTimeline.css";
  
-function App() {
+function Timeline() {
     const [value, setValue] = useState(0);
     const [previous, setPrevious] = useState(0);
  
@@ -93,4 +93,4 @@ function App() {
     );
 }
  
-export default App;
+export default Timeline;

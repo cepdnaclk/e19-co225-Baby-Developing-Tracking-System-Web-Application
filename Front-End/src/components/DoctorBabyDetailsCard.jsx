@@ -3,6 +3,7 @@ import "./BabyDetailsCard.css"
 import React from 'react';
 import VaccinationTimeline from './Timeline';
 
+
 const DoctorBabyDetailsCard = ({ baby, onClose }) => {
   return (
     <div className="baby-details-card">
@@ -38,7 +39,7 @@ const DoctorBabyDetailsCard = ({ baby, onClose }) => {
         </div>
         <div className="vaccination-timeline">
           <h4>Vaccination Timeline</h4>
-          <VaccinationTimeline/>
+          {/* <Timeline/> */}
         </div>
       </div>
     </div>

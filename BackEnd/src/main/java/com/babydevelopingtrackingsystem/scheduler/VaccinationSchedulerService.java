@@ -35,7 +35,7 @@ public class VaccinationSchedulerService {
         this.babyVaccinationRepository = babyVaccinationRepository;
     }
 
-    @Scheduled(cron = "*/10 * * * * *")
+    //@Scheduled(cron = "*/10 * * * * *")
     public void checkUpcomingVaccinations() {
         List<Baby> babies = babyRepository.findAll();
         //List<VaccineAlert> vaccineAlerts = new ArrayList<>();
