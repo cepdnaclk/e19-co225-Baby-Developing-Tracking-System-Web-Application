@@ -6,13 +6,17 @@ import com.babydevelopingtrackingsystem.Dto.ParentBabyResponse;
 import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Model.BabyVaccination;
 import com.babydevelopingtrackingsystem.Model.Parent;
+import com.babydevelopingtrackingsystem.Model.Vaccination;
 import com.babydevelopingtrackingsystem.Repository.BabyRepository;
+import com.babydevelopingtrackingsystem.Repository.BabyVaccinationRepository;
 import com.babydevelopingtrackingsystem.Repository.ParentRepository;
-import com.babydevelopingtrackingsystem.Utill.DateFormatConverter;
+import com.babydevelopingtrackingsystem.Repository.VaccinationRepository;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +25,15 @@ public class ParentService {
     private final ParentRepository parentRepository;
     private final BabyRepository babyRepository;
 
-    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository) {
+    private final VaccinationRepository vaccinationRepository;
+
+    private final BabyVaccinationRepository babyVaccinationRepository;
+
+    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository) {
         this.parentRepository = parentRepository;
         this.babyRepository = babyRepository;
+        this.vaccinationRepository = vaccinationRepository;
+        this.babyVaccinationRepository = babyVaccinationRepository;
     }
     //Baby
     public boolean doesBabyExistForParent() {
@@ -46,11 +56,25 @@ public class ParentService {
 
         baby.setParent(parent);
         String birthday = babyRegistrationRequest.getBirthday().toString();
-        baby.setDateofBirth(DateFormatConverter.convertDateFormat(birthday));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        baby.setDateofBirth(String.valueOf(LocalDate.parse(birthday, formatter)));
         baby.setName(babyRegistrationRequest.getFirstName()+babyRegistrationRequest.getLastName());
         baby.setGender(babyRegistrationRequest.getGender());
 
-        babyRepository.save(baby);
+        List<Vaccination> compulsoryVaccinations = vaccinationRepository.findByType("Compulsory");
+
+
+        Baby savedBaby = babyRepository.save(baby);
+
+
+        for (Vaccination vaccination : compulsoryVaccinations) {
+            LocalDate dueDate = LocalDate.parse(birthday, formatter).plusMonths(vaccination.getAgeInMonths());
+
+
+            babyVaccinationRepository.save(new BabyVaccination( dueDate, "Pending",savedBaby, vaccination));
+        }
+
+
 
     }
 

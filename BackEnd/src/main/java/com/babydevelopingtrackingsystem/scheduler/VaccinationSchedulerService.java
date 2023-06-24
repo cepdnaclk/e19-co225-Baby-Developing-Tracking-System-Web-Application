@@ -52,8 +52,8 @@ public class VaccinationSchedulerService {
                 LocalDate dueDate = babyVaccination.getVaccinationDate();
                 long daysDifference = ChronoUnit.DAYS.between(today, dueDate);
                 String content = babyVaccination.getVaccination().getName() + " is due on " +
-                                    dueDate.toString() +
-                        daysDifference;
+                                    dueDate.toString() + " " +
+                        daysDifference + "Days Left";
                 logger.info(content);
                 if (baby.getParent()!=null)
                     notificationService.createNotification(baby.getParent(),content);
