@@ -58,7 +58,7 @@ public class ParentService {
         String birthday = babyRegistrationRequest.getBirthday().toString();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         baby.setDateofBirth(String.valueOf(LocalDate.parse(birthday, formatter)));
-        baby.setName(babyRegistrationRequest.getFirstName()+babyRegistrationRequest.getLastName());
+        baby.setName(babyRegistrationRequest.getFirstName()+" "+ babyRegistrationRequest.getLastName());
         baby.setGender(babyRegistrationRequest.getGender());
 
         List<Vaccination> compulsoryVaccinations = vaccinationRepository.findByType("Compulsory");
