@@ -119,4 +119,41 @@ table {
   cursor: pointer;
 }
 
-/* Styling for BabyDetailsCard and AppointmentDetailsCard components can be added separately */
+
+.tabs-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  background-color: #d4dfeb;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+  background-color: #3364a5;
+  color: #ffffff;
+}
+
+.tab-button:hover {
+  background-color: #5c5b5be5;
+  color: #ffffff;
+}
+
+.tab-button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.SpaceButton{
+  width: 90vw;
+  height: 1px;
+}
