@@ -10,7 +10,10 @@ const signup = (firstname, lastname, email, password,role) => {
       lastname,
       email,
       password,
-      role
+      role,
+      hospital,
+      regNo,
+      specialization
     })
     .then((response) => {
       console.log(response);

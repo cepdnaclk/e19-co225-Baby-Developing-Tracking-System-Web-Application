@@ -151,3 +151,20 @@
       margin-right: 0px;
     }
   }
+
+  .radio-group-role{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 95%;
+  }
+
+  .radio-group-item{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    color: #4e4e4ebe;
+    font-weight: 400;
+  }
+
+
