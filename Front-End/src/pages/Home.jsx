@@ -4,10 +4,8 @@ import { Nav } from "../Nav";
 import { Footer } from "../Footer";
 
 const images = [
-  "src/assets/background1.png",
-  "src/assets/background2.jpeg",
-  "src/assets/background3.jpeg",
-  "src/assets/yenidogan-1200x600.jpg",
+  "src/assets/Background_Blur4.png",
+  "src/assets/Background_Blur5.png"
   
  
   
@@ -55,10 +53,10 @@ export const Home = () => {
         <div className="text-container" style={textContainerStyle}>
           <h1 className="header text-center font-[900] text-6xl text-gray-800 ">SPROUTOPIA</h1>
           <h3 className="subheader text-center font-[500] text-3xl text-gray-400 text-light">Nutering Smiles, Shaping Futures</h3>
-
+          <img src="src\assets\pngwing.com.png" className="Baby_landing"></img>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };
