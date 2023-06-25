@@ -51,8 +51,6 @@ export const Home = () => {
       <Nav />
       <div className="relative" style={containerStyle}>
         <div className="text-container" style={textContainerStyle}>
-          <h1 className="header text-center font-[900] text-6xl text-gray-800 ">SPROUTOPIA</h1>
-          <h3 className="subheader text-center font-[500] text-3xl text-gray-400 text-light">Nutering Smiles, Shaping Futures</h3>
           <img src="src\assets\pngwing.com.png" className="Baby_landing"></img>
         </div>
       </div>

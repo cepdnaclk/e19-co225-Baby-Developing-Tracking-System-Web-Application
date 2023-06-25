@@ -10,10 +10,10 @@ export const Nav = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
   const logoutConfirmationRef = useRef(null);
+  const [isLogoLoaded, setIsLogoLoaded] = useState(false);
 
   useEffect(() => {
     const menuItems = document.querySelectorAll(".nav li");
-
     const menuBtn = document.querySelector(".menu-btn");
     const navUl = document.querySelector(".nav ul");
 
@@ -67,6 +67,10 @@ export const Nav = () => {
     };
   }, []);
 
+
+  
+
+
   const handleItemClick = (path) => {
     navigate(path);
   };
@@ -96,13 +100,20 @@ export const Nav = () => {
   return (
     <div>
       <div className="nav">
-        <img
+        {location.pathname === ("/Home" || "") ? <img
           align="center"
           alt="logo"
           className="logo"
           src="src\assets\Sproutopia_navbar_logo.png"
           onClick={() => handleItemClick("/Home")}
-          />
+          /> : <img
+          align="center"
+          alt="logo"
+          className="Nav_logo"
+          src="src\assets\Sproutopia_navbar_logo.png"
+          onClick={() => handleItemClick("/Home")}
+          />}
+          <div></div>
 
         <ul className="nav-items">
           {currentUser && (

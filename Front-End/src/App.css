@@ -5,6 +5,36 @@
     left:53.5%;
 }
 
+.Baby_landing {
+    position: absolute;
+     /* Adjust the initial position off the screen */
+    top: -100px;
+    opacity: 0;
+    animation-name: slideFromTop;
+    animation-duration: 1s;
+    animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes slideFromTop {
+    0% {
+      top: -100px;
+      opacity: 0;
+    }
+    100% {
+        top:11%; /* Adjust the desired position */
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+
 
 
 
