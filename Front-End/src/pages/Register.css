@@ -74,6 +74,7 @@
     border: none;
     padding: 15px 5px 0px;
     cursor: pointer;
+    transition:  300ms ease-in-out
   }
 
   .link-btn:hover{
@@ -118,6 +119,7 @@
     text-align: center;
     letter-spacing: 2px;
     transition: all 0.375s;
+    transition:  300ms ease-in-out
   }
   
   .register-form > button:hover {

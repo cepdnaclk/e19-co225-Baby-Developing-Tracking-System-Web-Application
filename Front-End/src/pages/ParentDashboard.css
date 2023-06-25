@@ -13,10 +13,12 @@
 .height_graph{
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in;
 }
 .weight_graph{
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
+  animation: fadeIn 1s ease-in;
 }
 
 .blink {
@@ -42,6 +44,7 @@
   padding: 4px 8px;
   cursor: pointer;
   border-radius: 10px;
+  transition:  300ms ease-in-out
 }
 
 .header {
@@ -89,6 +92,7 @@ table {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  transition:  300ms ease-in-out
 }
 
 .card-content {
@@ -100,13 +104,14 @@ table {
   color: white;
   padding: 8px 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
+  transition:  300ms ease-in-out
 }
 
 .accept-button:hover{
-  scale: 1.02;
-  background-color: rgba(3, 59, 20, 0.774);
+  scale: 1.05;
+  background-color: rgba(5, 55, 97, 0.774);
 }
 
 .suggest-date-form {
@@ -144,11 +149,12 @@ table {
   padding: 10px 20px;
   background-color: #d4dfeb;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  transition:  300ms ease-in-out
 }
 
 .tab-button.active {
@@ -159,6 +165,7 @@ table {
 .tab-button:hover {
   background-color: #5c5b5be5;
   color: #ffffff;
+  scale: 1.05;
 }
 
 .tab-button:not(:last-child) {

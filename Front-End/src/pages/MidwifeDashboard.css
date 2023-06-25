@@ -27,6 +27,10 @@
   }
 }
 
+button {
+  transition: box-shadow 200ms ease-in-out;
+}
+
 
 
 .header {

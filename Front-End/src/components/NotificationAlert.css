@@ -13,10 +13,12 @@
 .notification-icon svg {
   color: #434343;
   transition: color 0.3s ease-in-out;
+  scale: 1.1;
 }
 
 .notification-icon:hover svg {
-  color: #ff6347; /* Change the color to your desired hover color */
+  color: #911e0a; /* Change the color to your desired hover color */
+  scale: 1.2;
 }
 
 .notification-count {

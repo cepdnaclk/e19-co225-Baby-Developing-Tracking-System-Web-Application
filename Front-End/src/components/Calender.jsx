@@ -62,7 +62,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="calender-style ">
+    <div className="calender-style animate-fadein">
       <div className="calender-styles flex gap-10 sm:divide-x justify-center  sm:mx-10 my-10 scale-75 sm:scale-100 items-center lg:flex-row flex-col sm:border rounded-lg sm:p-8 sm:pb-12 shadow-xl shadow-blue-100/50">
         <div className="w-96 h-96">
           <div className="flex justify-between items-center">

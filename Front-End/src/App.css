@@ -25,6 +25,55 @@
       opacity: 1;
     }
   }
+
+  .welcome-message {
+    width: calc(10vw + 20em);
+    position: absolute;
+    top: 65%;
+    transform: translateY(-50%);
+    left: 10vw;
+    animation: fadeIn 0.5s ease-in;
+    z-index: 2
+  }
+
+  .welcome-message p {
+    font-family: "Poppins", sans-serif;
+    animation: fadeIn 1s ease-in;
+    font-size:large;
+    color: #424242;
+    transition:  300ms ease-in-out
+}
+  .welcome-message button {
+    font-family: "Poppins", sans-serif;
+    animation: fadeIn 1s ease-in;
+    font-size:large;
+    color: #424242;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition:  300ms ease-in-out
+}
+
+.welcome-message button:hover {
+  scale: 1.1;
+  color: #123f72c5;
+  border-color: #123f72c5;
+}
+
+.welcome-message p:hover{
+  scale: 1.05;
+}
+
+@keyframes fadeIn{
+	from {
+		opacity: 0;
+		
+
+	}
+	to {
+		opacity: 1;
+	}
+}
   
   
   

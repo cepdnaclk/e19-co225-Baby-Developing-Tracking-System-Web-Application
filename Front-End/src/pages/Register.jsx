@@ -39,7 +39,7 @@ export const Register = (props) => {
   return (
     <div>
       {/* <Nav /> */}
-      <div className="Register-full">
+      <div className="Register-full animate-fadein rounded-lg">
         <div className="relative  rounded-lg ">
           <div className="auth-form-container">
             <div className="auth-logo">

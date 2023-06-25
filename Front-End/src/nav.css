@@ -50,6 +50,7 @@
   animation-duration: 1s;
   animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
   animation-fill-mode: forwards;
+  transition:  300ms ease-in-out
 }
 
 @keyframes slideFromTopLogo {
@@ -82,6 +83,7 @@
   animation-duration: 1s;
   animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
   animation-fill-mode: forwards;
+  transition:  300ms ease-in-out
 }
 
 @keyframes slideFromTopLogo3 {
