@@ -148,17 +148,18 @@ export const Nav = () => {
               Parent<span></span>
             </li>
           )}
-          
+          <p>&nbsp; </p>
           {currentUser && <NotificationAlertIcon notificationCount={3} />}
+          <p>&nbsp;&nbsp; </p>
 
           {currentUser ? (
-            <li className="logout-button" onClick={() => handleLogout()}>
+            <li className="logout-button border-2 border-gray-700" onClick={() => handleLogout()}>
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Log Out
               <span></span>
             </li>
           ) : (
             <li
-            className="login-button"
+            className="login-button border-2 border-gray-700"
               onClick={() => handleItemClick("/authenticate")}
             >
               <i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In
@@ -168,7 +169,7 @@ export const Nav = () => {
 
           {!currentUser && (
             <li
-              className="signup-button"
+              className="signup-button border-2 border-gray-700"
               onClick={() => handleItemClick("/register")}
             >
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Up

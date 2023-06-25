@@ -118,7 +118,7 @@ const DoctorDashboard = () => {
             </div>
           </div>
 
-          <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12">
+          <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 shadow-xl shadow-blue-100/50">
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
