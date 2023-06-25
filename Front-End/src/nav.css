@@ -130,6 +130,10 @@
   scale: 1.1;
 }
 
+.Nav_logo:hover {
+  scale: 1.1;
+}
+
 .nav li span {
   position: absolute;
   display: block;
@@ -354,7 +358,7 @@
   /* -webkit-backdrop-filter: blur(10px);
 	backdrop-filter: blur(10px); */
   border-radius: 8px;
-  border: rgba(71, 71, 71, 0.589) solid;
+  border: rgba(71, 71, 71, 0.466) solid;
   border-width: thin;
   padding: 25px;
   max-width: 350px;
@@ -377,7 +381,7 @@
   background-color: #0e0a00c7;
   color: #fcfcfc;
   border: none;
-  border-radius: 6px;
+  border-radius: 26px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
@@ -394,12 +398,13 @@
   background-color: #f4d07daa;
   color: #000000c0;
   border: none;
-  border-radius: 6px;
+  border-radius: 26px;
   font-weight: bold;
   cursor: pointer;
   transition: box-shadow 200ms ease-in-out;
   margin: 0 10px;
   padding: 10px 15px;
+  width: 80px;
 }
 
 .confirm-button:hover {
