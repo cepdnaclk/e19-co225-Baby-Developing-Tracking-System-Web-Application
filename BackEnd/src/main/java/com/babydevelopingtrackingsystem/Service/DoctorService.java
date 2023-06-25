@@ -42,9 +42,8 @@ public class DoctorService {
 
     private final AppointmentRepository appointmentRepository;
 
-    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository) {
 
-    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, DoctorRepository doctorRepository) {
+    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, DoctorRepository doctorRepository,AppointmentRepository appointmentRepository) {
 
         this.babyRepository = babyRepository;
         this.userRepository = userRepository;
