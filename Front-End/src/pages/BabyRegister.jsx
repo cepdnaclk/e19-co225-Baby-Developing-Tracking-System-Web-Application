@@ -98,9 +98,9 @@ export const BabyRegister = (props) => {
   };
 
   return (
-    <div className="add-baby-container">
+    <div className="add-baby-container ">
       <Nav />
-      <div className="add-baby-form-container">
+      <div className="add-baby-form-container animate-fadein">
         <h2 className="h2">Baby Details</h2>
         <h3>Please fill in this form with your baby details</h3>
         <form className="add-baby-form" onSubmit={handleSubmit}>

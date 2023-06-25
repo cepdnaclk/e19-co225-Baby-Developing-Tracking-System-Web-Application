@@ -50,7 +50,7 @@ export const Login = () => {
     }
   };
   return (
-    <div className="login-full relative rounded-lg border">
+    <div className="login-full relative rounded-lg border animate-fadein">
       {/* <Nav /> */}
 
       <div className="">
