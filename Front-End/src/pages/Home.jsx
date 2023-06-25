@@ -62,16 +62,18 @@ export const Home = () => {
       <div className="relative" style={containerStyle}>
         <div className="text-container" style={textContainerStyle}>
           <div className="welcome-message">
-            <p>
+            {!currentUser && <p>
             Welcome to Sproutopia, where your baby's growth blossoms! Unlock the full potential of your little sprout with our comprehensive tracking system. Register now and nurture your baby's journey with confidence.
-            </p>
-            {currentUser && (
+            </p>}
+            {!currentUser && (
             <button className="home-signup border-2 border-gray-700"
             onClick={() => handleItemClick("/register")}
           >
             <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Sign Up
             <span></span>
             </button>)}
+
+            {currentUser && <p>Congratulations on joining Sproutopia! You are now part of a vibrant community dedicated to nurturing and supporting the growth of our little sprouts. With our user-friendly platform, you can effortlessly monitor your baby's milestones, track their development, and stay on top of important appointments and vaccinations. Sproutopia is here to empower you with valuable insights, personalized guidance, and a wealth of resources to ensure your baby's well-being. Explore the possibilities, celebrate each milestone, and cherish the incredible journey of parenthood. Together, let's create a beautiful future for our little ones in the digital age.</p>}
 
           </div>
           <img src="src\assets\pngwing.com.png" className="Baby_landing"></img>
