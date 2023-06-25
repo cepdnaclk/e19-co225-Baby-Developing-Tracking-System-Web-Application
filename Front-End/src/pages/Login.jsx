@@ -6,10 +6,9 @@ import "./Login.css";
 import { Nav } from "../Nav";
 import { Footer } from "../Footer";
 
-export const Login = (props) => {
+export const Login = () => {
   const [email, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [privatePosts, setPrivatePosts] = useState([]);
 
   const navigate = useNavigate();
 

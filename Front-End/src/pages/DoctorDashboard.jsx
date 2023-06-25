@@ -14,25 +14,64 @@ const DoctorDashboard = () => {
   // Sample data for the baby table
   const babyTableData = [
     {
-      name: "Alex Peter",
+      babyName: "Alex Peter",
       parentName: "Jenny Fernandes",
-      sex: "Male",
-      appointedMidwife: "Midwife 1",
+      midWifeName: "Midwife 1",
+      gender: "Male",
       hasAppointment: "Pending",
       requestDate: "2023-06-30",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
     },
     {
-      name: "Baby 2",
-      parentName: "Parent 2",
-      sex: "Female",
-      appointedMidwife: "Midwife 2",
+      babyName: "Baby 2",
+      parentName: "Eranga Dharmarathne",
+      midWifeName: "Midwife 2",
+      gender: "Female",
       hasAppointment: "Accepted",
       requestDate: "2023-06-28",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
+    },
+  ];
+
+  const appointmentTable = [
+    {
+      id: 1,
+      placementDateTime: "2023-06-25T14:36:02.833Z",
+      scheduledDateTime: "2023-06-25T14:36:02.833Z",
+      venue: "string",
+      appointmentStatus: "string",
     },
   ];
 
   const [selectedBabyTableData, setSelectedBabyTableData] =
     useState(babyTableData);
+  const [appointments, setAppointments] = useState(appointmentTable);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,7 +97,28 @@ const DoctorDashboard = () => {
       }
     };
 
+    const fetchAppointments = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
+
+        const response = await axios.get("http://localhost:8080/appointments", {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
+        });
+
+        setAppointments(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
     fetchData();
+    fetchAppointments();
   }, []);
 
   // Sample data for the calendar
