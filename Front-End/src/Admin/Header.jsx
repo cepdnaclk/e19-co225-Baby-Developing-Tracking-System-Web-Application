@@ -93,11 +93,12 @@ export const Header = () => {
         <img
           align="center"
           alt="logo"
-          className="logo float-left"
+          className="logos float-left"
           src="src/assets/Images/logo.jpeg"
           style={logoStyle} // Apply the logoStyle to the image
           onClick={() => handleItemClick("/home")}
         />
+        <div></div>
 
         <ul className="nav-items float-right">
           <li
