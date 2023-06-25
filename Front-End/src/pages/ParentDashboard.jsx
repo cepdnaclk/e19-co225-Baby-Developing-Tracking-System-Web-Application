@@ -113,6 +113,7 @@ const ParentDashboard = () => {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+  
 
   return (
     <div>
@@ -168,7 +169,7 @@ const ParentDashboard = () => {
           </div>
 
           {selectedTab === "height" && (
-            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center shadow-xl shadow-blue-100/50">
+            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center shadow-xl shadow-blue-100/50">
               <h2 className="graph-caption">Growing of height (cm)</h2>
               <div className="flex justify-center">
                 <BabyHeight />
