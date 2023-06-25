@@ -107,6 +107,10 @@
   font-weight: bolder;
 }
 
+.logos{
+  height: 10vh;
+}
+
 .nav li {
   list-style: none;
   display: block;
