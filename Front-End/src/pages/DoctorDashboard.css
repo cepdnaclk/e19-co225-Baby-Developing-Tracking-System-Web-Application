@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('assets/output-onlinepngtools.png');
+  background-image: url("src/assets/page_background.png");
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 
 .blink {

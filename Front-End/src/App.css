@@ -1,7 +1,6 @@
 .Baby_landing{
-    height: 78vh;
+    height: 75vh;
     position: fixed;
-    top:11%;
     left:53.5%;
 }
 
@@ -22,7 +21,7 @@
       opacity: 0;
     }
     100% {
-        top:11%; /* Adjust the desired position */
+        top:12%; /* Adjust the desired position */
       opacity: 1;
     }
   }

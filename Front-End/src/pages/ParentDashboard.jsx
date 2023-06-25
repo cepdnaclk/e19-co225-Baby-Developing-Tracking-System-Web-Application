@@ -113,12 +113,13 @@ const ParentDashboard = () => {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
+  
 
   return (
     <div>
       <Nav />
       <div className="parent-dashboard">
-        <div className="relative sm:border my-[100px] mx-1 sm:mx-4 rounded-lg p-4 flex-row">
+        <div className="relative my-[100px] mx-1 sm:mx-4 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] font-black text-3xl">
             Parent Dashboard
           </h1>
@@ -134,7 +135,7 @@ const ParentDashboard = () => {
 
           {/* {!isBabyNotAdded && <ParentBabyDetailsCard baby={babyData} />} */}
 
-          <div className="tabs-container w-full">
+          <div className="tabs-container w-full ">
             <button
               className={`tab-button ${
                 selectedTab === "height" ? "active" : ""
@@ -168,7 +169,7 @@ const ParentDashboard = () => {
           </div>
 
           {selectedTab === "height" && (
-            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center">
+            <div className="height_graph sm:mx-10 my-10 scale-60 sm:scale-100 rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center shadow-xl shadow-blue-100/50">
               <h2 className="graph-caption">Growing of height (cm)</h2>
               <div className="flex justify-center">
                 <BabyHeight />
@@ -176,7 +177,7 @@ const ParentDashboard = () => {
             </div>
           )}
           {selectedTab === "weight" && (
-            <div className="weight_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center flex-wrap">
+            <div className="weight_graph sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center flex-wrap shadow-xl shadow-blue-100/50">
               <h2 className="graph-caption">Growing of Weight (kg)</h2>
               <div className="flex justify-center">
                 <BabyWeight />

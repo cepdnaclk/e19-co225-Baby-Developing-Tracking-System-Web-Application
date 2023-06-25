@@ -15,7 +15,7 @@
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 10vh;
+  height: 12vh;
 	z-index: 10;
   background: linear-gradient(to bottom, #2c79de1c, #17294000);
   backdrop-filter: blur(2.5px);
@@ -72,6 +72,27 @@
   cursor: pointer;
   position: Fixed;
   top: 30%
+}
+
+.Nav_logo{
+  position: absolute;
+  top: -100px; /* Adjust the initial position off the screen */
+  opacity: 0;
+  animation-name: slideFromTopLogo3;
+  animation-duration: 1s;
+  animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideFromTopLogo3 {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  100% {
+      top:30%; /* Adjust the desired position */
+    opacity: 1;
+  }
 }
 
 .nav ul {
