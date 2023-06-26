@@ -14,6 +14,8 @@ export const Register = (props) => {
   const [hospital, setHospital] = useState("");
   const [regNo, setRegNo] = useState("");
   const [specialization, setSpecialization] = useState("");
+  const [isMotherFatherGuardian,setIsMotherFatherGuardian] = useState("");
+
 
 
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ export const Register = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await AuthService.signup(firstname, lastname, email, password, role, hospital, regNo, specialization).then(
+      await AuthService.signup(firstname, lastname, email, password, role, hospital, regNo, specialization,isMotherFatherGuardian).then(
         (response) => {
           console.log("Account Created", response);
           navigate("/home");
@@ -121,7 +123,43 @@ export const Register = (props) => {
                     />
                   </div>
                 </div>
-                {(role === "DOCTOR") && <input
+                {(role === "PARENT") && <div className="radio-group-role">
+                  <div className="radio-group-item">
+                    <label htmlFor="Mother">Mother</label>
+                    <input
+                      type="radio"
+                      id="Parent"
+                      name="isMotherFatherGuardian"
+                      value="MOTHER"
+                      checked={isMotherFatherGuardian === "MOTHER"}
+                      onChange={(e) => setIsMotherFatherGuardian(e.target.value)}
+                    />
+                  </div>
+                  <div className="radio-group-item">
+                    <label htmlFor="Father">Father</label>
+                    <input
+                      type="radio"
+                      id="Father"
+                      name="isMotherFatherGuardian"
+                      value="FATHER"
+                      checked={isMotherFatherGuardian === "FATHER"}
+                      onChange={(e) => setIsMotherFatherGuardian(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="radio-group-item">
+                    <label htmlFor="Guardian">Guardian</label>
+                    <input
+                      type="radio"
+                      id="Guardian"
+                      name="isMotherFatherGuardian"
+                      value="GUARDIAN"
+                      checked={isMotherFatherGuardian === "GUARDIAN"}
+                      onChange={(e) => setIsMotherFatherGuardian(e.target.value)}
+                    />
+                  </div>
+                </div>}
+                {(role === "DOCTOR" || role === "MIDWIFE") && <input
                   value={hospital}
                   onChange={(e) => setHospital(e.target.value)}
                   type="hospital"
@@ -129,7 +167,7 @@ export const Register = (props) => {
                   id="hospital"
                   name="hospital"
                 />}
-                {(role === "DOCTOR") && <input
+                {(role === "DOCTOR" || role === "MIDWIFE") && <input
                   value={regNo}
                   onChange={(e) => setRegNo(e.target.value)}
                   type="regNo"

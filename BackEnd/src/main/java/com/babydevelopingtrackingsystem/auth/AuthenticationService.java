@@ -46,7 +46,8 @@ public class AuthenticationService {
               request.getEmail(),
               passwordEncoder.encode(request.getPassword()),
               request.getRole(),
-              "Mother"
+              request.getIsMotherFatherGuardian()
+
               );
 
 
@@ -60,9 +61,11 @@ public class AuthenticationService {
               request.getEmail(),
               passwordEncoder.encode(request.getPassword()),
               request.getRole(),
-              null,
-              null,
-              null
+              request.getSpecialization(),
+              request.getHospital(),
+              request.getRegNo()
+
+
       );
 
 
@@ -76,8 +79,9 @@ public class AuthenticationService {
               request.getEmail(),
               passwordEncoder.encode(request.getPassword()),
               request.getRole(),
-              null,
-              null
+              request.getHospital(),
+              request.getRegNo()
+
 
       );
 

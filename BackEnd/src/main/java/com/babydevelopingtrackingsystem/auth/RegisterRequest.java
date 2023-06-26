@@ -18,4 +18,16 @@ public class RegisterRequest {
   private String email;
   private String password;
   private Role role;
+
+  //Only for Doctors
+  private String hospital;
+
+  private String regNo;
+  private String specialization;
+
+  private String isMotherFatherGuardian;
+
+
+
+
 }
