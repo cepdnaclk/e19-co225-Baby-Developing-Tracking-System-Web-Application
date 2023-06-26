@@ -64,6 +64,21 @@ public class ParentService {
         baby.setDateofBirth(String.valueOf(LocalDate.parse(birthday, formatter)));
         baby.setName(babyRegistrationRequest.getFirstName()+" "+ babyRegistrationRequest.getLastName());
         baby.setGender(babyRegistrationRequest.getGender());
+        baby.setBloodType(babyRegistrationRequest.getBloodType());
+        baby.setBirthLength(babyRegistrationRequest.getBirthHeight());
+        baby.setBirthWeight(babyRegistrationRequest.getBirthWeight());
+        baby.setEyeColor(babyRegistrationRequest.getEyeColor());
+        baby.setHairColor(babyRegistrationRequest.getHairColor());
+        baby.setSkinColor(babyRegistrationRequest.getSkinColor());
+        baby.setNationality(babyRegistrationRequest.getNationality());
+        //baby.setMotherName(babyRegistrationRequest.getMotherName());
+        //baby.setMotherContact(babyRegistrationRequest.getMotherContact());
+        //baby.setFatherName(babyRegistrationRequest.getFatherName());
+        //baby.setFatherContact(babyRegistrationRequest.getFatherContact());
+        baby.setAllergies(babyRegistrationRequest.getAllergies());
+        baby.setImmunizationRecords(babyRegistrationRequest.getImmunizationRecords());
+        baby.setGrowthRecords(babyRegistrationRequest.getGrowthRecords());
+        baby.setDevelopmentalMilestones(babyRegistrationRequest.getDevelopmentMilestones());
 
         List<Vaccination> compulsoryVaccinations = vaccinationRepository.findByType("Compulsory");
 
