@@ -74,6 +74,16 @@ export const Nav = () => {
   const handleItemClick = (path) => {
     navigate(path);
   };
+  const handleDashboardPath = () =>{
+    if (currentUser=== "PARENT")
+    navigate("/parent");
+    else if(currentUser === "DOCTOR")
+    navigate("/doctor");
+    else if(currentUser === "MIDWIFE")
+    navigate("/midwife");
+    else if(currentUser === "ADMIN")
+    navigate("/admin");
+  }
 
   const handleLogout = () => {
     setShowLogoutConfirmation(true);
@@ -146,6 +156,14 @@ export const Nav = () => {
             onClick={() => handleItemClick("/Parent")}
             >
               Parent<span></span>
+            </li>
+          )}
+          {currentUser && (
+            <li
+            className={location.pathname === "/Parent" ? "active" : ""}
+            onClick={() => handleDashboardPath()}
+            >
+              Dashboard<span></span>
             </li>
           )}
           <p>&nbsp; </p>
