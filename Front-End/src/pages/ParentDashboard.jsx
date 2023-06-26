@@ -8,6 +8,12 @@ import "./ParentDashboard.css";
 import ParentBabyDetailsCard from "../components/ParentBabyDetailsCard";
 import BabyWeight from "../components/WeightChart";
 import BabyHeight from "../components/HeightChart";
+import AuthService from "../services/auth.service";
+
+
+
+
+
 
 const ParentDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -15,6 +21,17 @@ const ParentDashboard = () => {
   const [selectedTab, setSelectedTab] = useState("height");
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    
+    const user = AuthService.getCurrentUser();
+      if(!user){
+        navigate("/authenticate");
+      }
+      else if (user!=="PARENT") {
+        navigate("/home");
+      }
+  },[]);
 
   // Sample data for the baby table
   const demoBaby =
