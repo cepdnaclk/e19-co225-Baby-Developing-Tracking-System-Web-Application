@@ -134,33 +134,10 @@ export const Nav = () => {
               Home<span></span>
             </li>
           )}
+          
           {currentUser && (
             <li
-            className={location.pathname === "/Midwife" ? "active" : ""}
-            onClick={() => handleItemClick("/Midwife")}
-            >
-              Midwife<span></span>
-            </li>
-          )}
-          {currentUser && (
-            <li
-            className={location.pathname === "/Doctor" ? "active" : ""}
-            onClick={() => handleItemClick("/Doctor")}
-            >
-              Doctor<span></span>
-            </li>
-          )}
-           {currentUser && (
-            <li
-            className={location.pathname === "/Parent" ? "active" : ""}
-            onClick={() => handleItemClick("/Parent")}
-            >
-              Parent<span></span>
-            </li>
-          )}
-          {currentUser && (
-            <li
-            className={location.pathname === "/Parent" ? "active" : ""}
+            className={location.pathname === ("/" + currentUser) ? "active" : ""}
             onClick={() => handleDashboardPath()}
             >
               Dashboard<span></span>
