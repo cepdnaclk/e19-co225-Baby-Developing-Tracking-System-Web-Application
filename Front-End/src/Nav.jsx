@@ -74,6 +74,16 @@ export const Nav = () => {
   const handleItemClick = (path) => {
     navigate(path);
   };
+  const handleDashboardPath = () =>{
+    if (currentUser=== "PARENT")
+    navigate("/parent");
+    else if(currentUser === "DOCTOR")
+    navigate("/doctor");
+    else if(currentUser === "MIDWIFE")
+    navigate("/midwife");
+    else if(currentUser === "ADMIN")
+    navigate("/admin");
+  }
 
   const handleLogout = () => {
     setShowLogoutConfirmation(true);
@@ -124,28 +134,13 @@ export const Nav = () => {
               Home<span></span>
             </li>
           )}
+          
           {currentUser && (
             <li
-            className={location.pathname === "/Midwife" ? "active" : ""}
-            onClick={() => handleItemClick("/Midwife")}
+            className={location.pathname === ("/" + currentUser) ? "active" : ""}
+            onClick={() => handleDashboardPath()}
             >
-              Midwife<span></span>
-            </li>
-          )}
-          {currentUser && (
-            <li
-            className={location.pathname === "/Doctor" ? "active" : ""}
-            onClick={() => handleItemClick("/Doctor")}
-            >
-              Doctor<span></span>
-            </li>
-          )}
-           {currentUser && (
-            <li
-            className={location.pathname === "/Parent" ? "active" : ""}
-            onClick={() => handleItemClick("/Parent")}
-            >
-              Parent<span></span>
+              Dashboard<span></span>
             </li>
           )}
           <p>&nbsp; </p>

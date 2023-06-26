@@ -52,4 +52,9 @@ public class MidwifeController {
     public List<AppointmentResponse> getAllAppointments(){
         return appointmentService.findByUser();
     }
+
+    @GetMapping("appointment/get/{babyId}")
+    public List<AppointmentResponse> getAppointmentsByBabyId(@PathVariable int babyId){
+        return appointmentService.getAppointmentsByBabyId(babyId);
+    }
 }

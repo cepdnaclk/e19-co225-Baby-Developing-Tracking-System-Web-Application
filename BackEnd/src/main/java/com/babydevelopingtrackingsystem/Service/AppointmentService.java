@@ -2,6 +2,7 @@ package com.babydevelopingtrackingsystem.Service;
 
 import com.babydevelopingtrackingsystem.Dto.AppointmentResponse;
 import com.babydevelopingtrackingsystem.Model.Appointment;
+import com.babydevelopingtrackingsystem.Model.Baby;
 import com.babydevelopingtrackingsystem.Model.Parent;
 import com.babydevelopingtrackingsystem.Model.User;
 import com.babydevelopingtrackingsystem.Repository.AppointmentRepository;
@@ -60,6 +61,25 @@ private final UserRepository userRepository;
             return true;
         }
         return false;
+    }
+    public List<AppointmentResponse> getAppointmentsByBabyId(int babyId){
+        List<AppointmentResponse> appointmentResponses = new ArrayList<>();
+        Optional<Baby> baby = babyRepository.findById(babyId);
+        if(baby.isPresent()){
+            Parent parent = baby.get().getParent();
+            Optional<User> parentUser = userRepository.findByEmail(parent.getEmail());
+            List<Appointment> appointments = appointmentRepository.
+                    findByAcceptorUserOrRequestorUser(parentUser.get(),parentUser.get());
+            for(Appointment appointment:appointments){
+                AppointmentResponse appointmentResponse = new AppointmentResponse();
+                appointmentResponse.setId(appointment.getId());
+                appointmentResponse.setAppointmentStatus(appointment.getAppointmentStatus());
+                appointmentResponse.setScheduledTime(appointment.getScheduledDateTime());
+                appointmentResponses.add(appointmentResponse);
+            }
+
+        }
+        return appointmentResponses;
     }
     public void acceptAppointment(int id) {
         Optional<Appointment> appointment = appointmentRepository.findById(id);

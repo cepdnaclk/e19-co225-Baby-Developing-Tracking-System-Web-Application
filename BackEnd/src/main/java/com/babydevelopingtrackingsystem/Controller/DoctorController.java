@@ -76,4 +76,8 @@ public class DoctorController {
         return appointmentService.findByUser();
     }
 
+    @GetMapping("appointment/get/{babyId}")
+    public List<AppointmentResponse> getAppointmentsByBabyId(@PathVariable int babyId){
+        return appointmentService.getAppointmentsByBabyId(babyId);
+    }
 }
