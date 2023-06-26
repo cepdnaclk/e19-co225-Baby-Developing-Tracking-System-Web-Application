@@ -23,7 +23,7 @@ public class AppointmentResponse {
 
     private String midwifeName; //for doctor as well
 
-    private String doctorName; //for midwife
+    private String doctorName; //for midwife as well
 
     //Attributes for doctor and midwife
 
