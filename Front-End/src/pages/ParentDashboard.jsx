@@ -28,7 +28,8 @@ const ParentDashboard = () => {
       if(!user){
         navigate("/authenticate");
       }
-      else if (user!=="PARENT") {
+      else if (user.role!=="PARENT") {
+        console.log(user);
         navigate("/home");
       }
   },[]);
@@ -106,6 +107,7 @@ const ParentDashboard = () => {
         );
 
         setBabyData(response.data);
+        console.log('newz-setz');
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -116,10 +118,10 @@ const ParentDashboard = () => {
   }, []);
 
   const handleBabyClick = (baby) => {
-    setSelectedBaby(baby);
+    setSelectedBaby(babyData);
 
     console.log("Clicked")
-    console.log(baby)
+    console.log(selectedBaby)
     
   };
 
