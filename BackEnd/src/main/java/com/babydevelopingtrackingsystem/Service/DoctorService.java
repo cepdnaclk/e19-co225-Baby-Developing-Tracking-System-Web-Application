@@ -16,7 +16,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -40,8 +39,11 @@ public class DoctorService {
 
     private final AppointmentRepository appointmentRepository;
 
+    private final NotificationService notificationService;
 
-    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, DoctorRepository doctorRepository,AppointmentRepository appointmentRepository) {
+
+
+    public DoctorService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository, NotificationService notificationService) {
 
         this.babyRepository = babyRepository;
         this.userRepository = userRepository;
@@ -52,6 +54,7 @@ public class DoctorService {
 
         this.doctorRepository = doctorRepository;
 
+        this.notificationService = notificationService;
     }
 
     public List<DoctorBabyResponse> getAllAssignedBabies() {
@@ -143,6 +146,9 @@ public class DoctorService {
         appointment.setVenue(appointmentRequest.getVenue());
         appointment.setPlacementDateTime(LocalDateTime.now());
         appointment.setScheduledDateTime(appointmentRequest.getDateTime());
+
+        notificationService.createNotification(parentUser.get(),"Your Doctor has requested an Appointment" +
+                "at " + appointment.getScheduledDateTime().toString());
 
         appointmentRepository.save(appointment);
 

@@ -1,5 +1,6 @@
 package com.babydevelopingtrackingsystem;
 
+
 import com.babydevelopingtrackingsystem.Model.Parent;
 import com.babydevelopingtrackingsystem.Model.User;
 import com.babydevelopingtrackingsystem.Model.Vaccination;
@@ -14,8 +15,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 @EnableScheduling
 @SpringBootApplication
+
 public class BabyDevelopingTrackingSystemApplication {
 
     public static void main(String[] args) {

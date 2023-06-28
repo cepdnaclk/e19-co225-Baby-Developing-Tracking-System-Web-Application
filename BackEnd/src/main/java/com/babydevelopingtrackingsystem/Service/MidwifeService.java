@@ -33,7 +33,9 @@ public class MidwifeService {
 
     private final AppointmentRepository appointmentRepository;
 
-    public MidwifeService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, ParentRepository parentRepository, MidwifeRepository midwifeRepository, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository) {
+    private final NotificationService notificationService;
+
+    public MidwifeService(BabyRepository babyRepository, UserRepository userRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, ParentRepository parentRepository, MidwifeRepository midwifeRepository, DoctorRepository doctorRepository, AppointmentRepository appointmentRepository, NotificationService notificationService) {
         this.babyRepository = babyRepository;
         this.userRepository = userRepository;
         this.vaccinationRepository = vaccinationRepository;
@@ -42,6 +44,7 @@ public class MidwifeService {
         this.midwifeRepository = midwifeRepository;
         this.doctorRepository = doctorRepository;
         this.appointmentRepository = appointmentRepository;
+        this.notificationService = notificationService;
     }
 
     public List<MidwifeBabyResponse> getAllAssignedBabies() {
@@ -100,7 +103,12 @@ public class MidwifeService {
         appointment.setPlacementDateTime(LocalDateTime.now());
         appointment.setScheduledDateTime(appointmentRequest.getDateTime());
 
+
         appointmentRepository.save(appointment);
+
+        //generate notification
+        notificationService.createNotification(parentUser.get(),"Your Midwife has requested an Appointment" +
+                "at " + appointment.getScheduledDateTime().toString());
 
     }
 }

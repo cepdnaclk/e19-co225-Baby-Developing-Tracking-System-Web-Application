@@ -26,13 +26,15 @@ public class AppointmentService {
 private final UserRepository userRepository;
     private final ParentRepository parentRepository;
     private final BabyRepository babyRepository;
+    private final NotificationService notificationService;
 
     @Autowired
-    public AppointmentService(AppointmentRepository appointmentRepository, UserRepository userRepository, ParentRepository parentRepository, BabyRepository babyRepository) {
+    public AppointmentService(AppointmentRepository appointmentRepository, UserRepository userRepository, ParentRepository parentRepository, BabyRepository babyRepository, NotificationService notificationService) {
         this.appointmentRepository = appointmentRepository;
         this.userRepository = userRepository;
         this.parentRepository = parentRepository;
         this.babyRepository = babyRepository;
+        this.notificationService = notificationService;
     }
 
     public List<Appointment> getAllAppointments() {
@@ -83,8 +85,13 @@ private final UserRepository userRepository;
     }
     public void acceptAppointment(int id) {
         Optional<Appointment> appointment = appointmentRepository.findById(id);
+
         if (appointment.isPresent()){
             appointment.get().setAppointmentStatus("Accepted");
+            //Generate Notification for accepting the appointment
+            notificationService.createNotification(appointment.get().getRequestorUser(),"Appointment Accepted by "
+                    + appointment.get().getAcceptorUser().getRole() + " "
+            + appointment.get().getAcceptorUser().getFirstname());
             appointmentRepository.save(appointment.get());
         }
     }

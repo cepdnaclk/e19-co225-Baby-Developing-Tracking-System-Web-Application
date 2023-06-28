@@ -28,8 +28,10 @@ public class ParentService {
     private final DoctorRepository doctorRepository;
     private final MidwifeRepository midwifeRepository;
 
+    private final NotificationService notificationService;
+
     private final UserRepository userRepository;
-    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository, DoctorRepository doctorRepository, MidwifeRepository midwifeRepository, UserRepository userRepository) {
+    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository, DoctorRepository doctorRepository, MidwifeRepository midwifeRepository, NotificationService notificationService, UserRepository userRepository) {
         this.parentRepository = parentRepository;
         this.babyRepository = babyRepository;
         this.vaccinationRepository = vaccinationRepository;
@@ -37,6 +39,7 @@ public class ParentService {
         this.appointmentRepository = appointmentRepository;
         this.doctorRepository = doctorRepository;
         this.midwifeRepository = midwifeRepository;
+        this.notificationService = notificationService;
         this.userRepository = userRepository;
     }
     //Baby
@@ -158,11 +161,15 @@ public class ParentService {
         if(acceptorRole.equals(Role.DOCTOR)){
             Optional<User> doctorUser = userRepository.findById(baby.getDoctor().getId());
             appointment.setAcceptorUser(doctorUser.get());
+            notificationService.createNotification(doctorUser.get(),"Your Parent " +parentUser.get().getFirstname() + " has requested an Appointment" +
+                    "at " + appointmentRequest.getDateTime().toString());
 
         }
         else if(acceptorRole.equals(Role.MIDWIFE)){
             Optional<User> midwifeUser = userRepository.findById(baby.getMidwife().getId());
             appointment.setAcceptorUser(midwifeUser.get());
+            notificationService.createNotification(midwifeUser.get(),"Your Parent" + parentUser.get().getFirstname()+ "has requested an Appointment" +
+                    "at " + appointmentRequest.getDateTime().toString());
 
         }
         appointment.setAppointmentStatus("PENDING");
@@ -171,6 +178,9 @@ public class ParentService {
         appointment.setScheduledDateTime(appointmentRequest.getDateTime());
 
         appointmentRepository.save(appointment);
+
+        //generate notification
+
 
     }
 
