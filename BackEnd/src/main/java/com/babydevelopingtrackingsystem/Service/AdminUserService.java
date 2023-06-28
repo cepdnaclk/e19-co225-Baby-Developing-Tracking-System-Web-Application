@@ -104,9 +104,18 @@ public class AdminUserService {
         }
     }
 
-    public String updateUser(UserDto userDto) {
-        if (userRepository.existsById(userDto.getId())) {
-            userRepository.save(modelMapper.map(userDto,User.class));
+    public String updateUser(UserDto request) {
+        User user;
+        if (userRepository.existsById(request.getId())) {
+
+            user = User.builder()
+                    .firstname(request.getFirstname())
+                    .lastname(request.getLastname())
+                    .email(request.getEmail())
+                    .password(passwordEncoder.encode(request.getPassword()))
+                    .role(Role.USER)
+                    .build();
+            userRepository.save(user);
             return VariableList.RSP_SUCCESS;
         } else {
             return VariableList.R$P_NO_DATA_FOUND;
