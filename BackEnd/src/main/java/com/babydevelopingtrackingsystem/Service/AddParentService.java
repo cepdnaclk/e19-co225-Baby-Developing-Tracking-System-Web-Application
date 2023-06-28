@@ -22,10 +22,15 @@ public class AddParentService {
     @Autowired
     private ParentRepository parentRepository;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     private ModelMapper modelMapper;
+
+    public AddParentService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     public String saveParent(ParentDto parentDto){
         parentDto.setPassword(passwordEncoder.encode(parentDto.getPassword()));
         if (parentRepository.existsById(parentDto.getId())){

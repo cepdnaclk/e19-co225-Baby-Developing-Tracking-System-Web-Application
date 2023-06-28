@@ -20,10 +20,15 @@ public class AdminDoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     private ModelMapper modelMapper;
+
+    public AdminDoctorService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     public String saveDoctor(DoctorDto doctorDto){
         doctorDto.setPassword(passwordEncoder.encode(doctorDto.getPassword()));
         if (doctorRepository.existsById(doctorDto.getId())){
