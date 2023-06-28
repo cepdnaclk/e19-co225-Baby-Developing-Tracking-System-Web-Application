@@ -46,6 +46,7 @@ public class SecurityConfiguration {
 
                         "/api/v1/auth/**",
                         "/api/v1/baby/**",
+                       "api/v1/admin/**", //disable admin security for development
                        // "api/v1/adminUser/**",
                         //"api/v1/adminDoctor/**",
                         "/api/v1/user/**",//for development only
@@ -99,14 +100,14 @@ public class SecurityConfiguration {
                 .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_CREATE.name(), DOCTOR_CREATE.name())
                 .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_UPDATE.name(), DOCTOR_UPDATE.name())
                 .requestMatchers(GET, "/api/v1/doctor/**").hasAnyAuthority(ADMIN_DELETE.name(), DOCTOR_DELETE.name())
-
-                //What Admins Can Access
-                .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
-
-                 .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())
-                 .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())
-                 .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
-                 .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())
+//Currently Commented for Development
+//                //What Admins Can Access
+//                .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
+//
+//                 .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())
+//                 .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())
+//                 .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
+//                 .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())
 
                 //What Midwifes can access
                 .requestMatchers("/api/v1/midwife/**").hasAnyRole(ADMIN.name(),MIDWIFE.name())

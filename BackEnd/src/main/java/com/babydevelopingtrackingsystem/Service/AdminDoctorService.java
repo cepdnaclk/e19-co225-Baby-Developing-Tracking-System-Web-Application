@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,9 +20,17 @@ public class AdminDoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     @Autowired
     private ModelMapper modelMapper;
+
+    public AdminDoctorService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     public String saveDoctor(DoctorDto doctorDto){
+        doctorDto.setPassword(passwordEncoder.encode(doctorDto.getPassword()));
         if (doctorRepository.existsById(doctorDto.getId())){
             return VariableList.RSP_DUPLICATED;
         }else {
@@ -33,6 +42,7 @@ public class AdminDoctorService {
     }
 
     public String updateDoctor(DoctorDto doctorDto) {
+        doctorDto.setPassword(passwordEncoder.encode(doctorDto.getPassword()));
         if (doctorRepository.existsById(doctorDto.getId())) {
             doctorRepository.save(modelMapper.map(doctorDto,Doctor.class));
             return VariableList.RSP_SUCCESS;
