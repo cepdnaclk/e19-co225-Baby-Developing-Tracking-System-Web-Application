@@ -109,6 +109,7 @@ public class AdminUserService {
         if (userRepository.existsById(request.getId())) {
 
             user = User.builder()
+                    .id(request.getId())
                     .firstname(request.getFirstname())
                     .lastname(request.getLastname())
                     .email(request.getEmail())

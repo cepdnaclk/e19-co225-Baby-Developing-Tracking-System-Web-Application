@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,9 +22,12 @@ public class AddParentService {
     @Autowired
     private ParentRepository parentRepository;
 
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     private ModelMapper modelMapper;
     public String saveParent(ParentDto parentDto){
+        parentDto.setPassword(passwordEncoder.encode(parentDto.getPassword()));
         if (parentRepository.existsById(parentDto.getId())){
             return VariableList.RSP_DUPLICATED;
         }else {
@@ -35,6 +39,7 @@ public class AddParentService {
     }
 
     public String updateParent(ParentDto parentDto) {
+        parentDto.setPassword(passwordEncoder.encode(parentDto.getPassword()));
         if (parentRepository.existsById(parentDto.getId())) {
             parentRepository.save(modelMapper.map(parentDto,Parent.class));
             return VariableList.RSP_SUCCESS;
