@@ -33,6 +33,7 @@ export const AddDoctor = (props) => {
     e.preventDefault();
 
     try {
+      console.log(userDetails);
       const response = await auth.AddDoctor(
         userDetails.firstName,
         userDetails.lastName,

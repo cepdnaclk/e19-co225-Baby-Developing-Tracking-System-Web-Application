@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "../Footer.jsx";
 import "./AddUser.css";
-import auth from "../services/auth.service";
+import auth from "../services/parent_service";
 
 export const AddParent = (props) => {
   const [parentDetails, setParentDetails] = useState({
@@ -31,7 +31,7 @@ export const AddParent = (props) => {
     e.preventDefault();
 
     try {
-      const response = await auth.signup(
+      const response = await auth.AddParent(
         parentDetails.firstName,
         parentDetails.lastName,
         parentDetails.email,
