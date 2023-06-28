@@ -202,14 +202,14 @@ const DoctorDashboard = () => {
               <tbody>
                 {selectedBabyTableData.map((baby) => (
                   <tr
-                    key={baby.name}
+                    key={baby.babyName}
                     className="cursor-pointer hover:bg-gray-100"
                   >
                     <td
                       className="border py-2 px-3 text-center"
                       onClick={() => handleBabyRowClick(baby)}
                     >
-                      {baby.name}
+                      {baby.babyName}
                     </td>
                     <td
                       className="border py-2 px-3 text-center"
@@ -221,13 +221,13 @@ const DoctorDashboard = () => {
                       className="border py-2 px-3 text-center"
                       onClick={() => handleBabyRowClick(baby)}
                     >
-                      {baby.sex}
+                      {baby.gender}
                     </td>
                     <td
                       className="border py-2 px-3 text-center"
                       onClick={() => handleBabyRowClick(baby)}
                     >
-                      {baby.appointedMidwife}
+                      {baby.midWifeName}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment === "Pending" && (
