@@ -2,13 +2,53 @@
 import "./BabyDetailsCard.css";
 import React from "react";
 import VaccinationTimeline from "./Timeline";
-import { useState } from "react";
+import { useState,useEffect} from "react";
+import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/doctor";
+const API_URL_DOC = "http://localhost:8080/api/v1/doctor";
+const API_URL_VAC = "http://localhost:8080/api/v1/vaccine";
+
 
 const DoctorBabyDetailsCard = ({ baby, onClose }) => {
   const [vaccine, setVaccine] = useState("Select Vaccine Type");
-  const [suggestedDate, setSuggestedDate] = useState("");
+  const [date, setSuggestedDate] = useState("");
+  const [babyId,setBabyId] = useState(baby.id);
+  const[vaccineId,setVaccineId] = useState(0);
+  const [vaccinations,setVaccinations] = useState([]);
+
+  const handleVaccineSelect = (vaccine)=>{
+    
+    console.log(vaccine);
+    setVaccineId(vaccine);
+   
+    
+  }
+  const setVaccicationData = ()=>{
+    
+    try {
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      
+      axios
+        .get(
+          API_URL_VAC ,
+          
+          {
+            headers: {
+              "Access-Control-Allow-Origin": true,
+              Authorization: "Bearer " + access,
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          setVaccinations(response.data);
+        });
+  }catch (err) {
+    alert(err);
+  }}
+  ;
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,16 +56,14 @@ const DoctorBabyDetailsCard = ({ baby, onClose }) => {
       const token = JSON.parse(localStorage.getItem("user"));
       const access = token.access_token;
       console.log(access);
-      console.log({
-        vaccine,
-        suggestedDate,
-      });
+      console.log(babyId);
       axios
         .post(
-          API_URL + "/baby_vaccine/add",
+          API_URL_DOC + "/baby_vaccine/add",
           {
-            vaccine,
-            suggestedDate,
+            babyId,
+            vaccineId,
+            date,
           },
           {
             headers: {
@@ -88,23 +126,26 @@ const DoctorBabyDetailsCard = ({ baby, onClose }) => {
               <select
                 style={{ width: "97%", height: "35px" }}
                 value={vaccine}
-                onChange={(input) => setVaccine(input.target.value)}
+                onClick= {()=> setVaccicationData()}
+                onChange = {(input)=>handleVaccineSelect(input.target.value)}
+                
                 id="vaccine"
                 name="vaccine"
                 className="mx-5 px-3 border border-gray-300 rounded-md"
               >
                 <option disabled selected hidden>
                   <strong>Select Vaccine Type</strong>
-                </option>
-                {baby.babyVaccinations.map((vaccine) => (
-                  <option>{vaccine.vaccineName}</option>
+                </option >
+                {vaccinations.map((vaccine) => (
+                  <option key={vaccine.id} value={vaccine.id}>{vaccine.name}</option>
                 ))}
               </select>
               <div className="flex flex-row align-center border-gray-300 justify-start gap-6 border rounded-md ml-5 mr-1 px-4">
                 <p className="py-1">Suggest a Date:</p>
                 <input
                   type="date"
-                  value={suggestedDate}
+                  value={date}
+                  
                   onChange={(input) => setSuggestedDate(input.target.value)}
                   required="requred"
                   className="mx-5 py-1"
