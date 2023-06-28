@@ -94,7 +94,7 @@ const MidwifeDashboard = () => {
       <Nav />
       <div className="midwife-dashboard">
         <div className="relative my-[100px] mx-3 rounded-lg p-4 flex-row">
-          <h1 className="header text-center font-[500] font-black text-3xl">Midwife Dashboard</h1>
+          <h1 className="header text-center font-[500] font-black text-3xl">"Time to deliver some serious baby magic! Let's rock this midwife world."</h1>
           <Calendar />
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 shadow-xl shadow-blue-100/50">
             <table className="w-full table-fixed border-collapse rounded-lg">

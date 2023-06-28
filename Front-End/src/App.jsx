@@ -16,6 +16,7 @@ import { AddDoctor } from "./Admin/AddDoctor";
 import { AddParent } from "./Admin/AddParent";
 import { DisplayDetails } from "./Admin/DisplayDetails";
 import { AdminLogin } from "./Admin/AdminLogin";
+import MakeAppointment from "./components/MakeAppointment";
 
 function App() {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ function App() {
         <Route path="/adddoctor" element={<AddDoctor />} />
         <Route path="/adminLogin" element={<AdminLogin />} />
         <Route path="/display" element={<DisplayDetails />} />
+        <Route path="/makeAppointment" element={<MakeAppointment />} />
       </Routes>
     </div>
   );

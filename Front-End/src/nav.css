@@ -65,14 +65,14 @@
 }
 .nav .Nav_logo {
   width: auto;
-  height: 16vh;
+  height: 8vw;
   max-width: 180vh;
   margin: 2px;
   float: left;
   padding: 3px;
   cursor: pointer;
   position: Fixed;
-  top: 30%
+  top: 25%
 }
 
 .Nav_logo{
@@ -146,7 +146,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background-color: #1b5eac;
+  background-color: #202c38;
   -webkit-transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
   -webkit-transform: translate(-50%, -50%);
