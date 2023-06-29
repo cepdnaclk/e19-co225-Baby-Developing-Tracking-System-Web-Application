@@ -21,7 +21,7 @@ const DoctorAppointmentDetailsCard = ({
   return (
     <div className="appointment-details-card flex flex-col p-none">
       <div className="card-header">
-        <h3 className="px-5"><b>Appointment Request</b></h3>
+        <h3>Appointment Details</h3>
         <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>
           X
         </button>
@@ -41,7 +41,7 @@ const DoctorAppointmentDetailsCard = ({
               Accept
             </button>
 
-            {/* <form
+            <form
               className="suggest-date-form flex flex-col gap-2"
               onSubmit={handleSuggestDateSubmit}
             >
@@ -56,7 +56,7 @@ const DoctorAppointmentDetailsCard = ({
               <button type="submit" className="suggest-date-button bg-black">
                 Suggest Date
               </button>
-            </form> */}
+            </form>
           </div>
         )}
       </div>

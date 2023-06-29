@@ -7,7 +7,7 @@ const BabyDetailsCard = ({ baby, onClose }) => {
   return (
     <div className="baby-details-card">
       <div className="card-header">
-        <h3>Baby Details</h3>
+        <h3>&nbsp;Baby Details</h3>
         <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>
           X
         </button>

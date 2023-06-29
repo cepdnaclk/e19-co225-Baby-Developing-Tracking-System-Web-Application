@@ -63,8 +63,8 @@ const MakeAppointment = ({ onClose }) => {
             className="suggest-date-form flex flex-col gap-2"
             onSubmit={handleSubmit}
           >
-            <div className="radio-group-role flex justify-left">
-              <div className="radio-group-item">
+            <div className="radio-group-role-1 flex justify-left">
+              <div className="radio-group-item-1">
                 <label htmlFor="Doctor">Doctor</label>
                 <input
                   type="radio"
@@ -76,7 +76,7 @@ const MakeAppointment = ({ onClose }) => {
                 />
               </div>
 
-              <div className="radio-group-item">
+              <div className="radio-group-item-1">
                 <label htmlFor="Midwife">Midwife</label>
                 <input
                   type="radio"
@@ -106,6 +106,7 @@ const MakeAppointment = ({ onClose }) => {
               placeholder="Venue"
               id="lastname"
               name="lastname"
+              className="venue-input"
             />
             <button type="submit" className="suggest-date-button bg-black">
               Make Appointment

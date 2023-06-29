@@ -19,17 +19,17 @@ const ParentDashboard = () => {
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
+  // useEffect(()=>{
     
-    const user = AuthService.getCurrentUser();
-      if(!user){
-        navigate("/authenticate");
-      }
-      else if (user.role!=="PARENT") {
-        console.log(user);
-        navigate("/home");
-      }
-  },[]);
+  //   const user = AuthService.getCurrentUser();
+  //     if(!user){
+  //       navigate("/authenticate");
+  //     }
+  //     else if (user.role!=="PARENT") {
+  //       console.log(user);
+  //       navigate("/home");
+  //     }
+  // },[]);
 
   // Sample data for the baby table
   const demoBaby =
