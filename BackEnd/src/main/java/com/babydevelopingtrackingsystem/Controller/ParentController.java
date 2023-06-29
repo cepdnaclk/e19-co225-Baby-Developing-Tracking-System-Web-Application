@@ -52,7 +52,7 @@ public class ParentController {
     }
 
     //Height and Weight
-    @PostMapping
+    @PostMapping("height_weight/add")
     public void addHeightWeightRecord(@RequestBody HeightWeightDto heightWeightDto){
         parentService.addHeightWeightRecord(heightWeightDto);
     }
