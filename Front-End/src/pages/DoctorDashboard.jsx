@@ -141,7 +141,7 @@ const DoctorDashboard = () => {
       <Nav />
 
       <div className="doctor-dashboard">
-        <div className="relative my-[100px] mx-3 rounded-lg p-4 flex-row">
+        <div className="relative mt-[100px] mx-3 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] font-black text-3xl">
           "Doc, you're about to level up in baby care. Let's heal those tiny patients like superheroes."
           </h1>

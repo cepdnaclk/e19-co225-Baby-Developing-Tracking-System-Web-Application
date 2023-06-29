@@ -72,34 +72,6 @@ table {
   backdrop-filter: blur(10px);
 }
 
-
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  background-color: lightblue;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-header h3 {
-  margin: 0;
-}
-
-.close-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  transition:  300ms ease-in-out
-}
-
-.card-content {
-  padding: 16px;
-}
-
 .accept-button {
   background-color: rgba(5, 94, 32, 0.774);
   color: white;

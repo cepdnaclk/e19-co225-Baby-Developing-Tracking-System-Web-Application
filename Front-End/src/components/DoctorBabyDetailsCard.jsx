@@ -106,7 +106,7 @@ const DoctorBabyDetailsCard = ({ baby, onClose }) => {
     <div className="baby-details-card">
       <div className="card-header">
         <h3>
-          &nbsp;&nbsp;&nbsp;<strong>Baby Details</strong>
+          &nbsp;Baby Details
         </h3>
         <button
           className="close-button h-10 w-10 rounded-full bg-white"
