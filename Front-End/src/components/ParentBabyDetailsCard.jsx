@@ -3,7 +3,7 @@ import React from 'react';
 
 const ParentBabyDetailsCard = ({ baby, onClose }) => {
   return (
-    <div className="baby-details-card max-h-full animate-fadein">
+    <div className="baby-details-card max-h-full">
       <div className="card-header">
         <h3>Baby Details</h3>
         <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>

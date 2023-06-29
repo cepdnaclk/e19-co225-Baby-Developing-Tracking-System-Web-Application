@@ -11,6 +11,7 @@ const useSampleAppointments = true; // Set this to true to use the sampleAppoint
 export default function Calendar() {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
   const currentDate = dayjs();
+  const mydate = "";
   const [today, setToday] = useState(currentDate);
   const [selectDate, setSelectDate] = useState(currentDate);
   const [appointments, setAppointments] = useState([]);
@@ -32,7 +33,7 @@ export default function Calendar() {
 
         const appointments = response.data;
         const filteredAppointments = appointments.filter(
-          (appointment) => appointment.date === selectDate.format("YYYY-MM-DD")
+          (appointment) => appointment.date.substring(0, 10) === selectDate.format("YYYY-MM-DD")
         );
 
         setAppointments(appointments);
@@ -109,7 +110,7 @@ export default function Calendar() {
                     className={`h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none ${
                       appointments.some(
                         (appointment) =>
-                          appointment.date === date.format("YYYY-MM-DD")
+                          appointment.date.substring(0, 10) === date.format("YYYY-MM-DD")
                       ) && !date.isSame(currentDate, "day")
                         ? "bg-blue-200"
                         : ""
@@ -135,13 +136,14 @@ export default function Calendar() {
           {filteredAppointments.length > 0 ? (
             <ul className="text-gray-400">
               {filteredAppointments.map((appointment) => (
+                
                 <li>
-                  <button key={appointment.id}>{appointment.title}</button>
+                  <button key={appointment.id}>Appointment {appointment.id}</button>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-gray-400">No meetings for today.</p>
+            <p className="text-gray-400">No meetings for the Day.</p>
           )}
         </div>
       </div>

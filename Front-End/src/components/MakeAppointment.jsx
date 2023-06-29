@@ -6,10 +6,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 
-const MakeAppointment = ({ onClose }) => {
+const MakeAppointment = ({ onClose,baby }) => {
   const [Date, setDateTime] = useState("");
   const [role, setRole] = useState("");
   const [venue, setVenue] = useState("");
+  const [babyId, setBabyId] = useState(baby.id)
   console.log(Date);
 
   const handleSubmit = async (e) => {
@@ -19,14 +20,16 @@ const MakeAppointment = ({ onClose }) => {
       const access = token.access_token;
       console.log(access);
       console.log({
+        babyId,
         venue,
         Date,
         role,
       });
       axios
         .post(
-          "http://localhost:8080/api/v1/parent/appointment",
+          "http://localhost:8080/api/v1/parent/appointment/create",
           {
+            babyId,
             role,
             Date,
             venue,
