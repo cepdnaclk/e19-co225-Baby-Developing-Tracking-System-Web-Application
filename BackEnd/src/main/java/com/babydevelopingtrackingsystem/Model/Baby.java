@@ -55,6 +55,9 @@ public class Baby {
     @JoinColumn(name="midwife_id")
     private Midwife midwife;
 
+    @OneToMany(mappedBy = "baby")
+    private List<BabyHeightWeight> babyHeightWeight;
+
 
 
 
