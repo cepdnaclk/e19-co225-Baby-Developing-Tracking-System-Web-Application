@@ -30,8 +30,10 @@ public class ParentService {
 
     private final NotificationService notificationService;
 
+    private final BabyHeightWeightRepository babyHeightWeightRepository;
+
     private final UserRepository userRepository;
-    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository, DoctorRepository doctorRepository, MidwifeRepository midwifeRepository, NotificationService notificationService, UserRepository userRepository) {
+    public ParentService(ParentRepository parentRepository, BabyRepository babyRepository, VaccinationRepository vaccinationRepository, BabyVaccinationRepository babyVaccinationRepository, AppointmentRepository appointmentRepository, DoctorRepository doctorRepository, MidwifeRepository midwifeRepository, NotificationService notificationService, BabyHeightWeightRepository babyHeightWeightRepository, UserRepository userRepository) {
         this.parentRepository = parentRepository;
         this.babyRepository = babyRepository;
         this.vaccinationRepository = vaccinationRepository;
@@ -40,6 +42,7 @@ public class ParentService {
         this.doctorRepository = doctorRepository;
         this.midwifeRepository = midwifeRepository;
         this.notificationService = notificationService;
+        this.babyHeightWeightRepository = babyHeightWeightRepository;
         this.userRepository = userRepository;
     }
     //Baby
@@ -179,11 +182,34 @@ public class ParentService {
 
         appointmentRepository.save(appointment);
 
-        //generate notification
+
 
 
     }
 
+
+    //Height and Weight
+    public void addHeightWeightRecord(HeightWeightDto heightWeightDto) {
+        //Find out who is the parent
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
+        Parent parent = parentRepository.findByEmail(email);
+
+        //Find out baby based on parent
+        Baby baby = babyRepository.findBabyByParent(parent);
+
+        //Build the BabyHeightWeight object using Dto and baby
+        BabyHeightWeight babyHeightWeight = new BabyHeightWeight();
+        babyHeightWeight.setWeight(heightWeightDto.getWeight());
+        babyHeightWeight.setHeight(heightWeightDto.getHeight());
+        babyHeightWeight.setDate(heightWeightDto.getDate());
+
+        babyHeightWeight.setBaby(baby);
+
+        //Save to repository
+        babyHeightWeightRepository.save(babyHeightWeight);
+
+    }
 
 
     //Appointments
