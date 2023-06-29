@@ -114,7 +114,7 @@ const ParentDashboard = () => {
     fetchData();
   }, []);
 
-  const handleBabyClick = (baby) => {
+  const handleBabyClick = () => {
     setSelectedBaby(babyData);
 
     console.log("Clicked")
@@ -144,12 +144,19 @@ const ParentDashboard = () => {
           <div className="tabs-container w-full ">
             {isBabyNotAdded && (
             <button
-              className="tab-button"
+              className="tab-button bg-green-200"
               onClick={() => navigate("/babyregister")}
             >
               Add Baby Details
             </button>
           )}
+          {isBabyNotAdded && (<button
+              className="tab-button bg-green-200"
+              onClick={() => handleBabyClick()}
+            >
+              Baby Details
+            </button>
+            )}
             <button
               className={`tab-button ${
                 selectedTab === "height" ? "active" : ""
@@ -174,15 +181,9 @@ const ParentDashboard = () => {
             >
               Calendar
             </button>
-            {!isBabyNotAdded && (<button
-              className="tab-button"
-              onClick={() => handleBabyClick(babyData)}
-            >
-              Baby Details
-            </button>
-            )}
+            
             {isBabyNotAdded && (<button
-              className="tab-button"
+              className="tab-button bg-yellow-200"
               onClick={() => handleMakeAppointment()}
             >
               Make an Appointment
@@ -215,7 +216,9 @@ const ParentDashboard = () => {
               onClose={() => setSelectedBaby(null)}
             />
           )} 
-          {MakeAppointments && <MakeAppointment onClose={() => setMakeAppointments(null)}/>}
+          {MakeAppointments && <MakeAppointment 
+          baby = {babyData}
+          onClose={() => setMakeAppointments(null)}/>}
         </div>
         
          
