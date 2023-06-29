@@ -14,6 +14,7 @@ const DoctorDashboard = () => {
   // Sample data for the baby table
   const babyTableData = [
     {
+      id: 1,
       babyName: "Alex Peter",
       parentName: "Jenny Fernandes",
       midWifeName: "Midwife 1",
@@ -36,6 +37,7 @@ const DoctorDashboard = () => {
       ],
     },
     {
+      id: 2,
       babyName: "Baby 2",
       parentName: "Eranga Dharmarathne",
       midWifeName: "Midwife 2",
@@ -63,7 +65,9 @@ const DoctorDashboard = () => {
     {
       id: 1,
       placementDateTime: "2023-06-25T14:36:02.833Z",
-      scheduledDateTime: "2023-06-25T14:36:02.833Z",
+      scheduleDateTime: "2023-06-25T14:36:02.833Z",
+      parentName: "Jenny Fernandes",
+      babyName: "Alex Peter",
       venue: "string",
       appointmentStatus: "string",
     },

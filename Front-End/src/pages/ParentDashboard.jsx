@@ -150,7 +150,7 @@ const ParentDashboard = () => {
               Add Baby Details
             </button>
           )}
-          {isBabyNotAdded && (<button
+          {!isBabyNotAdded && (<button
               className="tab-button bg-green-200"
               onClick={() => handleBabyClick()}
             >
@@ -182,7 +182,7 @@ const ParentDashboard = () => {
               Calendar
             </button>
             
-            {isBabyNotAdded && (<button
+            {!isBabyNotAdded && (<button
               className="tab-button bg-yellow-200"
               onClick={() => handleMakeAppointment()}
             >
