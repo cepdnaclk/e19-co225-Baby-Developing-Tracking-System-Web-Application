@@ -1,6 +1,6 @@
 /* MidwifeDashboard.css */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lexend+Deca:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 .parent-dashboard {
   display: flex;
   flex-direction: column;
@@ -48,8 +48,9 @@
 }
 
 .header {
-  font-family: "Poppins", sans-serif;
-  padding-top: 15px;
+  font-family: 'Bebas Neue', sans-serif;
+  padding-top: 5vh;
+  padding-bottom: 0vh;
 }
 
 table {
@@ -71,34 +72,6 @@ table {
   backdrop-filter: blur(10px);
 }
 
-
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  background-color: lightblue;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-header h3 {
-  margin: 0;
-}
-
-.close-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  transition:  300ms ease-in-out
-}
-
-.card-content {
-  padding: 16px;
-}
-
 .accept-button {
   background-color: rgba(5, 94, 32, 0.774);
   color: white;
@@ -106,7 +79,8 @@ table {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition:  300ms ease-in-out
+  transition:  300ms ease-in-out;
+  margin: 0px 10px;
 }
 
 .accept-button:hover{
@@ -139,10 +113,11 @@ table {
 
 .tabs-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin-bottom: 25px;
-  margin-top: 25px;
+  margin-top: 10px;
+  gap:initial;
 }
 
 .tab-button {
@@ -152,9 +127,9 @@ table {
   border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
+  margin: 0px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  transition:  300ms ease-in-out
+  transition: background-color 0.3s ease,300ms ease-in-out; 
 }
 
 .tab-button.active {
@@ -168,11 +143,16 @@ table {
   scale: 1.05;
 }
 
-.tab-button:not(:last-child) {
+/* .tab-button:not(:last-child) {
+  margin-left: 10px;
   margin-right: 10px;
+} */
+.graph-caption{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
 }
 
 .SpaceButton{
-  width: 90vw;
+  width: 75vw;
   height: 1px;
 }

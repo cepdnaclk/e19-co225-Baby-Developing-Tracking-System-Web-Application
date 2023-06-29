@@ -82,17 +82,15 @@ export const Home = () => {
 
             {currentUser && (
               <p>
-                Congratulations on joining Sproutopia! You are now part of a
-                vibrant community dedicated to nurturing and supporting the
-                growth of our little sprouts. With our user-friendly platform,
-                you can effortlessly monitor your baby's milestones, track their
-                development, and stay on top of important appointments and
-                vaccinations. Sproutopia is here to empower you with valuable
-                insights, personalized guidance, and a wealth of resources to
-                ensure your baby's well-being. Explore the possibilities,
-                celebrate each milestone, and cherish the incredible journey of
-                parenthood. Together, let's create a beautiful future for our
-                little ones in the digital age.
+                Welcome to Sproutopia, the go-to hub for parents and caregivers
+                navigating the remarkable journey of their little ones. With our
+                intuitive platform, you can effortlessly track milestones,
+                monitor growth, and stay organized with appointments and
+                vaccinations. Sproutopia is here to simplify the process and
+                empower you with valuable insights. Join our thriving community
+                and embark on this incredible adventure of nurturing and
+                supporting your sprout's development. Let's create a beautiful
+                future together in the digital age.
               </p>
             )}
           </div>

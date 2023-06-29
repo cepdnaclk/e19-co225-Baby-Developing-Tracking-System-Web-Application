@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 80vh;
+    margin-top: 70px;
   }
   
   .add-baby-form-container {
@@ -19,8 +20,11 @@
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 36px;
+    margin: 0 0 12px;
   }
+
+  
   
   .add-baby-form label {
     display: block;
@@ -32,7 +36,7 @@
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 10px;
   }
   

@@ -8,6 +8,8 @@ import { Footer } from "../Footer";
 export const Register = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [role, setRole] = useState("");
@@ -22,6 +24,10 @@ export const Register = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      setPasswordError("Passwords do not match");
+      return;
+    }
     try {
       await AuthService.signup(firstname, lastname, email, password, role, hospital, regNo, specialization,isMotherFatherGuardian).then(
         (response) => {
@@ -35,6 +41,16 @@ export const Register = (props) => {
       );
     } catch (err) {
       alert(err);
+    }
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+
+    if (e.target.value !== password) {
+      setPasswordError("Passwords do not match");
+    } else {
+      setPasswordError("");
     }
   };
 
@@ -87,6 +103,15 @@ export const Register = (props) => {
                   id="password"
                   name="password"
                 />
+                  <input
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                    type="password"
+                    placeholder="Confirm Password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                  />
+                  {passwordError && <p className="error-message">{passwordError}</p>}
                 <div className="radio-group-role">
                   <div className="radio-group-item">
                     <label htmlFor="Parent">Parent</label>
