@@ -1,9 +1,6 @@
 package com.babydevelopingtrackingsystem.Controller;
 
-import com.babydevelopingtrackingsystem.Dto.AppointmentRequest;
-import com.babydevelopingtrackingsystem.Dto.AppointmentResponse;
-import com.babydevelopingtrackingsystem.Dto.BabyRegistrationRequest;
-import com.babydevelopingtrackingsystem.Dto.ParentBabyResponse;
+import com.babydevelopingtrackingsystem.Dto.*;
 import com.babydevelopingtrackingsystem.Service.AppointmentService;
 import com.babydevelopingtrackingsystem.Service.ParentService;
 import org.springframework.web.bind.annotation.*;
@@ -52,5 +49,11 @@ public class ParentController {
     @PostMapping("appointment/create")
     public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
         parentService.createAppointment(appointmentRequest);
+    }
+
+    //Height and Weight
+    @PostMapping
+    public void addHeightWeightRecord(@RequestBody HeightWeightDto heightWeightDto){
+        parentService.addHeightWeightRecord(heightWeightDto);
     }
 }
