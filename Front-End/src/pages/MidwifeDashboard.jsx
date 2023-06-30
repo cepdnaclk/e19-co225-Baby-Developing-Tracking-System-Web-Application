@@ -124,15 +124,15 @@ const MidwifeDashboard = () => {
                       {baby.id}
                     </td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.name}
+                      {baby.babyName}
                     </td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.parentName}
                     </td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.sex}</td>
+                      {baby.gender}</td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.appointedDoctor}
+                      {baby.doctorName}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
