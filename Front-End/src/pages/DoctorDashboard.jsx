@@ -186,6 +186,9 @@ const DoctorDashboard = () => {
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
+                <th className="bg-blue-200 font-bold py-2">
+                    <button>Baby Id</button>
+                  </th>
                   <th className="bg-blue-200 font-bold py-2">
                     <button>Baby Name</button>
                   </th>
@@ -206,9 +209,16 @@ const DoctorDashboard = () => {
               <tbody>
                 {selectedBabyTableData.map((baby) => (
                   <tr
-                    key={baby.babyName}
+                    key={baby.id}
                     className="cursor-pointer hover:bg-gray-100"
                   >
+
+                    <td
+                      className="border py-2 px-3 text-center"
+                      onClick={() => handleBabyRowClick(baby)}
+                    >
+                      {baby.id}
+                    </td>
                     <td
                       className="border py-2 px-3 text-center"
                       onClick={() => handleBabyRowClick(baby)}
