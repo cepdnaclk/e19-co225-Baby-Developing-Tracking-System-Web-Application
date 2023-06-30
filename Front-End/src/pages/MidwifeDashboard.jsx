@@ -18,6 +18,7 @@ const MidwifeDashboard = () => {
   // Sample data for the baby table
   const babyTableData = [
     {
+      id:1,
       name: "Alex Peter",
       parentName: "Jenny Fernandes",
       sex: "Male",
@@ -26,6 +27,7 @@ const MidwifeDashboard = () => {
       appointmentDate: "2023-06-30",
     },
     {
+      id:2,
       name: "Baby 2",
       parentName: "Parent 2",
       sex: "Female",
@@ -100,6 +102,7 @@ const MidwifeDashboard = () => {
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
+                  <th className="bg-blue-200 font-bold py-2"><button>Baby Id</button></th>
                   <th className="bg-blue-200 font-bold py-2"><button>Baby Name</button></th>
                   <th className="bg-blue-200 font-bold py-2"><button>Parent Name</button></th>
                   <th className="bg-blue-200 font-bold py-2"><button>Sex</button></th>
@@ -112,20 +115,24 @@ const MidwifeDashboard = () => {
               <tbody>
                 {selectedBabyTableData.map((baby) => (
                   <tr
-                    key={baby.name}
+                    key={baby.id}
                     className="cursor-pointer hover:bg-gray-100"
                     
                   >
+
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.name}
+                      {baby.id}
+                    </td>
+                    <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
+                      {baby.babyName}
                     </td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
                       {baby.parentName}
                     </td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.sex}</td>
+                      {baby.gender}</td>
                     <td className="border py-2 px-3 text-center" onClick={() => handleBabyRowClick(baby)}>
-                      {baby.appointedDoctor}
+                      {baby.doctorName}
                     </td>
                     <td className="border py-2 px-2 text-center">
                       {baby.hasAppointment && (
