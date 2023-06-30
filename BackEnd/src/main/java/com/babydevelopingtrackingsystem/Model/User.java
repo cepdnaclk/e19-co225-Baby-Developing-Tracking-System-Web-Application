@@ -34,7 +34,7 @@ public class User implements UserDetails {
         this.password = password;
         this.role = role;
     }
-
+    @Column(unique = true)
     private String email;
     private String password;
 
