@@ -1,4 +1,3 @@
-
 .add-admin-container {
   display: flex;
   flex-direction: column;
@@ -17,7 +16,6 @@
   width: 400px;
   height: 380px;
   padding-top: 30px;
-  
 }
 
 .add-admin-form {

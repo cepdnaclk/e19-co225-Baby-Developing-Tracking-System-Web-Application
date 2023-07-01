@@ -31,7 +31,7 @@
   overflow-y: auto;
   justify-content: center;
 }
-.edit-form-container{
+.edit-form-container {
   align-items: center;
   justify-content: center;
   z-index: 3;
@@ -52,7 +52,7 @@
   padding: 8px 0px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  border-bottom:5px solid #3e3e3eb9;
+  border-bottom: 5px solid #3e3e3eb9;
   margin: 0px 20px;
   margin-top: 12px;
 }
@@ -78,17 +78,54 @@
   justify-self: center;
 }
 
-
-
 .vaccination-timeline {
   margin-top: 16px;
 }
 
-.appointment-button {
-  background-color: rgba(0, 255, 149, 0.875);
-  color: white;
-  border: none;
-  padding: 4px 8px;
-  cursor: pointer;
-  border-radius: 10px;
+.pending-vaccine {
+  color: #1f9141;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 1px 10px;
+  scale: 0.9;
+  margin-left: 10px;
+  transition: 300ms ease-in-out;
+}
+
+.pending-vaccine:hover {
+  color: #ffffff;
+  background-color: #1f9141;
+}
+
+.update-vaccine {
+  color: #2663a8e1;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 1px 9px;
+  margin-left: 8px;
+  scale: 0.9;
+  transition: 300ms ease-in-out;
+}
+
+.update-vaccine:hover {
+  color: #ffffff;
+  background-color: #2663a8e1;
+}
+
+.delete-vaccine {
+  color: #bb3927ea;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 1px 9px;
+  margin-left: 3px;
+  scale: 0.9;
+  transition: 300ms ease-in-out;
+}
+
+.delete-vaccine:hover {
+  color: #ffffff;
+  background-color: #bb3927ea;
 }

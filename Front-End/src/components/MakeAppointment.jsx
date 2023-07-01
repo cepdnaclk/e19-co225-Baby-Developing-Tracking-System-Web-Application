@@ -7,11 +7,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 
-const MakeAppointment = ({ onClose,baby }) => {
+const MakeAppointment = ({ onClose, baby }) => {
   const [dateTime, setDateTime] = useState("");
   const [role, setRole] = useState("");
   const [venue, setVenue] = useState("");
-  const [babyId, setBabyId] = useState(baby.id)
+  const [babyId, setBabyId] = useState(baby.id);
   console.log(Date);
 
   const handleSubmit = async (e) => {

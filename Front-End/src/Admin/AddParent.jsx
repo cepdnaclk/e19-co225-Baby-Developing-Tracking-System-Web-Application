@@ -12,7 +12,7 @@ export const AddParent = (props) => {
     email: "",
     password: "",
     role: "",
-    isMotherFatherGuardian : "",
+    isMotherFatherGuardian: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -37,7 +37,7 @@ export const AddParent = (props) => {
         parentDetails.email,
         parentDetails.password,
         parentDetails.role,
-        parentDetails.isMotherFatherGuardian,
+        parentDetails.isMotherFatherGuardian
       );
 
       if (response && response.status === 200) {
@@ -123,7 +123,7 @@ export const AddParent = (props) => {
             required
           />
 
-<       label htmlFor="role">isMotherFatherGuardian</label>
+          <label htmlFor="role">isMotherFatherGuardian</label>
           <input
             type="text"
             id="isMotherFatherGuardian"
@@ -141,7 +141,6 @@ export const AddParent = (props) => {
         {/* Display success or error message in a popup */}
         {showSuccessPopup && (
           <div className="popup success">
-            
             <p>Failed to add user. Please try again.</p>
           </div>
         )}

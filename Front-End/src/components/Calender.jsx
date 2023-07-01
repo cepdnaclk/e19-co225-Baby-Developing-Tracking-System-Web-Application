@@ -42,7 +42,7 @@ export default function Calendar({ appointmentSet, onClicks }) {
     };
 
     fetchAppointments();
-  }, [selectDate,appointmentSet]);
+  }, [selectDate, appointmentSet]);
 
   const handlePreviousMonth = () => {
     setToday(today.month(today.month() - 1));
@@ -59,7 +59,6 @@ export default function Calendar({ appointmentSet, onClicks }) {
   const handleDateClick = (date) => {
     setSelectDate(date);
   };
-  
 
   return (
     <div className="calender-style animate-fadein justify-self-center">
@@ -137,7 +136,10 @@ export default function Calendar({ appointmentSet, onClicks }) {
             <ul className="text-gray-400">
               {filteredAppointments.map((appointment) => (
                 <li>
-                  <button key={appointment.id} onClick={() => onClicks(appointment)}>
+                  <button
+                    key={appointment.id}
+                    onClick={() => onClicks(appointment)}
+                  >
                     Appointment {appointment.id}
                   </button>
                 </li>

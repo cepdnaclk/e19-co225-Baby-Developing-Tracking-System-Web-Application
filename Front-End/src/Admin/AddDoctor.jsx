@@ -131,7 +131,7 @@ export const AddDoctor = (props) => {
             required
           />
 
-        <label htmlFor="hospital">Hospital</label>
+          <label htmlFor="hospital">Hospital</label>
           <input
             type="text"
             id="hospital"
@@ -141,18 +141,17 @@ export const AddDoctor = (props) => {
             required
           />
 
-        <label htmlFor="regNo">Reg No</label>
-        <input
-          type="text"
-          id="regNo"
-          name="regNo"
-          value={userDetails.regNo}
-          onChange={handleInputChange}
-          required
-        />
+          <label htmlFor="regNo">Reg No</label>
+          <input
+            type="text"
+            id="regNo"
+            name="regNo"
+            value={userDetails.regNo}
+            onChange={handleInputChange}
+            required
+          />
 
-
-        <label htmlFor="specialization">Specialization</label>
+          <label htmlFor="specialization">Specialization</label>
           <input
             type="text"
             id="specialization"
@@ -170,7 +169,6 @@ export const AddDoctor = (props) => {
         {/* Display success or error message in a popup */}
         {showSuccessPopup && (
           <div className="popup success">
-            
             <p>Failed to add user. Please try again.</p>
           </div>
         )}

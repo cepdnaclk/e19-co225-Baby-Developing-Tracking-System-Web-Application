@@ -1,57 +1,56 @@
 .vaccination-timeline {
-    margin-top: 20px;
-  }
-  
-  .vaccination-timeline h4 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .react-calendar-timeline {
-    border: 1px solid #ccc;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-  }
-  
-  .react-calendar-timeline .rct-sidebar {
-    background-color: #f5f5f5;
-  }
-  
-  .react-calendar-timeline .rct-label {
-    font-size: 14px;
-  }
-  
-  .react-calendar-timeline .rct-header-container {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .react-calendar-timeline .rct-header {
-    background-color: #f5f5f5;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  .react-calendar-timeline .rct-event {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .react-calendar-timeline .rct-event-content {
-    font-size: 12px;
-  }
-  
-  .react-calendar-timeline .rct-event-label {
-    font-size: 12px;
-  }
-  
-  .react-calendar-timeline .rct-today {
-    background-color: #007bff;
-    opacity: 0.5;
-  }
-  
-  .react-calendar-timeline .rct-selected {
-    background-color: #007bff;
-    opacity: 0.8;
-  }
-  
+  margin-top: 20px;
+}
+
+.vaccination-timeline h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.react-calendar-timeline {
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.react-calendar-timeline .rct-sidebar {
+  background-color: #f5f5f5;
+}
+
+.react-calendar-timeline .rct-label {
+  font-size: 14px;
+}
+
+.react-calendar-timeline .rct-header-container {
+  border-bottom: 1px solid #ccc;
+}
+
+.react-calendar-timeline .rct-header {
+  background-color: #f5f5f5;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.react-calendar-timeline .rct-event {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-calendar-timeline .rct-event-content {
+  font-size: 12px;
+}
+
+.react-calendar-timeline .rct-event-label {
+  font-size: 12px;
+}
+
+.react-calendar-timeline .rct-today {
+  background-color: #007bff;
+  opacity: 0.5;
+}
+
+.react-calendar-timeline .rct-selected {
+  background-color: #007bff;
+  opacity: 0.8;
+}

@@ -1,11 +1,11 @@
-.login-full{
+.login-full {
   text-align: center;
   display: flex;
   flex-direction: row;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color: rgb(12, 0, 0) ;
+  color: rgb(12, 0, 0);
   font-family: "Euclid Circular A";
   margin: 0.5rem;
   background-image: url("src/assets/page_background.png");
@@ -14,128 +14,129 @@
 }
 
 .auth-form-cantainer {
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    background: #fff;
-    text-align: center;
-    max-width: 950px;
-    display: flex;
-    flex-direction: row;
-    padding: 50px;
-    border: 1px solid rgba(124, 123, 123, 0.486);
-    border-radius: 15px;
-  }
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  background: #fff;
+  text-align: center;
+  max-width: 950px;
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  border: 1px solid rgba(124, 123, 123, 0.486);
+  border-radius: 15px;
+}
 
+.auth-logo {
+  max-width: 350px;
+  padding-right: 50px;
+}
+
+@media (width <= 1048px) {
   .auth-logo {
-    max-width: 350px;
-    padding-right: 50px;
+    display: none;
   }
+}
 
+.login-form-cantainer,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif,
+    Euclid Circular A;
+  color-scheme: light dark;
+}
 
-  @media (width <= 1048px) {
-    .auth-logo {
-      display: none;
-    }
-  }
-  
-  .login-form-cantainer, .login-form{
-    display: flex;
-    flex-direction: column;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif,Euclid Circular A;
-    color-scheme: light dark;
-  }
-  
-  /* .auth-form-cantainer{
+/* .auth-form-cantainer{
     padding: 4.5rem;
     border: 1px solid white;
     border-radius: 15px;
     margin: 0.5rem;
   } */
-  
-  @media (width >= 500px) {
-    .login-form {
-      margin: 0;
-      width: 350px;
-    }
-  
-    .register-form{
-      width: 421.68px;
-    }
-  }
-  
-  .login-form-cantainer > h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin: 0 0 12px;
-  }
-  
-  .login-form-cantainer > h3 {
-    color: rgba(0, 0, 0, 0.521);
-    margin: 0 0 30px;
-    font-weight: 500;
-    font-size: 1rem;
-  }
-  
+
+@media (width >= 500px) {
   .login-form {
-    width: 100%;
     margin: 0;
-    display: grid;
-    gap: 16px;
-    justify-items: center;
-  }
-  
-  .login-form > input,
-  .login-form > button {
-    width: 100%;
-    height: 45px;
-  }
-  
-  .login-form > input {
-    border: 2px solid #bebebe;
-    font-family: inherit;
-    font-size: 16px;
-    padding: 0 16px;
-    border-radius: 10px;
-    height: 45px;
-    width: 100%;
+    width: 350px;
   }
 
-  .login-form > button {
-    cursor: pointer;
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    border-radius: 0.5rem;
-    background: #216ce7;
-    color: #f9f9f9;
-    border: 0;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    transition: all 0.375s;
-    transition: color 0.3s;
-    transition:  300ms ease-in-out
+  .register-form {
+    width: 421.68px;
   }
-  
-  .login-form > button:hover {
-    background: #085a3a;
-    scale: 1.03;
-    transition:  300ms ease-in-out
-  }
+}
 
-  .link-btn {
-    background: none;
-    color: rgb(2, 37, 90);
-    text-decoration: underline;
-    border: none;
-    padding: 15px 5px 0px;
-    cursor: pointer;
-  }
+.login-form-cantainer > h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
 
-  .link-btn:hover{
-    color: rgb(90, 2, 2);
-    scale: 1.02;
-  }
+.login-form-cantainer > h3 {
+  color: rgba(0, 0, 0, 0.521);
+  margin: 0 0 30px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.login-form {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.login-form > input,
+.login-form > button {
+  width: 100%;
+  height: 45px;
+}
+
+.login-form > input {
+  border: 2px solid #bebebe;
+  font-family: inherit;
+  font-size: 16px;
+  padding: 0 16px;
+  border-radius: 10px;
+  height: 45px;
+  width: 100%;
+}
+
+.login-form > button {
+  cursor: pointer;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  border-radius: 0.5rem;
+  background: #216ce7;
+  color: #f9f9f9;
+  border: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: all 0.375s;
+  transition: color 0.3s;
+  transition: 300ms ease-in-out;
+}
+
+.login-form > button:hover {
+  background: #085a3a;
+  scale: 1.03;
+  transition: 300ms ease-in-out;
+}
+
+.link-btn {
+  background: none;
+  color: rgb(2, 37, 90);
+  text-decoration: underline;
+  border: none;
+  padding: 15px 5px 0px;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: rgb(90, 2, 2);
+  scale: 1.02;
+}

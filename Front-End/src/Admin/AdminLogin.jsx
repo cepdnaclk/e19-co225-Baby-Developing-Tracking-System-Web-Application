@@ -25,7 +25,7 @@ export const AdminLogin = (props) => {
 
   return (
     <div className="add-admin-container">
-      <Nav className="navigation static"/>
+      <Nav className="navigation static" />
       <div className="add-admin-form-container">
         <h1 className="h1">Admin Login</h1>
         <form className="add-admin-form">

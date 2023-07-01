@@ -11,6 +11,7 @@
 
 .blink {
   animation: blink 1s infinite;
+  scale: 0.8;
 }
 
 @keyframes blink {
@@ -48,8 +49,6 @@ table {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
 }
-
-
 
 .accept-button {
   background-color: rgba(5, 94, 32, 0.774);
