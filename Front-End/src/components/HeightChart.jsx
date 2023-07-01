@@ -3,20 +3,20 @@ import "./BabyChart.css";
 import WeightLineChart from "../Util/WeightLineChart";
 
 const BabyHeight = () => {
-    const heightData = [
-        {x:1, y:31},
-        {x:2, y:32},
-        {x:3, y:33},
-        {x:4, y:34},
-        {x:5, y:36},
-        {x:6, y:37},
-        {x:7, y:38},
-        {x:8, y:39},
-        {x:9, y:39},
-        {x:10, y:41},
-        {x:11, y:43},
-        {x:12, y:45}
-    ];
+  const heightData = [
+    { x: 1, y: 31 },
+    { x: 2, y: 32 },
+    { x: 3, y: 33 },
+    { x: 4, y: 34 },
+    { x: 5, y: 36 },
+    { x: 6, y: 37 },
+    { x: 7, y: 38 },
+    { x: 8, y: 39 },
+    { x: 9, y: 39 },
+    { x: 10, y: 41 },
+    { x: 11, y: 43 },
+    { x: 12, y: 45 },
+  ];
 
   const getMonthName = (month) => {
     const monthNames = [

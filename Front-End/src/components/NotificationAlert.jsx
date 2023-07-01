@@ -24,11 +24,10 @@ const NotificationAlertIcon = () => {
             },
           }
         );
-        
-        
-        const contentArray = response.data.map(obj => obj.content);
+
+        const contentArray = response.data.map((obj) => obj.content);
         setNotifications(contentArray);
-        console.log(contentArray)
+        console.log(contentArray);
       } catch (error) {
         console.error("Error fetching notifications:", error);
         setNotifications([
@@ -52,22 +51,17 @@ const NotificationAlertIcon = () => {
 
   const clearNotifications = () => {
     setNotifications([]);
-    
-      const token = JSON.parse(localStorage.getItem("user"));
-      const access = token.access_token;
-      console.log("Clear Notifications");
 
-      axios.get(
+    const token = JSON.parse(localStorage.getItem("user"));
+    const access = token.access_token;
+    console.log("Clear Notifications");
 
-        "http://localhost:8080/api/v1/notifications/delete",
-        {
-          headers: {
-            Authorization: "Bearer " + access,
-          },
-        }
-      );
+    axios.get("http://localhost:8080/api/v1/notifications/delete", {
+      headers: {
+        Authorization: "Bearer " + access,
+      },
+    });
   };
-
 
   return (
     <div className="notification-icon-container">
@@ -81,13 +75,23 @@ const NotificationAlertIcon = () => {
       {showDropdown && (
         <div className="dropdown justify-center">
           {notifications.map((notification, index) => (
-            <p className="notificationData text-gray-500" key={index}>{notification}</p>
+            <p className="notificationData text-gray-500" key={index}>
+              {notification}
+            </p>
           ))}
           {notifications.length > 0 && (
-            <button className="clearNotification px-2 text-center text-red-700 absolute bottom-2 justify-self-center" onClick={clearNotifications}>Clear Notifications</button>
+            <button
+              className="clearNotification px-2 text-center text-red-700 absolute bottom-2 justify-self-center"
+              onClick={clearNotifications}
+            >
+              Clear Notifications
+            </button>
           )}
           {notifications.length === 0 && (
-             <p className="notificationDataEmpty text-gray-500" > Currently have no Notifications</p>
+            <p className="notificationDataEmpty text-gray-500">
+              {" "}
+              Currently have no Notifications
+            </p>
           )}
         </div>
       )}
