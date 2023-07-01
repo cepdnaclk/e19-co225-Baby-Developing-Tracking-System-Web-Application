@@ -67,23 +67,15 @@ export const Nav = () => {
     };
   }, []);
 
-
-  
-
-
   const handleItemClick = (path) => {
     navigate(path);
   };
-  const handleDashboardPath = () =>{
-    if (currentUser=== "PARENT")
-    navigate("/parent");
-    else if(currentUser === "DOCTOR")
-    navigate("/doctor");
-    else if(currentUser === "MIDWIFE")
-    navigate("/midwife");
-    else if(currentUser === "ADMIN")
-    navigate("/admin");
-  }
+  const handleDashboardPath = () => {
+    if (currentUser === "PARENT") navigate("/parent");
+    else if (currentUser === "DOCTOR") navigate("/doctor");
+    else if (currentUser === "MIDWIFE") navigate("/midwife");
+    else if (currentUser === "ADMIN") navigate("/admin");
+  };
 
   const handleLogout = () => {
     setShowLogoutConfirmation(true);
@@ -100,7 +92,6 @@ export const Nav = () => {
     navigate("/authenticate");
   };
 
-
   const handleBackgroundClick = (e) => {
     if (e.target === logoutConfirmationRef.current) {
       setShowLogoutConfirmation(false);
@@ -110,35 +101,41 @@ export const Nav = () => {
   return (
     <div>
       <div className="nav">
-        {location.pathname === ("/Home" || "") ? <img
-          align="center"
-          alt="logo"
-          className="logo"
-          src="src\assets\Sproutopia_navbar_logo.png"
-          onClick={() => handleItemClick("/Home")}
-          /> : <img
-          align="center"
-          alt="logo"
-          className="Nav_logo"
-          src="src\assets\Sproutopia_navbar_logo.png"
-          onClick={() => handleItemClick("/Home")}
-          />}
-          <div></div>
+        {location.pathname === ("/Home" || "") ? (
+          <img
+            align="center"
+            alt="logo"
+            className="logo"
+            src="src\assets\Sproutopia_navbar_logo.png"
+            onClick={() => handleItemClick("/Home")}
+          />
+        ) : (
+          <img
+            align="center"
+            alt="logo"
+            className="Nav_logo"
+            src="src\assets\Sproutopia_navbar_logo.png"
+            onClick={() => handleItemClick("/Home")}
+          />
+        )}
+        <div></div>
 
         <ul className="nav-items">
           {currentUser && (
             <li
-            className={location.pathname === "/Home" ? "active" : ""}
-            onClick={() => handleItemClick("/Home")}
+              className={location.pathname === "/Home" ? "active" : ""}
+              onClick={() => handleItemClick("/Home")}
             >
               Home<span></span>
             </li>
           )}
-          
+
           {currentUser && (
             <li
-            className={location.pathname === ("/" + currentUser) ? "active" : ""}
-            onClick={() => handleDashboardPath()}
+              className={
+                location.pathname === "/" + currentUser ? "active" : ""
+              }
+              onClick={() => handleDashboardPath()}
             >
               Dashboard<span></span>
             </li>
@@ -148,13 +145,16 @@ export const Nav = () => {
           <p>&nbsp;&nbsp; </p>
 
           {currentUser ? (
-            <li className="logout-button border-2 border-gray-700" onClick={() => handleLogout()}>
+            <li
+              className="logout-button border-2 border-gray-700"
+              onClick={() => handleLogout()}
+            >
               <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Log Out
               <span></span>
             </li>
           ) : (
             <li
-            className="login-button border-2 border-gray-700"
+              className="login-button border-2 border-gray-700"
               onClick={() => handleItemClick("/authenticate")}
             >
               <i className="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Log In
@@ -177,7 +177,8 @@ export const Nav = () => {
               className="adminLogin-button"
               onClick={() => handleItemClick("/adminLogin")}
             >
-              <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Admin Login
+              <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Admin
+              Login
               <span></span>
             </li>
           )}

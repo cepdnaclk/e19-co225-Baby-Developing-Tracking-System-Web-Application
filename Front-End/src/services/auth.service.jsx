@@ -3,7 +3,17 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/api/v1/auth";
 
 // Registers a user by making a POST request to the API
-const signup = (firstname, lastname, email, password,role,hospital,regNo,specialization,isMotherFatherGuardian) => {
+const signup = (
+  firstname,
+  lastname,
+  email,
+  password,
+  role,
+  hospital,
+  regNo,
+  specialization,
+  isMotherFatherGuardian
+) => {
   return axios
     .post(API_URL + "/register", {
       firstname,
@@ -14,7 +24,7 @@ const signup = (firstname, lastname, email, password,role,hospital,regNo,special
       hospital,
       regNo,
       specialization,
-      isMotherFatherGuardian
+      isMotherFatherGuardian,
     })
     .then((response) => {
       console.log(response);
