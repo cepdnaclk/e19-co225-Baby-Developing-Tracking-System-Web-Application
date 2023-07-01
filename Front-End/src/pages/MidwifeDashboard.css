@@ -8,7 +8,6 @@
   background-image: url("src/assets/page_background.png");
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .blink {
@@ -32,8 +31,6 @@
 button {
   transition: box-shadow 200ms ease-in-out;
 }
-
-
 
 .header {
   font-family: "Poppins", sans-serif;
@@ -59,8 +56,6 @@ table {
   backdrop-filter: blur(10px);
 }
 
-
-
 .accept-button {
   background-color: rgba(5, 94, 32, 0.774);
   color: white;
@@ -70,7 +65,7 @@ table {
   cursor: pointer;
 }
 
-.accept-button:hover{
+.accept-button:hover {
   scale: 1.02;
   background-color: rgba(3, 59, 20, 0.774);
 }

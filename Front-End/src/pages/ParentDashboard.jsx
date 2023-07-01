@@ -15,12 +15,12 @@ const ParentDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [isBabyNotAdded, setIsBabyAdded] = useState(true);
   const [selectedTab, setSelectedTab] = useState("height");
-  const [MakeAppointments, setMakeAppointments] = useState(null)
+  const [MakeAppointments, setMakeAppointments] = useState(null);
 
   const navigate = useNavigate();
 
   // useEffect(()=>{
-    
+
   //   const user = AuthService.getCurrentUser();
   //     if(!user){
   //       navigate("/authenticate");
@@ -32,30 +32,28 @@ const ParentDashboard = () => {
   // },[]);
 
   // Sample data for the baby table
-  const demoBaby =
-    {
-      id: "1",
-      babyName: "Jenny Fernandes",
-      midwifeName: "Alex Peter",
-      doctorName: "Doctor 1",
-      gender: "Male",
-      babyVaccinations: [
-        {
-          vaccineName: "Moderna",
-          dueDate: "2023-06-24",
-          status: "Pending"
-        },
-        {
-          vaccineName: "Ado Naa",
-          dueDate: "2023-07-24",
-          status: "Completed"
-        }]
-    };
-  
-  
+  const demoBaby = {
+    id: "1",
+    babyName: "Jenny Fernandes",
+    midwifeName: "Alex Peter",
+    doctorName: "Doctor 1",
+    gender: "Male",
+    babyVaccinations: [
+      {
+        vaccineName: "Moderna",
+        dueDate: "2023-06-24",
+        status: "Pending",
+      },
+      {
+        vaccineName: "Ado Naa",
+        dueDate: "2023-07-24",
+        status: "Completed",
+      },
+    ],
+  };
+
   const [babyData, setBabyData] = useState(demoBaby);
-  console.log(babyData)
-  
+  console.log(babyData);
 
   // // Method to find out whether you have already registered a baby or not
   useEffect(() => {
@@ -104,7 +102,7 @@ const ParentDashboard = () => {
         );
 
         setBabyData(response.data);
-        console.log('newz-setz');
+        console.log("newz-setz");
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -117,9 +115,8 @@ const ParentDashboard = () => {
   const handleBabyClick = () => {
     setSelectedBaby(babyData);
 
-    console.log("Clicked")
-    console.log(selectedBaby)
-    
+    console.log("Clicked");
+    console.log(selectedBaby);
   };
 
   const handleMakeAppointment = () => {
@@ -129,7 +126,6 @@ const ParentDashboard = () => {
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
   };
-  
 
   return (
     <div>
@@ -137,25 +133,26 @@ const ParentDashboard = () => {
       <div className="parent-dashboard">
         <div className="relative mt-[100px] mx-1 sm:mx-10 rounded-lg p-4 flex-row">
           <h1 className="header text-center font-[500] font-black text-3xl">
-          "Get ready to Sproutopia your way through parenthood!"
+            "Get ready to Sproutopia your way through parenthood!"
           </h1>
           <br />
 
           <div className="tabs-container w-full ">
             {isBabyNotAdded && (
-            <button
-              className="tab-button bg-green-200"
-              onClick={() => navigate("/babyregister")}
-            >
-              Add Baby Details
-            </button>
-          )}
-          {!isBabyNotAdded && (<button
-              className="tab-button bg-green-200"
-              onClick={() => handleBabyClick()}
-            >
-              Baby Details
-            </button>
+              <button
+                className="tab-button bg-green-200"
+                onClick={() => navigate("/babyregister")}
+              >
+                Add Baby Details
+              </button>
+            )}
+            {!isBabyNotAdded && (
+              <button
+                className="tab-button bg-green-200"
+                onClick={() => handleBabyClick()}
+              >
+                Baby Details
+              </button>
             )}
             <button
               className={`tab-button ${
@@ -181,19 +178,22 @@ const ParentDashboard = () => {
             >
               Calendar
             </button>
-            
-            {!isBabyNotAdded && (<button
-              className="tab-button bg-yellow-200"
-              onClick={() => handleMakeAppointment()}
-            >
-              Make an Appointment
-            </button>
+
+            {!isBabyNotAdded && (
+              <button
+                className="tab-button bg-yellow-200"
+                onClick={() => handleMakeAppointment()}
+              >
+                Make an Appointment
+              </button>
             )}
           </div>
 
           {selectedTab === "height" && (
             <div className="height_graph sm:mx-12 my-10 scale-55 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col shadow-xl shadow-blue-100/50">
-              <h2 className="graph-caption font-[500] text-2xl flex py-3 px-5">Growing of height (cm)</h2>
+              <h2 className="graph-caption font-[500] text-2xl flex py-3 px-5">
+                Growing of height (cm)
+              </h2>
               <div className="flex justify-center">
                 <BabyHeight />
               </div>
@@ -201,7 +201,9 @@ const ParentDashboard = () => {
           )}
           {selectedTab === "weight" && (
             <div className="weight_graph sm:mx-12 my-10 scale-55 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 flex flex-col justify-center flex-wrap shadow-xl shadow-blue-100/50">
-              <h2 className="graph-caption font-[500] text-2xl flex py-3 px-5">Growing of Weight (kg)</h2>
+              <h2 className="graph-caption font-[500] text-2xl flex py-3 px-5">
+                Growing of Weight (kg)
+              </h2>
               <div className="flex justify-center">
                 <BabyWeight />
               </div>
@@ -210,18 +212,18 @@ const ParentDashboard = () => {
           {selectedTab === "calendar" && <Calendar />}
           <button className="SpaceButton"></button>
           {selectedBaby && (
-          
             <ParentBabyDetailsCard
               baby={selectedBaby}
               onClose={() => setSelectedBaby(null)}
             />
-          )} 
-          {MakeAppointments && <MakeAppointment 
-          baby = {babyData}
-          onClose={() => setMakeAppointments(null)}/>}
+          )}
+          {MakeAppointments && (
+            <MakeAppointment
+              baby={babyData}
+              onClose={() => setMakeAppointments(null)}
+            />
+          )}
         </div>
-        
-         
       </div>
       <Footer />
     </div>

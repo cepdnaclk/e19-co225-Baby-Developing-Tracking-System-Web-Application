@@ -1,6 +1,6 @@
 /* MidwifeDashboard.css */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Lexend+Deca:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 .parent-dashboard {
   display: flex;
   flex-direction: column;
@@ -10,12 +10,12 @@
   background-size: cover;
 }
 
-.height_graph{
+.height_graph {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   animation: fadeIn 1s ease-in;
 }
-.weight_graph{
+.weight_graph {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   animation: fadeIn 1s ease-in;
@@ -43,11 +43,11 @@
   padding: 4px 12px;
   cursor: pointer;
   border-radius: 30px;
-  transition:  300ms ease-in-out
+  transition: 300ms ease-in-out;
 }
 
 .header {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   padding-top: 5vh;
   padding-bottom: 0vh;
 }
@@ -78,11 +78,11 @@ table {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition:  300ms ease-in-out;
+  transition: 300ms ease-in-out;
   margin: 0px 10px;
 }
 
-.accept-button:hover{
+.accept-button:hover {
   scale: 1.05;
   background-color: rgba(5, 55, 97, 0.774);
 }
@@ -109,14 +109,13 @@ table {
   cursor: pointer;
 }
 
-
 .tabs-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 25px;
   margin-top: 10px;
-  gap:initial;
+  gap: initial;
 }
 
 .tab-button {
@@ -128,7 +127,7 @@ table {
   font-weight: 500;
   margin: 0px 20px;
   cursor: pointer;
-  transition: background-color 0.3s ease,300ms ease-in-out; 
+  transition: background-color 0.3s ease, 300ms ease-in-out;
 }
 
 .tab-button.active {
@@ -146,12 +145,12 @@ table {
   margin-left: 10px;
   margin-right: 10px;
 } */
-.graph-caption{
-  font-family: 'Bebas Neue', sans-serif;
+.graph-caption {
+  font-family: "Bebas Neue", sans-serif;
   font-size: 16px;
 }
 
-.SpaceButton{
+.SpaceButton {
   width: 75vw;
   height: 1px;
 }

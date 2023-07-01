@@ -10,7 +10,7 @@ import "./DoctorDashboard.css";
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-  const [editCount,setEditCount] = useState(0);
+  const [editCount, setEditCount] = useState(0);
 
   // Sample data for the baby table
   const babyTableData = [
@@ -48,8 +48,8 @@ const DoctorDashboard = () => {
       babyVaccinations: [
         {
           vaccineName: "BCG",
-          dueDate:"2023-05-01",
-          status:"Pending"
+          dueDate: "2023-05-01",
+          status: "Pending",
         },
         {
           vaccineName: "Hexaxim/Infanrix Hexa",
@@ -76,8 +76,7 @@ const DoctorDashboard = () => {
     },
   ];
 
-  const [selectedBabyTableData, setSelectedBabyTableData] =
-    useState([]);
+  const [selectedBabyTableData, setSelectedBabyTableData] = useState([]);
 
   const [appointmentsSet, setAppointmentsSet] = useState([]);
 
@@ -130,7 +129,7 @@ const DoctorDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [DoctorBabyDetailsCard,editCount]);
+  }, [DoctorBabyDetailsCard, editCount]);
 
   // Sample data for the calendar
 
@@ -148,8 +147,6 @@ const DoctorDashboard = () => {
     setSelectedAppointment(null);
   };
 
-
-
   return (
     <div>
       <Nav />
@@ -160,7 +157,12 @@ const DoctorDashboard = () => {
             "Doc, you're about to level up in baby care. Let's heal those tiny
             patients like superheroes."
           </h1>
-          <Calendar appointmentSet={appointmentsSet} onClicks={(appointment) => handleAppointmentButtonClick(appointment)}/>
+          <Calendar
+            appointmentSet={appointmentsSet}
+            onClicks={(appointment) =>
+              handleAppointmentButtonClick(appointment)
+            }
+          />
           {console.log(appointmentsSet)}
           {/* <div className="card-container flex justify-center ">
             <div className="cards text-center my-8 mx-10 border rounded-lg">
@@ -255,10 +257,22 @@ const DoctorDashboard = () => {
                       {baby.midWifeName}
                     </td>
                     <td className="border py-2 px-2 text-center">
-                      {appointmentsSet.some(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus) && (
+                      {appointmentsSet.some(
+                        (appointment) =>
+                          appointment.babyName === baby.babyName &&
+                          !appointment.appointmentStatus
+                      ) && (
                         <button
                           className="appointment-button blink bg-green-200"
-                          onClick={() => handleAppointmentButtonClick(appointmentsSet.find(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus))}
+                          onClick={() =>
+                            handleAppointmentButtonClick(
+                              appointmentsSet.find(
+                                (appointment) =>
+                                  appointment.babyName === baby.babyName &&
+                                  !appointment.appointmentStatus
+                              )
+                            )
+                          }
                         >
                           Appointment Requested
                         </button>
@@ -273,12 +287,9 @@ const DoctorDashboard = () => {
         {selectedBaby && (
           <DoctorBabyDetailsCard
             baby={selectedBaby}
-            onClose={() => setSelectedBaby(null)
-            }
-            babyTableData = {selectedBabyTableData}
-            callbackFunc = {
-              ()=> setEditCount(editCount+1)
-            }
+            onClose={() => setSelectedBaby(null)}
+            babyTableData={selectedBabyTableData}
+            callbackFunc={() => setEditCount(editCount + 1)}
           />
         )}
         {selectedAppointment && (
