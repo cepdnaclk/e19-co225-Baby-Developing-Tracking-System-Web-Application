@@ -77,8 +77,9 @@ const DoctorDashboard = () => {
   ];
 
   const [selectedBabyTableData, setSelectedBabyTableData] =
-    useState(babyTableData);
-  const [appointments, setAppointments] = useState(appointmentTable);
+    useState([]);
+
+  const [appointmentsSet, setAppointmentsSet] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -110,14 +111,17 @@ const DoctorDashboard = () => {
         const access = token.access_token;
         console.log(access);
 
-        const response = await axios.get("http://localhost:8080/api/v1/doctor/appointment/get", {
-          headers: {
-            "Access-Control-Allow-Origin": true,
-            Authorization: "Bearer " + access,
-          },
-        });
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/doctor/appointment/get",
+          {
+            headers: {
+              "Access-Control-Allow-Origin": true,
+              Authorization: "Bearer " + access,
+            },
+          }
+        );
 
-        setAppointments(response.data);
+        setAppointmentsSet(response.data);
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -136,6 +140,7 @@ const DoctorDashboard = () => {
 
   const handleAppointmentButtonClick = (appointment) => {
     setSelectedAppointment(appointment);
+    console.log(appointment);
     setSelectedBaby(null);
   };
 
@@ -152,9 +157,11 @@ const DoctorDashboard = () => {
       <div className="doctor-dashboard">
         <div className="relative mt-[100px] mx-3 rounded-lg p-4 flex-row justify-center">
           <h1 className="header text-center font-[500] font-black text-3xl">
-          "Doc, you're about to level up in baby care. Let's heal those tiny patients like superheroes."
+            "Doc, you're about to level up in baby care. Let's heal those tiny
+            patients like superheroes."
           </h1>
-          <Calendar />
+          <Calendar appointmentSet={appointmentsSet} onClicks={(appointment) => handleAppointmentButtonClick(appointment)}/>
+          {console.log(appointmentsSet)}
           {/* <div className="card-container flex justify-center ">
             <div className="cards text-center my-8 mx-10 border rounded-lg">
               <div className="card-header px-5">Featured</div>
@@ -191,7 +198,7 @@ const DoctorDashboard = () => {
             <table className="w-full table-fixed border-collapse rounded-lg">
               <thead>
                 <tr>
-                <th className="bg-blue-200 font-bold py-2">
+                  <th className="bg-blue-200 font-bold py-2">
                     <button>Baby Id</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
@@ -217,7 +224,6 @@ const DoctorDashboard = () => {
                     key={baby.id}
                     className="cursor-pointer hover:bg-gray-100"
                   >
-
                     <td
                       className="border py-2 px-3 text-center"
                       onClick={() => handleBabyRowClick(baby)}
@@ -249,10 +255,10 @@ const DoctorDashboard = () => {
                       {baby.midWifeName}
                     </td>
                     <td className="border py-2 px-2 text-center">
-                      {baby.hasAppointment === "Pending" && (
+                      {appointmentsSet.some(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus) && (
                         <button
                           className="appointment-button blink bg-green-200"
-                          onClick={() => handleAppointmentButtonClick(baby)}
+                          onClick={() => handleAppointmentButtonClick(appointmentsSet.find(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus))}
                         >
                           Appointment Requested
                         </button>

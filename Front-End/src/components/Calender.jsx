@@ -7,7 +7,7 @@ import { sampleAppointments } from "../components/SampleAppointments";
 
 const useSampleAppointments = false; // Set this to true to use the sampleAppointments data
 
-export default function Calendar() {
+export default function Calendar({ appointmentSet, onClicks }) {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
   const currentDate = dayjs();
   const mydate = "";
@@ -19,28 +19,19 @@ export default function Calendar() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        let response = { data: sampleAppointments };
-        const token = JSON.parse(localStorage.getItem("user"));
-        const access = token.access_token;
-        console.log(access);
+        let response;
         if (useSampleAppointments) {
           response = { data: sampleAppointments }; // Use the sampleAppointments data
         } else {
-          response = await axios.get("http://localhost:8080/appointments", {
-            // params: {
-            //   date: selectDate.format("YYYY-MM-DD"),
-            // },
-            headers: {
-            "Access-Control-Allow-Origin": true,
-            Authorization: "Bearer " + access,
-          },
-          });
+          response = { data: appointmentSet };
         }
 
         const appointments = response.data;
         console.log(response.data);
         const filteredAppointments = appointments.filter(
-          (appointment) => appointment.date.substring(0, 10) === selectDate.format("YYYY-MM-DD")
+          (appointment) =>
+            appointment.scheduledTime.substring(0, 10) ===
+            selectDate.format("YYYY-MM-DD")
         );
 
         setAppointments(appointments);
@@ -51,7 +42,7 @@ export default function Calendar() {
     };
 
     fetchAppointments();
-  }, [selectDate]);
+  }, [selectDate,appointmentSet]);
 
   const handlePreviousMonth = () => {
     setToday(today.month(today.month() - 1));
@@ -68,6 +59,7 @@ export default function Calendar() {
   const handleDateClick = (date) => {
     setSelectDate(date);
   };
+  
 
   return (
     <div className="calender-style animate-fadein justify-self-center">
@@ -117,7 +109,8 @@ export default function Calendar() {
                     className={`h-10 w-10 rounded-full grid place-content-center hover:bg-black hover:text-white transition-all cursor-pointer select-none ${
                       appointments.some(
                         (appointment) =>
-                          appointment.date.substring(0, 10) === date.format("YYYY-MM-DD")
+                          appointment.scheduledTime.substring(0, 10) ===
+                          date.format("YYYY-MM-DD")
                       ) && !date.isSame(currentDate, "day")
                         ? "bg-blue-200"
                         : ""
@@ -143,9 +136,10 @@ export default function Calendar() {
           {filteredAppointments.length > 0 ? (
             <ul className="text-gray-400">
               {filteredAppointments.map((appointment) => (
-                
                 <li>
-                  <button key={appointment.id}>Appointment {appointment.id}</button>
+                  <button key={appointment.id} onClick={() => onClicks(appointment)}>
+                    Appointment {appointment.id}
+                  </button>
                 </li>
               ))}
             </ul>
