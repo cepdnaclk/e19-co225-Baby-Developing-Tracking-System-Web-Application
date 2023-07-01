@@ -107,7 +107,7 @@ const DoctorDashboard = () => {
         const access = token.access_token;
         console.log(access);
 
-        const response = await axios.get("http://localhost:8080/appointments", {
+        const response = await axios.get("http://localhost:8080/api/v1/doctor/appointment/get", {
           headers: {
             "Access-Control-Allow-Origin": true,
             Authorization: "Bearer " + access,

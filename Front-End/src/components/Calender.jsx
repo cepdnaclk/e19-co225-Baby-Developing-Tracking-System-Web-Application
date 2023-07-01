@@ -5,8 +5,7 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import axios from "axios";
 import { sampleAppointments } from "../components/SampleAppointments";
 
-const appointmentsEndpoint = "/api/appointments"; // Replace this with the actual API endpoint
-const useSampleAppointments = true; // Set this to true to use the sampleAppointments data
+const useSampleAppointments = false; // Set this to true to use the sampleAppointments data
 
 export default function Calendar() {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
@@ -20,18 +19,26 @@ export default function Calendar() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        let response;
+        let response = { data: sampleAppointments };
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         if (useSampleAppointments) {
           response = { data: sampleAppointments }; // Use the sampleAppointments data
         } else {
-          response = await axios.get(appointmentsEndpoint, {
-            params: {
-              date: selectDate.format("YYYY-MM-DD"),
-            },
+          response = await axios.get("http://localhost:8080/appointments", {
+            // params: {
+            //   date: selectDate.format("YYYY-MM-DD"),
+            // },
+            headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
           });
         }
 
         const appointments = response.data;
+        console.log(response.data);
         const filteredAppointments = appointments.filter(
           (appointment) => appointment.date.substring(0, 10) === selectDate.format("YYYY-MM-DD")
         );

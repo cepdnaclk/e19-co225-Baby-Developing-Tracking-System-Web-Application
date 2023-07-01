@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
+import axios from "axios";
 import "./AppointmentDetailsCard.css";
 import { MobileDateTimePicker } from "@mui/x-date-pickers/MobileDateTimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -7,7 +8,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 
 const MakeAppointment = ({ onClose,baby }) => {
-  const [Date, setDateTime] = useState("");
+  const [dateTime, setDateTime] = useState("");
   const [role, setRole] = useState("");
   const [venue, setVenue] = useState("");
   const [babyId, setBabyId] = useState(baby.id)
@@ -22,7 +23,7 @@ const MakeAppointment = ({ onClose,baby }) => {
       console.log({
         babyId,
         venue,
-        Date,
+        dateTime,
         role,
       });
       axios
@@ -31,7 +32,7 @@ const MakeAppointment = ({ onClose,baby }) => {
           {
             babyId,
             role,
-            Date,
+            dateTime,
             venue,
           },
           {
@@ -43,6 +44,7 @@ const MakeAppointment = ({ onClose,baby }) => {
         )
         .then((response) => {
           console.log(response);
+          onClose();
         });
     } catch (err) {
       alert(err);
@@ -95,7 +97,7 @@ const MakeAppointment = ({ onClose,baby }) => {
               <DemoContainer components={["MobileDateTimePicker"]}>
                 <DemoItem>
                   <MobileDateTimePicker
-                    value={Date}
+                    value={dateTime}
                     onChange={(newValue) => setDateTime(newValue.toISOString())}
                     defaultValue={dayjs("2023-06-25T14:36:02.833Z")}
                   />

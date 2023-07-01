@@ -86,6 +86,9 @@ const NotificationAlertIcon = () => {
           {notifications.length > 0 && (
             <button className="clearNotification px-2 text-center text-red-700" onClick={clearNotifications}>Clear Notifications</button>
           )}
+          {notifications.length === 0 && (
+             <p className="notificationDataEmpty text-gray-500" > Currently have no Notifications</p>
+          )}
         </div>
       )}
     </div>
