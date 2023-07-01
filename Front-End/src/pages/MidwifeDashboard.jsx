@@ -160,10 +160,10 @@ const MidwifeDashboard = () => {
                       {baby.doctorName}
                     </td>
                     <td className="border py-2 px-2 text-center">
-                      {baby.hasAppointment && (
+                    {appointmentsSet.some(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus) && (
                         <button
                           className="appointment-button blink bg-green-200"
-                          onClick={() => handleAppointmentButtonClick(baby)}
+                          onClick={() => handleAppointmentButtonClick(appointmentsSet.find(appointment => appointment.babyName === baby.babyName && !appointment.appointmentStatus))}
                         >
                           Appointment Requested
                         </button>
