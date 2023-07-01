@@ -30,8 +30,9 @@ const DoctorAppointmentDetailsCard = ({
         <p>Baby Name: {appointment.babyName}</p>
         <p>Parent Name: {appointment.parentName}</p>
         <p>Sex: {appointment.sex}</p>
-        <p>Requesting Date: <b className="text-red-600">{appointment.requestDate}</b></p>
-        <p>Appointment Status: {appointment.hasAppointment}</p>
+        {(appointment.hasAppointment === "Pending")? <p>Requesting Date: <b className="text-red-600">{appointment.scheduledTime.substring(0, 10)}</b></p>:<p>Sheduled Date: {appointment.scheduledTime.substring(0, 10)}</p>}
+        {(appointment.hasAppointment === "Pending")? <p>Requesting Time: <b className="text-red-600">{appointment.scheduledTime.substring(0, 10)}</b></p>:<p>Requesting Time: {appointment.scheduledTime.substring(11, 16)}</p>}
+        <p>Appointment Status: {appointment.appointmentStatus}</p>
         {(appointment.hasAppointment === "Pending") && (
           <div className="Appointment-suggest">
             <button
