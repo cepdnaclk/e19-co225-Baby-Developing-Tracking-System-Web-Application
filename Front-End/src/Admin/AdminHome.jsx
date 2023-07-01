@@ -22,8 +22,8 @@ export const AdminHome = () => {
 
 - Update and Delete User Accounts: You have the ability to modify and remove user accounts as necessary. This ensures that user information remains accurate and up-to-date, while removing accounts that are no longer relevant or required.
 
-The admin panel empowers you to effectively manage doctors, parents, children, and midwives, facilitating efficient healthcare services and support for all users.`
-  },
+The admin panel empowers you to effectively manage doctors, parents, children, and midwives, facilitating efficient healthcare services and support for all users.`,
+    },
     { id: 2, title: "CARD 2", description: "Description for Card 2" },
     // Add more card Here if you want
   ]);
@@ -45,4 +45,3 @@ The admin panel empowers you to effectively manage doctors, parents, children, a
     </div>
   );
 };
-

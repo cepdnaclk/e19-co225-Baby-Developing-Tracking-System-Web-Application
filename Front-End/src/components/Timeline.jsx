@@ -1,20 +1,38 @@
 // Timeline.jsx
 // import "./Timeline.css"
-import React from 'react';
-import Timeline from 'react-calendar-timeline';
-import 'react-calendar-timeline/lib/Timeline.css';
+import React from "react";
+import Timeline from "react-calendar-timeline";
+import "react-calendar-timeline/lib/Timeline.css";
 
 const VaccinationTimeline = () => {
   // Sample data for the timeline
   const timelineData = [
-    { id: 1, group: 'Vaccines', title: 'Vaccine 1', start_time: new Date(2023, 6, 1), end_time: new Date(2023, 6, 2) },
-    { id: 2, group: 'Vaccines', title: 'Vaccine 2', start_time: new Date(2023, 7, 1), end_time: new Date(2023, 7, 2) },
-    { id: 3, group: 'Vaccines', title: 'Vaccine 3', start_time: new Date(2023, 8, 1), end_time: new Date(2023, 8, 2) },
+    {
+      id: 1,
+      group: "Vaccines",
+      title: "Vaccine 1",
+      start_time: new Date(2023, 6, 1),
+      end_time: new Date(2023, 6, 2),
+    },
+    {
+      id: 2,
+      group: "Vaccines",
+      title: "Vaccine 2",
+      start_time: new Date(2023, 7, 1),
+      end_time: new Date(2023, 7, 2),
+    },
+    {
+      id: 3,
+      group: "Vaccines",
+      title: "Vaccine 3",
+      start_time: new Date(2023, 8, 1),
+      end_time: new Date(2023, 8, 2),
+    },
     // Add more timeline data as needed
   ];
 
   // Sample groups for the timeline
-  const timelineGroups = [{ id: 'Vaccines', title: 'Vaccines' }];
+  const timelineGroups = [{ id: "Vaccines", title: "Vaccines" }];
 
   return (
     <div className="vaccination-timeline">
@@ -36,5 +54,3 @@ const VaccinationTimeline = () => {
 };
 
 export default VaccinationTimeline;
-       
-

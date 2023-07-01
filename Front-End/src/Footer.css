@@ -1,5 +1,4 @@
 footer {
-  
   bottom: 5px;
   left: 5px;
   width: 100%;
@@ -56,7 +55,6 @@ footer.bottom {
   float: right;
   justify-content: space-evenly;
   gap: 20px;
-  
 }
 
 .logo {
@@ -80,11 +78,11 @@ footer.bottom {
     display: none;
   }
 
-  .auth-form-cantainer{
+  .auth-form-cantainer {
     scale: 0.8;
   }
 
-  .App{
+  .App {
     scale: 0.98;
   }
 }

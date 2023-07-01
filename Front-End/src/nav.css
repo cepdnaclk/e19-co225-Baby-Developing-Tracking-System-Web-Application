@@ -16,7 +16,7 @@
   left: 0px;
   width: 100%;
   height: 12vh;
-	z-index: 10;
+  z-index: 10;
   background: linear-gradient(to bottom, #2c79de1c, #17294000);
   backdrop-filter: blur(2.5px);
   z-index: 9999;
@@ -27,7 +27,6 @@
   transition: top 300ms ease-in-out;
   /* background: #17294000; */
   /* border-radius: 15px; */
-  
 }
 .nav.mobile {
   background-color: #181818;
@@ -42,7 +41,7 @@
   position: Fixed;
 }
 
-.logo{
+.logo {
   position: absolute;
   top: -100px; /* Adjust the initial position off the screen */
   opacity: 0;
@@ -50,7 +49,7 @@
   animation-duration: 1s;
   animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
   animation-fill-mode: forwards;
-  transition:  300ms ease-in-out
+  transition: 300ms ease-in-out;
 }
 
 @keyframes slideFromTopLogo {
@@ -59,7 +58,7 @@
     opacity: 0;
   }
   100% {
-      top:60%; /* Adjust the desired position */
+    top: 60%; /* Adjust the desired position */
     opacity: 1;
   }
 }
@@ -72,10 +71,10 @@
   padding: 3px;
   cursor: pointer;
   position: Fixed;
-  top: 25%
+  top: 25%;
 }
 
-.Nav_logo{
+.Nav_logo {
   position: absolute;
   top: -100px; /* Adjust the initial position off the screen */
   opacity: 0;
@@ -83,7 +82,7 @@
   animation-duration: 1s;
   animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
   animation-fill-mode: forwards;
-  transition:  300ms ease-in-out
+  transition: 300ms ease-in-out;
 }
 
 @keyframes slideFromTopLogo3 {
@@ -92,7 +91,7 @@
     opacity: 0;
   }
   100% {
-      top:30%; /* Adjust the desired position */
+    top: 30%; /* Adjust the desired position */
     opacity: 1;
   }
 }
@@ -109,7 +108,7 @@
   font-weight: bolder;
 }
 
-.logos{
+.logos {
   height: 10vh;
 }
 
@@ -165,7 +164,7 @@
 .nav li:hover {
   color: white;
   scale: 1.02;
-  	/* box-shadow:
+  /* box-shadow:
 	  0 2.3px 2.7px rgba(0, 0, 0, 0.192),
 	  0 6.3px 7.5px rgba(0, 0, 0, 0.275),
 	  0 15.1px 18.1px rgba(0, 0, 0, 0.358),
@@ -308,14 +307,11 @@
   }
 
   @media only screen and (max-width: 768px) {
-    
   }
 
   .nav {
     gap: 0;
   }
-
-  
 }
 
 @media (width < 821px) {
@@ -323,8 +319,8 @@
     scale: 0.8;
   }
 
-  .nav ul >*{
-    scale: 0.9
+  .nav ul > * {
+    scale: 0.9;
   }
 
   .nav {
@@ -334,11 +330,10 @@
   .nav ul > * {
     margin-right: 0;
     margin-bottom: 7px;
-    scale: 0.9
-
+    scale: 0.9;
   }
 
-  .nav li{
+  .nav li {
     padding: 10px 15px;
   }
 }
@@ -381,8 +376,6 @@
   justify-content: space-evenly;
 }
 
-
-
 .cancel-button {
   background-color: #0e0a00c7;
   color: #fcfcfc;
@@ -418,6 +411,6 @@
   scale: 1.08;
 }
 
-.buttons{
+.buttons {
   gap: 10px;
 }

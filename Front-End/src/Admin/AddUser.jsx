@@ -37,9 +37,8 @@ export const AddUser = (props) => {
         userDetails.password,
         userDetails.role
       );
-        console.log(userDetails)
+      console.log(userDetails);
       if (response && response.status === 200) {
-        
         setShowSuccessPopup(true);
         setShowErrorPopup(false);
         // Reset the form
@@ -129,7 +128,6 @@ export const AddUser = (props) => {
         {/* Display success or error message in a popup */}
         {showSuccessPopup && (
           <div className="popup success">
-            
             <p>Failed to add user. Please try again.</p>
           </div>
         )}

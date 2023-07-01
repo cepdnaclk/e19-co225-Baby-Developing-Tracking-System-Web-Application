@@ -1,57 +1,57 @@
-.Baby_landing{
-    height: 75vh;
-    position: fixed;
-    left:53.5%;
+.Baby_landing {
+  height: 75vh;
+  position: fixed;
+  left: 53.5%;
 }
 
 .Baby_landing {
-    position: absolute;
-     /* Adjust the initial position off the screen */
+  position: absolute;
+  /* Adjust the initial position off the screen */
+  top: -100px;
+  opacity: 0;
+  animation-name: slideFromTop;
+  animation-duration: 1s;
+  animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideFromTop {
+  0% {
     top: -100px;
     opacity: 0;
-    animation-name: slideFromTop;
-    animation-duration: 1s;
-    animation-delay: 0.5s; /* Delay the animation for 0.5 seconds */
-    animation-fill-mode: forwards;
   }
-  
-  @keyframes slideFromTop {
-    0% {
-      top: -100px;
-      opacity: 0;
-    }
-    100% {
-        top:12%; /* Adjust the desired position */
-      opacity: 1;
-    }
+  100% {
+    top: 12%; /* Adjust the desired position */
+    opacity: 1;
   }
-
-  .welcome-message {
-    width: calc(10vw + 20em);
-    position: absolute;
-    top: 65%;
-    transform: translateY(-50%);
-    left: 10vw;
-    animation: fadeIn 0.5s ease-in;
-    z-index: 2
-  }
-
-  .welcome-message p {
-    font-family: "Poppins", sans-serif;
-    animation: fadeIn 1s ease-in;
-    font-size:large;
-    color: #424242;
-    transition:  300ms ease-in-out
 }
-  .welcome-message button {
-    font-family: "Poppins", sans-serif;
-    animation: fadeIn 1s ease-in;
-    font-size:large;
-    color: #424242;
-    padding: 8px;
-    border-radius: 20px;
-    margin-top: 10px;
-    transition:  300ms ease-in-out
+
+.welcome-message {
+  width: calc(10vw + 20em);
+  position: absolute;
+  top: 65%;
+  transform: translateY(-50%);
+  left: 10vw;
+  animation: fadeIn 0.5s ease-in;
+  z-index: 2;
+}
+
+.welcome-message p {
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 1s ease-in;
+  font-size: large;
+  color: #424242;
+  transition: 300ms ease-in-out;
+}
+.welcome-message button {
+  font-family: "Poppins", sans-serif;
+  animation: fadeIn 1s ease-in;
+  font-size: large;
+  color: #424242;
+  padding: 8px;
+  border-radius: 20px;
+  margin-top: 10px;
+  transition: 300ms ease-in-out;
 }
 
 .welcome-message button:hover {
@@ -60,30 +60,15 @@
   border-color: #123f72c5;
 }
 
-.welcome-message p:hover{
+.welcome-message p:hover {
   scale: 1.05;
 }
 
-@keyframes fadeIn{
-	from {
-		opacity: 0;
-		
-
-	}
-	to {
-		opacity: 1;
-	}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
