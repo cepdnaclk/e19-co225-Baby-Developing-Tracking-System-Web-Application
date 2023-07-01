@@ -73,7 +73,10 @@ public class DoctorService {
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
             logger.info(String.valueOf(babyVaccinations.size()));
             for(BabyVaccination babyVaccination:babyVaccinations){
-                babyVaccinationResponses.add(new BabyVaccinationResponse(babyVaccination.getVaccination().getName(),
+                babyVaccinationResponses.add(new BabyVaccinationResponse(
+                        babyVaccination.getId(),
+                        babyVaccination.getVaccination().getId(),
+                        babyVaccination.getVaccination().getName(),
                         babyVaccination.getVaccinationDate(),
                         babyVaccination.getStatus()));
             }
@@ -167,13 +170,10 @@ public class DoctorService {
         return "01";
     }
 
-    public String deleteVaccine(BabyVaccinationRequest babyVaccinationRequest) {
-        Optional<Baby> baby = babyRepository.findById(babyVaccinationRequest.babyId());
-        Optional<Vaccination> vaccination = vaccinationRepository.findById(babyVaccinationRequest.vaccineId());
-        if(baby.isPresent() && vaccination.isPresent()){
-            BabyVaccination babyVaccination = babyVaccinationRepository.findBabyVaccinationByBabyAndVaccination(baby.get(),vaccination.get());
+    public String deleteVaccine(int id) {
 
-            babyVaccinationRepository.delete(babyVaccination);
+        if(babyVaccinationRepository.existsById(id)){
+            babyVaccinationRepository.deleteById(id);
             return "00";
 
         }

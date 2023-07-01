@@ -73,9 +73,9 @@ public class DoctorController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 
     }
-    @DeleteMapping("/baby_vaccine/delete")
-    public ResponseEntity<String> deleteVaccine(@RequestBody BabyVaccinationRequest babyVaccinationRequest){
-        String responseStatus = doctorService.deleteVaccine(babyVaccinationRequest);
+    @DeleteMapping("/baby_vaccine/delete/{id}")
+    public ResponseEntity<String> deleteVaccine(@PathVariable int id){
+        String responseStatus = doctorService.deleteVaccine(id);
         if(responseStatus.equals("00")){
             return ResponseEntity.ok("Successfully Deleted Vaccine");
         }

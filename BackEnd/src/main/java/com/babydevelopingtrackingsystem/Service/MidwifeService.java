@@ -57,7 +57,10 @@ public class MidwifeService {
             List<BabyVaccinationResponse> babyVaccinationResponses = new ArrayList<>();
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
             for(BabyVaccination babyVaccination:babyVaccinations){
-                babyVaccinationResponses.add(new BabyVaccinationResponse(babyVaccination.getVaccination().getName(),
+                babyVaccinationResponses.add(new
+                        BabyVaccinationResponse(
+                                babyVaccination.getId(),
+                                babyVaccination.getVaccination().getName(),
                         babyVaccination.getVaccinationDate(),
                         babyVaccination.getStatus()));
             }

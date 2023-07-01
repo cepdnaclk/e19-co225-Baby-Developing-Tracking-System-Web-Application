@@ -9,8 +9,17 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BabyVaccinationResponse {
+    private int id;
 
+    private int vaccineId;
     String vaccineName;
     LocalDate dueDate;
     String status;
+
+    public BabyVaccinationResponse(int id, String vaccineName, LocalDate dueDate, String status) {
+        this.id = id;
+        this.vaccineName = vaccineName;
+        this.dueDate = dueDate;
+        this.status = status;
+    }
 }
