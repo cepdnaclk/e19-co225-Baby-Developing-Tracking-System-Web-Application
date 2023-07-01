@@ -5,8 +5,8 @@ import VaccinationTimeline from './Timeline';
 
 const BabyDetailsCard = ({ baby, onClose }) => {
   return (
-    <div className="baby-details-card">
-      <div className="card-header">
+    <div className="baby-details-card border-slate-100 border-8">
+      <div className="card-header sticky top-0 bg-white z-10">
         <h3>&nbsp;Baby Details</h3>
         <button className="close-button h-10 w-10 rounded-full bg-white" onClick={onClose}>
           X

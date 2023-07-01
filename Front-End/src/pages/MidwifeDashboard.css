@@ -13,6 +13,8 @@
 
 .blink {
   animation: blink 1s infinite;
+  scale: 0.8;
+  border-radius: 15px;
 }
 
 @keyframes blink {

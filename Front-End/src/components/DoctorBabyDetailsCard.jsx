@@ -157,8 +157,8 @@ const DoctorBabyDetailsCard = ({ baby, onClose,babyTableData, callbackFunc}) => 
   }
 
   return (
-    <div className="baby-details-card">
-      <div className="card-header">
+    <div className="baby-details-card border-slate-100 border-8">
+      <div className="card-header sticky top-0 bg-white z-10">
         <h3>
           &nbsp;Baby Details
         </h3>
@@ -265,7 +265,7 @@ const DoctorBabyDetailsCard = ({ baby, onClose,babyTableData, callbackFunc}) => 
                       {babyVaccinations.status}
                       {
                         babyVaccinations.status === "Pending" &&
-                        <button className="bg-green-500 mx-2 rounded p-1"
+                        <button className="pending-vaccine"
                         onClick={() => handleVaccineMark(babyVaccinations.id)}>Mark</button>
                       }
                       
@@ -273,9 +273,9 @@ const DoctorBabyDetailsCard = ({ baby, onClose,babyTableData, callbackFunc}) => 
                     </td>
                     <td className="border py-2 px-2 text-center">
                       
-                      <button className="bg-blue-500 mx-2 rounded p-1"
+                      <button className="update-vaccine "
                       onClick={()=>setShowBabyVaccinationEditForm(babyVaccinations)}>Update</button>
-                      <button className="bg-red-500 mx-2 rounded p-1"
+                      <button className="delete-vaccine "
                       onClick={()=>handleVaccineDelete(babyVaccinations.id)}>Delete</button>
                     </td>
                     

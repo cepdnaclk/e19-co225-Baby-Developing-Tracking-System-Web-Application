@@ -38,12 +38,11 @@
 }
 
 .appointment-button {
-  background-color: red;
   color: white;
   border: none;
-  padding: 4px 8px;
+  padding: 4px 12px;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 30px;
   transition:  300ms ease-in-out
 }
 
