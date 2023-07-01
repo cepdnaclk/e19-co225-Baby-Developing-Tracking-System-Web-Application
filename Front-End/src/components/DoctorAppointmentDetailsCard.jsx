@@ -5,6 +5,7 @@ const DoctorAppointmentDetailsCard = ({
   onAccept,
   onSuggestDate,
   onClose,
+  callBackFunc
 }) => {
   const [suggestedDate, setSuggestedDate] = useState("");
 
@@ -69,11 +70,12 @@ const DoctorAppointmentDetailsCard = ({
         <p>
           <b>Appointment Status</b> &nbsp;: {appointment.appointmentStatus}
         </p>
-        {appointment.hasAppointment === "Pending" && (
+        {appointment.appointmentStatus==="PENDING" && (
           <div className="Appointment-suggest">
             <button
               className="accept-button w-full mb-2"
-              onClick={() => onAccept(appointment)}
+              onClick={() => {onAccept(appointment);
+              callBackFunc()}}
             >
               Accept
             </button>

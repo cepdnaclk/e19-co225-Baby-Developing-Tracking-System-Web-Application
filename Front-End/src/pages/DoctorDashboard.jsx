@@ -147,6 +147,34 @@ const DoctorDashboard = () => {
     setSelectedAppointment(null);
   };
 
+  const acceptAppointment = (appointment) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      console.log(access);
+
+      axios.post(
+        "http://localhost:8080/api/v1/doctor/appointment/accept/" + appointment.id,
+        {},
+        {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
+        }
+      );
+
+      
+      
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    setSelectedAppointment(null);
+    
+  };
+
+  
+
   return (
     <div>
       <Nav />
@@ -260,7 +288,7 @@ const DoctorDashboard = () => {
                       {appointmentsSet.some(
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
-                          !appointment.appointmentStatus
+                          appointment.appointmentStatus ==="PENDING"
                       ) && (
                         <button
                           className="appointment-button blink bg-green-200"
@@ -269,7 +297,7 @@ const DoctorDashboard = () => {
                               appointmentsSet.find(
                                 (appointment) =>
                                   appointment.babyName === baby.babyName &&
-                                  !appointment.appointmentStatus
+                                  appointment.appointmentStatus === "PENDING"
                               )
                             )
                           }
@@ -296,6 +324,9 @@ const DoctorDashboard = () => {
           <DoctorAppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
+            onAccept={acceptAppointment}
+            onSuggestDate={handleAppointmentCardClose}
+            callBackFunc={() => setEditCount(editCount + 1)}
           />
         )}
       </div>
