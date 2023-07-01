@@ -10,6 +10,8 @@ export const Login = () => {
   const [email, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const[errorMsg,setErrorMsg] = useState("");
+
   const navigate = useNavigate();
 
   // const handleSubmit = async (e) => {
@@ -43,9 +45,11 @@ export const Login = () => {
         },
         (error) => {
           console.log(error);
+          setErrorMsg("Incorrect Email or Password");
         }
       );
     } catch (err) {
+      
       alert(err);
     }
   };
@@ -82,6 +86,7 @@ export const Login = () => {
                 name="password"
                 required="required"
               />
+              <p className="text-red-500 " >{errorMsg}</p>
               <button type="submit">
                 <b>LOGIN</b>
               </button>
