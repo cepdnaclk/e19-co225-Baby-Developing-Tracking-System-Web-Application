@@ -73,7 +73,10 @@ public class DoctorService {
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
             logger.info(String.valueOf(babyVaccinations.size()));
             for(BabyVaccination babyVaccination:babyVaccinations){
-                babyVaccinationResponses.add(new BabyVaccinationResponse(babyVaccination.getVaccination().getName(),
+                babyVaccinationResponses.add(new BabyVaccinationResponse(
+                        babyVaccination.getId(),
+                        babyVaccination.getVaccination().getId(),
+                        babyVaccination.getVaccination().getName(),
                         babyVaccination.getVaccinationDate(),
                         babyVaccination.getStatus()));
             }
@@ -152,5 +155,28 @@ public class DoctorService {
 
         appointmentRepository.save(appointment);
 
+    }
+
+    public String editVaccine(BabyVaccinationRequest babyVaccinationRequest) {
+        Optional<Baby> baby = babyRepository.findById(babyVaccinationRequest.babyId());
+        Optional<Vaccination> vaccination = vaccinationRepository.findById(babyVaccinationRequest.vaccineId());
+        if(baby.isPresent() && vaccination.isPresent()){
+           BabyVaccination babyVaccination = babyVaccinationRepository.findBabyVaccinationByBabyAndVaccination(baby.get(),vaccination.get());
+           babyVaccination.setVaccinationDate(babyVaccinationRequest.date());
+           babyVaccinationRepository.save(babyVaccination);
+           return "00";
+
+        }
+        return "01";
+    }
+
+    public String deleteVaccine(int id) {
+
+        if(babyVaccinationRepository.existsById(id)){
+            babyVaccinationRepository.deleteById(id);
+            return "00";
+
+        }
+        return "01";
     }
 }
