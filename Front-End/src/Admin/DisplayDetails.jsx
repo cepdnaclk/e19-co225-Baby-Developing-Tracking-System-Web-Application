@@ -8,7 +8,7 @@ export const DisplayDetails = () => {
     firstName: "John",
     lastName: "Doe",
     email: "johndoe@example.com",
-    role: "Admin"
+    role: "Admin",
   });
 
   const [babyData, setBabyData] = useState({
@@ -30,7 +30,7 @@ export const DisplayDetails = () => {
     allergies: "None",
     immunizationRecords: "Up to date",
     growthRecords: "Normal",
-    developmentalMilestones: "Meeting milestones"
+    developmentalMilestones: "Meeting milestones",
   });
 
   const handleUserUpdate = () => {
@@ -141,4 +141,3 @@ export const DisplayDetails = () => {
     </div>
   );
 };
-

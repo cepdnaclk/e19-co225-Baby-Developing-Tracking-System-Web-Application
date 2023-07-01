@@ -89,54 +89,39 @@ export const Header = () => {
   };
 
   return (
-      <div className="nav static">
-        <img
-          align="center"
-          alt="logo"
-          className="logos float-left"
-          src="src/assets/Images/logo.jpeg"
-          style={logoStyle} // Apply the logoStyle to the image
-          onClick={() => handleItemClick("/home")}
-        />
-        <div></div>
+    <div className="nav static">
+      <img
+        align="center"
+        alt="logo"
+        className="logos float-left"
+        src="src/assets/Images/logo.jpeg"
+        style={logoStyle} // Apply the logoStyle to the image
+        onClick={() => handleItemClick("/home")}
+      />
+      <div></div>
 
-        <ul className="nav-items float-right">
-          <li
-            className={""}
-            onClick={() => handleItemClick("/admin")}
-          >
-            HOME<span></span>
-          </li>
-          <li
-            className={""}
-            onClick={() => handleItemClick("/adduser")}
-          >
-            ADD USER<span></span>
-          </li>
-          
-          <li
-            className={""}
-            onClick={() => handleItemClick("/adddoctor")}
-          >
-            ADD DOCTOR<span></span>
-          </li>
+      <ul className="nav-items float-right">
+        <li className={""} onClick={() => handleItemClick("/admin")}>
+          HOME<span></span>
+        </li>
+        <li className={""} onClick={() => handleItemClick("/adduser")}>
+          ADD USER<span></span>
+        </li>
 
-          <li
-            className={""}
-            onClick={() => handleItemClick("/addparent")}
-          >
-            ADD PARENT<span></span>
-          </li>
-          <li
-            className={""}
-            onClick={() => handleItemClick("/display")}
-          >
-            DISPLAY <span></span>
-          </li>
-        </ul>
-        <div className="menu-btn">
-          <i className="fa fa-bars" aria-hidden="true"></i>
-        </div>
+        <li className={""} onClick={() => handleItemClick("/adddoctor")}>
+          ADD DOCTOR<span></span>
+        </li>
+
+        <li className={""} onClick={() => handleItemClick("/addparent")}>
+          ADD PARENT<span></span>
+        </li>
+        <li className={""} onClick={() => handleItemClick("/display")}>
+          DISPLAY <span></span>
+        </li>
+      </ul>
+      <div className="menu-btn">
+        <i className="fa fa-bars" aria-hidden="true"></i>
       </div>
+    </div>
   );
 };
