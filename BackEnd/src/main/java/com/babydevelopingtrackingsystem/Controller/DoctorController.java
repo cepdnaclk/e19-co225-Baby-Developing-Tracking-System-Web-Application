@@ -59,7 +59,36 @@ public class DoctorController {
 
     }
 
-        //Appointments
+    @PostMapping("/baby_vaccine/update")
+    public ResponseEntity<String> editVaccine(@RequestBody BabyVaccinationRequest babyVaccinationRequest){
+        String responseStatus = doctorService.editVaccine(babyVaccinationRequest);
+        if(responseStatus.equals("00")){
+            return ResponseEntity.ok("Successfully Edited Vaccine");
+        }
+        else if(responseStatus.equals("01")){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("baby or vaccine not found");
+        }
+
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+
+    }
+    @DeleteMapping("/baby_vaccine/delete")
+    public ResponseEntity<String> deleteVaccine(@RequestBody BabyVaccinationRequest babyVaccinationRequest){
+        String responseStatus = doctorService.deleteVaccine(babyVaccinationRequest);
+        if(responseStatus.equals("00")){
+            return ResponseEntity.ok("Successfully Deleted Vaccine");
+        }
+        else if(responseStatus.equals("01")){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("baby or vaccine not found");
+        }
+
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+
+    }
+
+    //Appointments
     @PostMapping("appointment/create")
     public void createAppointment(@RequestBody AppointmentRequest appointmentRequest){
         doctorService.createAppointment(appointmentRequest);

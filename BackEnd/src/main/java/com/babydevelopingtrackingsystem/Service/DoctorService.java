@@ -153,4 +153,30 @@ public class DoctorService {
         appointmentRepository.save(appointment);
 
     }
+
+    public String editVaccine(BabyVaccinationRequest babyVaccinationRequest) {
+        Optional<Baby> baby = babyRepository.findById(babyVaccinationRequest.babyId());
+        Optional<Vaccination> vaccination = vaccinationRepository.findById(babyVaccinationRequest.vaccineId());
+        if(baby.isPresent() && vaccination.isPresent()){
+           BabyVaccination babyVaccination = babyVaccinationRepository.findBabyVaccinationByBabyAndVaccination(baby.get(),vaccination.get());
+           babyVaccination.setVaccinationDate(babyVaccinationRequest.date());
+           babyVaccinationRepository.save(babyVaccination);
+           return "00";
+
+        }
+        return "01";
+    }
+
+    public String deleteVaccine(BabyVaccinationRequest babyVaccinationRequest) {
+        Optional<Baby> baby = babyRepository.findById(babyVaccinationRequest.babyId());
+        Optional<Vaccination> vaccination = vaccinationRepository.findById(babyVaccinationRequest.vaccineId());
+        if(baby.isPresent() && vaccination.isPresent()){
+            BabyVaccination babyVaccination = babyVaccinationRepository.findBabyVaccinationByBabyAndVaccination(baby.get(),vaccination.get());
+
+            babyVaccinationRepository.delete(babyVaccination);
+            return "00";
+
+        }
+        return "01";
+    }
 }
