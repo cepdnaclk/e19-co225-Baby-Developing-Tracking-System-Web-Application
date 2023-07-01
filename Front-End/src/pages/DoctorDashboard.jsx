@@ -10,6 +10,7 @@ import "./DoctorDashboard.css";
 const DoctorDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
+  const [editCount,setEditCount] = useState(0);
 
   // Sample data for the baby table
   const babyTableData = [
@@ -47,6 +48,8 @@ const DoctorDashboard = () => {
       babyVaccinations: [
         {
           vaccineName: "BCG",
+          dueDate:"2023-05-01",
+          status:"Pending"
         },
         {
           vaccineName: "Hexaxim/Infanrix Hexa",
@@ -123,7 +126,7 @@ const DoctorDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, []);
+  }, [DoctorBabyDetailsCard,editCount]);
 
   // Sample data for the calendar
 
@@ -139,6 +142,8 @@ const DoctorDashboard = () => {
   const handleAppointmentCardClose = () => {
     setSelectedAppointment(null);
   };
+
+
 
   return (
     <div>
@@ -262,7 +267,12 @@ const DoctorDashboard = () => {
         {selectedBaby && (
           <DoctorBabyDetailsCard
             baby={selectedBaby}
-            onClose={() => setSelectedBaby(null)}
+            onClose={() => setSelectedBaby(null)
+            }
+            babyTableData = {selectedBabyTableData}
+            callbackFunc = {
+              ()=> setEditCount(editCount+1)
+            }
           />
         )}
         {selectedAppointment && (
