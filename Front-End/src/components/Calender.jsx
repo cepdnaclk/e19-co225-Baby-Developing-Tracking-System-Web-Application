@@ -5,8 +5,7 @@ import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import axios from "axios";
 import { sampleAppointments } from "../components/SampleAppointments";
 
-const appointmentsEndpoint = "/api/appointments"; // Replace this with the actual API endpoint
-const useSampleAppointments = true; // Set this to true to use the sampleAppointments data
+const useSampleAppointments = false; // Set this to true to use the sampleAppointments data
 
 export default function Calendar() {
   const days = ["S", "M", "T", "W", "T", "F", "S"];
@@ -20,18 +19,26 @@ export default function Calendar() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        let response;
+        let response = { data: sampleAppointments };
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
         if (useSampleAppointments) {
           response = { data: sampleAppointments }; // Use the sampleAppointments data
         } else {
-          response = await axios.get(appointmentsEndpoint, {
-            params: {
-              date: selectDate.format("YYYY-MM-DD"),
-            },
+          response = await axios.get("http://localhost:8080/appointments", {
+            // params: {
+            //   date: selectDate.format("YYYY-MM-DD"),
+            // },
+            headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
           });
         }
 
         const appointments = response.data;
+        console.log(response.data);
         const filteredAppointments = appointments.filter(
           (appointment) => appointment.date.substring(0, 10) === selectDate.format("YYYY-MM-DD")
         );
@@ -63,7 +70,7 @@ export default function Calendar() {
   };
 
   return (
-    <div className="calender-style animate-fadein">
+    <div className="calender-style animate-fadein justify-self-center">
       <div className="calender-styles flex gap-10 sm:divide-x justify-center  sm:mx-10 my-10 scale-75 sm:scale-100 items-center lg:flex-row flex-col sm:border rounded-lg sm:p-12 sm:pb-20 shadow-xl shadow-blue-100/50">
         <div className="w-96 h-96">
           <div className="flex justify-between items-center">

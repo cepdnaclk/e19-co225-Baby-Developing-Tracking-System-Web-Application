@@ -41,7 +41,7 @@
   top: 250%;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 250px;
   background-color: rgba(255, 255, 255, 0.853);
   border: 1px solid rgba(169, 167, 167, 0.61);
   padding: 10px;
@@ -49,12 +49,16 @@
   border-radius: 10px;
   color: #000;
   backdrop-filter: blur(1.2px);
+  max-height: 55vh;
+  min-height: 30vh;
+  overflow-y: auto;
 }
 
 .dropdown p {
   margin: 0;
   padding: 5px;
   font-size: 14px;
+
 }
 
 .dropdown button {

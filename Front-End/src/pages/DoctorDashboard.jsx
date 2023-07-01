@@ -107,7 +107,7 @@ const DoctorDashboard = () => {
         const access = token.access_token;
         console.log(access);
 
-        const response = await axios.get("http://localhost:8080/appointments", {
+        const response = await axios.get("http://localhost:8080/api/v1/doctor/appointment/get", {
           headers: {
             "Access-Control-Allow-Origin": true,
             Authorization: "Bearer " + access,
@@ -145,12 +145,12 @@ const DoctorDashboard = () => {
       <Nav />
 
       <div className="doctor-dashboard">
-        <div className="relative mt-[100px] mx-3 rounded-lg p-4 flex-row">
+        <div className="relative mt-[100px] mx-3 rounded-lg p-4 flex-row justify-center">
           <h1 className="header text-center font-[500] font-black text-3xl">
           "Doc, you're about to level up in baby care. Let's heal those tiny patients like superheroes."
           </h1>
           <Calendar />
-          <div className="card-container flex justify-center ">
+          {/* <div className="card-container flex justify-center ">
             <div className="cards text-center my-8 mx-10 border rounded-lg">
               <div className="card-header px-5">Featured</div>
               <div className="card-body m-5 ">
@@ -180,7 +180,7 @@ const DoctorDashboard = () => {
               </div>
               <div className="card-footer text-muted p-3">2 days ago</div>
             </div>
-          </div>
+          </div> */}
 
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 shadow-xl shadow-blue-100/50">
             <table className="w-full table-fixed border-collapse rounded-lg">
