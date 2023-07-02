@@ -156,16 +156,16 @@ const DoctorBabyDetailsCard = ({
       <div className="card-content">
         <div className="baby-info">
           <div>
-            <strong>Name:</strong> {thisBaby.babyName}
+            <strong>Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;:</strong> {thisBaby.babyName}
           </div>
           {/* <div>
             <strong>Age:</strong> {thisBaby.babyAge}
           </div> */}
           <div>
-            <strong>Parent Name:</strong> {thisBaby.parentName}
+            <strong>Parent Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:</strong> {thisBaby.parentName}
           </div>
           <div>
-            <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
+            <strong>Appointed Midwife Name&nbsp;:</strong> {thisBaby.midWifeName}
           </div>
           <br></br>
           <form onSubmit={handleSubmit}>
