@@ -140,7 +140,7 @@ export default function Calendar({ appointmentSet, onClicks }) {
                     key={appointment.id}
                     onClick={() => onClicks(appointment)}
                   >
-                    Appointment {appointment.id}
+                    Appointment for {appointment.babyName} | {appointment.scheduledTime.substring(11,19)}
                   </button>
                 </li>
               ))}
