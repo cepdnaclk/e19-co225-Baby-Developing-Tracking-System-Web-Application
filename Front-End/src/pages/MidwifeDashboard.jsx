@@ -123,7 +123,7 @@ const MidwifeDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [BabyDetailsCard, editCount]);
+  }, [BabyDetailsCard, AppointmentDetailsCard, editCount]);
 
   // Sample data for the calendar
 
@@ -147,7 +147,7 @@ const MidwifeDashboard = () => {
       console.log(access);
 
       axios.post(
-        "http://localhost:8080/api/v1/doctor/appointment/accept/" + appointment.id,
+        "http://localhost:8080/api/v1/midwife/appointment/accept/" + appointment.id,
         {},
         {
           headers: {
@@ -157,21 +157,11 @@ const MidwifeDashboard = () => {
         }
       );
 
-      
-      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
     setSelectedAppointment(null);
     
-  };
-
-  const handleCalendarItemClick = (works) => {
-    setSelectedAppointment(works);
-  };
-
-  const handleCalendarCardClose = () => {
-    setSelectedAppointment(null);
   };
 
   return (
@@ -203,7 +193,7 @@ const MidwifeDashboard = () => {
                     <button>Parent Name</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
-                    <button>Sex</button>
+                    <button>Gender</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
                     <button>Allocated Doctor</button>
@@ -289,7 +279,7 @@ const MidwifeDashboard = () => {
           <AppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
-            onAccept={acceptAppointment}
+            onAccept={(appointment) => acceptAppointment(appointment)}
             onSuggestDate={handleAppointmentCardClose}
             callBackFunc={() => setEditCount(editCount + 1)}
           />

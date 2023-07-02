@@ -129,7 +129,7 @@ const DoctorDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [DoctorBabyDetailsCard, editCount]);
+  }, [DoctorBabyDetailsCard,DoctorAppointmentDetailsCard, editCount, selectedAppointment]);
 
   // Sample data for the calendar
 
@@ -207,7 +207,7 @@ const DoctorDashboard = () => {
                     <button>Parent Name</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
-                    <button>Sex</button>
+                    <button>Gender</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
                     <button>Allocated Midwife</button>
@@ -258,7 +258,7 @@ const DoctorDashboard = () => {
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
                           appointment.appointmentStatus ==="PENDING"
-                      ) && (
+                      ) ? (
                         <button
                           className="appointment-button blink bg-green-200"
                           onClick={() =>
@@ -273,7 +273,7 @@ const DoctorDashboard = () => {
                         >
                           Appointment Requested
                         </button>
-                      )}
+                      ):<button className="update-vaccine">Accepted</button>}
                     </td>
                   </tr>
                 ))}
@@ -293,7 +293,7 @@ const DoctorDashboard = () => {
           <DoctorAppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
-            onAccept={acceptAppointment}
+            onAccept={(appointment) => acceptAppointment(appointment)}
             onSuggestDate={handleAppointmentCardClose}
             callBackFunc={() => setEditCount(editCount + 1)}
           />
