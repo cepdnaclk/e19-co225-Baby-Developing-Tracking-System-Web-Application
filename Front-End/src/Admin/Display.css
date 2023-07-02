@@ -1,12 +1,13 @@
-
 .container {
-  margin: 20px;
+  margin-left: 80px;
   display: flex;
   flex-direction: column;
 }
+
 .h2 {
   color: #333;
   text-align: center;
+  padding-left: 150px;
 }
 
 .table {
@@ -17,9 +18,8 @@
   height: 100px;
   overflow-y: auto;
   border-radius: 8px; /* Adjust the border radius as per your preference */
+  
 }
-
-
 
 .th,
 .td {
@@ -29,7 +29,6 @@
   border-right: 1px solid #1a1515; /* Add a right border */
 }
 
-
 .tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -37,6 +36,7 @@
 .btn {
   padding: 6px 12px;
   margin-right: 5px;
+  margin-bottom: 4px; /* Adjust the bottom margin as per your preference */
   border-radius: 4px;
   cursor: pointer;
 }
@@ -65,18 +65,7 @@ p {
   color: #666;
 }
 
-/* Add the following CSS for the footer */
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #f8f8f8;
-  padding: 10px;
-  text-align: center;
-  border-top: 1px solid #ddd;
-  color: #666;
-}
+
 
 .container {
   margin: 20px;
@@ -105,4 +94,27 @@ p {
 .h2 {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+/* Additional table styling */
+.table {
+  font-size: 14px;
+}
+
+.th {
+  font-weight: bold;
+}
+
+.td {
+  vertical-align: middle;
+  line-height: 1.2; /* Adjust the line-height as per your preference */
+}
+
+.btn {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.table-container {
+  max-height: 300px; /* Adjust the max height as per your preference */
 }

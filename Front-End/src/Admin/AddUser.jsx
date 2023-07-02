@@ -11,7 +11,7 @@ export const AddUser = (props) => {
     lastName: "",
     email: "",
     password: "",
-    role: "",
+    role: "USER",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -47,7 +47,7 @@ export const AddUser = (props) => {
           lastName: "",
           email: "",
           password: "",
-          role: "",
+        
         });
       } else {
         setShowSuccessPopup(false);
@@ -110,17 +110,9 @@ export const AddUser = (props) => {
             required
           />
 
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={userDetails.role}
-            onChange={handleInputChange}
-            required
-          />
+          
 
-          {/* Add more input fields for the remaining attributes */}
+      
 
           <button type="submit">Save</button>
         </form>

@@ -12,7 +12,7 @@ export const AddDoctor = (props) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [role] = useState("DOCTOR");
   const [hospital, setHospital] = useState("");
   const [regNo, setRegNo] = useState("");
   const [specialization, setSpecialization] = useState("");
@@ -33,9 +33,7 @@ export const AddDoctor = (props) => {
       case "password":
         setPassword(value);
         break;
-      case "role":
-        setRole(value);
-        break;
+     
       case "hospital":
         setHospital(value);
         break;
@@ -73,7 +71,6 @@ export const AddDoctor = (props) => {
         setLastName("");
         setEmail("");
         setPassword("");
-        setRole("");
         setHospital("");
         setRegNo("");
         setSpecialization("");
@@ -134,15 +131,8 @@ export const AddDoctor = (props) => {
             required
           />
 
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={role}
-            onChange={handleInputChange}
-            required
-          />
+     
+          
 
           <label htmlFor="hospital">Hospital</label>
           <input
