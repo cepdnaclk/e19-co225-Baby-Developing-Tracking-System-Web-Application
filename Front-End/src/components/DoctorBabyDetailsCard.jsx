@@ -164,15 +164,6 @@ const DoctorBabyDetailsCard = ({
           <div>
             <strong>Parent Name:</strong> {thisBaby.parentName}
           </div>
-          {/* <div>
-            <strong>Address:</strong> {thisBaby.address}
-          </div>
-          <div>
-            <strong>Contact Information:</strong> {thisBaby.contactInformation}
-          </div>
-          <div>
-            <strong>Special Information:</strong> {thisBaby.specialInformation}
-          </div> */}
           <div>
             <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
           </div>

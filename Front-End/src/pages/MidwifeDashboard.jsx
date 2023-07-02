@@ -18,22 +18,52 @@ const MidwifeDashboard = () => {
   const babyTableData = [
     {
       id: 1,
-      name: "Alex Peter",
+      babyName: "Alex Peter",
       parentName: "Jenny Fernandes",
-      sex: "Male",
-      appointedDoctor: "Doctor 1",
-      hasAppointment: true,
-      appointmentDate: "2023-06-30",
+      midWifeName: "Midwife 1",
+      gender: "Male",
+      hasAppointment: "Pending",
+      requestDate: "2023-06-30",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
     },
     {
       id: 2,
-      name: "Baby 2",
-      parentName: "Parent 2",
-      sex: "Female",
-      appointedDoctor: "Doctor 2",
-      hasAppointment: false,
+      babyName: "Baby 2",
+      parentName: "Eranga Dharmarathne",
+      midWifeName: "Midwife 2",
+      gender: "Female",
+      hasAppointment: "Accepted",
+      requestDate: "2023-06-28",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+          dueDate: "2023-05-01",
+          status: "Pending",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
     },
-    // Add more baby data as needed
   ];
 
   const [selectedBabyTableData, setSelectedBabyTableData] =
