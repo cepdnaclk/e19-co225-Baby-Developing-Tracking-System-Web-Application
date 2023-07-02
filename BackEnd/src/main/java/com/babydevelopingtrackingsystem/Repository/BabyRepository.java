@@ -22,4 +22,6 @@ public interface BabyRepository extends JpaRepository<Baby,Integer> {
     Baby findBabyByParent(Parent parent);
 
     Baby findBabyByMidwife(Midwife midwife);
+
+    List<Baby> findAllByMidwife(Midwife midwife);
 }

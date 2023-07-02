@@ -55,6 +55,17 @@ const login = (email, password) => {
 
 // Removes the user object from local storage
 const logout = () => {
+
+  const token = JSON.parse(localStorage.getItem("user"));
+  const access = token.access_token;
+  axios
+    .post(API_URL + "/logout", {},
+    {
+      headers: {
+        "Access-Control-Allow-Origin": true,
+        Authorization: "Bearer " + access,
+      },
+    });
   localStorage.removeItem("user");
 };
 

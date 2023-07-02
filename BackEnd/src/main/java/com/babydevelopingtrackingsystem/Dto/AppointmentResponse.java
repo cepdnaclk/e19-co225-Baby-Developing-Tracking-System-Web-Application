@@ -15,7 +15,7 @@ public class AppointmentResponse {
     private int id;
 
     private LocalDateTime scheduledTime;
-    private String AppointmentStatus;
+    private String appointmentStatus;
 
 
     //Attributes Only for Parents

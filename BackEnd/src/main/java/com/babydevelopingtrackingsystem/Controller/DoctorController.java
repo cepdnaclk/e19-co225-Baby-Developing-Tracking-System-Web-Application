@@ -94,8 +94,8 @@ public class DoctorController {
         doctorService.createAppointment(appointmentRequest);
     }
 
-    @PostMapping("appointment/accept")
-    public void acceptAppointment(@RequestBody int id){
+    @PostMapping("appointment/accept/{id}")
+    public void acceptAppointment(@PathVariable int id){
         appointmentService.acceptAppointment(id);
 
     }
