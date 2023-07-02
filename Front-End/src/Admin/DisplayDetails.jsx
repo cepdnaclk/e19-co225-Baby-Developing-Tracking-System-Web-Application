@@ -1,56 +1,70 @@
-import React, { useState } from "react";
 import { Footer } from "../Footer";
 import { Header } from "./Header";
+import { saveUser, updateUser, deleteUser, getAllUsers } from "../services/user_service";
+import React, { useEffect, useState } from "react";
 import "./Display.css";
 
 export const DisplayDetails = () => {
-  const [userData, setUserData] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "johndoe@example.com",
-    role: "Admin",
-  });
+  const [userData, setUserData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  const [babyData, setBabyData] = useState({
-    name: "Emma",
-    dateOfBirth: "2022-01-01",
-    gender: "Female",
-    bloodType: "O+",
-    birthWeight: 3.2,
-    birthLength: 50,
-    eyeColor: "Blue",
-    hairColor: "Blonde",
-    skinColor: "Fair",
-    nationality: "American",
-    birthPlace: "New York",
-    birthHospital: "St. Mary's Hospital",
-    parentInformation: "John Doe, Jane Doe",
-    contactInformation: "johndoe@example.com",
-    medicalConditions: "None",
-    allergies: "None",
-    immunizationRecords: "Up to date",
-    growthRecords: "Normal",
-    developmentalMilestones: "Meeting milestones",
-  });
+  useEffect(() => {
+    loadAllUsers();
+  }, []);
 
-  const handleUserUpdate = () => {
-    // Handle user update
-    console.log("User update");
+  const loadAllUsers = async () => {
+    try {
+      const response = await getAllUsers();
+      setUserData(response.content);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error loading users:", error);
+      setIsLoading(false);
+    }
   };
 
-  const handleUserDelete = () => {
-    // Handle user deletion
-    console.log("User delete");
+  const handleUserUpdate = async (user) => {
+    try {
+      const response = await updateUser(user);
+      console.log("User updated:", response);
+      setSelectedUser(user);
+      setShowUpdateForm(true);
+      loadAllUsers(); // Refresh the user list
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
   };
 
-  const handleBabyUpdate = () => {
-    // Handle baby update
-    console.log("Baby update");
+  const handleUserDelete = async (email) => {
+    try {
+      const response = await deleteUser(email);
+      console.log("User deleted:", response);
+      // Remove the user from the userData state
+      setUserData((prevUserData) =>
+        prevUserData.filter((user) => user.email !== email)
+      );
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+  
+
+  const handleFormSubmit = async (updatedUser) => {
+    try {
+      // Call the update API with the updatedUser object
+      const response = await updateUser(updatedUser);
+      console.log("User updated:", response);
+      setShowUpdateForm(false);
+      loadAllUsers(); // Refresh the user list
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
   };
 
-  const handleBabyDelete = () => {
-    // Handle baby deletion
-    console.log("Baby delete");
+  const handleFormCancel = () => {
+    setShowUpdateForm(false);
   };
 
   return (
@@ -58,86 +72,104 @@ export const DisplayDetails = () => {
       <Header />
       <div className="container">
         <h2 className="h2">USER DETAILS</h2>
-        <table className="table">
-          <thead>
-            <tr className="tr">
-              <th className="th">First Name</th>
-              <th className="th">Last Name</th>
-              <th className="th">Email</th>
-              <th className="th">Role</th>
-              <th className="th">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="tr">
-              <td className="td">{userData.firstName}</td>
-              <td className="td">{userData.lastName}</td>
-              <td className="td">{userData.email}</td>
-              <td className="td">{userData.role}</td>
-              <td className="button-container">
-                <button onClick={handleUserUpdate}>UPDATE</button>
-                <button onClick={handleUserDelete}>DELETE</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <h2 className="h2">BABY DETAILS</h2>
-        <table className="table">
-          <thead>
-            <tr className="tr">
-              <th className="th">Name</th>
-              <th className="th">Date of Birth</th>
-              <th className="th">Gender</th>
-              <th className="th">Blood Type</th>
-              <th className="th">Birth Weight</th>
-              <th className="th">Birth Length</th>
-              <th className="th">Eye Color</th>
-              <th className="th">Hair Color</th>
-              <th className="th">Skin Color</th>
-              <th className="th">Nationality</th>
-              <th className="th">Birth Place</th>
-              <th className="th">Birth Hospital</th>
-              <th className="th">Parent Information</th>
-              <th className="th">Contact Information</th>
-              <th className="th">Medical Conditions</th>
-              <th className="th">Allergies</th>
-              <th className="th">Immunization Records</th>
-              <th className="th">Growth Records</th>
-              <th className="th">Developmental Milestones</th>
-              <th className="th">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="tr">
-              <td className="td">{babyData.name}</td>
-              <td className="td">{babyData.dateOfBirth}</td>
-              <td className="td">{babyData.gender}</td>
-              <td className="td">{babyData.bloodType}</td>
-              <td className="td">{babyData.birthWeight}</td>
-              <td className="td">{babyData.birthLength}</td>
-              <td className="td">{babyData.eyeColor}</td>
-              <td className="td">{babyData.hairColor}</td>
-              <td className="td">{babyData.skinColor}</td>
-              <td className="td">{babyData.nationality}</td>
-              <td className="td">{babyData.birthPlace}</td>
-              <td className="td">{babyData.birthHospital}</td>
-              <td className="td">{babyData.parentInformation}</td>
-              <td className="td">{babyData.contactInformation}</td>
-              <td className="td">{babyData.medicalConditions}</td>
-              <td className="td">{babyData.allergies}</td>
-              <td className="td">{babyData.immunizationRecords}</td>
-              <td className="td">{babyData.growthRecords}</td>
-              <td className="td">{babyData.developmentalMilestones}</td>
-              <td className="button-container">
-                <button onClick={handleBabyUpdate}>UPDATE</button>
-                <button onClick={handleBabyDelete}>DELETE</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        {isLoading ? (
+          <p>Loading users...</p>
+        ) : (
+          <table className="table">
+            <thead>
+              <tr className="tr">
+                <th className="th">Email</th>
+                <th className="th">Role</th>
+                <th className="th">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userData.map((user) => (
+                <tr key={user.email}>
+                  <td className="td">{user.email}</td>
+                  <td className="td">{user.role}</td>
+                  <td className="td">
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => handleUserUpdate(user)}
+                    >
+                      Update
+                    </button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleUserDelete(user.email)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
+      {showUpdateForm && (
+        <UpdateForm
+          user={selectedUser}
+          onSubmit={handleFormSubmit}
+          onCancel={handleFormCancel}
+        />
+      )}
       <Footer />
+    </div>
+  );
+};
+
+export const UpdateForm = ({ user, onSubmit, onCancel }) => {
+  const [updatedUser, setUpdatedUser] = useState(user);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUpdatedUser((prevUser) => ({ ...prevUser, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(updatedUser);
+  };
+
+  const handleCancel = () => {
+    onCancel();
+  };
+
+  return (
+    <div className="update-form-container">
+      <h3 className="update-form-title">Update User</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={updatedUser.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Role:</label>
+          <input
+            type="text"
+            name="role"
+            value={updatedUser.role}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="update-form-buttons">
+          <button type="submit" className="btn btn-primary">
+            Update
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

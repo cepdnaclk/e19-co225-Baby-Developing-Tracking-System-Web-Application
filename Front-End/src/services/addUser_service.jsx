@@ -1,28 +1,24 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/v1/admin/doctor";
+const API_URL = "http://localhost:8080/api/v1/admin/user";
 
-// Registers a doctor by making a POST request to the API
-export const AddDoctor = (
-  firstName,
+// Registers a user by making a POST request to the API
+export const AddUser = (
+  firstname,
   lastName,
   email,
   password,
   role,
-  hospital,
-  regNo,
-  specialization
+
 ) => {
   return axios
-    .post(API_URL + "/saveDoctor", {
-      firstName,
+    .post(API_URL + "/saveUser", {
+      firstname,
       lastName,
       email,
       password,
       role,
-      hospital,
-      regNo,
-      specialization,
+    
     })
     .then((response) => {
       console.log(response);
@@ -34,8 +30,8 @@ export const AddDoctor = (
     });
 };
 
-const doctor_service = {
-  AddDoctor,
+const user_service = {
+  AddUser,
 };
 
-export default doctor_service;
+export default user_service;

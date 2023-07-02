@@ -111,7 +111,7 @@ public class AdminUserController{
     }
 
     @DeleteMapping(value = "/deleteUser/{UserId}")
-    public ResponseEntity deleteUser(@PathVariable int UserId) {
+    public ResponseEntity deleteUser(@PathVariable String UserId) {
 
         try {
             String res = adminUserService.deleteUser(UserId);

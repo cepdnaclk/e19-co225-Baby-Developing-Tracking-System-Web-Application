@@ -50,7 +50,7 @@ export const AdminLogin = (props) => {
           </button>
         </form>
       </div>
-      <Footer />
+  
 
       <Modal
         isOpen={isModalOpen}

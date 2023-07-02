@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "../Footer";
 import "./AddUser.css";
-import User from "../services/user_service";
+import User from "../services/addUser_service";
 
 export const AddUser = (props) => {
   const [userDetails, setUserDetails] = useState({
@@ -30,7 +30,7 @@ export const AddUser = (props) => {
     e.preventDefault();
 
     try {
-      const response = await User.createUser(
+      const response = await User.AddUser(
         userDetails.firstName,
         userDetails.lastName,
         userDetails.email,
