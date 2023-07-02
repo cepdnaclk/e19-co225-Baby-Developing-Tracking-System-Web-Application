@@ -32,36 +32,36 @@ public class BabyDevelopingTrackingSystemApplication {
         return new ModelMapper();
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository,
-                                               UserRepository userRepository,
-                                               ParentRepository parentRepository,
-                                               PasswordEncoder passwordEncoder){
-        return args -> {
-
-
-            addVaccinations(vaccinationRepository);
-            userRepository.save(new User("ADMIN",
-                                        "MAIN",
-                                        "admin@sproutopia.com",
-                    passwordEncoder.encode("password"),
-                                        Role.ADMIN));
-
-            parentRepository.save(new Parent("PARENT",
-                    "SPROUTOPIA",
-                    "parent@sproutopia.com",
-                    passwordEncoder.encode("password"),
-                    Role.PARENT,
-                    "Mother"));
-
-
-
-
-
-
-
-        };
-    }
+//    @Bean
+//    public CommandLineRunner commandLineRunner(VaccinationRepository vaccinationRepository,
+//                                               UserRepository userRepository,
+//                                               ParentRepository parentRepository,
+//                                               PasswordEncoder passwordEncoder){
+//        return args -> {
+//
+//
+//            addVaccinations(vaccinationRepository);
+//            userRepository.save(new User("ADMIN",
+//                                        "MAIN",
+//                                        "admin@sproutopia.com",
+//                    passwordEncoder.encode("password"),
+//                                        Role.ADMIN));
+//
+//            parentRepository.save(new Parent("PARENT",
+//                    "SPROUTOPIA",
+//                    "parent@sproutopia.com",
+//                    passwordEncoder.encode("password"),
+//                    Role.PARENT,
+//                    "Mother"));
+//
+//
+//
+//
+//
+//
+//
+//        };
+//    }
 
     private void addVaccinations(VaccinationRepository vaccinationRepository){
         vaccinationRepository.save(new Vaccination("BCG", 0, "Compulsory"));

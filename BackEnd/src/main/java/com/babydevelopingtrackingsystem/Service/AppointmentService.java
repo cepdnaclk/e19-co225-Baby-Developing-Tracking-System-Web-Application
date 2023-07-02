@@ -23,7 +23,7 @@ import java.util.Optional;
 public class AppointmentService {
 
     private final AppointmentRepository appointmentRepository;
-private final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final ParentRepository parentRepository;
     private final BabyRepository babyRepository;
     private final NotificationService notificationService;
@@ -110,6 +110,7 @@ private final UserRepository userRepository;
             if (user.get().getRole().equals(Role.PARENT)){
                 for(Appointment appointment:appointments){
                     AppointmentResponse appointmentResponse = new AppointmentResponse();
+                    appointmentResponse.setAppointmentStatus(appointment.getAppointmentStatus());
                     appointmentResponse.setParentName(user.get().getFirstname()+" "+ user.get().getLastname());
                     appointmentResponse.setId(appointment.getId());
                     appointmentResponse.setScheduledTime(appointment.getScheduledDateTime());
@@ -145,6 +146,7 @@ private final UserRepository userRepository;
             else if (user.get().getRole().equals(Role.DOCTOR)){
                 for(Appointment appointment:appointments){
                     AppointmentResponse appointmentResponse = new AppointmentResponse();
+                    appointmentResponse.setAppointmentStatus(appointment.getAppointmentStatus());
                     appointmentResponse.setDoctorName(user.get().getFirstname()+" "+ user.get().getLastname());
                     appointmentResponse.setId(appointment.getId());
                     appointmentResponse.setScheduledTime(appointment.getScheduledDateTime());
@@ -167,7 +169,7 @@ private final UserRepository userRepository;
                                 findBabyByParent(
                                         parent.get()).getMidwife().getFirstname());
                         appointmentResponse.setParentName(
-                                appointment.getAcceptorUser().getFirstname() + " "
+                                appointment.getRequestorUser().getFirstname() + " "
                                         + appointment.getRequestorUser().getLastname());
                     }
 
@@ -178,7 +180,9 @@ private final UserRepository userRepository;
             //How a Midwife Get there list of appointments
             else if (user.get().getRole().equals(Role.MIDWIFE)){
                 for(Appointment appointment:appointments){
+
                     AppointmentResponse appointmentResponse = new AppointmentResponse();
+                    appointmentResponse.setAppointmentStatus(appointment.getAppointmentStatus());
                     appointmentResponse.setMidwifeName(user.get().getFirstname()+" "+ user.get().getLastname());
                     appointmentResponse.setId(appointment.getId());
                     appointmentResponse.setScheduledTime(appointment.getScheduledDateTime());
