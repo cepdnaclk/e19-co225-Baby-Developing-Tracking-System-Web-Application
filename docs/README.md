@@ -109,21 +109,25 @@ In our web application, we utilize the following technologies:
 - **JUnit 5:** We adopt JUnit 5, a widely used unit testing framework for Java applications, to ensure the quality and correctness of our backend code. It enables us to write and execute tests to verify the expected behavior of our application's components.
 
 ## High-Level Architecture
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/High-level%20Architecture.jpg)
+<p align="center"><img align="center" alt="GIF" src="./images/High-level%20Architecture.jpg"/></p>
+
 
 ## User Interface
 ### Home Page
 -----------------------------------------------------------------------
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/Homepage.jpeg)
+<p align="center"><img align="center" alt="GIF" src="./images/Homepage.jpeg"/></p>
+
 
 ### SignUp
 -----------------------------------------------------------------------
 the entry point for new users who want to create an account and access the platform's features and services. 
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/SignUp.jpeg)
+<p align="center"><img align="center" alt="GIF" src="./images/SignUp.jpeg"/></p>
+
 
 ### Login
 -----------------------------------------------------------------------
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/Login.jpeg)
+<p align="center"><img align="center" alt="GIF" src="./images/Login.jpeg"/></p>
+
 
 ### Parent Dashboard
 -----------------------------------------------------------------------
@@ -138,7 +142,8 @@ the entry point for new users who want to create an account and access the platf
 <li>Make an Appointment: This feature allows parents to schedule appointments with healthcare professionals directly from the dashboard. By clicking on the "Make an Appointment" button</li>
 </ul>
 
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/Parent_Dashboard.gif)
+<p align="center"><img align="center" alt="GIF" src="./images/Parent_Dashboard.gif"/></p>
+
 
 ### Doctor Dashboard
 -----------------------------------------------------------------------
@@ -153,7 +158,8 @@ the entry point for new users who want to create an account and access the platf
 <li>Appointment Details Card: When an appointment button is clicked in the baby table or on the calendar, a modal card component called DoctorAppointmentDetailsCard is displayed. It shows detailed information about the selected appointment, including the parent's name, baby's name, scheduled date and time, and venue. The DoctorAppointmentDetailsCard component provides buttons to accept the appointment or suggest a different date. Accepting an appointment sends a POST request to an API to update the appointment status.</li>
 </ul>
 
-![](https://github.com/cepdnaclk/e19-co225-Baby-Developing-Tracking-System-Web-Application/blob/main/docs/images/Doctor_Dashboard.gif)
+<p align="center"><img align="center" alt="GIF" src="./images//Doctor_Dashboard.gif"/></p>
+
 
 
 ## Links
