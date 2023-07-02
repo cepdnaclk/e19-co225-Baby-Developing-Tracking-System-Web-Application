@@ -58,13 +58,13 @@ const DoctorAppointmentDetailsCard = ({
           <p>
             <b>Requesting Time</b> &nbsp;:{" "}
             <b className="text-red-600">
-              {appointment.scheduledTime.substring(11, 16)}
+              {appointment.scheduledTime.substring(11, 19)}
             </b>
           </p>
         ) : (
           <p>
             <b>Requesting Time</b> &emsp;:{" "}
-            {appointment.scheduledTime.substring(11, 16)}
+            {appointment.scheduledTime.substring(11, 19)}
           </p>
         )}
         <p>

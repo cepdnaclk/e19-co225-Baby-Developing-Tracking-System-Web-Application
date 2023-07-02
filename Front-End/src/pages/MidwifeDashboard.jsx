@@ -123,7 +123,7 @@ const MidwifeDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [BabyDetailsCard, AppointmentDetailsCard, editCount,selectedAppointment,appointmentsSet]);
+  }, [BabyDetailsCard, AppointmentDetailsCard, editCount,selectedAppointment]);
 
   // Sample data for the calendar
 
