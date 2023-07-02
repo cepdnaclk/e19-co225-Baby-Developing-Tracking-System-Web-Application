@@ -20,13 +20,13 @@ const BabyDetailsCard = ({ baby, onClose }) => {
           <div>
             <strong>Name:</strong> {baby.name}
           </div>
-          <div>
+          {/* <div>
             <strong>Age:</strong> {baby.age}
-          </div>
+          </div> */}
           <div>
             <strong>Parent Name:</strong> {baby.parentName}
           </div>
-          <div>
+          {/* <div>
             <strong>Address:</strong> {baby.address}
           </div>
           <div>
@@ -34,14 +34,10 @@ const BabyDetailsCard = ({ baby, onClose }) => {
           </div>
           <div>
             <strong>Special Information:</strong> {baby.specialInformation}
-          </div>
+          </div> */}
           <div>
             <strong>Appointed Doctor Name:</strong> {baby.appointedDoctor}
           </div>
-        </div>
-        <div className="vaccination-timeline">
-          <h4>Vaccination Timeline</h4>
-          <VaccinationTimeline />
         </div>
       </div>
     </div>

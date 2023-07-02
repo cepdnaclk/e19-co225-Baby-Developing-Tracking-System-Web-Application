@@ -158,13 +158,13 @@ const DoctorBabyDetailsCard = ({
           <div>
             <strong>Name:</strong> {thisBaby.babyName}
           </div>
-          <div>
+          {/* <div>
             <strong>Age:</strong> {thisBaby.babyAge}
-          </div>
+          </div> */}
           <div>
             <strong>Parent Name:</strong> {thisBaby.parentName}
           </div>
-          <div>
+          {/* <div>
             <strong>Address:</strong> {thisBaby.address}
           </div>
           <div>
@@ -172,7 +172,7 @@ const DoctorBabyDetailsCard = ({
           </div>
           <div>
             <strong>Special Information:</strong> {thisBaby.specialInformation}
-          </div>
+          </div> */}
           <div>
             <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
           </div>
