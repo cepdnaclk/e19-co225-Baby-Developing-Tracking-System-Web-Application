@@ -111,6 +111,25 @@ In our web application, we utilize the following technologies:
 ## High-Level Architecture
 <p align="center"><img align="center" alt="GIF" src="./images/High-level%20Architecture.jpg"/></p>
 
+Our high-level architecture diagram is designed with careful consideration to ensure a robust and secure system. Let's break down each component step by step:
+<ul>
+<li> <b>Frontend</b> : The frontend component serves as the user-facing interface of our system. It focuses on delivering a seamless and intuitive experience for our users. It includes various elements such as user interfaces, forms, interactive components, and visual representations. The frontend is responsible for presenting data, capturing user input, and providing an engaging and user-friendly interface.</li>
+
+
+<li> <b>Security Layer</b> : Prioritizing user safety, we have implemented a robust security layer. This layer ensures the protection of sensitive data and user interactions. It includes authentication mechanisms, authorization controls, and encryption techniques to safeguard user information from unauthorized access or malicious activities. By incorporating security measures, we enhance the overall integrity and trustworthiness of our system.</li>
+
+<li> <b>Backend</b>: The backend comprises three main components that work together to process user requests, execute business logic, and manage data.
+
+- API: The API (Application Programming Interface) acts as a gateway between the frontend and backend components. It handles incoming requests from the frontend and delivers appropriate responses. The API defines the available endpoints, request formats, and response structures. It serves as the primary communication channel, allowing the frontend to interact with the backend functionalities.
+
+- Services: The services component encapsulates complex business logic and core functionalities of our system. It handles various tasks, such as processing user input, performing calculations, validating data, and orchestrating different operations. Services ensure the smooth execution of business rules and facilitate the overall functioning of the system.
+
+- Data Access: The data access layer enables seamless interactions with the database. It handles tasks related to data retrieval, storage, and modification. This component ensures efficient communication between the backend and the database, allowing the system to access and manipulate data as needed. By abstracting the underlying data storage mechanism, the data access layer promotes modularity and flexibility within the system.</li>
+
+<li> <b>Database</b>: The database component securely stores and manages all the data required by our system. It serves as a persistent storage solution, ensuring the durability and reliability of our data. The database is responsible for organizing and structuring data in a manner that facilitates efficient retrieval and manipulation. By employing appropriate database management systems, we ensure data integrity, scalability, and resilience.</li>
+
+</ul>
+
 
 ## User Interface
 ### Home Page
