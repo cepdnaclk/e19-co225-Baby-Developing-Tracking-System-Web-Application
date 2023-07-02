@@ -1,23 +1,9 @@
 import React, { useState } from "react";
 import "./AppointmentDetailsCard.css";
-const AppointmentDetailsCard = ({
+const ParentAppointmentDetailsCard = ({
   appointment,
-  onAccept,
-  onSuggestDate,
   onClose,
-  callBackFunc
 }) => {
-  const [suggestedDate, setSuggestedDate] = useState("");
-
-  const handleSuggestDateChange = (event) => {
-    setSuggestedDate(event.target.value);
-  };
-
-  const handleSuggestDateSubmit = (event) => {
-    event.preventDefault();
-    onSuggestDate(appointment, suggestedDate);
-    setSuggestedDate("");
-  };
 
   return (
     <div className="appointment-details-card flex flex-col p-none">
@@ -31,10 +17,10 @@ const AppointmentDetailsCard = ({
         </button>
       </div>
       <div className="card-content">
-        <p><b>Baby Name</b> &emsp;: {appointment.babyName}</p>
         <p><b>Parent Name</b> &ensp;: {appointment.parentName}</p>
         {/* <p>Sex: {appointment.sex}</p> */}
-        <p><b>Appointed Doctor</b> &nbsp;: {appointment.doctorName}</p>
+        {appointment.doctorName && <p><b>Appointed Doctor</b> &nbsp;: {appointment.doctorName}</p>}
+        {appointment.midwifeName && <p><b>Appointed Midwife</b> &nbsp;: {appointment.midwifeName}</p>}
         {appointment.appointmentStatus === "PENDING" ? (
           <p>
             <b>Requesting Date</b> &nbsp;:{" "}
@@ -60,37 +46,9 @@ const AppointmentDetailsCard = ({
           </p>
         )}
         <p><b>Appointment Status</b> &nbsp;: {appointment.appointmentStatus}</p>
-        {appointment.appointmentStatus === "PENDING" && (
-          <div className="Appointment-suggest">
-            <button
-              className="accept-button w-full mb-2"
-              onClick={() => {onAccept(appointment);
-                callBackFunc()}}
-            >
-              Accept
-            </button>
-
-            <form
-              className="suggest-date-form flex flex-col gap-2"
-              onSubmit={handleSuggestDateSubmit}
-            >
-              <p>Else suggest a Date:</p>
-              <input
-                type="date"
-                value={suggestedDate}
-                onChange={handleSuggestDateChange}
-                required
-                className="w-full"
-              />
-              <button type="submit" className="suggest-date-button bg-black">
-                Suggest Date
-              </button>
-            </form>
-          </div>
-        )}
       </div>
     </div>
   );
 };
 
-export default AppointmentDetailsCard;
+export default ParentAppointmentDetailsCard;

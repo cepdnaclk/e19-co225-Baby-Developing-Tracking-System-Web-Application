@@ -129,7 +129,7 @@ const DoctorDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [DoctorBabyDetailsCard,DoctorAppointmentDetailsCard, editCount, selectedAppointment,selectedBaby]);
+  }, [DoctorBabyDetailsCard,DoctorAppointmentDetailsCard, editCount, selectedAppointment]);
 
   // Sample data for the calendar
 
