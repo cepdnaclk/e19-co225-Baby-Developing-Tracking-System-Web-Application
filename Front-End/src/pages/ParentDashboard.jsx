@@ -10,6 +10,7 @@ import BabyWeight from "../components/WeightChart";
 import BabyHeight from "../components/HeightChart";
 import AuthService from "../services/auth.service";
 import MakeAppointment from "../components/MakeAppointment";
+import BabyDetailsCard from "../components/BabyDetailsCard";
 
 const ParentDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
@@ -110,7 +111,7 @@ const ParentDashboard = () => {
     };
 
     fetchData();
-  }, []);
+  }, [isBabyNotAdded,MakeAppointment,BabyDetailsCard]);
 
   const handleBabyClick = () => {
     setSelectedBaby(babyData);

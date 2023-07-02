@@ -92,4 +92,15 @@ table {
   cursor: pointer;
 }
 
+.update-vaccine {
+  color: #2663a8e1;
+  font-weight: 600;
+  border: 2px solid;
+  border-radius: 15px;
+  padding: 1px 9px;
+  margin-left: 8px;
+  scale: 0.9;
+  transition: 300ms ease-in-out;
+}
+
 /* Styling for BabyDetailsCard and AppointmentDetailsCard components can be added separately */
