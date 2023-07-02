@@ -7,7 +7,7 @@ import axios from "axios";
 
 const API_URL_MID = "http://localhost:8080/api/v1/midwife";
 
-const BabyDetailsCard = ({ baby, onClose }) => {
+const BabyDetailsCard = ({ baby, onClose, babyTableData,callbackFunc,}) => {
   const [babyId, setBabyId] = useState(baby.id);
   const [thisBaby, setThisBaby] = useState(baby);
 
@@ -64,7 +64,8 @@ const BabyDetailsCard = ({ baby, onClose }) => {
             <strong>Parent Name:</strong> {thisBaby.parentName}
           </div>
           <div>
-            <strong>Appointed Doctor Name:</strong> {thisBaby.midWifeName}
+            <strong>Appointed Doctor Name:</strong> {thisBaby.doctorName
+}
           </div>
 
           <div>

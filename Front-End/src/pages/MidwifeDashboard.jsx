@@ -13,7 +13,7 @@ import "../components/AppointmentDetailsCard.css";
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-
+  const [editCount, setEditCount] = useState(0);
   // Sample data for the baby table
   const babyTableData = [
     {
@@ -123,7 +123,7 @@ const MidwifeDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, []);
+  }, [BabyDetailsCard, editCount]);
 
   // Sample data for the calendar
 
@@ -138,6 +138,32 @@ const MidwifeDashboard = () => {
 
   const handleAppointmentCardClose = () => {
     setSelectedAppointment(null);
+  };
+
+  const acceptAppointment = (appointment) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      console.log(access);
+
+      axios.post(
+        "http://localhost:8080/api/v1/doctor/appointment/accept/" + appointment.id,
+        {},
+        {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
+        }
+      );
+
+      
+      
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    setSelectedAppointment(null);
+    
   };
 
   const handleCalendarItemClick = (works) => {
@@ -227,7 +253,7 @@ const MidwifeDashboard = () => {
                       {appointmentsSet.some(
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
-                          !appointment.appointmentStatus
+                          appointment.appointmentStatus === "PENDING"
                       ) && (
                         <button
                           className="appointment-button blink bg-green-200"
@@ -236,7 +262,7 @@ const MidwifeDashboard = () => {
                               appointmentsSet.find(
                                 (appointment) =>
                                   appointment.babyName === baby.babyName &&
-                                  !appointment.appointmentStatus
+                                  appointment.appointmentStatus === "PENDING"
                               )
                             )
                           }
@@ -253,14 +279,19 @@ const MidwifeDashboard = () => {
         </div>
         {selectedBaby && (
           <BabyDetailsCard
-            baby={selectedBaby}
-            onClose={() => setSelectedBaby(null)}
+          baby={selectedBaby}
+          onClose={() => setSelectedBaby(null)}
+          babyTableData={selectedBabyTableData}
+          callbackFunc={() => setEditCount(editCount + 1)}
           />
         )}
         {selectedAppointment && (
           <AppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
+            onAccept={acceptAppointment}
+            onSuggestDate={handleAppointmentCardClose}
+            callBackFunc={() => setEditCount(editCount + 1)}
           />
         )}
       </div>
