@@ -123,7 +123,7 @@ const MidwifeDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [BabyDetailsCard, AppointmentDetailsCard, editCount]);
+  }, [BabyDetailsCard, AppointmentDetailsCard, editCount,selectedAppointment,appointmentsSet]);
 
   // Sample data for the calendar
 
@@ -137,6 +137,7 @@ const MidwifeDashboard = () => {
   };
 
   const handleAppointmentCardClose = () => {
+    setEditCount(editCount+1);
     setSelectedAppointment(null);
   };
 
@@ -244,7 +245,7 @@ const MidwifeDashboard = () => {
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
                           appointment.appointmentStatus === "PENDING"
-                      ) && (
+                      ) ? (
                         <button
                           className="appointment-button blink bg-green-200"
                           onClick={() =>
@@ -259,7 +260,7 @@ const MidwifeDashboard = () => {
                         >
                           Appointment Requested
                         </button>
-                      )}
+                      ):<button className="update-vaccine">Accepted</button>}
                     </td>
                   </tr>
                 ))}

@@ -43,8 +43,8 @@ public class MidwifeController {
        midwifeService.createAppointment(appointmentRequest);
     }
 
-    @PostMapping("appointment/accept")
-    public void acceptAppointment(@RequestBody int id){
+    @PostMapping("appointment/accept/{id}")
+    public void acceptAppointment(@PathVariable int id){
         appointmentService.acceptAppointment(id);
 
     }
