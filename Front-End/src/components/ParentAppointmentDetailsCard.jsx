@@ -19,8 +19,8 @@ const ParentAppointmentDetailsCard = ({
       <div className="card-content">
         <p><b>Parent Name</b> &ensp;: {appointment.parentName}</p>
         {/* <p>Sex: {appointment.sex}</p> */}
-        {appointment.doctorName && <p><b>Appointed Doctor</b> &nbsp;: {appointment.doctorName}</p>}
-        {appointment.midwifeName && <p><b>Appointed Midwife</b> &nbsp;: {appointment.midwifeName}</p>}
+        {appointment.doctorName && <p><b>Appointed Doctor</b> &nbsp;: {appointment.doctorName.substring(0, 10)}</p>}
+        {appointment.midwifeName && <p><b>Appointed Midwife</b> &nbsp;: {appointment.midwifeName.substring(0, 10)}</p>}
         {appointment.appointmentStatus === "PENDING" ? (
           <p>
             <b>Requesting Date</b> &nbsp;:{" "}

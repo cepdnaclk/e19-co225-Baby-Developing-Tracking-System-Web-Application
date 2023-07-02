@@ -1,7 +1,6 @@
 // BabyDetailsCard.jsx
 import "./BabyDetailsCard.css";
 import React from "react";
-import VaccinationTimeline from "./Timeline";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import BabyVaccinationEditForm from "./BabyVaccinationEditForm";
