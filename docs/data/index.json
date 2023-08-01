@@ -48,8 +48,8 @@
         },
         {
             "name": "Ms. Nadeesha Adikari",
-            "email": "adikari.nadeesha@gmail.com"
+            "email": "nadeeshaa@eng.pdn.ac.lk"
         }
     ],
-    "tags": []
+    "tags": ["SpringBoot", "React", "MySQL", "JWT", "Swagger"]
 }
