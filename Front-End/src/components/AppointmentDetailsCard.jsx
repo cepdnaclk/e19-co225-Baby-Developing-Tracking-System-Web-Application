@@ -5,6 +5,7 @@ const AppointmentDetailsCard = ({
   onAccept,
   onSuggestDate,
   onClose,
+  callBackFunc
 }) => {
   const [suggestedDate, setSuggestedDate] = useState("");
 
@@ -30,40 +31,41 @@ const AppointmentDetailsCard = ({
         </button>
       </div>
       <div className="card-content">
-        <p>Baby Name &emsp;: {appointment.babyName}</p>
-        <p>Parent Name &ensp;: {appointment.parentName}</p>
+        <p><b>Baby Name</b> &emsp;: {appointment.babyName}</p>
+        <p><b>Parent Name</b> &ensp;: {appointment.parentName}</p>
         {/* <p>Sex: {appointment.sex}</p> */}
-        <p>Appointed Doctor &nbsp;: {appointment.doctorName}</p>
-        {appointment.hasAppointment === "Pending" ? (
+        <p><b>Appointed Doctor</b> &nbsp;: {appointment.doctorName}</p>
+        {appointment.appointmentStatus === "PENDING" ? (
           <p>
-            Requesting Date &nbsp;:{" "}
+            <b>Requesting Date</b> &nbsp;:{" "}
             <b className="text-red-600">
               {appointment.scheduledTime.substring(0, 10)}
             </b>
           </p>
         ) : (
           <p>
-            Sheduled Date &emsp;: {appointment.scheduledTime.substring(0, 10)}
+            <b>Sheduled Date</b> &emsp;: {appointment.scheduledTime.substring(0, 10)}
           </p>
         )}
-        {appointment.hasAppointment === "Pending" ? (
+        {appointment.appointmentStatus === "PENDING" ? (
           <p>
-            Requesting Time &nbsp;:{" "}
+            <b>Requesting Time</b> &nbsp;:{" "}
             <b className="text-red-600">
-              {appointment.scheduledTime.substring(0, 10)}
+              {appointment.scheduledTime.substring(11, 19)}
             </b>
           </p>
         ) : (
           <p>
-            Sheduled Time &emsp;: {appointment.scheduledTime.substring(11, 16)}
+            <b>Sheduled Time</b> &emsp;: {appointment.scheduledTime.substring(11, 19)}
           </p>
         )}
-        <p>Appointment Status &nbsp;: {appointment.appointmentStatus}</p>
-        {appointment.hasAppointment === "Pending" && (
+        <p><b>Appointment Status</b> &nbsp;: {appointment.appointmentStatus}</p>
+        {appointment.appointmentStatus === "PENDING" && (
           <div className="Appointment-suggest">
             <button
               className="accept-button w-full mb-2"
-              onClick={() => onAccept(appointment)}
+              onClick={() => {onAccept(appointment);
+                callBackFunc()}}
             >
               Accept
             </button>

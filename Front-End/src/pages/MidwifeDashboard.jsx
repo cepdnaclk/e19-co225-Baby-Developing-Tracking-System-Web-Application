@@ -13,27 +13,57 @@ import "../components/AppointmentDetailsCard.css";
 const MidwifeDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-
+  const [editCount, setEditCount] = useState(0);
   // Sample data for the baby table
   const babyTableData = [
     {
       id: 1,
-      name: "Alex Peter",
+      babyName: "Alex Peter",
       parentName: "Jenny Fernandes",
-      sex: "Male",
-      appointedDoctor: "Doctor 1",
-      hasAppointment: true,
-      appointmentDate: "2023-06-30",
+      midWifeName: "Midwife 1",
+      gender: "Male",
+      hasAppointment: "Pending",
+      requestDate: "2023-06-30",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
     },
     {
       id: 2,
-      name: "Baby 2",
-      parentName: "Parent 2",
-      sex: "Female",
-      appointedDoctor: "Doctor 2",
-      hasAppointment: false,
+      babyName: "Baby 2",
+      parentName: "Eranga Dharmarathne",
+      midWifeName: "Midwife 2",
+      gender: "Female",
+      hasAppointment: "Accepted",
+      requestDate: "2023-06-28",
+      babyVaccinations: [
+        {
+          vaccineName: "BCG",
+          dueDate: "2023-05-01",
+          status: "Pending",
+        },
+        {
+          vaccineName: "Hexaxim/Infanrix Hexa",
+        },
+        {
+          vaccineName: "Pentavalent and Polio (1st dose)",
+        },
+        {
+          vaccineName: "Rotarix/Rotateq (1st dose)",
+        },
+      ],
     },
-    // Add more baby data as needed
   ];
 
   const [selectedBabyTableData, setSelectedBabyTableData] =
@@ -93,7 +123,7 @@ const MidwifeDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, []);
+  }, [BabyDetailsCard, AppointmentDetailsCard, editCount,selectedAppointment]);
 
   // Sample data for the calendar
 
@@ -107,15 +137,32 @@ const MidwifeDashboard = () => {
   };
 
   const handleAppointmentCardClose = () => {
+    setEditCount(editCount+1);
     setSelectedAppointment(null);
   };
 
-  const handleCalendarItemClick = (works) => {
-    setSelectedAppointment(works);
-  };
+  const acceptAppointment = (appointment) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("user"));
+      const access = token.access_token;
+      console.log(access);
 
-  const handleCalendarCardClose = () => {
+      axios.post(
+        "http://localhost:8080/api/v1/midwife/appointment/accept/" + appointment.id,
+        {},
+        {
+          headers: {
+            "Access-Control-Allow-Origin": true,
+            Authorization: "Bearer " + access,
+          },
+        }
+      );
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
     setSelectedAppointment(null);
+    
   };
 
   return (
@@ -147,7 +194,7 @@ const MidwifeDashboard = () => {
                     <button>Parent Name</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
-                    <button>Sex</button>
+                    <button>Gender</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
                     <button>Allocated Doctor</button>
@@ -197,8 +244,8 @@ const MidwifeDashboard = () => {
                       {appointmentsSet.some(
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
-                          !appointment.appointmentStatus
-                      ) && (
+                          appointment.appointmentStatus === "PENDING"
+                      ) ? (
                         <button
                           className="appointment-button blink bg-green-200"
                           onClick={() =>
@@ -206,14 +253,14 @@ const MidwifeDashboard = () => {
                               appointmentsSet.find(
                                 (appointment) =>
                                   appointment.babyName === baby.babyName &&
-                                  !appointment.appointmentStatus
+                                  appointment.appointmentStatus === "PENDING"
                               )
                             )
                           }
                         >
                           Appointment Requested
                         </button>
-                      )}
+                      ):<button className="update-vaccine">Accepted</button>}
                     </td>
                   </tr>
                 ))}
@@ -223,14 +270,19 @@ const MidwifeDashboard = () => {
         </div>
         {selectedBaby && (
           <BabyDetailsCard
-            baby={selectedBaby}
-            onClose={() => setSelectedBaby(null)}
+          baby={selectedBaby}
+          onClose={() => setSelectedBaby(null)}
+          babyTableData={selectedBabyTableData}
+          callbackFunc={() => setEditCount(editCount + 1)}
           />
         )}
         {selectedAppointment && (
           <AppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
+            onAccept={(appointment) => acceptAppointment(appointment)}
+            onSuggestDate={handleAppointmentCardClose}
+            callBackFunc={() => setEditCount(editCount + 1)}
           />
         )}
       </div>

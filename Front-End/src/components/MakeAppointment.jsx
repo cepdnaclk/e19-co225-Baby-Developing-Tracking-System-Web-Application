@@ -99,7 +99,7 @@ const MakeAppointment = ({ onClose, baby }) => {
                   <MobileDateTimePicker
                     value={dateTime}
                     onChange={(newValue) => setDateTime(newValue.toISOString())}
-                    defaultValue={dayjs("2023-06-25T14:36:02.833Z")}
+                    defaultValue={dayjs("2023-06-25T05:30:00.000Z")}
                   />
                 </DemoItem>
               </DemoContainer>

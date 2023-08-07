@@ -2,39 +2,61 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/v1/admin/user";
 
-// Registers a user by making a POST request to the API
-export const createUser = (firstname, lastname, email, password, role) => {
-  const token = JSON.parse(localStorage.getItem("user"));
-  const access = token.access_token;
-  return axios
-    .post(
-      API_URL + "/saveUser",
-      {
-        firstname,
-        lastname,
-        email,
-        password,
-        role,
-      },
-      {
-        headers: {
-          "Access-Control-Allow-Origin": true,
-          Authorization: "Bearer " + access,
-        },
-      }
-    )
+export const saveUser = (user) => {
+  return axios.post(`${API_URL}/saveUser`, user)
     .then((response) => {
       console.log(response);
-      if (response.data.access_token) {
-        // Stores the user object in local storage if a token is present in the response
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
       return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
     });
 };
 
+export const updateUser = (user) => {
+  return axios.put(`${API_URL}/updateUser`, user)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+};
+
+export const deleteUser = (email) => {
+  return axios.delete(`${API_URL}/deleteUser/${email}`)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+};
+
+export const getAllUsers = () => {
+  return axios.get(`${API_URL}/getAllUser`)
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
+};
+
+
 const user_service = {
-  createUser,
+  saveUser,
+  updateUser,
+  deleteUser,
+  getAllUsers ,
 };
 
 export default user_service;
+

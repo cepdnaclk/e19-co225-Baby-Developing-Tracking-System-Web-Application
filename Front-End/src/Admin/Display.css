@@ -1,86 +1,120 @@
 .container {
-  margin: 20px;
-  margin-top: 70px;
+  margin-left: 80px;
   display: flex;
   flex-direction: column;
 }
 
 .h2 {
-  margin-top: 30px;
+  color: #333;
+  text-align: center;
+  padding-left: 150px;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin: 20px auto; /* Set margin to auto horizontally */
+  margin-left: 50px;
+  height: 100px;
+  overflow-y: auto;
+  border-radius: 8px; /* Adjust the border radius as per your preference */
+  
 }
 
-.table thead tr {
+.th,
+.td {
+  padding: 8px; /* Adjust the padding as per your preference */
+  text-align: left;
+  border-bottom: 2px solid #1a1515;
+  border-right: 1px solid #1a1515; /* Add a right border */
+}
+
+.tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-.table th,
-.table td {
-  padding: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-}
-
-.table th {
-  font-weight: bold;
-}
-
-.table td {
-  font-size: 14px;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.table tbody tr:hover {
-  background-color: #e8e8e8;
-}
-
-.button-container,
-.button-container1 {
-  display: flex;
-  gap: 5px;
-}
-
-.button-container button,
-.button-container1 button {
-  padding: 5px 10px;
-  border: none;
+.btn {
+  padding: 6px 12px;
+  margin-right: 5px;
+  margin-bottom: 4px; /* Adjust the bottom margin as per your preference */
+  border-radius: 4px;
   cursor: pointer;
 }
 
-.button-container button:first-child,
-.button-container1 button:first-child {
-  background-color: #4caf50;
-  color: white;
-}
-
-.button-container button:last-child,
-.button-container1 button:last-child {
-  background-color: #f44336;
-  color: white;
-}
-
-.button-container button:hover,
-.button-container1 button:hover {
-  opacity: 0.8;
-}
-
-/* New styles */
-
-.table td.data-value {
-  font-weight: normal;
-  color: #333;
-}
-
-.button-container button {
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
   border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #9c2f3a;
+}
+
+p {
+  color: #666;
+}
+
+
+
+.container {
+  margin: 20px;
+  min-height: calc(100vh - 100px); /* Subtracting footer height from viewport height */
+}
+
+/* Additional table styling */
+.table {
+  font-size: 14px;
+}
+
+.th {
+  font-weight: bold;
+}
+
+.td {
+  vertical-align: middle;
+  line-height: 1.2; /* Adjust the line-height as per your preference */
+}
+
+.btn {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Additional table styling */
+.table {
+  font-size: 14px;
+}
+
+.th {
+  font-weight: bold;
+}
+
+.td {
+  vertical-align: middle;
+  line-height: 1.2; /* Adjust the line-height as per your preference */
+}
+
+.btn {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.table-container {
+  max-height: 300px; /* Adjust the max height as per your preference */
 }

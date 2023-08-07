@@ -131,9 +131,9 @@ public class AdminUserService {
         }.getType());
     }
 
-    public String deleteUser(int userId){
-        if (userRepository.existsById(userId)){
-            userRepository.deleteById(userId);
+    public String deleteUser(String email){
+        if (userRepository.existsUserByEmail(email)){
+            userRepository.deleteByEmail(email);
             return VariableList.RSP_SUCCESS;
         }else {
             return VariableList.R$P_NO_DATA_FOUND;

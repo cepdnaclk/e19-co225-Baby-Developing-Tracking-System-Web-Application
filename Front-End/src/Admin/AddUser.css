@@ -3,17 +3,30 @@
   flex-direction: column;
   align-items: center;
   min-height: 80vh;
+  margin-top: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
 }
 
 .add-baby-form-container {
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+  padding-top: 80px;
   width: 600px;
   background-color: #dad5d5;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 20px;
+  overflow-y: auto;
+  max-height: 120vh;
 }
+
+/* Rest of the CSS remains the same */
 
 .h2 {
   text-align: center;
@@ -56,4 +69,8 @@
 
 .add-baby-form input[type="number"] {
   padding: 8px;
+}
+
+#role {
+  display: none;
 }

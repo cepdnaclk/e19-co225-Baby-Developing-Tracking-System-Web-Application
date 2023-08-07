@@ -5,17 +5,21 @@ import { Footer } from "../Footer";
 import Calendar from "../components/Calender";
 import { useNavigate } from "react-router-dom";
 import "./ParentDashboard.css";
+import ParentAppointmentDetailsCard from "../components/ParentAppointmentDetailsCard";
 import ParentBabyDetailsCard from "../components/ParentBabyDetailsCard";
 import BabyWeight from "../components/WeightChart";
 import BabyHeight from "../components/HeightChart";
 import AuthService from "../services/auth.service";
 import MakeAppointment from "../components/MakeAppointment";
+import BabyDetailsCard from "../components/BabyDetailsCard";
 
 const ParentDashboard = () => {
   const [selectedBaby, setSelectedBaby] = useState(null);
   const [isBabyNotAdded, setIsBabyAdded] = useState(true);
   const [selectedTab, setSelectedTab] = useState("height");
   const [MakeAppointments, setMakeAppointments] = useState(null);
+  const [selectedAppointment, setSelectedAppointment] = useState(null);
+
 
   const navigate = useNavigate();
 
@@ -83,6 +87,8 @@ const ParentDashboard = () => {
     fetchData();
   }, []);
 
+  const [appointmentsSet, setAppointmentsSet] = useState([]);
+
   // Method to find out whether you have already registered a baby or not
   useEffect(() => {
     const fetchData = async () => {
@@ -109,8 +115,32 @@ const ParentDashboard = () => {
       }
     };
 
+    const fetchAppointments = async () => {
+      try {
+        const token = JSON.parse(localStorage.getItem("user"));
+        const access = token.access_token;
+        console.log(access);
+
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/parent/appointment/get",
+          {
+            headers: {
+              "Access-Control-Allow-Origin": true,
+              Authorization: "Bearer " + access,
+            },
+          }
+        );
+
+        setAppointmentsSet(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
     fetchData();
-  }, []);
+    fetchAppointments();
+  }, [isBabyNotAdded,MakeAppointment,BabyDetailsCard]);
 
   const handleBabyClick = () => {
     setSelectedBaby(babyData);
@@ -125,6 +155,15 @@ const ParentDashboard = () => {
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
+  };
+
+  const handleAppointmentButtonClick = (appointment) => {
+    setSelectedAppointment(appointment);
+    setSelectedBaby(null);
+  };
+
+  const handleAppointmentCardClose = () => {
+    setSelectedAppointment(null);
   };
 
   return (
@@ -209,7 +248,12 @@ const ParentDashboard = () => {
               </div>
             </div>
           )}
-          {selectedTab === "calendar" && <Calendar />}
+          {selectedTab === "calendar" && <Calendar 
+          appointmentSet={appointmentsSet}
+            onClicks={(appointment) =>
+              handleAppointmentButtonClick(appointment)
+            }
+            />}
           <button className="SpaceButton"></button>
           {selectedBaby && (
             <ParentBabyDetailsCard
@@ -223,6 +267,12 @@ const ParentDashboard = () => {
               onClose={() => setMakeAppointments(null)}
             />
           )}
+          {selectedAppointment && (
+          <ParentAppointmentDetailsCard
+            appointment={selectedAppointment}
+            onClose={handleAppointmentCardClose}
+          />
+        )}
         </div>
       </div>
       <Footer />

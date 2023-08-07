@@ -1,7 +1,6 @@
 // BabyDetailsCard.jsx
 import "./BabyDetailsCard.css";
 import React from "react";
-import VaccinationTimeline from "./Timeline";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import BabyVaccinationEditForm from "./BabyVaccinationEditForm";
@@ -160,7 +159,7 @@ const DoctorBabyDetailsCard = ({
             <strong>Baby Id:</strong> {thisBaby.id}
           </div>
           <div>
-            <strong>Name:</strong> {thisBaby.babyName}
+            <strong>Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;:</strong> {thisBaby.babyName}
           </div>
           <div>
             <strong>Gender: </strong> {thisBaby.gender}
@@ -180,6 +179,14 @@ const DoctorBabyDetailsCard = ({
           </div> */}
           <div>
             <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
+          {/* <div>
+            <strong>Age:</strong> {thisBaby.babyAge}
+          </div> */}
+          <div>
+            <strong>Parent Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:</strong> {thisBaby.parentName}
+          </div>
+          <div>
+            <strong>Appointed Midwife Name&nbsp;:</strong> {thisBaby.midWifeName}
           </div>
           <br></br>
           <form onSubmit={handleSubmit}>
@@ -298,6 +305,7 @@ const DoctorBabyDetailsCard = ({
           ></BabyVaccinationEditForm>
         )}
       </div>
+    </div>
     </div>
   );
 };

@@ -41,7 +41,7 @@ const DoctorAppointmentDetailsCard = ({
         <p>
           <b>Appointed Midwife</b> &nbsp;: {appointment.midwifeName}
         </p>
-        {appointment.hasAppointment === "Pending" ? (
+        {appointment.appointmentStatus === "Pending" ? (
           <p>
             <b>Requesting Date</b> &nbsp;:{" "}
             <b className="text-red-600">
@@ -54,17 +54,17 @@ const DoctorAppointmentDetailsCard = ({
             {appointment.scheduledTime.substring(0, 10)}
           </p>
         )}
-        {appointment.hasAppointment === "Pending" ? (
+        {appointment.appointmentStatus === "Pending" ? (
           <p>
             <b>Requesting Time</b> &nbsp;:{" "}
             <b className="text-red-600">
-              {appointment.scheduledTime.substring(0, 10)}
+              {appointment.scheduledTime.substring(11, 19)}
             </b>
           </p>
         ) : (
           <p>
             <b>Requesting Time</b> &emsp;:{" "}
-            {appointment.scheduledTime.substring(11, 16)}
+            {appointment.scheduledTime.substring(11, 19)}
           </p>
         )}
         <p>

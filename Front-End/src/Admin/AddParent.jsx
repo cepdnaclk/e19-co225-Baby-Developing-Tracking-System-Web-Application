@@ -11,7 +11,7 @@ export const AddParent = (props) => {
     lastName: "",
     email: "",
     password: "",
-    role: "",
+    role: "PARENT",
     isMotherFatherGuardian: "",
   });
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
@@ -113,15 +113,8 @@ export const AddParent = (props) => {
             required
           />
 
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={parentDetails.role}
-            onChange={handleInputChange}
-            required
-          />
+          
+          
 
           <label htmlFor="role">isMotherFatherGuardian</label>
           <input

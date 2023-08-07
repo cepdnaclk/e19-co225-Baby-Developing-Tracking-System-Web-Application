@@ -39,17 +39,17 @@
             "name": "Dilshan R.M.S.",
             "email": "e19465@eng.pdn.ac.lk",
             "eNumber": "E/19/465"
-        },
+        }
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk"
+            "name": "Dr. Mahanama Wickramasinghe",
+            "email": "mahanamaw@eng.pdn.ac.lk"
         },
         {
-            "name": "Supervisor 2",
-            "email": "email@eng.pdn.ac.lk"
+            "name": "Ms. Nadeesha Adikari",
+            "email": "nadeeshaa@eng.pdn.ac.lk"
         }
     ],
-    "tags": []
+    "tags": ["SpringBoot", "React", "MySQL", "JWT", "Swagger"]
 }

@@ -58,33 +58,46 @@ const BabyVaccinationEditForm = ({ baby, babyVaccination, onClose }) => {
       </div>
       <div className="edit-form-container">
         <div>
-          <p className="py-1">Baby Name: {baby.babyName}</p>
-          <p className="py-1">Baby Vaccination Id: {babyVaccination.id}</p>
           <p className="py-1">
-            Baby Vaccination Name: {babyVaccination.vaccineName}
+            <b>Baby Name</b> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:{" "}
+            {baby.babyName}
           </p>
-          <p className="py-1">Due Date: {babyVaccination.dueDate}</p>
-          <p className="py-1">Status: {babyVaccination.status}</p>
+          <p className="py-1">
+            <b>Baby Vaccination Id</b> &nbsp;&emsp;&emsp;: {babyVaccination.id}
+          </p>
+          <p className="py-1">
+            <b>Baby Vaccination Name</b> &nbsp;: {babyVaccination.vaccineName}
+          </p>
+          <p className="py-1">
+            <b>Due Date</b> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:{" "}
+            {babyVaccination.dueDate}
+          </p>
+          <p className="py-1">
+            <b>Status</b>{" "}
+            &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:{" "}
+            {babyVaccination.status}
+          </p>
+          <br></br>
+          <p className="py-1">
+            <b>Suggest a Date</b>:
+          </p>
         </div>
 
-        <form>
-          <p className="py-1">Suggest a Date:</p>
-          <input
-            value={date}
-            type="date"
-            onChange={(input) => setSuggestedDueDate(input.target.value)}
-            required="requred"
-            className="mx-5 py-1"
-          />
-
-          <button
-            className="rounded bg-blue-400 p-1"
-            onClick={handleVaccineEdit}
-          >
-            <b>Update</b>
-          </button>
-          <p>{updateMsg}</p>
-        </form>
+        <div>
+          <form>
+            <input
+              value={date}
+              type="date"
+              onChange={(input) => setSuggestedDueDate(input.target.value)}
+              required="requred"
+              className="mx-5 py-1"
+            />
+            <button className="update-vaccine" onClick={handleVaccineEdit}>
+              <b>Update</b>
+            </button>
+            <p>{updateMsg}</p>
+          </form>
+        </div>
       </div>
     </div>
   );

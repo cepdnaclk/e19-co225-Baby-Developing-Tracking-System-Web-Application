@@ -3,72 +3,82 @@ import { useNavigate } from "react-router-dom";
 import { Header } from "./Header";
 import { Footer } from "../Footer";
 import "./AddUser.css";
-import auth from "../services/doctor_service";
+import doctor_service from "../services/doctor_service";
 
 export const AddDoctor = (props) => {
-  const [userDetails, setUserDetails] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    role: "",
-    hospital: "",
-    regNo: "",
-    specialization: "",
-  });
-  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-  const [showErrorPopup, setShowErrorPopup] = useState(false);
-
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserDetails((prevDetails) => ({
-      ...prevDetails,
-      [name]: value,
-    }));
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role] = useState("DOCTOR");
+  const [hospital, setHospital] = useState("");
+  const [regNo, setRegNo] = useState("");
+  const [specialization, setSpecialization] = useState("");
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    switch (name) {
+      case "firstName":
+        setFirstName(value);
+        break;
+      case "lastName":
+        setLastName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+     
+      case "hospital":
+        setHospital(value);
+        break;
+      case "regNo":
+        setRegNo(value);
+        break;
+      case "specialization":
+        setSpecialization(value);
+        break;
+      default:
+        break;
+    }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      console.log(userDetails);
-      const response = await auth.AddDoctor(
-        userDetails.firstName,
-        userDetails.lastName,
-        userDetails.email,
-        userDetails.password,
-        userDetails.role,
-        userDetails.hospital,
-        userDetails.regNo,
-        userDetails.specialization
-      );
-
-      if (response && response.status === 200) {
-        const { access_token } = response.data;
-        setShowSuccessPopup(true);
-        setShowErrorPopup(false);
-        // Reset the form
-        setUserDetails({
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-          role: "",
-          hospital: "",
-          regNo: "",
-          specialization: "",
-        });
-      } else {
-        setShowSuccessPopup(false);
-        setShowErrorPopup(true);
-      }
-    } catch (error) {
-      console.error("Error adding user:", error);
-      setShowSuccessPopup(false);
-      setShowErrorPopup(true);
-    }
+    // Call the AddDoctor method from the doctor_service
+    doctor_service
+      .AddDoctor(
+        firstName,
+        lastName,
+        email,
+        password,
+        role,
+        hospital,
+        regNo,
+        specialization
+      )
+      .then((response) => {
+        // Handle the response or perform any necessary actions
+        console.log("Doctor added:", response);
+        // Reset the form fields
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setPassword("");
+        setHospital("");
+        setRegNo("");
+        setSpecialization("");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the API request
+        console.error("Error adding doctor:", error);
+      });
   };
 
   return (
@@ -86,7 +96,7 @@ export const AddDoctor = (props) => {
             type="text"
             id="firstName"
             name="firstName"
-            value={userDetails.firstName}
+            value={firstName}
             onChange={handleInputChange}
             required
           />
@@ -96,7 +106,7 @@ export const AddDoctor = (props) => {
             type="text"
             id="lastName"
             name="lastName"
-            value={userDetails.lastName}
+            value={lastName}
             onChange={handleInputChange}
             required
           />
@@ -106,7 +116,7 @@ export const AddDoctor = (props) => {
             type="email"
             id="email"
             name="email"
-            value={userDetails.email}
+            value={email}
             onChange={handleInputChange}
             required
           />
@@ -116,27 +126,20 @@ export const AddDoctor = (props) => {
             type="password"
             id="password"
             name="password"
-            value={userDetails.password}
+            value={password}
             onChange={handleInputChange}
             required
           />
 
-          <label htmlFor="role">Role</label>
-          <input
-            type="text"
-            id="role"
-            name="role"
-            value={userDetails.role}
-            onChange={handleInputChange}
-            required
-          />
+     
+          
 
           <label htmlFor="hospital">Hospital</label>
           <input
             type="text"
             id="hospital"
             name="hospital"
-            value={userDetails.hospital}
+            value={hospital}
             onChange={handleInputChange}
             required
           />
@@ -146,7 +149,7 @@ export const AddDoctor = (props) => {
             type="text"
             id="regNo"
             name="regNo"
-            value={userDetails.regNo}
+            value={regNo}
             onChange={handleInputChange}
             required
           />
@@ -156,27 +159,13 @@ export const AddDoctor = (props) => {
             type="text"
             id="specialization"
             name="specialization"
-            value={userDetails.specialization}
+            value={specialization}
             onChange={handleInputChange}
             required
           />
 
-          {/* Add more input fields for the remaining attributes */}
-
           <button type="submit">Save</button>
         </form>
-
-        {/* Display success or error message in a popup */}
-        {showSuccessPopup && (
-          <div className="popup success">
-            <p>Failed to add user. Please try again.</p>
-          </div>
-        )}
-        {showErrorPopup && (
-          <div className="popup error">
-            <p>User added successfully.</p>
-          </div>
-        )}
       </div>
 
       <Footer />

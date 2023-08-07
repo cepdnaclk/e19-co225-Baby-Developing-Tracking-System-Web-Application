@@ -129,7 +129,7 @@ const DoctorDashboard = () => {
 
     fetchData();
     fetchAppointments();
-  }, [DoctorBabyDetailsCard, editCount]);
+  }, [DoctorBabyDetailsCard,DoctorAppointmentDetailsCard, editCount, selectedAppointment]);
 
   // Sample data for the calendar
 
@@ -144,6 +144,7 @@ const DoctorDashboard = () => {
   };
 
   const handleAppointmentCardClose = () => {
+    setEditCount(editCount+1);
     setSelectedAppointment(null);
   };
 
@@ -192,37 +193,6 @@ const DoctorDashboard = () => {
             }
           />
           {console.log(appointmentsSet)}
-          {/* <div className="card-container flex justify-center ">
-            <div className="cards text-center my-8 mx-10 border rounded-lg">
-              <div className="card-header px-5">Featured</div>
-              <div className="card-body m-5 ">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-              <div className="card-footer text-muted p-3">2 days ago</div>
-            </div>
-
-            <div className="cards text-center my-8 mx-10 border rounded-lg">
-              <div className="card-header px-5">Featured</div>
-              <div className="card-body m-5">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text">
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
-              </div>
-              <div className="card-footer text-muted p-3">2 days ago</div>
-            </div>
-          </div> */}
 
           <div className="baby-table sm:mx-10 my-10 scale-60 sm:scale-100 sm:border rounded-lg sm:p-8 sm:pb-12 shadow-xl shadow-blue-100/50">
             <table className="w-full table-fixed border-collapse rounded-lg">
@@ -238,7 +208,7 @@ const DoctorDashboard = () => {
                     <button>Parent Name</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
-                    <button>Sex</button>
+                    <button>Gender</button>
                   </th>
                   <th className="bg-blue-200 font-bold py-2">
                     <button>Allocated Midwife</button>
@@ -289,7 +259,7 @@ const DoctorDashboard = () => {
                         (appointment) =>
                           appointment.babyName === baby.babyName &&
                           appointment.appointmentStatus ==="PENDING"
-                      ) && (
+                      ) ? (
                         <button
                           className="appointment-button blink bg-green-200"
                           onClick={() =>
@@ -304,7 +274,7 @@ const DoctorDashboard = () => {
                         >
                           Appointment Requested
                         </button>
-                      )}
+                      ):<button className="update-vaccine">Accepted</button>}
                     </td>
                   </tr>
                 ))}
@@ -324,7 +294,7 @@ const DoctorDashboard = () => {
           <DoctorAppointmentDetailsCard
             appointment={selectedAppointment}
             onClose={handleAppointmentCardClose}
-            onAccept={acceptAppointment}
+            onAccept={(appointment) => acceptAppointment(appointment)}
             onSuggestDate={handleAppointmentCardClose}
             callBackFunc={() => setEditCount(editCount + 1)}
           />
