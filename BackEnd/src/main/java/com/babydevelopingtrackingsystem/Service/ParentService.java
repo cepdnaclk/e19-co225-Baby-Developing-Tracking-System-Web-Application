@@ -86,16 +86,17 @@ public class ParentService {
         baby.setGrowthRecords(babyRegistrationRequest.getGrowthRecords());
         baby.setDevelopmentalMilestones(babyRegistrationRequest.getDevelopmentMilestones());
 
-        List<Vaccination> compulsoryVaccinations = vaccinationRepository.findByType("Compulsory");
+
 
 
         Baby savedBaby = babyRepository.save(baby);
 
+        //Assign the Compulsory Vaccines to the Baby
+
+        List<Vaccination> compulsoryVaccinations = vaccinationRepository.findByType("Compulsory");
 
         for (Vaccination vaccination : compulsoryVaccinations) {
             LocalDate dueDate = LocalDate.parse(birthday, formatter).plusMonths(vaccination.getAgeInMonths());
-
-
             babyVaccinationRepository.save(new BabyVaccination( dueDate, "Pending",savedBaby, vaccination));
         }
 
@@ -129,13 +130,13 @@ public class ParentService {
             String midwifeName;
 
             try{
-                doctorName = baby.getDoctor().getFirstname()+baby.getDoctor().getLastname() ;
+                doctorName = baby.getDoctor().getFirstname()+" "+baby.getDoctor().getLastname() ;
             }
             catch(Exception e){
                 doctorName = "Not yet Assigned";
             }
             try{
-                midwifeName = baby.getMidwife().getFirstname()+baby.getMidwife().getLastname();
+                midwifeName = baby.getMidwife().getFirstname()+" "+baby.getMidwife().getLastname();
             }
             catch(Exception e){
                 midwifeName = "Not yet Assigned";
@@ -145,6 +146,7 @@ public class ParentService {
             babySend.setGender(baby.getGender());
             babySend.setDoctorName(doctorName);
             babySend.setMidwifeName(midwifeName);
+            babySend.setBirthday(baby.getDateofBirth());
         }
 
 
@@ -168,14 +170,14 @@ public class ParentService {
         if(acceptorRole.equals(Role.DOCTOR)){
             Optional<User> doctorUser = userRepository.findById(baby.getDoctor().getId());
             appointment.setAcceptorUser(doctorUser.get());
-            notificationService.createNotification(doctorUser.get(),"Your Parent " +parentUser.get().getFirstname() + " has requested an Appointment" +
+            notificationService.createNotification(doctorUser.get(),"Your Parent " + parentUser.get().getFirstname() + " has requested an Appointment" +
                     "at " + appointmentRequest.getDateTime().toString());
 
         }
         else if(acceptorRole.equals(Role.MIDWIFE)){
             Optional<User> midwifeUser = userRepository.findById(baby.getMidwife().getId());
             appointment.setAcceptorUser(midwifeUser.get());
-            notificationService.createNotification(midwifeUser.get(),"Your Parent" + parentUser.get().getFirstname()+ "has requested an Appointment" +
+            notificationService.createNotification(midwifeUser.get(),"Your Parent " + parentUser.get().getFirstname()+ "has requested an Appointment" +
                     "at " + appointmentRequest.getDateTime().toString());
 
         }

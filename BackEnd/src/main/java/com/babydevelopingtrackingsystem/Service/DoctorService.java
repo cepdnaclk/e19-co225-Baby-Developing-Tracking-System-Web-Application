@@ -18,9 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
@@ -71,6 +69,10 @@ public class DoctorService {
 
             List<BabyVaccinationResponse> babyVaccinationResponses = new ArrayList<>();
             List<BabyVaccination> babyVaccinations = baby.getBabyVaccinations();
+
+            // Sort the list of BabyVaccination objects by vaccination date
+            babyVaccinations.sort(Comparator.comparing(BabyVaccination::getVaccinationDate));
+
             logger.info(String.valueOf(babyVaccinations.size()));
             for(BabyVaccination babyVaccination:babyVaccinations){
                 babyVaccinationResponses.add(new BabyVaccinationResponse(

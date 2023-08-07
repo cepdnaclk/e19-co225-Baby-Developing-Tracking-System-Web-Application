@@ -154,9 +154,31 @@ const DoctorBabyDetailsCard = ({
       </div>
       <div className="card-content">
         <div className="baby-info">
+
+          <div>
+            <strong>Baby Id:</strong> {thisBaby.id}
+          </div>
           <div>
             <strong>Name&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&nbsp;:</strong> {thisBaby.babyName}
           </div>
+          <div>
+            <strong>Gender: </strong> {thisBaby.gender}
+          </div>
+          <div>
+            <strong>Parent Name:</strong> {thisBaby.parentName}
+          </div>
+          
+          {/* <div>
+            <strong>Address:</strong> {thisBaby.address}
+          </div>
+          <div>
+            <strong>Contact Information:</strong> {thisBaby.contactInformation}
+          </div>
+          <div>
+            <strong>Special Information:</strong> {thisBaby.specialInformation}
+          </div> */}
+          <div>
+            <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
           {/* <div>
             <strong>Age:</strong> {thisBaby.babyAge}
           </div> */}
@@ -186,7 +208,7 @@ const DoctorBabyDetailsCard = ({
                 </option>
                 {vaccinations.map((vaccine) => (
                   <option key={vaccine.id} value={vaccine.id}>
-                    {vaccine.name}
+                    {vaccine.id} || {vaccine.name} || {vaccine.type} || age(months): {vaccine.ageInMonths}
                   </option>
                 ))}
               </select>
@@ -283,6 +305,7 @@ const DoctorBabyDetailsCard = ({
           ></BabyVaccinationEditForm>
         )}
       </div>
+    </div>
     </div>
   );
 };

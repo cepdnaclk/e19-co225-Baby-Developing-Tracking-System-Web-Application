@@ -35,7 +35,7 @@ public class VaccinationSchedulerService {
         this.babyVaccinationRepository = babyVaccinationRepository;
     }
 
-    @Scheduled(cron = "*/30 * * * * *")
+    @Scheduled(cron = "0 */2 * * * *") //Time Currently Adjusted to every 2 minutes
     public void checkUpcomingVaccinations() {
         List<Baby> babies = babyRepository.findAll();
         //List<VaccineAlert> vaccineAlerts = new ArrayList<>();
@@ -53,7 +53,7 @@ public class VaccinationSchedulerService {
                 long daysDifference = ChronoUnit.DAYS.between(today, dueDate);
                 String content = babyVaccination.getVaccination().getName() + " is due on " +
                                     dueDate.toString() + " " +
-                        daysDifference + "Days Left";
+                        daysDifference + " Days Left";
                 logger.info(content);
                 if (baby.getParent()!=null)
                     notificationService.createNotification(baby.getParent(),content);
