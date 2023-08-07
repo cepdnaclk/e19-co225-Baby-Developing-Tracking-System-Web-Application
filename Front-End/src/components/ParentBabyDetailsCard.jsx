@@ -27,6 +27,9 @@ const ParentBabyDetailsCard = ({ baby, onClose }) => {
           <div>
             <strong>Gender:</strong> {baby.gender}
           </div>
+          <div>
+            <strong>Birthday:</strong> {baby.birthday}
+          </div>
           <br />
           <div>
             <strong>Vaccine Details:</strong>

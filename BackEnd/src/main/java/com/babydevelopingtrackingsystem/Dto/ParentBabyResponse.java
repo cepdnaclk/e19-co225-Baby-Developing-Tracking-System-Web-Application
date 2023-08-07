@@ -18,6 +18,8 @@ public class ParentBabyResponse {
     private String midwifeName;
     private String doctorName;
 
+    private String birthday;
+
 
     private String gender;
     @JsonProperty

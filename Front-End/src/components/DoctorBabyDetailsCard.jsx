@@ -155,16 +155,21 @@ const DoctorBabyDetailsCard = ({
       </div>
       <div className="card-content">
         <div className="baby-info">
+
+          <div>
+            <strong>Baby Id:</strong> {thisBaby.id}
+          </div>
           <div>
             <strong>Name:</strong> {thisBaby.babyName}
           </div>
           <div>
-            <strong>Age:</strong> {thisBaby.babyAge}
+            <strong>Gender: </strong> {thisBaby.gender}
           </div>
           <div>
             <strong>Parent Name:</strong> {thisBaby.parentName}
           </div>
-          <div>
+          
+          {/* <div>
             <strong>Address:</strong> {thisBaby.address}
           </div>
           <div>
@@ -172,7 +177,7 @@ const DoctorBabyDetailsCard = ({
           </div>
           <div>
             <strong>Special Information:</strong> {thisBaby.specialInformation}
-          </div>
+          </div> */}
           <div>
             <strong>Appointed Midwife Name:</strong> {thisBaby.midWifeName}
           </div>
@@ -196,7 +201,7 @@ const DoctorBabyDetailsCard = ({
                 </option>
                 {vaccinations.map((vaccine) => (
                   <option key={vaccine.id} value={vaccine.id}>
-                    {vaccine.name}
+                    {vaccine.id} || {vaccine.name} || {vaccine.type} || age(months): {vaccine.ageInMonths}
                   </option>
                 ))}
               </select>
